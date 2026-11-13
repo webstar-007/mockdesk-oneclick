@@ -10,7 +10,7 @@
     "start": "node --disable-warning=ExperimentalWarning server/index.js",
     "validate": "node server/scripts/validate.js",
     "make-admin": "node --disable-warning=ExperimentalWarning server/scripts/make-admin.js",
-    "test": "node --disable-warning=ExperimentalWarning --test server/test/api.test.js server/test/scoring.test.js server/test/admin.test.js",
+    "test": "node --disable-warning=ExperimentalWarning --test server/test/api.test.js server/test/scoring.test.js server/test/admin.test.js server/test/admin2.test.js",
     "start:all": "node scripts/start.mjs",
     "check": "node scripts/check.mjs",
     "check:full": "node scripts/check.mjs --full",

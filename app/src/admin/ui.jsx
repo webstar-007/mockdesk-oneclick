@@ -22,7 +22,7 @@ export const mmss = (s) => (s == null ? '–' : s >= 3600 ? `${Math.floor(s / 36
 export function PageHead({ title, sub, children }) { return <header className="ad-head"><div><h1>{title}</h1>{sub && <p className="muted">{sub}</p>}</div><div className="ad-head-act">{children}</div></header>; }
 export function Stat({ label, value, sub, tone = '', icon }) { return <div className={`ad-stat ${tone}`}><span className="ad-stat-ico" aria-hidden="true">{icon}</span><div><b>{value}</b><span>{label}</span>{sub && <small>{sub}</small>}</div></div>; }
 export function Badge({ tone = 'mute', children }) { return <span className={`ad-badge b-${tone}`}>{children}</span>; }
-export const statusTone = { published: 'good', draft: 'warn', archived: 'mute', active: 'good', suspended: 'bad', submitted: 'good', in_progress: 'brand', open: 'warn', resolved: 'good', dismissed: 'mute', admin: 'brand', student: 'mute' };
+export const statusTone = { published: 'good', draft: 'warn', archived: 'mute', active: 'good', suspended: 'bad', submitted: 'good', in_progress: 'brand', open: 'warn', resolved: 'good', dismissed: 'mute', admin: 'brand', editor: 'warn', student: 'mute' };
 export const diffTone = { easy: 'good', moderate: 'warn', hard: 'bad' };
 export function Empty({ children }) { return <div className="ad-empty">{children}</div>; }
 export function Err({ children }) { return children ? <div className="alert" role="alert">{children}</div> : null; }

@@ -27,6 +27,7 @@ export function openDb(file = process.env.MOCKDESK_DB || path.join(ROOT, 'data',
     CREATE TABLE IF NOT EXISTS announcements(id INTEGER PRIMARY KEY, text TEXT, level TEXT DEFAULT 'info', active INTEGER DEFAULT 1, created_at INTEGER);
   `);
   for (const sql of ['ALTER TABLE questions ADD COLUMN created_at INTEGER', 'ALTER TABLE questions ADD COLUMN created_by TEXT']) { try { db.exec(sql); } catch { /* column already exists */ } }
+  for (const sql of ["ALTER TABLE attempts ADD COLUMN integrity TEXT DEFAULT '{}'", 'ALTER TABLE attempts ADD COLUMN ip TEXT', 'ALTER TABLE users ADD COLUMN last_ip TEXT']) { try { db.exec(sql); } catch { /* column already exists */ } }
   db.exec('UPDATE questions SET created_at=COALESCE(updated_at, 0) WHERE created_at IS NULL');
   return db;
 }

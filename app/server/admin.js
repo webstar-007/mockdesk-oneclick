@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import examConfig from '../config/exam.config.js';
 import { svgProblem, validateDbMock } from './lib/bank.js';
 import { adminsFile, readAdmins } from './lib/admins.js';
+import { recentErrors, clearErrors, startedAt } from './lib/health.js';
 import { Q_FIELDS, newId, loadQuestions, mockRow, parseMock, seedFromFiles } from './lib/catalog.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -60,6 +61,13 @@ export function cleanQuestion(body, { partial = false, strictOptions = false } =
 
 export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }) {
   const r = express.Router();
+  // Editors may only work on content: mocks, questions, images, reports and the coverage map. No student data, no settings.
+  const EDITOR_OK = [/^\/meta$/, /^\/mocks(\/|$)/, /^\/questions(\/|$)/, /^\/upload$/, /^\/reports(\/|$)/, /^\/search$/, /^\/coverage$/];
+  r.use((req, res, next) => {
+    if (req.user.role !== 'editor') return next();
+    if (EDITOR_OK.some((re) => re.test(req.path)) && !/\/leaderboard$/.test(req.path)) return next();
+    return res.status(403).json({ error: 'Editors can only work on mocks, questions and reports', code: 'EDITOR_ONLY' });
+  });
   fs.mkdirSync(UPLOAD_DIR, { recursive: true });
   const audit = (req, action, target = '', detail = '') => db.prepare('INSERT INTO audit(at,admin_id,admin_name,action,target,detail) VALUES (?,?,?,?,?,?)').run(now(), req.user.id, req.user.name, action, String(target).slice(0, 200), String(detail).slice(0, 500));
   const page = (req, def = 25) => { const size = Math.max(5, Math.min(200, Number(req.query.size) || def)); const p = Math.max(1, Number(req.query.page) || 1); return { size, p, off: (p - 1) * size }; };
@@ -88,7 +96,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
   // ---------- overview ----------
   r.get('/overview', (req, res) => {
     const t = now();
-    const users = db.prepare("SELECT id, created_at, last_seen FROM users WHERE COALESCE(role,'student')!='admin'").all();
+    const users = db.prepare("SELECT id, created_at, last_seen FROM users WHERE COALESCE(role,'student')='student'").all();
     const att = db.prepare('SELECT user_id, mock_id, status, started_at FROM attempts').all();
     const b = briefs();
     const mockRows = db.prepare("SELECT id, name, status FROM mocks WHERE id!='pool'").all();
@@ -104,7 +112,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
       signups: { today: users.filter((u) => Date.parse(u.created_at) >= d0).length, yesterday: users.filter((u) => inR(Date.parse(u.created_at), d0 - DAY, d0)).length },
       finished: { today: b.filter((x) => x.submittedAt >= d0).length, yesterday: b.filter((x) => inR(x.submittedAt, d0 - DAY, d0)).length },
     };
-    const userMap = new Map(db.prepare("SELECT id, name, email, phone FROM users WHERE COALESCE(role,'student')!='admin'").all().map((u) => [u.id, u]));
+    const userMap = new Map(db.prepare("SELECT id, name, email, phone FROM users WHERE COALESCE(role,'student')='student'").all().map((u) => [u.id, u]));
     const best = new Map(); for (const x of b) { if (!userMap.has(x.userId)) continue; const o = best.get(x.userId); if (!o || x.score > o.score) best.set(x.userId, { score: x.score, max: x.max, pct: x.pct, n: 0 }); best.get(x.userId).n = (best.get(x.userId).n || 0) + 1; }
     const topStudents = [...best].sort((a, c) => c[1].score - a[1].score).slice(0, 5).map(([id, v]) => ({ id, name: userMap.get(id).name, score: v.score, max: v.max, pct: v.pct }));
     const hours = Array.from({ length: 24 }, () => 0); for (const a of att) if (t - a.started_at < 14 * DAY) hours[new Date(a.started_at).getHours()]++;
@@ -132,8 +140,8 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
     if (req.query.role) rows = rows.filter((u) => u.role === req.query.role);
     if (req.query.status) rows = rows.filter((u) => u.status === req.query.status);
     const seg = req.query.segment; const tn = now();
-    if (seg === 'never') rows = rows.filter((u) => u.role !== 'admin' && !u.started);
-    if (seg === 'inactive') rows = rows.filter((u) => u.role !== 'admin' && u.started && tn - (u.lastSeen || Date.parse(u.createdAt)) > 7 * DAY);
+    if (seg === 'never') rows = rows.filter((u) => u.role === 'student' && !u.started);
+    if (seg === 'inactive') rows = rows.filter((u) => u.role === 'student' && u.started && tn - (u.lastSeen || Date.parse(u.createdAt)) > 7 * DAY);
     if (seg === 'new') rows = rows.filter((u) => tn - Date.parse(u.createdAt) < 7 * DAY);
     if (seg === 'top') rows = rows.filter((u) => u.avgPct != null && u.avgPct >= 70);
     if (seg === 'struggling') rows = rows.filter((u) => u.avgPct != null && u.avgPct < 35);
@@ -180,7 +188,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
     const self = u.id === req.user.id;
     if (name !== undefined) { const n = String(name).trim().slice(0, 80); if (!n) return bad(res, 'Name cannot be empty'); db.prepare('UPDATE users SET name=? WHERE id=?').run(n, u.id); audit(req, 'user_rename', u.email || u.phone, `${u.name} → ${n}`); }
     if (role !== undefined && role !== (u.role || 'student')) {
-      if (!['admin', 'student'].includes(role)) return bad(res, 'Invalid role');
+      if (!['admin', 'editor', 'student'].includes(role)) return bad(res, 'Invalid role');
       if (self) return bad(res, 'You cannot change your own role');
       if (confirm !== (u.email || u.phone)) return bad(res, 'Type the user’s email to confirm a role change', 400, { code: 'CONFIRM' });
       db.prepare('UPDATE users SET role=? WHERE id=?').run(role, u.id); audit(req, 'user_role', u.email || u.phone, role);
@@ -343,12 +351,12 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
     db.prepare('INSERT INTO questions(id,mock_id,section,position,data,updated_at,created_at,created_by) VALUES (?,?,?,?,?,?,?,?)').run(id, to.id, row.section, nextPos(to.id, row.section), JSON.stringify(keep), now(), now(), req.user.name);
     audit(req, 'question_copy', `${row.mock_id} → ${to.id}`, id); bust(); res.status(201).json({ question: qOut(id) });
   });
-  const moveInto = (to, row) => { const keep = nextPos(to.id, row.section); if (row.mock_id === 'pool') { db.prepare('UPDATE questions SET mock_id=?, position=?, updated_at=? WHERE id=?').run(to.id, keep, now(), row.id); return row.id; } const id = newId(); const d = JSON.parse(row.data); const data = JSON.stringify(Object.fromEntries(Object.entries(d).filter(([k]) => Q_FIELDS.includes(k)))); db.prepare('INSERT INTO questions(id,mock_id,section,position,data,updated_at,created_at,created_by) VALUES (?,?,?,?,?,?,?,?)').run(id, to.id, row.section, keep, data, now(), now(), req.user?.name); return id; };
+  const moveInto = (to, row, by = 'admin') => { const keep = nextPos(to.id, row.section); if (row.mock_id === 'pool') { db.prepare('UPDATE questions SET mock_id=?, position=?, updated_at=? WHERE id=?').run(to.id, keep, now(), row.id); return row.id; } const id = newId(); const d = JSON.parse(row.data); const data = JSON.stringify(Object.fromEntries(Object.entries(d).filter(([k]) => Q_FIELDS.includes(k)))); db.prepare('INSERT INTO questions(id,mock_id,section,position,data,updated_at,created_at,created_by) VALUES (?,?,?,?,?,?,?,?)').run(id, to.id, row.section, keep, data, now(), now(), by); return id; };
   // Pull questions from the question bank into a mock: pool questions move, questions already in another mock are copied.
   r.post('/mocks/:id/pull', (req, res) => {
     const to = mockRow(db, req.params.id); if (!to || to.id === 'pool') return bad(res, 'Mock not found', 404);
     const ids = (Array.isArray(req.body?.ids) ? req.body.ids : []).slice(0, 200); if (!ids.length) return bad(res, 'Choose at least one question');
-    let n = 0; db.exec('BEGIN'); try { for (const id of ids) { const row = db.prepare('SELECT * FROM questions WHERE id=?').get(id); if (row && row.mock_id !== to.id) { moveInto(to, row); n++; } } db.exec('COMMIT'); } catch (e) { db.exec('ROLLBACK'); throw e; }
+    let n = 0; db.exec('BEGIN'); try { for (const id of ids) { const row = db.prepare('SELECT * FROM questions WHERE id=?').get(id); if (row && row.mock_id !== to.id) { moveInto(to, row, req.user.name); n++; } } db.exec('COMMIT'); } catch (e) { db.exec('ROLLBACK'); throw e; }
     db.prepare('UPDATE mocks SET updated_at=? WHERE id=?').run(now(), to.id); audit(req, 'question_pull', to.name, `${n} questions`); bust(); res.json({ added: n });
   });
   // Bulk actions from the question bank.
@@ -413,7 +421,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
     const hist = Array.from({ length: 10 }, (_, i) => ({ from: i * 10, to: i * 10 + 10, n: 0 })); for (const x of b) hist[Math.min(9, Math.max(0, Math.floor(x.pct / 10)))].n++;
     const qs = [...questionStats()].filter(([id, s]) => s.n >= 3 && (!mock || id.startsWith(mock + '-') || db.prepare('SELECT 1 FROM questions WHERE id=? AND mock_id=?').get(id, mock))).map(([id, s]) => ({ id, attempts: s.n, pctCorrect: Math.round((s.correct / s.n) * 100), avgTimeSec: Math.round(s.time / s.n) }));
     const decorate = (x) => { const row = db.prepare('SELECT mock_id, section, data FROM questions WHERE id=?').get(x.id); const d = row ? JSON.parse(row.data) : {}; return { ...x, mockId: row?.mock_id, section: row?.section, topic: d.topic, text: (d.text || '').slice(0, 110) }; };
-    const users = db.prepare("SELECT id, created_at FROM users WHERE COALESCE(role,'student')!='admin'").all(); const first = new Set(db.prepare('SELECT DISTINCT user_id FROM attempts').all().map((x) => x.user_id)); const done = new Map(); for (const x of briefs()) done.set(x.userId, (done.get(x.userId) || 0) + 1);
+    const users = db.prepare("SELECT id, created_at FROM users WHERE COALESCE(role,'student')='student'").all(); const first = new Set(db.prepare('SELECT DISTINCT user_id FROM attempts').all().map((x) => x.user_id)); const done = new Map(); for (const x of briefs()) done.set(x.userId, (done.get(x.userId) || 0) + 1);
     res.json({
       sample: b.length, avgPct: avg(b.map((x) => x.pct)), autoSubmitted: b.filter((x) => x.auto).length, histogram: hist,
       weakestTopics: topicList.slice(0, 10), strongestTopics: topicList.slice(-10).reverse(), sections: Object.values(secs).map((s) => ({ key: s.key, short: s.short, avgPct: avg(s.pct), avgAccuracy: avg(s.acc), avgTimeSec: Math.round(avg(s.time)) })),
@@ -428,7 +436,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
   r.get('/reports', (req, res) => {
     const status = req.query.status || 'open';
     const rows = db.prepare('SELECT r.*, u.name uname, u.email FROM reports r LEFT JOIN users u ON u.id=r.user_id WHERE (?=\'all\' OR r.status=?) ORDER BY r.created_at DESC LIMIT 300').all(status, status);
-    res.json({ reports: rows.map((x) => { const q = db.prepare('SELECT section, data FROM questions WHERE id=?').get(x.question_id); const m = db.prepare('SELECT name FROM mocks WHERE id=?').get(x.mock_id); return { id: x.id, questionId: x.question_id, mockId: x.mock_id, mockName: m?.name, section: q?.section, text: q ? JSON.parse(q.data).text.slice(0, 160) : '(question deleted)', reason: x.reason, note: x.note, status: x.status, adminNote: x.admin_note, createdAt: x.created_at, resolvedAt: x.resolved_at, student: x.uname, email: x.email }; }), open: db.prepare("SELECT COUNT(*) c FROM reports WHERE status='open'").get().c });
+    res.json({ reports: rows.map((x) => { const q = db.prepare('SELECT section, data FROM questions WHERE id=?').get(x.question_id); const m = db.prepare('SELECT name FROM mocks WHERE id=?').get(x.mock_id); return { id: x.id, questionId: x.question_id, mockId: x.mock_id, mockName: m?.name, section: q?.section, text: q ? JSON.parse(q.data).text.slice(0, 160) : '(question deleted)', reason: x.reason, note: x.note, status: x.status, adminNote: x.admin_note, createdAt: x.created_at, resolvedAt: x.resolved_at, student: req.user.role === 'editor' ? 'Student' : x.uname, email: req.user.role === 'editor' ? null : x.email }; }), open: db.prepare("SELECT COUNT(*) c FROM reports WHERE status='open'").get().c });
   });
   r.patch('/reports/:id', (req, res) => {
     const x = db.prepare('SELECT * FROM reports WHERE id=?').get(req.params.id); if (!x) return bad(res, 'Report not found', 404);
@@ -447,7 +455,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
   r.get('/search', (req, res) => {
     const q = String(req.query.q || '').trim().toLowerCase(); if (q.length < 2) return res.json({ users: [], mocks: [], questions: [] });
     const has = (...xs) => xs.some((x) => x && String(x).toLowerCase().includes(q));
-    const users = db.prepare('SELECT id, name, email, phone, role FROM users').all().filter((u) => has(u.name, u.email, u.phone)).slice(0, 5);
+    const users = req.user.role === 'editor' ? [] : db.prepare('SELECT id, name, email, phone, role FROM users').all().filter((u) => has(u.name, u.email, u.phone)).slice(0, 5);
     const mocks = db.prepare("SELECT id, name, status, difficulty FROM mocks WHERE id!='pool'").all().filter((m) => has(m.name, m.id)).slice(0, 5);
     const questions = []; for (const x of db.prepare('SELECT id, mock_id, section, data FROM questions').all()) { const d = JSON.parse(x.data); if (has(d.text, d.topic, (d.tags || []).join(' '))) { questions.push({ id: x.id, mockId: x.mock_id, section: x.section, text: d.text.slice(0, 110), topic: d.topic }); if (questions.length >= 6) break; } }
     res.json({ users, mocks, questions });
@@ -485,7 +493,141 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
 
   // ---------- audit + settings ----------
   r.get('/audit', (req, res) => { const { size, off } = page(req, 40); res.json({ total: db.prepare('SELECT COUNT(*) c FROM audit').get().c, entries: db.prepare('SELECT * FROM audit ORDER BY id DESC LIMIT ? OFFSET ?').all(size, off).map((e) => ({ id: e.id, at: e.at, admin: e.admin_name, action: e.action, target: e.target, detail: e.detail })) }); });
-  r.get('/pattern', (req, res) => res.json({ exam: examConfig.exam, sections: examConfig.sections, segments: examConfig.segments, difficulties: examConfig.difficulties, optionsPerQuestion: examConfig.optionsPerQuestion, admins: db.prepare("SELECT name, email FROM users WHERE role='admin'").all(), uploads: fs.readdirSync(UPLOAD_DIR).length, adminsFile: adminsFile(), adminEntries: (({ emails, phones, ignored }) => ({ emails: [...emails], phones: [...phones], ignored }))(readAdmins()) }));
+  r.get('/pattern', (req, res) => res.json({ exam: examConfig.exam, sections: examConfig.sections, segments: examConfig.segments, difficulties: examConfig.difficulties, optionsPerQuestion: examConfig.optionsPerQuestion, admins: db.prepare("SELECT name, email, role FROM users WHERE role IN ('admin','editor') ORDER BY role, name").all(), uploads: fs.readdirSync(UPLOAD_DIR).length, adminsFile: adminsFile(), adminEntries: (({ emails, phones, ignored, editorEmails, editorPhones }) => ({ emails: [...emails], phones: [...phones], ignored, editorEmails: [...editorEmails], editorPhones: [...editorPhones] }))(readAdmins()) }));
+
+  // ---------- integrity: attempts that look unusual ----------
+  const LEVEL = { high: 3, medium: 2, low: 1 };
+  r.get('/integrity', (req, res) => {
+    const days = Math.min(365, Math.max(1, Number(req.query.days) || 30)); const since = now() - days * DAY; const minLevel = LEVEL[req.query.level] || 2; const showReviewed = req.query.reviewed === '1';
+    const names = new Map(db.prepare('SELECT id, name FROM mocks').all().map((m) => [m.id, m.name]));
+    const summ = new Map(results().map(({ row, res: rr }) => [row.id, rr.summary]));
+    const rows = db.prepare("SELECT a.id, a.user_id, a.mock_id, a.status, a.started_at, a.submitted_at, a.auto_submitted, a.integrity, a.ip, u.name, u.email, u.phone FROM attempts a JOIN users u ON u.id=a.user_id WHERE COALESCE(u.role,'student')='student' AND a.started_at >= ?").all(since);
+    const byIp = new Map(); for (const a of rows) if (a.ip) { const m = byIp.get(a.ip) || new Map(); m.set(a.user_id, a.name); byIp.set(a.ip, m); }
+    const sharedIps = [...byIp].filter(([, m]) => m.size >= 3).map(([ip, m]) => ({ ip, users: [...m].map(([id, name]) => ({ id, name })) })).sort((a, b) => b.users.length - a.users.length);
+    const sharedSet = new Map(sharedIps.map((x) => [x.ip, x.users.length]));
+    const out = []; let totalChecked = 0; const count = { high: 0, medium: 0, low: 0 };
+    for (const a of rows) {
+      totalChecked++;
+      let ig = {}; try { ig = JSON.parse(a.integrity || '{}'); } catch { /* none */ }
+      const flags = []; const add = (code, level, label) => flags.push({ code, level, label });
+      const leaves = ig.leaves || 0, fsExits = ig.fsExits || 0;
+      if (leaves >= 10) add('leaves', 'high', `Left the test ${leaves} times`); else if (leaves >= 4) add('leaves', 'medium', `Left the test ${leaves} times`);
+      if (fsExits >= 3) add('fullscreen', 'medium', `Exited fullscreen ${fsExits} times`);
+      const sm = summ.get(a.id);
+      if (sm && a.submitted_at && sm.attempted >= 30) {
+        const per = (a.submitted_at - a.started_at) / 1000 / sm.attempted; const acc = sm.attempted ? (sm.correct / sm.attempted) * 100 : 0;
+        if (per < 6) add('speed', 'high', `Answered a question every ${Math.max(1, Math.round(per))}s`); else if (per < 10) add('speed', 'medium', `Answered a question every ${Math.round(per)}s`);
+        if (acc >= 90 && per < 20) add('accuracy', 'high', `${Math.round(acc)}% accuracy at ${Math.round(per)}s per question`);
+      }
+      if (a.ip && sharedSet.get(a.ip)) add('ip', 'medium', `Same network address as ${sharedSet.get(a.ip) - 1} other accounts`);
+      if (!flags.length) continue;
+      const top = Math.max(...flags.map((f) => LEVEL[f.level])); const level = top === 3 ? 'high' : top === 2 ? 'medium' : 'low';
+      if (ig.reviewed && !showReviewed) continue;
+      count[level]++;
+      if (top >= minLevel) out.push({ id: a.id, userId: a.user_id, user: a.name, contact: a.email || a.phone, mockName: names.get(a.mock_id) || a.mock_id, status: a.status, startedAt: a.started_at, submittedAt: a.submitted_at, score: sm?.score ?? null, max: sm?.maxMarks ?? null, pct: sm?.percentage ?? null, leaves, fsExits, ip: a.ip || null, flags, level, reviewed: !!ig.reviewed });
+    }
+    out.sort((x, y) => LEVEL[y.level] - LEVEL[x.level] || y.flags.length - x.flags.length || (y.startedAt - x.startedAt));
+    const { size, off } = page(req, 30);
+    res.json({ summary: { ...count, checked: totalChecked, days }, total: out.length, attempts: out.slice(off, off + size), sharedIps: sharedIps.slice(0, 10) });
+  });
+  r.patch('/integrity/:id', (req, res) => {
+    const a = db.prepare('SELECT id, integrity FROM attempts WHERE id=?').get(req.params.id); if (!a) return bad(res, 'Attempt not found', 404);
+    let ig = {}; try { ig = JSON.parse(a.integrity || '{}'); } catch { /* none */ }
+    ig.reviewed = !!req.body?.reviewed; db.prepare('UPDATE attempts SET integrity=? WHERE id=?').run(JSON.stringify(ig), a.id);
+    audit(req, ig.reviewed ? 'integrity_reviewed' : 'integrity_reopened', a.id); res.json({ ok: true });
+  });
+
+  // ---------- mock builder: assemble a draft mock from the question bank ----------
+  r.post('/mocks/build', (req, res) => {
+    const b = req.body || {}; const dry = !!b.dryRun; const includeMocks = b.include === 'all';
+    const n = String(b.name || '').trim().slice(0, 80); if (!dry && !n) return bad(res, 'Give the mock a name');
+    const difficulty = b.difficulty || 'moderate'; if (!examConfig.difficulties.includes(difficulty)) return bad(res, 'Choose easy, moderate or hard');
+    const plan = (Array.isArray(b.plan) ? b.plan : []).filter((p) => SECTIONS.includes(p.section));
+    const cnt = (v) => Math.max(0, Math.min(150, Math.floor(Number(v) || 0)));
+    const wants = []; for (const p of plan) for (const d of examConfig.difficulties) if (cnt(p[d])) wants.push({ section: p.section, difficulty: d, count: cnt(p[d]) });
+    if (!wants.length) return bad(res, 'Say how many questions you want from at least one section');
+    if (wants.reduce((a, w) => a + w.count, 0) > 300) return bad(res, 'That is too many questions for one mock');
+    const mockNames = new Map(db.prepare("SELECT id, name, status FROM mocks").all().map((m) => [m.id, m]));
+    const rows = db.prepare('SELECT id, mock_id, section, position, data FROM questions').all().map((x) => ({ ...x, d: JSON.parse(x.data) }))
+      .filter((x) => x.mock_id === 'pool' || (includeMocks && mockNames.get(x.mock_id)?.status !== 'archived'));
+    const taken = new Set(); const seenText = new Set(); const picked = []; const shortages = [];
+    const shuffle = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = crypto.randomInt(i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+    const topicCount = new Map();
+    for (const w of wants) {
+      let need = w.count;
+      for (const tier of ['pool', 'mocks']) {
+        if (!need) break;
+        const pool = shuffle(rows.filter((x) => (tier === 'pool' ? x.mock_id === 'pool' : x.mock_id !== 'pool') && x.section === w.section && (x.d.difficulty || 'moderate') === w.difficulty && !taken.has(x.id) && !seenText.has(x.d.text)));
+        while (need && pool.length) {
+          let bi = 0, bc = Infinity; for (let i = 0; i < pool.length; i++) { const c = topicCount.get(w.section + '|' + pool[i].d.topic) || 0; if (c < bc) { bc = c; bi = i; } }
+          const x = pool.splice(bi, 1)[0]; if (taken.has(x.id) || seenText.has(x.d.text)) continue;
+          taken.add(x.id); seenText.add(x.d.text); topicCount.set(w.section + '|' + x.d.topic, (topicCount.get(w.section + '|' + x.d.topic) || 0) + 1); picked.push(x); need--;
+        }
+      }
+      if (need) shortages.push({ section: w.section, difficulty: w.difficulty, wanted: w.count, found: w.count - need });
+    }
+    const preview = picked.map((x) => ({ id: x.id, section: x.section, difficulty: x.d.difficulty || 'moderate', topic: x.d.topic, text: String(x.d.text).slice(0, 110), from: x.mock_id === 'pool' ? 'Question bank' : mockNames.get(x.mock_id)?.name || x.mock_id }));
+    const summary = { wanted: wants.reduce((a, w) => a + w.count, 0), picked: picked.length, topics: topicCount.size, fromBank: picked.filter((x) => x.mock_id === 'pool').length, fromMocks: picked.filter((x) => x.mock_id !== 'pool').length };
+    if (dry) return res.json({ summary, shortages, preview });
+    if (shortages.length && !b.allowPartial) return bad(res, 'The bank does not have enough questions for this plan', 409, { code: 'SHORT', summary, shortages });
+    if (!picked.length) return bad(res, 'No questions matched the plan');
+    const id = newId('m'); const t = now(); const number = (db.prepare('SELECT MAX(number) n FROM mocks').get().n || 0) + 1;
+    db.exec('BEGIN'); try {
+      db.prepare("INSERT INTO mocks(id,number,name,difficulty,description,status,tags,source,created_at,updated_at) VALUES (?,?,?,?,?,'draft',?,'admin',?,?)").run(id, number, n, difficulty, String(b.description || '').slice(0, 400), JSON.stringify(cleanTags([difficulty, 'built'])), t, t);
+      const to = mockRow(db, id); for (const x of picked) moveInto(to, db.prepare('SELECT * FROM questions WHERE id=?').get(x.id), req.user.name);
+      db.exec('COMMIT');
+    } catch (e) { db.exec('ROLLBACK'); throw e; }
+    audit(req, 'mock_build', n, `${picked.length} questions`); bust(); res.status(201).json({ mock: mockSummary(parseMock(mockRow(db, id))), summary, shortages });
+  });
+
+  // ---------- coverage: how well do the questions cover the syllabus? ----------
+  r.get('/coverage', (req, res) => {
+    const mocks = new Map(db.prepare("SELECT id, name, status FROM mocks").all().map((m) => [m.id, m]));
+    const live = [...mocks.values()].filter((m) => m.id !== 'pool' && m.status !== 'archived');
+    const secs = {}; for (const k of SECTIONS) secs[k] = new Map();
+    for (const x of db.prepare('SELECT mock_id, section, data FROM questions').all()) {
+      if (!secs[x.section]) continue; const d = JSON.parse(x.data); const topic = d.topic || 'General'; const diff = d.difficulty || 'moderate';
+      const t = secs[x.section].get(topic) || { topic, bank: 0, mocks: 0, published: 0, easy: 0, moderate: 0, hard: 0, mockIds: new Set() };
+      const m = mocks.get(x.mock_id); if (x.mock_id === 'pool') t.bank++; else if (m && m.status !== 'archived') { t.mocks++; t.mockIds.add(x.mock_id); if (m.status === 'published') t.published++; }
+      else continue;
+      if (t[diff] !== undefined) t[diff]++; secs[x.section].set(topic, t);
+    }
+    const sections = SECTIONS.map((k) => {
+      const topics = [...secs[k].values()].map((t) => { const total = t.bank + t.mocks; return { topic: t.topic, bank: t.bank, mocks: t.mocks, published: t.published, usedIn: t.mockIds.size, easy: t.easy, moderate: t.moderate, hard: t.hard, total, gap: t.mockIds.size <= 1 && t.bank === 0 ? 'thin' : t.bank === 0 && t.mocks < live.length ? 'low' : null }; }).sort((a, b) => a.total - b.total || a.topic.localeCompare(b.topic));
+      const sum = (f) => topics.reduce((a, t) => a + t[f], 0);
+      return { key: k, name: examConfig.sections[k].name, short: examConfig.sections[k].short, perMock: examConfig.sections[k].questions, bank: sum('bank'), inMocks: sum('mocks'), easy: sum('easy'), moderate: sum('moderate'), hard: sum('hard'), topics };
+    });
+    res.json({ mockCount: live.length, sections });
+  });
+
+  // ---------- system health ----------
+  const dirSize = (dir) => { let bytes = 0, files = 0; try { for (const f of fs.readdirSync(dir)) { try { const st = fs.statSync(path.join(dir, f)); if (st.isFile()) { bytes += st.size; files++; } } catch { /* skip */ } } } catch { /* missing */ } return { bytes, files }; };
+  r.get('/system', (req, res) => {
+    const t = now(); const dbFile = db.prepare('PRAGMA database_list').get().file || '';
+    const size = (f) => { try { return fs.statSync(f).size; } catch { return 0; } };
+    let disk = null; try { const st = fs.statfsSync(dbFile ? path.dirname(dbFile) : os.tmpdir()); disk = { total: st.blocks * st.bsize, free: st.bavail * st.bsize }; } catch { /* not supported */ }
+    const up = dirSize(UPLOAD_DIR); const errs = recentErrors(); const backup = db.prepare("SELECT at FROM audit WHERE action='backup_download' ORDER BY id DESC LIMIT 1").get();
+    const prod = process.env.NODE_ENV === 'production'; const smtp = !!process.env.SMTP_HOST; const sms = process.env.SMS_PROVIDER || '';
+    const https = !!(req.secure || String(req.headers['x-forwarded-proto'] || '').includes('https'));
+    const mem = process.memoryUsage();
+    const counts = { students: db.prepare("SELECT COUNT(*) c FROM users WHERE COALESCE(role,'student')='student'").get().c, attempts: db.prepare('SELECT COUNT(*) c FROM attempts').get().c, inProgress: db.prepare("SELECT COUNT(*) c FROM attempts WHERE status='in_progress'").get().c, questions: db.prepare('SELECT COUNT(*) c FROM questions').get().c, sessions: db.prepare('SELECT COUNT(*) c FROM sessions WHERE expires_at>?').get(t).c };
+    const e1h = errs.filter((e) => t - e.at < 3600000).length, e24 = errs.filter((e) => t - e.at < DAY).length;
+    const checks = [];
+    const chk = (name, level, detail) => checks.push({ name, level, detail });
+    if (disk) { const pct = Math.round((disk.free / disk.total) * 100); chk('Disk space', pct < 10 ? 'bad' : pct < 20 ? 'warn' : 'ok', `${pct}% free`); }
+    chk('Backups', !backup ? 'warn' : t - backup.at > 7 * DAY ? 'warn' : 'ok', backup ? `Last download ${Math.floor((t - backup.at) / DAY)} day(s) ago` : 'No backup downloaded yet. Use Settings → Data & backup.');
+    chk('Server errors', e1h ? 'bad' : e24 ? 'warn' : 'ok', e1h ? `${e1h} in the last hour` : e24 ? `${e24} in the last 24 hours` : 'None since the server started');
+    chk('Sign-in codes', smtp || sms ? 'ok' : prod ? 'bad' : 'warn', smtp || sms ? `Delivery set up (${[smtp && 'email', sms].filter(Boolean).join(' + ')})` : prod ? 'Production mode without email or SMS: students cannot sign in with a code' : 'No email or SMS set up. Codes are printed in the server log (test mode).');
+    chk('HTTPS', https || !prod ? (https ? 'ok' : 'warn') : 'warn', https ? 'You are connected over HTTPS' : 'This page was opened over plain HTTP. Fine for testing, not for real students.');
+    chk('Memory', mem.rss > 0.85 * os.totalmem() ? 'bad' : 'ok', `${Math.round(mem.rss / 1048576)} MB used by the app`);
+    res.json({
+      at: t, node: process.version, env: process.env.NODE_ENV || 'development', startedAt, uptimeSec: Math.round(process.uptime()), https, host: os.hostname(),
+      disk, db: { file: dbFile ? path.basename(dbFile) : ':memory:', bytes: dbFile ? size(dbFile) : 0, walBytes: dbFile ? size(dbFile + '-wal') : 0 }, uploads: up, memory: { rss: mem.rss, heap: mem.heapUsed, total: os.totalmem(), free: os.freemem() }, load: os.loadavg(),
+      counts, lastBackupAt: backup?.at || null, otp: { email: smtp, sms: sms || null }, errors: errs.slice(0, 30), errorCounts: { hour: e1h, day: e24 }, checks,
+    });
+  });
+  r.post('/system/check-db', (req, res) => { const rows = db.prepare('PRAGMA quick_check').all(); const msg = rows.map((x) => Object.values(x)[0]).join('; '); audit(req, 'db_check', '', msg.slice(0, 120)); res.json({ ok: msg === 'ok', message: msg }); });
+  r.post('/system/clear-errors', (req, res) => { clearErrors(); audit(req, 'errors_cleared'); res.json({ ok: true }); });
 
   r.use((req, res) => res.status(404).json({ error: 'Not found' }));
   return r;

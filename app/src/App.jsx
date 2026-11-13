@@ -19,7 +19,7 @@ function Guard() {
   const { user } = useAuth(); const loc = useLocation();
   if (user === undefined) return <div className="center-page" role="status">Loading…</div>;
   if (!user) return <Navigate to="/login" replace state={{ from: loc.pathname }} />;
-  if (user.role === 'admin' && !loc.pathname.startsWith('/admin')) return <Navigate to="/admin" replace />;
+  if ((user.role === 'admin' || user.role === 'editor') && !loc.pathname.startsWith('/admin')) return <Navigate to="/admin" replace />;
   return <Outlet />;
 }
 const Shell = () => (<><a className="skip" href="#main">Skip to content</a><Header /><AnnouncementBar /><div className="shell" id="main"><Outlet /><footer className="site-foot"><span><b>MockDesk</b> · Online mock tests for government exams</span><span><Link to="/">Dashboard</Link><Link to="/profile">Profile</Link></span></footer></div></>);

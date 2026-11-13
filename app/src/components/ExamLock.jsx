@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { api } from '../lib/api.js';
 
 const root = () => document.documentElement;
 const inFs = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
@@ -8,17 +9,18 @@ const enter = () => { try { const p = (root().requestFullscreen || root().webkit
 /* Keeps the student inside the test: fullscreen, no tab or window switching, no back button,
    no copy or paste, no right click. Browsers cannot be locked completely, so every attempt
    to leave is blocked where possible, counted, and shown to the student. */
-export default function ExamLock() {
+export default function ExamLock({ attemptId }) {
   const supported = useRef(canFs());
   const [needFs, setNeedFs] = useState(supported.current && !inFs());
   const [left, setLeft] = useState(0);
   const [note, setNote] = useState('');
+  const fsExits = useRef(0);
 
   const last = useRef(0);
   const flag = useCallback((why) => { const t = Date.now(); if (t - last.current > 1500) setLeft((n) => n + 1); last.current = t; setNote(why); }, []);
 
   useEffect(() => {
-    const onFs = () => { if (supported.current && !inFs()) { setNeedFs(true); flag('You exited fullscreen.'); } else setNeedFs(false); };
+    const onFs = () => { if (supported.current && !inFs()) { fsExits.current++; setNeedFs(true); flag('You exited fullscreen.'); } else setNeedFs(false); };
     const onVis = () => { if (document.visibilityState === 'hidden') flag('You switched to another tab or app.'); };
     const onBlur = () => { if (document.visibilityState === 'visible') flag('The test window lost focus.'); };
     const stop = (e) => e.preventDefault();
@@ -43,6 +45,9 @@ export default function ExamLock() {
       if (inFs()) { try { (document.exitFullscreen || document.webkitExitFullscreen).call(document); } catch { /* ignore */ } }
     };
   }, [flag]);
+
+  // Tell the server how often the student left (admins see it under Integrity). Fire and forget.
+  useEffect(() => { if (!attemptId || !left) return; const t = setTimeout(() => { api.post(`/attempts/${attemptId}/integrity`, { leaves: left, fsExits: fsExits.current }).catch(() => {}); }, 800); return () => clearTimeout(t); }, [left, attemptId]);
 
   const resume = async () => { await enter(); setNeedFs(!inFs() && supported.current); setNote(''); };
   if (!needFs && !note) return null;

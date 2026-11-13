@@ -1,3 +1,4 @@
+import { recordError } from './lib/health.js';
 import express from 'express';
 import crypto from 'node:crypto';
 import path from 'node:path';
@@ -86,9 +87,10 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
     const row = sid && db.prepare('SELECT u.* , s.expires_at FROM sessions s JOIN users u ON u.id=s.user_id WHERE s.id=?').get(sid);
     if (!row || row.expires_at < now()) return res.status(401).json({ error: 'Please sign in' });
     if (row.status === 'suspended') return res.status(403).json({ error: 'This account has been suspended. Contact the administrator.', code: 'SUSPENDED' });
-    if (!row.last_seen || now() - row.last_seen > 60000) db.prepare('UPDATE users SET last_seen=? WHERE id=?').run(now(), row.id);
+    if (!row.last_seen || now() - row.last_seen > 60000 || row.last_ip !== req.ip) db.prepare('UPDATE users SET last_seen=?, last_ip=? WHERE id=?').run(now(), req.ip || null, row.id);
     req.user = row; req.sid = sid; next();
   }
+  if (process.env.MOCKDESK_TRUST_PROXY) app.set('trust proxy', 1); // set when a proxy such as Caddy or Nginx sits in front
   const api = express.Router();
   const attempts = new Map(); // simple in-memory rate limit for auth
   const limited = (req, res) => {
@@ -136,7 +138,7 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
     if (count >= OTP_MAX_PER_HOUR) return res.status(429).json({ error: 'Too many codes requested. Try again in an hour.', code: 'HOURLY' });
     const code = newCode(), salt = crypto.randomBytes(16).toString('hex');
     try { await otpSender({ channel, to: id, code }); }
-    catch (e) { console.error('OTP delivery failed:', e.message); return res.status(e.code === 'OTP_NOT_CONFIGURED' ? 503 : 502).json({ error: e.code === 'OTP_NOT_CONFIGURED' ? 'Code delivery is not set up on this server' : 'Could not send the code. Try again shortly.' }); }
+    catch (e) { console.error('OTP delivery failed:', e.message); recordError('otp', e.message); return res.status(e.code === 'OTP_NOT_CONFIGURED' ? 503 : 502).json({ error: e.code === 'OTP_NOT_CONFIGURED' ? 'Code delivery is not set up on this server' : 'Could not send the code. Try again shortly.' }); }
     db.prepare('INSERT OR REPLACE INTO otps(key,salt,code_hash,expires_at,wrong,sent_at,window_start,sent_count) VALUES (?,?,?,?,0,?,?,?)').run(key, salt, hashCode(code, salt), t + OTP_TTL_MS, t, fresh ? t : row.window_start, count + 1);
     const exists = !!db.prepare(`SELECT 1 FROM users WHERE ${channel === 'email' ? 'email' : 'phone'}=?`).get(id);
     res.json({ ok: true, exists, channel, to: maskId(channel, id), resendIn: OTP_COOLDOWN_MS / 1000, expiresIn: OTP_TTL_MS / 1000 });
@@ -268,7 +270,7 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
   }
 
   // Admin accounts are separate from student accounts: they only use /api/admin.
-  api.use(['/mocks', '/attempts', '/stats', '/questions'], (req, res, next) => (req.user?.role === 'admin' ? res.status(403).json({ error: 'Admin accounts use the admin console only', code: 'ADMIN_ONLY' }) : next()));
+  api.use(['/mocks', '/attempts', '/stats', '/questions'], (req, res, next) => (['admin', 'editor'].includes(req.user?.role) ? res.status(403).json({ error: 'Admin accounts use the admin console only', code: 'ADMIN_ONLY' }) : next()));
   api.get('/mocks', (req, res) => {
     const rows = db.prepare('SELECT * FROM attempts WHERE user_id=? ORDER BY started_at DESC').all(req.user.id);
     for (const r of rows) if (r.status === 'in_progress' && mockOf(r)) expire(r);
@@ -304,7 +306,7 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
     if (a) { expire(a); if (a.status === 'in_progress') return res.json({ attemptId: a.id, resumed: true }); }
     const id = crypto.randomUUID(); const t = now();
     const snapshot = JSON.stringify({ meta: m.meta, questions: m.questions, segments: m.segments, sectionsCfg: m.sectionsCfg, complete: m.complete });
-    db.prepare("INSERT INTO attempts(id,user_id,mock_id,status,segment_index,segment_started_at,started_at,snapshot) VALUES (?,?,?,'in_progress',0,?,?,?)").run(id, req.user.id, m.meta.id, t, t, snapshot);
+    db.prepare("INSERT INTO attempts(id,user_id,mock_id,status,segment_index,segment_started_at,started_at,snapshot,ip) VALUES (?,?,?,'in_progress',0,?,?,?,?)").run(id, req.user.id, m.meta.id, t, t, snapshot, req.ip || null);
     res.json({ attemptId: id, resumed: false });
   });
 
@@ -328,6 +330,16 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
     res.json({ ok: true, serverNow: iso(now()) });
   });
 
+  // The exam page reports how often the student left the test (counts only go up). Shown to admins under Integrity.
+  api.post('/attempts/:id/integrity', (req, res) => {
+    const a = db.prepare("SELECT id, integrity FROM attempts WHERE id=? AND user_id=? AND status='in_progress'").get(req.params.id, req.user.id);
+    if (!a) return res.status(404).json({ error: 'Attempt not found' });
+    let cur = {}; try { cur = JSON.parse(a.integrity || '{}'); } catch { /* start fresh */ }
+    const n = (v) => Math.max(0, Math.min(999, Math.floor(Number(v) || 0)));
+    const next = { leaves: Math.max(n(cur.leaves), n(req.body?.leaves)), fsExits: Math.max(n(cur.fsExits), n(req.body?.fsExits)), lastAt: now() };
+    db.prepare('UPDATE attempts SET integrity=? WHERE id=?').run(JSON.stringify(next), a.id);
+    res.json({ ok: true });
+  });
   api.post('/attempts/:id/segment/submit', (req, res) => {
     const a = loadAttempt(req.params.id, req.user.id);
     if (!a) return res.status(404).json({ error: 'Attempt not found' });
@@ -393,7 +405,7 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
       res.setHeader('Content-Type', 'application/pdf');
       res.setHeader('Content-Disposition', `attachment; filename="MockDesk-${safe}-${req.query.scope === 'all' ? 'full-solutions' : 'report'}.pdf"`);
       doc.pipe(res); doc.end();
-    } catch (e) { console.error('PDF failed', e); if (!res.headersSent) res.status(500).json({ error: 'Could not create the PDF' }); }
+    } catch (e) { console.error('PDF failed', e); recordError('pdf', e.message); if (!res.headersSent) res.status(500).json({ error: 'Could not create the PDF' }); }
   });
   api.get('/attempts', (req, res) => {
     const rows = db.prepare('SELECT * FROM attempts WHERE user_id=? ORDER BY started_at DESC').all(req.user.id);
@@ -451,11 +463,11 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
   });
 
   // ---------- admin ----------
-  api.use('/admin', (req, res, next) => (req.user.role === 'admin' ? next() : res.status(403).json({ error: 'Admin access only' })), adminRouter({ db, now, invalidate, getMock, readResult, hashPw, iso }));
+  api.use('/admin', (req, res, next) => (['admin', 'editor'].includes(req.user.role) ? next() : res.status(403).json({ error: 'Admin access only' })), adminRouter({ db, now, invalidate, getMock, readResult, hashPw, iso }));
 
   api.use((req, res) => res.status(404).json({ error: 'Not found' }));
   app.use('/api', api);
-  app.use('/api', (err, req, res, next) => { console.error(err); res.status(500).json({ error: 'Server error' }); }); // eslint-disable-line
+  app.use('/api', (err, req, res, next) => { console.error(err); recordError('server', `${req.method} ${req.path}: ${err?.message || err}`); res.status(500).json({ error: 'Server error' }); }); // eslint-disable-line
 
   app.use('/uploads', express.static(UPLOAD_DIR, { maxAge: '7d', setHeaders: (r) => { r.setHeader('X-Content-Type-Options', 'nosniff'); r.setHeader('Content-Security-Policy', "default-src 'none'"); } }));
   const dist = path.join(ROOT, 'dist');

@@ -3,16 +3,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { api } from '../lib/api.js';
 import { Badge, Dialog, Empty, Err, Loading, PageHead, TagInput, diffTone, statusTone, toast, useLoad } from './ui.jsx';
 import { tip } from '../components/Tip.jsx';
+import Builder from './Builder.jsx';
 
 export default function Mocks() {
   const nav = useNavigate(); const { data, err, loading } = useLoad('/admin/mocks'); const meta = useLoad('/admin/meta');
-  const [dlg, setDlg] = useState(false); const [f, setF] = useState({ name: '', difficulty: 'moderate', description: '', tags: [], cloneFrom: '' }); const [e2, setE2] = useState(''); const [busy, setBusy] = useState(false); const [flt, setFlt] = useState('');
+  const [dlg, setDlg] = useState(false); const [bld, setBld] = useState(false); const [f, setF] = useState({ name: '', difficulty: 'moderate', description: '', tags: [], cloneFrom: '' }); const [e2, setE2] = useState(''); const [busy, setBusy] = useState(false); const [flt, setFlt] = useState('');
   const create = async () => { setBusy(true); setE2(''); try { const r = await api.post('/admin/mocks', { ...f, tags: [...new Set([f.difficulty, ...f.tags])], cloneFrom: f.cloneFrom || undefined }); toast('Mock created as a draft'); nav(`/admin/mocks/${r.mock.id}`); } catch (e) { setE2(e.message); setBusy(false); } };
   if (loading && !data) return <Loading />; if (err) return <Err>{err}</Err>;
   const list = data.mocks.filter((m) => !flt || m.status === flt); const secs = meta.data?.sections || {};
   return (
     <>
-      <PageHead title="Mocks" sub="Build, tag and publish mock tests. Students only see published mocks."><button className="btn btn-primary" onClick={() => setDlg(true)}>＋ New mock</button></PageHead>
+      <PageHead title="Mocks" sub="Build, tag and publish mock tests. Students only see published mocks."><button className="btn btn-ghost" onClick={() => setBld(true)}>⚡ Build from bank</button><button className="btn btn-primary" onClick={() => setDlg(true)}>＋ New mock</button></PageHead>
       <div className="ad-pill-row" style={{ marginBottom: 14 }}>{[['', 'All'], ['published', 'Published'], ['draft', 'Drafts'], ['archived', 'Archived']].map(([k, n]) => <button key={k} className={`ad-pill ${flt === k ? 'on' : ''}`} onClick={() => setFlt(k)}>{n}{k ? ` (${data.mocks.filter((m) => m.status === k).length})` : ` (${data.mocks.length})`}</button>)}</div>
       {!list.length ? <div className="card"><Empty>No mocks here yet.</Empty></div> : (
         <div className="ad-grid g3">{list.map((m) => (
@@ -25,6 +26,7 @@ export default function Mocks() {
             {(m.errors > 0 || m.warnings > 0) && <div className="small" style={{ color: m.errors ? 'var(--bad)' : 'var(--warn)' }}>{m.errors ? `${m.errors} problem${m.errors > 1 ? 's' : ''} to fix before publishing` : `${m.warnings} warning${m.warnings > 1 ? 's' : ''}`}</div>}
             <Link className="btn btn-ghost btn-sm" to={`/admin/mocks/${m.id}`} style={{ justifySelf: 'start' }}>Open builder →</Link>
           </article>))}</div>)}
+      {bld && meta.data && <Builder sections={meta.data.sections} difficulties={meta.data.difficulties} onClose={() => setBld(false)} />}
       {dlg && <Dialog title="New mock" onClose={() => setDlg(false)}>
         <label className="ad-field">Name<input value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} autoFocus maxLength={80} placeholder="e.g. Mock 6 · Full length" /></label>
         <div className="ad-field">Difficulty tag<div className="ad-pill-row">{(meta.data?.difficulties || ['easy', 'moderate', 'hard']).map((d) => <button key={d} type="button" className={`ad-pill ${f.difficulty === d ? 'on' : ''}`} onClick={() => setF({ ...f, difficulty: d })}>{d}</button>)}</div></div>

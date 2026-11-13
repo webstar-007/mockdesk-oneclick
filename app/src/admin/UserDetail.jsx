@@ -13,7 +13,7 @@ function Trend({ trend }) {
 export default function UserDetail() {
   const { id } = useParams(); const nav = useNavigate();
   const { data: d, err, loading, reload } = useLoad(`/admin/users/${id}`, [id]);
-  const [dlg, setDlg] = useState(null); const [busy, setBusy] = useState(false); const [e2, setE2] = useState(''); const [pw, setPw] = useState('');
+  const [dlg, setDlg] = useState(null); const [nr, setNr] = useState('editor'); const [busy, setBusy] = useState(false); const [e2, setE2] = useState(''); const [pw, setPw] = useState('');
   if (loading && !d) return <Loading />; if (err) return <Err>{err}</Err>;
   const u = d.user; const key = u.email || u.phone; const s = d.summary;
   const run = async (fn, ok, close = true) => { setBusy(true); setE2(''); try { await fn(); toast(ok); if (close) setDlg(null); reload(); } catch (x) { setE2(x.message); } finally { setBusy(false); } };
@@ -42,13 +42,15 @@ export default function UserDetail() {
       <h2>Account actions</h2>
       <section className="card ad-pill-row" style={{ alignItems: 'center' }}>
         <button className="btn btn-ghost" onClick={() => setDlg('signout')}>Sign out everywhere</button><button className="btn btn-ghost" onClick={() => setDlg('password')}>Set new password</button>
-        <button className="btn btn-ghost" onClick={() => setDlg('role')}>{u.role === 'admin' ? 'Remove admin rights' : 'Make admin'}</button><button className="btn btn-ghost dng" onClick={() => setDlg('delete')}>Delete user and data</button>
+        <button className="btn btn-ghost" onClick={() => setDlg('role')}>Change role ({u.role})</button><button className="btn btn-ghost dng" onClick={() => setDlg('delete')}>Delete user and data</button>
       </section>
       {dlg === 'rename' && <RenameDlg name={u.name} onClose={() => setDlg(null)} onSave={(name) => run(() => api.patch(`/admin/users/${id}`, { name }), 'Name updated')} busy={busy} error={e2} />}
       {dlg === 'suspend' && <ConfirmModal title="Suspend this user?" label="Suspend" danger busy={busy} error={e2} onClose={() => setDlg(null)} onConfirm={() => run(() => api.patch(`/admin/users/${id}`, { status: 'suspended' }), 'User suspended')}><p>{u.name} will be signed out and unable to log in until you reactivate the account. Their data is kept.</p></ConfirmModal>}
       {dlg === 'react' && <ConfirmModal title="Reactivate this user?" label="Reactivate" busy={busy} error={e2} onClose={() => setDlg(null)} onConfirm={() => run(() => api.patch(`/admin/users/${id}`, { status: 'active' }), 'User reactivated')}><p>{u.name} will be able to sign in again.</p></ConfirmModal>}
       {dlg === 'signout' && <ConfirmModal title="Sign out everywhere?" label="Sign out" busy={busy} error={e2} onClose={() => setDlg(null)} onConfirm={() => run(() => api.post(`/admin/users/${id}/signout`), 'Signed out')}><p>All {u.name}’s active sessions end immediately.</p></ConfirmModal>}
-      {dlg === 'role' && <ConfirmModal title={u.role === 'admin' ? 'Remove admin rights?' : 'Make this user an admin?'} word={key} label="Change role" danger busy={busy} error={e2} onClose={() => setDlg(null)} onConfirm={(c) => run(() => api.patch(`/admin/users/${id}`, { role: u.role === 'admin' ? 'student' : 'admin', confirm: c }), 'Role updated')}><p>{u.role === 'admin' ? 'They will lose access to this console.' : 'Admins can see every student’s data and edit mocks.'}</p></ConfirmModal>}
+      {dlg === 'role' && <ConfirmModal title="Change role" word={key} label="Change role" danger busy={busy} error={e2} onClose={() => setDlg(null)} onConfirm={(c) => run(() => api.patch(`/admin/users/${id}`, { role: nr, confirm: c }), 'Role updated')}>
+        <label className="ad-field">New role<select value={nr} onChange={(e) => setNr(e.target.value)}><option value="student">Student: takes tests only</option><option value="editor">Editor: manages mocks and questions, no student data</option><option value="admin">Admin: full access</option></select></label>
+        <p className="small muted">Admins and editors use the admin console only and cannot take tests. Change the role back to Student to let this person take tests.</p></ConfirmModal>}
       {dlg === 'delete' && <ConfirmModal title="Delete this user?" word={key} label="Delete forever" danger busy={busy} error={e2} onClose={() => setDlg(null)} onConfirm={(c) => run(async () => { await api.del(`/admin/users/${id}`, { confirm: c }); nav('/admin/users'); }, 'User deleted', false)}><p>This permanently removes the account, all attempts and reports. It cannot be undone.</p></ConfirmModal>}
       {dlg === 'password' && <Dialog title="Set a new password" onClose={() => setDlg(null)}><label className="ad-field">New password (8+ characters)<input type="text" value={pw} onChange={(e) => setPw(e.target.value)} autoFocus /></label><p className="small muted">The user is signed out everywhere. Share the new password with them securely.</p><Err>{e2}</Err><div className="modal-act"><button className="btn btn-ghost" onClick={() => setDlg(null)}>Cancel</button><button className="btn btn-primary" disabled={busy || pw.length < 8} onClick={() => run(() => api.post(`/admin/users/${id}/password`, { password: pw }), 'Password updated')}>Save password</button></div></Dialog>}
     </>

@@ -138,7 +138,7 @@ For a public deployment put it behind HTTPS and set `NODE_ENV=production` (adds 
 
 ## Admin dashboard
 
-A full browser console lives at `/admin` for admins: users and their results, all attempts, a mock builder with a question editor (images, tags, difficulty, drag to reorder, CSV import), question bank, analytics, student reports, announcements and an audit log. See [docs/ADMIN.md](docs/ADMIN.md) for how to become an admin and what each page does.
+A full browser console lives at `/admin` for admins: users and their results, all attempts, a mock builder with a question editor (images, tags, difficulty, drag to reorder, CSV import), question bank, analytics, student reports, announcements and an audit log, plus integrity flags, a build-mock-from-bank tool, a syllabus coverage map, a content-editor role and a system health page. See [docs/ADMIN.md](docs/ADMIN.md) for how to become an admin and what each page does.
 
 ## Fullscreen test lock
 While a student is in a test (`/exam/:id`) the page asks for fullscreen and keeps them inside: leaving fullscreen, switching tab or window, or pressing Back shows a blocking "return to the test" screen and counts the attempt. Copy, paste, right-click and common shortcuts (F5, Ctrl+R/W/T/N/P/S, DevTools) are blocked. The timer never pauses. Browsers cannot be locked completely (for example Alt+Tab or closing the browser), and iPhone Safari has no fullscreen, so there it falls back to tab-switch and Back detection. Code: `src/components/ExamLock.jsx`.

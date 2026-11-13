@@ -174,7 +174,7 @@ export default function ExamPage() {
 
   return (
     <div className="exam">
-      <ExamLock />
+      <ExamLock attemptId={attemptId} />
       <header className="exam-head">
         <div className="eh-left">
           <div className="eh-title">{att.mockName}</div>

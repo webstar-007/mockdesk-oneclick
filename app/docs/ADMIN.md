@@ -32,6 +32,18 @@ The easiest way: open `admins.txt` in the MockDesk folder and paste emails or mo
 - **Correct answer**: in the question editor, Options tab, tick "Correct answer" under the right option. A question cannot be saved until one is chosen.
 - **Search** (Ctrl+K), **Live tests** (who is taking a test right now), **student segments** on the Users page (new, never tested, inactive 7+ days, top performers, struggling), and a **database backup** download in Settings.
 
+## Editors, Integrity, Builder, Coverage and System
+
+**Editor role.** An editor can only work on content: Mocks, Question bank, Coverage and Reports (student names and emails are hidden). Editors cannot see students, attempts, analytics, settings or the audit log. Make someone an editor in `admins.txt` with `email editor` (or `editor: email`), or from Users > open a person > Change role.
+
+**Integrity.** Lists attempts that look unusual: leaving the test (4+ times is medium, 10+ high), leaving fullscreen 3+ times, answering 30+ questions faster than 10 s each, 90%+ correct at under 20 s per question, and 3+ accounts on one network address. A flag is a reason to look, not proof. Use *Mark reviewed* to hide a checked attempt. Data is collected only for attempts started after this version is installed. Behind a proxy or load balancer set `MOCKDESK_TRUST_PROXY=1` so network addresses are the students', not the proxy's.
+
+**Build from the bank.** Mocks > Build from bank. Choose how many questions per section and difficulty (the exam pattern button fills 30/30/45/25/20), preview, then create a draft. Picks are random and spread across topics. Questions from the bank move into the new mock; questions taken from other mocks are copied. If there are not enough questions you see exactly which section/difficulty is short and can create the draft anyway.
+
+**Coverage.** Per section and topic: questions in the bank, in mocks, in published mocks, difficulty mix and gaps (thin or low). Use it to decide what to write next.
+
+**System.** Uptime, database and disk size, memory, last backup, sign-in code setup, HTTPS, recent server errors and a database check. Orange items need attention before real students use the site.
+
 ## Rules worth knowing
 - Students only see **published** mocks. Publishing is blocked until validation passes (sections full, one correct answer, no duplicates).
 - Attempts keep a snapshot of their questions, so editing a mock never changes past results.

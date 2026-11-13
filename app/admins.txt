@@ -4,5 +4,8 @@
 # Removing a line does NOT remove rights that were already given: use Admin > Users > Remove admin rights.
 # Admin accounts only see the admin console, so use a different email than your student account.
 #
-you@example.com
+# Add the word editor after an email to give content-only rights (mocks, question bank, coverage, reports):
+#   writer@example.com editor
+#
+# you@example.com
 # +919876543210
