@@ -1,0 +1,944 @@
+{
+ "section": "maths",
+ "questions": [
+  {
+   "topic": "Mensuration",
+   "subtopic": "Frustum capacity",
+   "difficulty": "hard",
+   "text": "A bucket is in the shape of a frustum of a cone with top radius 28 cm, bottom radius 21 cm and vertical height 24 cm. Taking π = 22/7, what is its capacity?",
+   "options": [
+    "45,276 cm³",
+    "47,483 cm³",
+    "22,792 cm³",
+    "45,584 cm³"
+   ],
+   "answer": 3,
+   "value": 45584,
+   "check": "(22/7)*24/3*(784+588+441)",
+   "explanation": "Volume = (πh/3)(R² + Rr + r²) = (22/7 × 24/3)(784 + 588 + 441) = (22/7 × 8) × 1,813 = 45,584 cm³.",
+   "steps": [
+    "R² + Rr + r² = 784 + 588 + 441 = 1,813",
+    "πh/3 = 22/7 × 8",
+    "V = 45,584"
+   ],
+   "trap": "Using the slant height or the wrong formula.",
+   "revise": "Frustum: V = πh(R² + Rr + r²)/3",
+   "wrongReasons": [
+    "Used a cylinder of mean radius 24.5 cm and height 24 cm",
+    "Used the slant height in place of the vertical height",
+    "Took half of the correct volume",
+    null
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Sphere inside a cube",
+   "difficulty": "hard",
+   "text": "The largest possible solid sphere is cut out of a cube of edge 21 cm. Taking π = 22/7, how much material is wasted?",
+   "options": [
+    "4,410 cm³",
+    "4,851 cm³",
+    "9,261 cm³",
+    "5,070 cm³"
+   ],
+   "answer": 0,
+   "value": 4410,
+   "check": "21*21*21-(4/3)*(22/7)*10.5*10.5*10.5",
+   "explanation": "The sphere's diameter is 21 cm, so r = 10.5 cm. Sphere = 4/3 × 22/7 × 10.5³ = 4,851 cm³. Cube = 9,261 cm³. Wasted = 9,261 − 4,851 = 4,410 cm³.",
+   "steps": [
+    "r = 10.5",
+    "Sphere = 4,851",
+    "Cube = 21³ = 9,261",
+    "Difference = 4,410"
+   ],
+   "trap": "Giving the volume of the sphere itself.",
+   "revise": "Largest sphere in a cube: diameter = edge",
+   "wrongReasons": [
+    null,
+    "Gave the volume of the sphere",
+    "Gave the volume of the cube",
+    "Used 10 cm as the sphere's radius"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Rolling a sheet into cylinders",
+   "difficulty": "moderate",
+   "text": "A rectangular sheet 44 cm by 28 cm is rolled into a cylinder in two ways: once with the 44 cm side as the circumference, and once with the 28 cm side as the circumference. What is the ratio of the volumes of the two cylinders?",
+   "options": [
+    "7 : 11",
+    "11 : 7",
+    "121 : 49",
+    "1 : 1"
+   ],
+   "answer": 1,
+   "explanation": "Volume = C²h/4π. First: 44² × 28; second: 28² × 44. Ratio = (44² × 28)/(28² × 44) = 44/28 = 11 : 7.",
+   "steps": [
+    "Circumference C, height h → V = C²h/(4π)",
+    "Ratio = (44²·28)/(28²·44)",
+    "= 44/28 = 11 : 7"
+   ],
+   "trap": "Squaring the ratio of the sides.",
+   "revise": "Rolled sheets: V ∝ C²h",
+   "wrongReasons": [
+    "Inverted the ratio",
+    null,
+    "Squared the ratio of the sides",
+    "Assumed the same sheet gives the same volume"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Melting a sphere into wire",
+   "difficulty": "moderate",
+   "text": "A solid metal sphere of radius 6 cm is melted and drawn into a wire of circular cross-section with radius 0.2 cm. What is the length of the wire?",
+   "options": [
+    "7.2 m",
+    "144 m",
+    "36 m",
+    "72 m"
+   ],
+   "answer": 3,
+   "value": 72,
+   "check": "288/0.04/100",
+   "explanation": "Volume of the sphere = 4/3 π × 216 = 288π. Wire: π × 0.04 × L = 288π, so L = 7,200 cm = 72 m.",
+   "steps": [
+    "4/3 π (6³) = 288π",
+    "π (0.2)² L = 288π → L = 7,200 cm",
+    "= 72 m"
+   ],
+   "trap": "Mistaking the unit conversion from cm to m.",
+   "revise": "Recasting: volume remains the same",
+   "wrongReasons": [
+    "Slipped by a factor of ten when converting cm to m",
+    "Used the sphere's diameter in place of the radius",
+    "Used 2/3 πr³ instead of 4/3 πr³",
+    null
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Painted cuboid",
+   "difficulty": "hard",
+   "text": "A cuboid of dimensions 12 cm × 9 cm × 8 cm is painted on all its faces and then cut into 1 cm cubes. How many cubes have exactly two faces painted?",
+   "options": [
+    "344",
+    "8",
+    "92",
+    "116"
+   ],
+   "answer": 2,
+   "value": 92,
+   "check": "4*(10+7+6)",
+   "explanation": "Cubes with exactly two painted faces lie along the edges but not at corners: 4[(12 − 2) + (9 − 2) + (8 − 2)] = 4 × (10 + 7 + 6) = 92.",
+   "steps": [
+    "Edges: 4 each of length 12, 9, 8",
+    "Each edge gives (length − 2) such cubes",
+    "4 × (10 + 7 + 6) = 92"
+   ],
+   "trap": "Including the corner cubes.",
+   "revise": "Painted cube counts: corners 8, edges 4Σ(l − 2)",
+   "wrongReasons": [
+    "Counted the cubes with exactly one face painted",
+    "Counted only the corner cubes",
+    null,
+    "Used 4(l + w + h) without removing the corner cubes"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Square inside a circle",
+   "difficulty": "moderate",
+   "text": "A square is inscribed in a circle of radius 14 cm. Taking π = 22/7, what is the area of the part of the circle that lies outside the square?",
+   "options": [
+    "224 cm²",
+    "392 cm²",
+    "616 cm²",
+    "308 cm²"
+   ],
+   "answer": 0,
+   "value": 224,
+   "check": "(22/7)*196-392",
+   "explanation": "The diagonal of the square is 28 cm, so its area is 28²/2 = 392 cm². Circle area = 22/7 × 196 = 616. Outside part = 616 − 392 = 224 cm².",
+   "steps": [
+    "Diagonal = 28, area = d²/2 = 392",
+    "Circle = 616",
+    "616 − 392 = 224"
+   ],
+   "trap": "Using the radius as the side of the square.",
+   "revise": "Square in circle: diagonal = diameter",
+   "wrongReasons": [
+    null,
+    "Gave the area of the square",
+    "Gave the area of the circle",
+    "Used the side 14 cm for the square"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Cone to cylinder",
+   "difficulty": "easy",
+   "text": "A conical vessel of base radius 6 cm and height 24 cm is full of water. All the water is poured into a cylindrical vessel of base radius 4 cm. To what height does the water rise?",
+   "options": [
+    "24 cm",
+    "6 cm",
+    "18 cm",
+    "12 cm"
+   ],
+   "answer": 2,
+   "value": 18,
+   "check": "288/16",
+   "explanation": "Volume of the water = ⅓π × 36 × 24 = 288π. Cylinder: π × 16 × h = 288π, so h = 18 cm.",
+   "steps": [
+    "Cone volume = ⅓π(36)(24) = 288π",
+    "16πh = 288π",
+    "h = 18"
+   ],
+   "trap": "Leaving out the ⅓ of the cone.",
+   "revise": "Transfer of volume",
+   "wrongReasons": [
+    "Gave the height of the cone",
+    "Gave the base radius of the cone",
+    null,
+    "Left out the ⅓ and divided by 2"
+   ]
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Mode with a missing frequency",
+   "difficulty": "hard",
+   "text": "The mode of the following distribution is 24. Find the missing frequency x.",
+   "options": [
+    "8",
+    "12",
+    "9",
+    "10"
+   ],
+   "answer": 3,
+   "value": 10,
+   "check": "(12-6)/0.6",
+   "explanation": "The modal class is 20–30 with f₁ = 12. f₀ = x and f₂ = 9. Mode = 20 + (12 − x)/(24 − x − 9) × 10 = 24, so (12 − x)/(15 − x) = 0.4. Then 12 − x = 6 − 0.4x, so 6 = 0.6x and x = 10.",
+   "steps": [
+    "Modal class 20–30: f₁ = 12, f₂ = 9",
+    "24 = 20 + (12 − x)/(24 − x − 9) × 10",
+    "(12 − x)/(15 − x) = 0.4 → x = 10"
+   ],
+   "trap": "Misplacing f₀ and f₂.",
+   "revise": "Mode: L + (f₁ − f₀)/(2f₁ − f₀ − f₂) × h",
+   "wrongReasons": [
+    "Used the frequency of the class after the modal class",
+    "Used the frequency of the modal class",
+    "Used the frequency of the class two places after",
+    null
+   ],
+   "table": {
+    "caption": "Frequency distribution",
+    "headers": [
+     "Class",
+     "0–10",
+     "10–20",
+     "20–30",
+     "30–40",
+     "40–50"
+    ],
+    "rows": [
+     [
+      "Frequency",
+      "4",
+      "x",
+      "12",
+      "9",
+      "5"
+     ]
+    ]
+   }
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Combined average",
+   "difficulty": "hard",
+   "text": "The average marks of 40 students in section A are 72 and of 60 students in section B are 65. A third section C of 20 students is added and the overall average of all 120 students is 68.5. What is the average marks of section C?",
+   "options": [
+    "72",
+    "68.5",
+    "65",
+    "70"
+   ],
+   "answer": 0,
+   "value": 72,
+   "check": "(120*68.5-40*72-60*65)/20",
+   "explanation": "Total marks of all = 120 × 68.5 = 8,220. Section A = 2,880; section B = 3,900. Section C = 8,220 − 2,880 − 3,900 = 1,440. Average = 1,440/20 = 72.",
+   "steps": [
+    "A = 40 × 72 = 2,880",
+    "B = 60 × 65 = 3,900",
+    "C = 8,220 − 6,780 = 1,440 → 72"
+   ],
+   "trap": "Using the simple mean of the section averages.",
+   "revise": "Weighted averages",
+   "wrongReasons": [
+    null,
+    "Gave the overall average",
+    "Gave the average of section B",
+    "Took the simple mean of 72 and 68"
+   ]
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Percent change from a table",
+   "difficulty": "moderate",
+   "text": "By what percent did the total sales of the three shops increase from January to March?",
+   "options": [
+    "50%",
+    "66.67%",
+    "40%",
+    "60%"
+   ],
+   "answer": 3,
+   "value": 60,
+   "check": "(480-300)/300*100",
+   "explanation": "January total = 120 + 100 + 80 = 300. March total = 170 + 160 + 150 = 480. Increase = 180/300 × 100 = 60%.",
+   "steps": [
+    "Jan = 300",
+    "Mar = 480",
+    "(480 − 300)/300 = 60%"
+   ],
+   "trap": "Dividing by the later value.",
+   "revise": "Percent increase uses the earlier value as base",
+   "wrongReasons": [
+    "Compared with March instead of January",
+    "Compared with the sales of shop A only",
+    "Subtracted the percentages of the shops",
+    null
+   ],
+   "table": {
+    "caption": "Monthly sales (₹ thousand)",
+    "headers": [
+     "Shop",
+     "Jan",
+     "Feb",
+     "Mar"
+    ],
+    "rows": [
+     [
+      "A",
+      "120",
+      "150",
+      "170"
+     ],
+     [
+      "B",
+      "100",
+      "130",
+      "160"
+     ],
+     [
+      "C",
+      "80",
+      "110",
+      "150"
+     ]
+    ]
+   }
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Mean of grouped data",
+   "difficulty": "moderate",
+   "text": "What is the mean of the distribution shown in the table?",
+   "options": [
+    "50",
+    "56.4",
+    "54.4",
+    "60"
+   ],
+   "answer": 2,
+   "value": 54.4,
+   "check": "(40+270+850+840+720)/50",
+   "explanation": "Class marks: 10, 30, 50, 70, 90. Σfx = 4(10) + 9(30) + 17(50) + 12(70) + 8(90) = 40 + 270 + 850 + 840 + 720 = 2,720. Σf = 50. Mean = 54.4.",
+   "steps": [
+    "Class marks 10, 30, 50, 70, 90",
+    "Σfx = 2,720, Σf = 50",
+    "Mean = 54.4"
+   ],
+   "trap": "Using the unweighted mean of class marks.",
+   "revise": "Mean of grouped data",
+   "wrongReasons": [
+    "Took the mean of the class marks unweighted",
+    "Added 2 to the correct mean",
+    null,
+    "Took the modal class mark"
+   ],
+   "table": {
+    "caption": "Scores of 50 candidates",
+    "headers": [
+     "Class",
+     "0–20",
+     "20–40",
+     "40–60",
+     "60–80",
+     "80–100"
+    ],
+    "rows": [
+     [
+      "Frequency",
+      "4",
+      "9",
+      "17",
+      "12",
+      "8"
+     ]
+    ]
+   }
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Empirical relation",
+   "difficulty": "easy",
+   "text": "For a moderately skewed distribution, the mean is 34 and the median is 32. What is the approximate mode?",
+   "options": [
+    "30",
+    "36",
+    "33",
+    "28"
+   ],
+   "answer": 3,
+   "value": 28,
+   "check": "3*32-2*34",
+   "explanation": "Mode = 3 × Median − 2 × Mean = 96 − 68 = 28.",
+   "steps": [
+    "Mode = 3 Median − 2 Mean",
+    "= 96 − 68",
+    "= 28"
+   ],
+   "trap": "Reversing the roles of mean and median.",
+   "revise": "Mode = 3 Median − 2 Mean",
+   "wrongReasons": [
+    "Took the median minus 2",
+    "Took mean + 2",
+    "Took the average of mean and median",
+    null
+   ]
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Effect of transformation",
+   "difficulty": "hard",
+   "text": "The mean of a set of observations is 12 and the standard deviation is 4. Each observation is multiplied by 3 and then increased by 5. What is the sum of the new mean and the new standard deviation?",
+   "options": [
+    "41",
+    "53",
+    "17",
+    "57"
+   ],
+   "answer": 1,
+   "value": 53,
+   "check": "41+12",
+   "explanation": "New mean = 3 × 12 + 5 = 41. New SD = 3 × 4 = 12, since adding a constant does not change the SD. Sum = 53.",
+   "steps": [
+    "New mean = 36 + 5 = 41",
+    "New SD = 3 × 4 = 12",
+    "Sum = 53"
+   ],
+   "trap": "Adding 5 to the standard deviation.",
+   "revise": "Linear transformation of mean and SD",
+   "wrongReasons": [
+    "Gave only the new mean",
+    null,
+    "Added 5 to the old mean and the old SD",
+    "Added 5 to the new SD as well"
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "CI minus SI",
+   "difficulty": "hard",
+   "text": "On a certain sum of money, the difference between the compound interest and the simple interest for 3 years at 10% per annum is ₹620. What is the sum?",
+   "options": [
+    "₹6,200",
+    "₹62,000",
+    "₹20,000",
+    "₹10,000"
+   ],
+   "answer": 2,
+   "value": 20000,
+   "check": "620/0.031",
+   "explanation": "For 3 years, CI − SI = P(r/100)²(3 + r/100) = P × 0.01 × 3.1 = 0.031P. So P = 620 ÷ 0.031 = ₹20,000.",
+   "steps": [
+    "CI − SI (3 yr) = P (r/100)² (3 + r/100)",
+    "= 0.031 P",
+    "P = 620/0.031 = 20,000"
+   ],
+   "trap": "Using the 2-year formula.",
+   "revise": "CI − SI for 2 and 3 years",
+   "wrongReasons": [
+    "Used 10% as the multiplier",
+    "Used 1% instead of 3.1% as the multiplier",
+    null,
+    "Used the formula for 2 years"
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Pairwise work",
+   "difficulty": "hard",
+   "text": "A and B together can do a piece of work in 12 days, B and C together in 15 days, and C and A together in 20 days. In how many days can A alone do the work?",
+   "options": [
+    "30",
+    "20",
+    "60",
+    "10"
+   ],
+   "answer": 0,
+   "value": 30,
+   "check": "1/(1/10-1/15)",
+   "explanation": "Adding the three rates: 2(A + B + C) = 1/12 + 1/15 + 1/20 = 12/60 = 1/5, so A + B + C = 1/10. A = 1/10 − 1/15 = 1/30. A alone takes 30 days.",
+   "steps": [
+    "2(A + B + C) = (5 + 4 + 3)/60 = 1/5",
+    "A + B + C = 1/10",
+    "A = 1/10 − 1/15 = 1/30"
+   ],
+   "trap": "Dividing instead of subtracting rates.",
+   "revise": "Pairwise work: add all three equations",
+   "wrongReasons": [
+    null,
+    "Gave the pair time of C and A",
+    "Doubled the correct answer",
+    "Gave the time taken by all three together"
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Chase",
+   "difficulty": "moderate",
+   "text": "A policeman sees a thief 200 m away. The thief runs at 10 km/h and the policeman chases at 11 km/h. How far will the thief run before he is caught?",
+   "options": [
+    "200 m",
+    "2,000 m",
+    "1,100 m",
+    "2,200 m"
+   ],
+   "answer": 1,
+   "value": 2000,
+   "check": "10*0.2*1000",
+   "explanation": "Relative speed = 1 km/h. Time to close 0.2 km = 0.2 hour. The thief runs 10 × 0.2 = 2 km = 2,000 m.",
+   "steps": [
+    "Relative speed = 11 − 10 = 1 km/h",
+    "Time = 0.2 km ÷ 1 = 0.2 h",
+    "Thief's distance = 10 × 0.2 = 2 km"
+   ],
+   "trap": "Giving the policeman's distance.",
+   "revise": "Chase problems: relative speed",
+   "wrongReasons": [
+    "Gave the initial gap",
+    null,
+    "Used the policeman's speed times 0.1 hour",
+    "Gave the distance run by the policeman"
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Election arithmetic",
+   "difficulty": "hard",
+   "text": "In an election between two candidates, 10% of the voters did not vote and 5% of the votes cast were invalid. The winner got 55% of the valid votes and won by 1,710 votes. How many voters were on the voters' list?",
+   "options": [
+    "19,000",
+    "18,000",
+    "17,100",
+    "20,000"
+   ],
+   "answer": 3,
+   "value": 20000,
+   "check": "1710/0.0855",
+   "explanation": "Valid votes = 0.9 × 0.95 = 0.855 of the voters. The winner's margin = 55% − 45% = 10% of valid votes = 0.0855 of the voters. So voters = 1,710 ÷ 0.0855 = 20,000.",
+   "steps": [
+    "Valid = 0.9 × 0.95 V = 0.855 V",
+    "Margin = 0.10 × 0.855 V = 0.0855 V",
+    "V = 1,710/0.0855 = 20,000"
+   ],
+   "trap": "Taking the margin as a share of all voters.",
+   "revise": "Elections: chain the percentages",
+   "wrongReasons": [
+    "Ignored the 10% who did not vote",
+    "Ignored the invalid votes",
+    "Treated the margin as 10% of the voters",
+    null
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "False weight and discount",
+   "difficulty": "hard",
+   "text": "A dealer marks his goods 25% above the cost price and allows a discount of 8%. He also gives only 800 g in place of 1 kg. What is his overall profit percent?",
+   "options": [
+    "43.75%",
+    "15%",
+    "25%",
+    "37.5%"
+   ],
+   "answer": 0,
+   "value": 43.75,
+   "check": "(1.25*0.92-0.8)/0.8*100",
+   "explanation": "For goods marked at 25% above cost: price for '1 kg' = 1.25 × 0.92 = 1.15 of the cost of 1 kg. The dealer actually delivers only 0.8 kg costing 0.8. Profit = (1.15 − 0.8)/0.8 = 0.4375 = 43.75%.",
+   "steps": [
+    "SP per claimed kg = 1.25 × 0.92 = 1.15",
+    "Cost of 800 g = 0.8",
+    "Profit = 0.35/0.8 = 43.75%"
+   ],
+   "trap": "Leaving out the false weight.",
+   "revise": "False weight: cost of what is actually given",
+   "wrongReasons": [
+    null,
+    "Ignored the false weight",
+    "Gave the mark-up only",
+    "Used the false weight but ignored the discount"
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Centroid of a right triangle",
+   "difficulty": "hard",
+   "text": "In a right-angled triangle with the perpendicular sides 9 cm and 12 cm, what is the distance of the centroid from the vertex at the right angle?",
+   "options": [
+    "5 cm",
+    "7.5 cm",
+    "2.5 cm",
+    "6 cm"
+   ],
+   "answer": 0,
+   "value": 5,
+   "check": "2/3*7.5",
+   "explanation": "The hypotenuse is 15 cm and the median from the right angle is half of it, 7.5 cm. The centroid is ⅔ of the way along the median from the vertex: ⅔ × 7.5 = 5 cm.",
+   "steps": [
+    "Hypotenuse = 15",
+    "Median = 7.5",
+    "Centroid distance = ⅔ × 7.5 = 5"
+   ],
+   "trap": "Using ⅓ instead of ⅔.",
+   "revise": "Centroid divides the median 2 : 1",
+   "wrongReasons": [
+    null,
+    "Gave the median to the hypotenuse",
+    "Took ⅓ of the median",
+    "Gave the distance to a leg's midpoint"
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Parallel chords",
+   "difficulty": "hard",
+   "text": "Two parallel chords of lengths 16 cm and 12 cm are drawn in a circle of radius 10 cm. What is the maximum possible distance between them?",
+   "options": [
+    "2 cm",
+    "14 cm",
+    "20 cm",
+    "10 cm"
+   ],
+   "answer": 1,
+   "value": 14,
+   "check": "6+8",
+   "explanation": "The distances of the chords from the centre are √(100 − 64) = 6 and √(100 − 36) = 8. If they are on opposite sides, distance = 6 + 8 = 14 cm; on the same side, 8 − 6 = 2 cm. The maximum is 14 cm.",
+   "steps": [
+    "d₁ = √(100 − 64) = 6",
+    "d₂ = √(100 − 36) = 8",
+    "Opposite sides: 14"
+   ],
+   "trap": "Giving the same-side distance.",
+   "revise": "Parallel chords: two cases",
+   "wrongReasons": [
+    "Gave the minimum distance",
+    null,
+    "Gave the diameter",
+    "Gave the radius"
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Inradius and circumradius",
+   "difficulty": "moderate",
+   "text": "The perpendicular sides of a right-angled triangle are 8 cm and 15 cm. What is the sum of its inradius and circumradius?",
+   "options": [
+    "11.5 cm",
+    "8.5 cm",
+    "3 cm",
+    "14.5 cm"
+   ],
+   "answer": 0,
+   "value": 11.5,
+   "check": "8.5+3",
+   "explanation": "Hypotenuse = 17. Circumradius = 17/2 = 8.5. Inradius = (8 + 15 − 17)/2 = 3. Sum = 11.5 cm.",
+   "steps": [
+    "Hypotenuse = 17, R = 8.5",
+    "r = (b + c − a)/2 = 3",
+    "R + r = 11.5"
+   ],
+   "trap": "Giving only one of the two radii.",
+   "revise": "Right triangle: r = (a + b − c)/2, R = c/2",
+   "wrongReasons": [
+    null,
+    "Gave the circumradius",
+    "Gave the inradius",
+    "Used (8 + 15)/2 as the inradius"
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Angle between exterior bisectors",
+   "difficulty": "easy",
+   "text": "In triangle ABC, ∠A = 64°. The bisectors of the exterior angles at B and C meet at a point O. What is the measure of ∠BOC?",
+   "options": [
+    "122°",
+    "58°",
+    "32°",
+    "116°"
+   ],
+   "answer": 1,
+   "value": 58,
+   "check": "90-32",
+   "explanation": "The angle between the bisectors of the exterior angles at B and C is 90° − ∠A/2 = 90° − 32° = 58°.",
+   "steps": [
+    "∠BOC = 90° − A/2",
+    "= 90° − 32°",
+    "= 58°"
+   ],
+   "trap": "Using the incentre formula.",
+   "revise": "Excentre angle = 90° − A/2",
+   "wrongReasons": [
+    "Gave 90° + ∠A/2, the incentre angle",
+    null,
+    "Gave ∠A/2",
+    "Gave 180° − ∠A"
+   ]
+  },
+  {
+   "topic": "Trigonometry",
+   "subtopic": "tan + sec",
+   "difficulty": "hard",
+   "text": "If tan θ + sec θ = 3 and θ is acute, what is the value of sin θ?",
+   "options": [
+    "0.6",
+    "0.8",
+    "0.75",
+    "1.25"
+   ],
+   "answer": 1,
+   "value": 0.8,
+   "check": "(4/3)/(5/3)",
+   "explanation": "Since sec²θ − tan²θ = 1, secθ − tanθ = 1/3. Adding: 2 sec θ = 10/3, so sec θ = 5/3 and tan θ = 4/3. Then sin θ = tan θ / sec θ = 4/5 = 0.8.",
+   "steps": [
+    "sec − tan = 1/3",
+    "sec = 5/3, tan = 4/3",
+    "sin = tan/sec = 4/5"
+   ],
+   "trap": "Not using the reciprocal identity.",
+   "revise": "sec θ ± tan θ identity",
+   "wrongReasons": [
+    "Gave cos θ",
+    null,
+    "Mixed up the ratio 4 : 3 with 3 : 4",
+    "Gave 1/sin θ"
+   ]
+  },
+  {
+   "topic": "Trigonometry",
+   "subtopic": "Ladder against a wall",
+   "difficulty": "hard",
+   "text": "A 25 m ladder leans against a vertical wall with its foot 7 m from the wall. The top of the ladder slips down the wall by 4 m. How far does the foot of the ladder move away from the wall?",
+   "options": [
+    "4 m",
+    "15 m",
+    "8 m",
+    "7 m"
+   ],
+   "answer": 2,
+   "value": 8,
+   "check": "15-7",
+   "explanation": "Initial height = √(625 − 49) = 24 m. After slipping the height is 20 m, so the foot is at √(625 − 400) = 15 m. The foot moves 15 − 7 = 8 m.",
+   "steps": [
+    "Height = √(25² − 7²) = 24",
+    "New height = 20 → foot at √(625 − 400) = 15",
+    "Movement = 15 − 7 = 8"
+   ],
+   "trap": "Giving the new position instead of the displacement.",
+   "revise": "Ladder problems: Pythagoras twice",
+   "wrongReasons": [
+    "Gave the slip of the top",
+    "Gave the new distance of the foot",
+    null,
+    "Gave the original distance of the foot"
+   ]
+  },
+  {
+   "topic": "Trigonometry",
+   "subtopic": "Cosec and cot",
+   "difficulty": "moderate",
+   "text": "If cosec θ − cot θ = 2, what is the value of cosec θ + cot θ?",
+   "options": [
+    "2",
+    "4",
+    "0.5",
+    "1"
+   ],
+   "answer": 2,
+   "value": 0.5,
+   "check": "1/2",
+   "explanation": "(cosec θ − cot θ)(cosec θ + cot θ) = cosec²θ − cot²θ = 1. So the sum = 1/2 = 0.5.",
+   "steps": [
+    "cosec² − cot² = 1",
+    "Sum = 1/difference = 1/2"
+   ],
+   "trap": "Taking the sum equal to the difference.",
+   "revise": "(cosec − cot)(cosec + cot) = 1",
+   "wrongReasons": [
+    "Took it equal to the given difference",
+    "Squared the difference",
+    null,
+    "Took the product 1 as the sum"
+   ]
+  },
+  {
+   "topic": "Algebra",
+   "subtopic": "Sum of cubes from sum and product",
+   "difficulty": "moderate",
+   "text": "If x + y = 7 and xy = 10, what is the value of x³ + y³?",
+   "options": [
+    "343",
+    "133",
+    "259",
+    "49"
+   ],
+   "answer": 1,
+   "value": 133,
+   "check": "343-210",
+   "explanation": "x³ + y³ = (x + y)³ − 3xy(x + y) = 343 − 3 × 10 × 7 = 343 − 210 = 133.",
+   "steps": [
+    "(x + y)³ = 343",
+    "3xy(x + y) = 210",
+    "343 − 210 = 133"
+   ],
+   "trap": "Adding instead of subtracting 3xy(x + y).",
+   "revise": "a³ + b³ identity",
+   "wrongReasons": [
+    "Cubed the sum without correction",
+    null,
+    "Used + 3xy(x + y)",
+    "Gave (x + y)²"
+   ]
+  },
+  {
+   "topic": "Algebra",
+   "subtopic": "Modulus inequality",
+   "difficulty": "moderate",
+   "text": "How many integers satisfy the inequality |2x − 5| < 7?",
+   "options": [
+    "7",
+    "6",
+    "5",
+    "12"
+   ],
+   "answer": 1,
+   "value": 6,
+   "check": "6",
+   "explanation": "−7 < 2x − 5 < 7 gives −2 < 2x < 12, i.e. −1 < x < 6. The integers are 0, 1, 2, 3, 4, 5: six values.",
+   "steps": [
+    "−7 < 2x − 5 < 7",
+    "−1 < x < 6",
+    "Integers: 0 to 5 → 6"
+   ],
+   "trap": "Including the end points.",
+   "revise": "Modulus inequalities: strict vs non-strict",
+   "wrongReasons": [
+    "Included the end value x = 6 or x = −1",
+    null,
+    "Missed the zero",
+    "Counted twice for both signs"
+   ]
+  },
+  {
+   "topic": "Algebra",
+   "subtopic": "Quadratic with a given difference",
+   "difficulty": "hard",
+   "text": "The roots of x² − px + 12 = 0 are positive integers that differ by 1. What is the value of p?",
+   "options": [
+    "1",
+    "12",
+    "13",
+    "7"
+   ],
+   "answer": 3,
+   "value": 7,
+   "check": "3+4",
+   "explanation": "The roots are 3 and 4 (product 12, difference 1). p is the sum of the roots = 7.",
+   "steps": [
+    "Roots a, a + 1 with a(a + 1) = 12",
+    "a = 3 → roots 3 and 4",
+    "p = 7"
+   ],
+   "trap": "Confusing the sum with the product.",
+   "revise": "Sum and product of roots",
+   "wrongReasons": [
+    "Took the difference as the sum",
+    "Took the product as the sum",
+    "Took the sum as 12 + 1",
+    null
+   ]
+  },
+  {
+   "topic": "Number System",
+   "subtopic": "HCF and LCM relation",
+   "difficulty": "hard",
+   "text": "The LCM of two numbers is 12 times their HCF and the sum of the HCF and the LCM is 403. If one of the numbers is 93, what is the other?",
+   "options": [
+    "31",
+    "372",
+    "124",
+    "93"
+   ],
+   "answer": 2,
+   "value": 124,
+   "check": "31*372/93",
+   "explanation": "HCF + 12 HCF = 403, so HCF = 31 and LCM = 372. Product of the numbers = 31 × 372 = 11,532. Other number = 11,532 ÷ 93 = 124.",
+   "steps": [
+    "13 × HCF = 403 → HCF = 31, LCM = 372",
+    "Product = 31 × 372",
+    "Other = 11,532/93 = 124"
+   ],
+   "trap": "Giving the HCF or LCM as the number.",
+   "revise": "HCF × LCM = product of the two numbers",
+   "wrongReasons": [
+    "Gave the HCF",
+    "Gave the LCM",
+    null,
+    "Repeated the given number"
+   ]
+  },
+  {
+   "topic": "Number System",
+   "subtopic": "Largest 4-digit number with remainders",
+   "difficulty": "hard",
+   "text": "What is the largest 4-digit number which, when divided by 12, 15 and 18, leaves a remainder of 7 in each case?",
+   "options": [
+    "9,907",
+    "9,900",
+    "9,727",
+    "9,997"
+   ],
+   "answer": 0,
+   "value": 9907,
+   "check": "55*180+7",
+   "explanation": "LCM(12, 15, 18) = 180. The largest multiple of 180 below 10,000 is 55 × 180 = 9,900. Add the remainder: 9,907.",
+   "steps": [
+    "LCM = 180",
+    "9,999 ÷ 180 → 55 → 9,900",
+    "9,900 + 7 = 9,907"
+   ],
+   "trap": "Forgetting to add the remainder.",
+   "revise": "Common remainder: k × LCM + r",
+   "wrongReasons": [
+    null,
+    "Left out the remainder",
+    "Used the second-largest multiple of 180",
+    "Took the largest 4-digit number ending in 7"
+   ]
+  }
+ ]
+}

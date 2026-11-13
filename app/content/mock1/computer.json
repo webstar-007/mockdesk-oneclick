@@ -1,0 +1,605 @@
+{
+ "section": "computer",
+ "questions": [
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: conditional count",
+   "difficulty": "moderate",
+   "text": "A teacher keeps the marks of 80 students in cells B2:B81 of an Excel sheet and wants to know how many students scored more than 60. Which formula should be used?",
+   "options": [
+    "=COUNTIF(B2:B81,\">60\")",
+    "=COUNT(B2:B81,60)",
+    "=SUMIF(B2:B81,\">60\")",
+    "=COUNTA(B2:B81>60)"
+   ],
+   "answer": 0,
+   "explanation": "COUNTIF(range, criteria) counts the cells that meet one condition. SUMIF would return the total of the qualifying marks.",
+   "steps": [
+    "Spot what the question tests: COUNT, COUNTA, COUNTIF, SUMIF.",
+    "Option B (=COUNT(B2:B81,60)) is out: COUNT counts numeric cells; it does not test a condition.",
+    "Option C (=SUMIF(B2:B81,\">60\")) is out: SUMIF adds the qualifying values, not the number of them.",
+    "Option D (=COUNTA(B2:B81>60)) is out: COUNTA counts non-empty cells and the argument is not a valid criterion.",
+    "Common slip to avoid: Choosing SUMIF, which has a similar syntax but gives a sum.",
+    "So the answer is option A: =COUNTIF(B2:B81,\">60\")."
+   ],
+   "trap": "Choosing SUMIF, which has a similar syntax but gives a sum.",
+   "revise": "COUNT, COUNTA, COUNTIF, SUMIF",
+   "wrongReasons": [
+    null,
+    "COUNT counts numeric cells; it does not test a condition",
+    "SUMIF adds the qualifying values, not the number of them",
+    "COUNTA counts non-empty cells and the argument is not a valid criterion"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: multiple conditions",
+   "difficulty": "hard",
+   "text": "In an Excel sheet, column A holds city names and column B holds sales. Which function counts the rows in which the city is \"Delhi\" AND the sales are above 50?",
+   "options": [
+    "COUNTIF",
+    "SUMIF",
+    "AVERAGEIF",
+    "COUNTIFS"
+   ],
+   "answer": 3,
+   "explanation": "COUNTIFS accepts several range–criteria pairs and counts the rows that satisfy all of them.",
+   "steps": [
+    "Spot what the question tests: COUNTIFS vs COUNTIF.",
+    "Option A (COUNTIF) is out: It accepts only one range and one condition.",
+    "Option B (SUMIF) is out: It adds values instead of counting rows.",
+    "Option C (AVERAGEIF) is out: It returns an average, not a count.",
+    "Common slip to avoid: Using COUNTIF with a single criterion.",
+    "So the answer is option D: COUNTIFS."
+   ],
+   "trap": "Using COUNTIF with a single criterion.",
+   "revise": "COUNTIFS vs COUNTIF",
+   "wrongReasons": [
+    "It accepts only one range and one condition",
+    "It adds values instead of counting rows",
+    "It returns an average, not a count",
+    null
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: Filter",
+   "difficulty": "easy",
+   "text": "Which Excel feature displays only the rows that meet a stated condition and hides the others, without deleting them?",
+   "options": [
+    "Sort",
+    "Data Validation",
+    "Filter",
+    "Freeze Panes"
+   ],
+   "answer": 2,
+   "explanation": "AutoFilter hides the rows that do not meet the condition; they return when the filter is cleared.",
+   "steps": [
+    "Spot what the question tests: Sort vs Filter.",
+    "Option A (Sort) is out: It rearranges rows but hides none.",
+    "Option B (Data Validation) is out: It restricts what can be typed in a cell.",
+    "Option D (Freeze Panes) is out: It keeps rows or columns visible while scrolling.",
+    "Common slip to avoid: Confusing Sort with Filter.",
+    "So the answer is option C: Filter."
+   ],
+   "trap": "Confusing Sort with Filter.",
+   "revise": "Sort vs Filter",
+   "wrongReasons": [
+    "It rearranges rows but hides none",
+    "It restricts what can be typed in a cell",
+    null,
+    "It keeps rows or columns visible while scrolling"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Word: table of contents",
+   "difficulty": "moderate",
+   "text": "A user has applied Heading 1 and Heading 2 styles through a long Word report and wants an automatically updated list of headings with page numbers at the start. Which feature should be used?",
+   "options": [
+    "Index",
+    "Table of Contents",
+    "Cross-reference",
+    "Bookmark"
+   ],
+   "answer": 1,
+   "explanation": "The Table of Contents feature reads the heading styles and builds the list, which can be refreshed with Update Field.",
+   "steps": [
+    "Spot what the question tests: Table of Contents vs Index.",
+    "Option A (Index) is out: It lists selected terms with page numbers, not headings.",
+    "Option C (Cross-reference) is out: It links to one item in the document.",
+    "Option D (Bookmark) is out: It marks a location for later navigation.",
+    "Common slip to avoid: Choosing Index because it also shows page numbers.",
+    "So the answer is option B: Table of Contents."
+   ],
+   "trap": "Choosing Index because it also shows page numbers.",
+   "revise": "Table of Contents vs Index",
+   "wrongReasons": [
+    "It lists selected terms with page numbers, not headings",
+    null,
+    "It links to one item in the document",
+    "It marks a location for later navigation"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Word: Track Changes",
+   "difficulty": "moderate",
+   "text": "In MS Word, which Review-tab feature records every edit made by a reviewer so that the author can later accept or reject each change?",
+   "options": [
+    "Comments",
+    "Compare",
+    "Restrict Editing",
+    "Track Changes"
+   ],
+   "answer": 3,
+   "explanation": "Track Changes marks insertions, deletions and formatting changes and allows each to be accepted or rejected.",
+   "steps": [
+    "Spot what the question tests: Track Changes, Comments, Compare.",
+    "Option A (Comments) is out: They add notes but do not record edits.",
+    "Option B (Compare) is out: It builds a new document showing the differences between two files.",
+    "Option C (Restrict Editing) is out: It limits what others can change.",
+    "Common slip to avoid: Choosing Compare, which works on two saved versions.",
+    "So the answer is option D: Track Changes."
+   ],
+   "trap": "Choosing Compare, which works on two saved versions.",
+   "revise": "Track Changes, Comments, Compare",
+   "wrongReasons": [
+    "They add notes but do not record edits",
+    "It builds a new document showing the differences between two files",
+    "It limits what others can change",
+    null
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "PowerPoint: Slide Master",
+   "difficulty": "moderate",
+   "text": "A presenter wants a company logo to appear in the same position on every slide of a deck, by editing it only once. Which view should be used?",
+   "options": [
+    "Slide Master view",
+    "Slide Sorter view",
+    "Notes Page view",
+    "Reading view"
+   ],
+   "answer": 0,
+   "explanation": "Slide Master view controls the layout shared by all slides; an object placed on the master appears on every slide.",
+   "steps": [
+    "Spot what the question tests: Slide Master, layouts and themes.",
+    "Option B (Slide Sorter view) is out: It is for rearranging slides.",
+    "Option C (Notes Page view) is out: It is for speaker notes.",
+    "Option D (Reading view) is out: It is for viewing the deck on screen.",
+    "Common slip to avoid: Adding the logo slide by slide.",
+    "So the answer is option A: Slide Master view."
+   ],
+   "trap": "Adding the logo slide by slide.",
+   "revise": "Slide Master, layouts and themes",
+   "wrongReasons": [
+    null,
+    "It is for rearranging slides",
+    "It is for speaker notes",
+    "It is for viewing the deck on screen"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Windows shortcut",
+   "difficulty": "hard",
+   "text": "In Windows File Explorer, which key combination opens the Properties dialog of the selected file?",
+   "options": [
+    "Ctrl + Enter",
+    "Shift + Enter",
+    "Alt + Enter",
+    "F2"
+   ],
+   "answer": 2,
+   "explanation": "Alt + Enter opens the Properties dialog for the selected item.",
+   "steps": [
+    "Spot what the question tests: Windows shortcuts: Alt+Enter, F2.",
+    "Option A (Ctrl + Enter) is out: It opens a selected item in some programs or adds line breaks.",
+    "Option B (Shift + Enter) is out: It is used for line breaks and alternative open commands.",
+    "Option D (F2) is out: It renames the selected file.",
+    "Common slip to avoid: Choosing F2, which also acts on the selected file.",
+    "So the answer is option C: Alt + Enter."
+   ],
+   "trap": "Choosing F2, which also acts on the selected file.",
+   "revise": "Windows shortcuts: Alt+Enter, F2",
+   "wrongReasons": [
+    "It opens a selected item in some programs or adds line breaks",
+    "It is used for line breaks and alternative open commands",
+    null,
+    "It renames the selected file"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "Asymmetric encryption",
+   "difficulty": "moderate",
+   "text": "In asymmetric encryption, a message is encrypted with the receiver's public key. Which key is needed to decrypt it?",
+   "options": [
+    "The receiver's private key",
+    "The sender's private key",
+    "The sender's public key",
+    "The receiver's public key"
+   ],
+   "answer": 0,
+   "explanation": "A message encrypted with a public key can be decrypted only with the matching private key, which the receiver keeps secret.",
+   "steps": [
+    "Spot what the question tests: Public and private keys.",
+    "Option B (The sender's private key) is out: The sender's keys are used to sign, not to decrypt this message.",
+    "Option C (The sender's public key) is out: It is available to everyone and cannot decrypt.",
+    "Option D (The receiver's public key) is out: The same key cannot be used for both operations.",
+    "Common slip to avoid: Thinking the sender's key is needed.",
+    "So the answer is option A: The receiver's private key."
+   ],
+   "trap": "Thinking the sender's key is needed.",
+   "revise": "Public and private keys",
+   "wrongReasons": [
+    null,
+    "The sender's keys are used to sign, not to decrypt this message",
+    "It is available to everyone and cannot decrypt",
+    "The same key cannot be used for both operations"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "Digital signature",
+   "difficulty": "hard",
+   "text": "A digital signature on an electronic document primarily provides:",
+   "options": [
+    "authentication of the sender and non-repudiation",
+    "confidentiality of the message content",
+    "compression of the document",
+    "protection against power failure"
+   ],
+   "answer": 0,
+   "explanation": "A signature created with the sender's private key proves who signed it and that the sender cannot later deny it.",
+   "steps": [
+    "Spot what the question tests: Digital signature vs encryption.",
+    "Option B (confidentiality of the message content) is out: Encryption provides this; a signature does not hide the text.",
+    "Option C (compression of the document) is out: A signature does not compress data.",
+    "Option D (protection against power failure) is out: Not a function of signatures.",
+    "Common slip to avoid: Equating signing with encrypting.",
+    "So the answer is option A: authentication of the sender and non-repudiation."
+   ],
+   "trap": "Equating signing with encrypting.",
+   "revise": "Digital signature vs encryption",
+   "wrongReasons": [
+    null,
+    "Encryption provides this; a signature does not hide the text",
+    "A signature does not compress data",
+    "Not a function of signatures"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "Malware types",
+   "difficulty": "moderate",
+   "text": "Malware that disguises itself as useful software and opens a back door for an attacker, but does not copy itself to other files, is called a:",
+   "options": [
+    "Worm",
+    "Trojan horse",
+    "File infector virus",
+    "Adware"
+   ],
+   "answer": 1,
+   "explanation": "A Trojan relies on being installed by the user in disguise and does not self-replicate.",
+   "steps": [
+    "Spot what the question tests: Virus, worm, Trojan.",
+    "Option A (Worm) is out: A worm replicates by itself across networks.",
+    "Option C (File infector virus) is out: A virus attaches itself to other files.",
+    "Option D (Adware) is out: It shows advertisements, not a back door.",
+    "Common slip to avoid: Choosing worm because both can open back doors.",
+    "So the answer is option B: Trojan horse."
+   ],
+   "trap": "Choosing worm because both can open back doors.",
+   "revise": "Virus, worm, Trojan",
+   "wrongReasons": [
+    "A worm replicates by itself across networks",
+    null,
+    "A virus attaches itself to other files",
+    "It shows advertisements, not a back door"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "Email security",
+   "difficulty": "hard",
+   "text": "Which of the following standards is used to encrypt and digitally sign email messages end to end?",
+   "options": [
+    "IMAP",
+    "S/MIME",
+    "POP3",
+    "SMTP"
+   ],
+   "answer": 1,
+   "explanation": "S/MIME uses certificates to encrypt and sign the content of a message; IMAP, POP3 and SMTP only move mail.",
+   "steps": [
+    "Spot what the question tests: Email protocols vs security standards.",
+    "Option A (IMAP) is out: It retrieves mail from a server.",
+    "Option C (POP3) is out: It downloads mail from a server.",
+    "Option D (SMTP) is out: It sends mail between servers and does not encrypt the message by itself.",
+    "Common slip to avoid: Choosing a transfer protocol.",
+    "So the answer is option B: S/MIME."
+   ],
+   "trap": "Choosing a transfer protocol.",
+   "revise": "Email protocols vs security standards",
+   "wrongReasons": [
+    "It retrieves mail from a server",
+    null,
+    "It downloads mail from a server",
+    "It sends mail between servers and does not encrypt the message by itself"
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "Registers",
+   "difficulty": "moderate",
+   "text": "Which register holds the instruction that is currently being decoded and executed by the CPU?",
+   "options": [
+    "Program Counter",
+    "Memory Address Register",
+    "Instruction Register",
+    "Memory Data Register"
+   ],
+   "answer": 2,
+   "explanation": "The Instruction Register stores the fetched instruction while the control unit decodes it.",
+   "steps": [
+    "Spot what the question tests: CPU registers.",
+    "Option A (Program Counter) is out: It holds the address of the next instruction.",
+    "Option B (Memory Address Register) is out: It holds the address of the memory location to be accessed.",
+    "Option D (Memory Data Register) is out: It holds the data moved to or from memory.",
+    "Common slip to avoid: Choosing the Program Counter.",
+    "So the answer is option C: Instruction Register."
+   ],
+   "trap": "Choosing the Program Counter.",
+   "revise": "CPU registers",
+   "wrongReasons": [
+    "It holds the address of the next instruction",
+    "It holds the address of the memory location to be accessed",
+    null,
+    "It holds the data moved to or from memory"
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "Memory addressing",
+   "difficulty": "hard",
+   "text": "A memory chip is organised as 16K × 16. How many address lines and data lines does it need?",
+   "options": [
+    "16 address lines and 14 data lines",
+    "16 address lines and 16 data lines",
+    "14 address lines and 14 data lines",
+    "14 address lines and 16 data lines"
+   ],
+   "answer": 3,
+   "explanation": "16K = 2¹⁴ locations, so 14 address lines are needed; each word is 16 bits wide, so there are 16 data lines.",
+   "steps": [
+    "Spot what the question tests: Memory capacity: 2ⁿ × word size.",
+    "Option A (16 address lines and 14 data lines) is out: The two numbers are swapped.",
+    "Option B (16 address lines and 16 data lines) is out: 16K needs 14 address lines, not 16.",
+    "Option C (14 address lines and 14 data lines) is out: The word size is 16 bits.",
+    "Common slip to avoid: Using the word size as the number of address lines.",
+    "So the answer is option D: 14 address lines and 16 data lines."
+   ],
+   "trap": "Using the word size as the number of address lines.",
+   "revise": "Memory capacity: 2ⁿ × word size",
+   "wrongReasons": [
+    "The two numbers are swapped",
+    "16K needs 14 address lines, not 16",
+    "The word size is 16 bits",
+    null
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "Buses",
+   "difficulty": "moderate",
+   "text": "Which bus carries the address of a memory location from the CPU to memory and moves in one direction only?",
+   "options": [
+    "Data bus",
+    "Address bus",
+    "Control bus",
+    "Expansion bus"
+   ],
+   "answer": 1,
+   "explanation": "The CPU sends addresses to memory over the address bus, which is unidirectional.",
+   "steps": [
+    "Spot what the question tests: Address, data and control buses.",
+    "Option A (Data bus) is out: It is bidirectional.",
+    "Option C (Control bus) is out: It carries signals such as read and write.",
+    "Option D (Expansion bus) is out: It connects add-on cards.",
+    "Common slip to avoid: Choosing the data bus.",
+    "So the answer is option B: Address bus."
+   ],
+   "trap": "Choosing the data bus.",
+   "revise": "Address, data and control buses",
+   "wrongReasons": [
+    "It is bidirectional",
+    null,
+    "It carries signals such as read and write",
+    "It connects add-on cards"
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "OSI model",
+   "difficulty": "easy",
+   "text": "At which layer of the OSI model do routers work and logical (IP) addressing is handled?",
+   "options": [
+    "Data link layer",
+    "Transport layer",
+    "Network layer",
+    "Session layer"
+   ],
+   "answer": 2,
+   "explanation": "Routers forward packets between networks using IP addresses, which belong to the network layer.",
+   "steps": [
+    "Spot what the question tests: OSI layers and devices.",
+    "Option A (Data link layer) is out: It handles physical (MAC) addressing.",
+    "Option B (Transport layer) is out: It handles end-to-end delivery and ports.",
+    "Option D (Session layer) is out: It manages dialogues between applications.",
+    "Common slip to avoid: Choosing the data link layer, where switches work.",
+    "So the answer is option C: Network layer."
+   ],
+   "trap": "Choosing the data link layer, where switches work.",
+   "revise": "OSI layers and devices",
+   "wrongReasons": [
+    "It handles physical (MAC) addressing",
+    "It handles end-to-end delivery and ports",
+    null,
+    "It manages dialogues between applications"
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "Network protocols",
+   "difficulty": "moderate",
+   "text": "Consider the following statements.\nI. DHCP assigns IP addresses to devices automatically.\nII. DNS translates domain names into IP addresses.\nIII. ARP maps an IP address to a MAC address.\nWhich of the statements is/are correct?",
+   "options": [
+    "I and II only",
+    "II and III only",
+    "I and III only",
+    "I, II and III"
+   ],
+   "answer": 3,
+   "explanation": "All three describe the standard roles of DHCP, DNS and ARP.",
+   "steps": [
+    "Spot what the question tests: DHCP, DNS, ARP.",
+    "Option A (I and II only) is out: III is also correct.",
+    "Option B (II and III only) is out: I is also correct.",
+    "Option C (I and III only) is out: II is also correct.",
+    "Common slip to avoid: Doubting ARP, which works inside a local network.",
+    "So the answer is option D: I, II and III."
+   ],
+   "trap": "Doubting ARP, which works inside a local network.",
+   "revise": "DHCP, DNS, ARP",
+   "wrongReasons": [
+    "III is also correct",
+    "I is also correct",
+    "II is also correct",
+    null
+   ]
+  },
+  {
+   "topic": "Cloud and IT Infrastructure",
+   "subtopic": "OLE",
+   "difficulty": "hard",
+   "text": "Which technology allows an application such as Excel to embed or link an object created in another application, such as a Word table?",
+   "options": [
+    "OLE (Object Linking and Embedding)",
+    "ODBC",
+    "RPC",
+    "DNS"
+   ],
+   "answer": 0,
+   "explanation": "OLE lets one application hold or link to objects made by another, for example a chart or table.",
+   "steps": [
+    "Spot what the question tests: OLE, ODBC, RPC.",
+    "Option B (ODBC) is out: It connects applications to databases.",
+    "Option C (RPC) is out: It lets a program call a procedure on another machine.",
+    "Option D (DNS) is out: It resolves names into addresses.",
+    "Common slip to avoid: Confusing it with database connectivity.",
+    "So the answer is option A: OLE (Object Linking and Embedding)."
+   ],
+   "trap": "Confusing it with database connectivity.",
+   "revise": "OLE, ODBC, RPC",
+   "wrongReasons": [
+    null,
+    "It connects applications to databases",
+    "It lets a program call a procedure on another machine",
+    "It resolves names into addresses"
+   ]
+  },
+  {
+   "topic": "Cloud and IT Infrastructure",
+   "subtopic": "Cloud service models",
+   "difficulty": "easy",
+   "text": "A web-based email service that users access through a browser without installing or managing anything is an example of:",
+   "options": [
+    "Infrastructure as a Service (IaaS)",
+    "Software as a Service (SaaS)",
+    "Platform as a Service (PaaS)",
+    "Desktop virtualisation"
+   ],
+   "answer": 1,
+   "explanation": "SaaS delivers a ready-to-use application over the internet.",
+   "steps": [
+    "Spot what the question tests: SaaS, PaaS, IaaS.",
+    "Option A (Infrastructure as a Service (IaaS)) is out: IaaS supplies virtual machines and storage.",
+    "Option C (Platform as a Service (PaaS)) is out: PaaS supplies a platform for developers.",
+    "Option D (Desktop virtualisation) is out: This gives a remote desktop, not an application.",
+    "Common slip to avoid: Choosing IaaS or PaaS because all three are cloud models.",
+    "So the answer is option B: Software as a Service (SaaS)."
+   ],
+   "trap": "Choosing IaaS or PaaS because all three are cloud models.",
+   "revise": "SaaS, PaaS, IaaS",
+   "wrongReasons": [
+    "IaaS supplies virtual machines and storage",
+    null,
+    "PaaS supplies a platform for developers",
+    "This gives a remote desktop, not an application"
+   ]
+  },
+  {
+   "topic": "Cloud and IT Infrastructure",
+   "subtopic": "Storage snapshots",
+   "difficulty": "hard",
+   "text": "Which technique creates a point-in-time snapshot by preserving the original data blocks only when they are about to be changed?",
+   "options": [
+    "Disk mirroring",
+    "Disk striping",
+    "Copy-on-write",
+    "Defragmentation"
+   ],
+   "answer": 2,
+   "explanation": "Copy-on-write saves the old block before it is overwritten, so a snapshot needs very little extra space.",
+   "steps": [
+    "Spot what the question tests: Snapshots and copy-on-write.",
+    "Option A (Disk mirroring) is out: It keeps a full duplicate copy at all times.",
+    "Option B (Disk striping) is out: It spreads data across disks for speed.",
+    "Option D (Defragmentation) is out: It rearranges files to make them contiguous.",
+    "Common slip to avoid: Choosing mirroring because it also gives a second copy.",
+    "So the answer is option C: Copy-on-write."
+   ],
+   "trap": "Choosing mirroring because it also gives a second copy.",
+   "revise": "Snapshots and copy-on-write",
+   "wrongReasons": [
+    "It keeps a full duplicate copy at all times",
+    "It spreads data across disks for speed",
+    null,
+    "It rearranges files to make them contiguous"
+   ]
+  },
+  {
+   "topic": "DBMS",
+   "subtopic": "Normalisation",
+   "difficulty": "hard",
+   "text": "Which normal form removes the partial dependency of non-key attributes on part of a composite primary key?",
+   "options": [
+    "First Normal Form (1NF)",
+    "Third Normal Form (3NF)",
+    "Boyce–Codd Normal Form (BCNF)",
+    "Second Normal Form (2NF)"
+   ],
+   "answer": 3,
+   "explanation": "A relation is in 2NF when it is in 1NF and every non-key attribute depends on the whole of the primary key.",
+   "steps": [
+    "Spot what the question tests: 1NF, 2NF, 3NF, BCNF.",
+    "Option A (First Normal Form (1NF)) is out: It removes repeating groups and multivalued attributes.",
+    "Option B (Third Normal Form (3NF)) is out: It removes transitive dependencies.",
+    "Option C (Boyce–Codd Normal Form (BCNF)) is out: It requires every determinant to be a candidate key.",
+    "Common slip to avoid: Mixing up partial and transitive dependency.",
+    "So the answer is option D: Second Normal Form (2NF)."
+   ],
+   "trap": "Mixing up partial and transitive dependency.",
+   "revise": "1NF, 2NF, 3NF, BCNF",
+   "wrongReasons": [
+    "It removes repeating groups and multivalued attributes",
+    "It removes transitive dependencies",
+    "It requires every determinant to be a candidate key",
+    null
+   ]
+  }
+ ]
+}

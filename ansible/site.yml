@@ -1,0 +1,65 @@
+---
+# THE ONE PLAYBOOK. It uses the single role "mockdesk" in small steps.
+# Jenkins runs one step at a time with --tags, so each step is its own pipeline stage:
+#   --tags install   Node.js, a service user, folders, the systemd service
+#   --tags release   put the new code on the server, build it, switch to it, restart
+#   --tags verify    prove the site answers
+#   --tags logs      show the last log lines (OTP codes appear here in test mode)
+#   --tags backup    copy the database to the Jenkins workspace (backups/)
+# Run install + release + verify at once with:  ansible-playbook site.yml --tags install,release,verify
+
+- name: Step 1 - Prepare the server
+  hosts: web
+  become: true
+  gather_facts: false
+  tags: install
+  tasks:
+    - name: Wait until SSH works (the server may still be starting)
+      ansible.builtin.wait_for_connection:
+        delay: 5
+        timeout: 300
+    - name: Collect facts about the server
+      ansible.builtin.setup:
+    - ansible.builtin.import_role:
+        name: mockdesk
+        tasks_from: install.yml
+
+- name: Step 2 - Release the new code
+  hosts: web
+  become: true
+  gather_facts: false
+  tags: release
+  tasks:
+    - ansible.builtin.import_role:
+        name: mockdesk
+        tasks_from: release.yml
+
+- name: Step 3 - Verify the site answers
+  hosts: web
+  become: true
+  gather_facts: false
+  tags: verify
+  tasks:
+    - ansible.builtin.import_role:
+        name: mockdesk
+        tasks_from: verify.yml
+
+- name: Show the latest server log
+  hosts: web
+  become: true
+  gather_facts: false
+  tags: [never, logs]
+  tasks:
+    - ansible.builtin.import_role:
+        name: mockdesk
+        tasks_from: logs.yml
+
+- name: Copy the database home
+  hosts: web
+  become: true
+  gather_facts: false
+  tags: [never, backup]
+  tasks:
+    - ansible.builtin.import_role:
+        name: mockdesk
+        tasks_from: backup.yml

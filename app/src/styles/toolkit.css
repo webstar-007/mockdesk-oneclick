@@ -1,0 +1,27 @@
+.tk{display:flex;flex-direction:column;gap:18px}
+.tk-hero{padding:6px 0 0} .tk-hero h1{margin:6px 0 6px;font-size:1.9rem;letter-spacing:-.02em} .tk-hero p{margin:0;color:var(--muted);max-width:62ch;line-height:1.55}
+.tk-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.tk-card{margin:0!important;padding:22px!important;display:flex;flex-direction:column;gap:14px} .tk-card h2{margin:0;font-size:1.15rem} .tk-wide{grid-column:1/-1}
+.tk-note{margin:0;font-size:.9rem;line-height:1.55}
+.tk-table{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.tk-row{display:grid;grid-template-columns:1.5fr .8fr .8fr .9fr;gap:10px;align-items:center;padding:9px 12px;border-top:1px solid var(--line)} .tk-row:first-child{border-top:0}
+.tk-row.tk-head{background:var(--nv);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;font-weight:800;color:var(--muted)}
+.tk-row small{display:block;color:var(--muted);font-size:.76rem;font-weight:500} .tk-row input{min-height:42px;padding:6px 10px;text-align:center;border-radius:8px;width:100%}
+.tk-row.bad{background:var(--bad-soft)} .tk-marks{font-weight:800;text-align:right} .tk-marks small{display:inline;font-weight:500}
+.tk-pace{grid-template-columns:1.6fr 1.5fr .8fr 1fr;font-size:.92rem}
+.tk-result{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.tk-result>div{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;background:var(--nv)} .tk-result span{font-size:.8rem;color:var(--muted);font-weight:600} .tk-result b{font-size:1.8rem;letter-spacing:-.02em} .tk-result b small{font-size:.9rem;font-weight:600;color:var(--muted)} .tk-result em{font-style:normal;font-size:.82rem;font-weight:700;color:var(--bad)} .tk-result .ok{background:var(--good-soft);border-color:var(--good)} .tk-result .ok em{color:var(--good)}
+.tk-card .btn-sm{align-self:flex-start}
+.tk-start{flex-direction:row;align-items:center;gap:10px;flex-wrap:wrap} .tk-start input{width:auto;min-height:42px}
+.tk-pills{display:flex;gap:8px;flex-wrap:wrap} .tk-pills button{font:inherit;font-weight:700;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);border-radius:99px;padding:9px 18px;min-height:44px;cursor:pointer} .tk-pills button.on{background:var(--brand-soft);border-color:var(--brand-2);color:var(--brand-2)}
+.tk-verdict{display:flex;flex-direction:column;gap:2px;padding:14px 16px;border-radius:12px;border:1.5px solid var(--line)} .tk-verdict b{font-size:1.25rem} .tk-verdict span{font-size:.88rem;color:var(--muted)}
+.tk-verdict.go{background:var(--good-soft);border-color:var(--good)} .tk-verdict.stop{background:var(--bad-soft);border-color:var(--bad)} .tk-verdict.flat{background:var(--warn-soft);border-color:var(--warn)}
+.tk-head2{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.tk-count{font-size:.8rem;font-weight:700;color:var(--brand-2);background:var(--brand-soft);padding:3px 12px;border-radius:99px}
+.tk-bar{height:8px;border-radius:9px;background:var(--nv);overflow:hidden} .tk-bar i{display:block;height:100%;background:linear-gradient(90deg,#2547b8,#6d28d9);border-radius:9px;transition:width .25s}
+.tk-groups{display:grid;grid-template-columns:1fr 1fr;gap:14px} .tk-groups fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 14px 6px;margin:0;min-width:0} .tk-groups legend{font-weight:800;font-size:.85rem;padding:0 6px}
+.tk-item{flex-direction:row!important;align-items:flex-start;gap:10px!important;padding:8px 0;font-weight:500!important;line-height:1.4;min-height:44px;cursor:pointer} .tk-item input{margin-top:3px;flex:none}
+@media (max-width:860px){.tk-grid,.tk-groups{grid-template-columns:1fr}}
+@media (max-width:520px){.tk-row{grid-template-columns:1.3fr .8fr .8fr .9fr;gap:6px;padding:8px}.tk-pace{grid-template-columns:1fr 1fr;row-gap:2px}.tk-pace.tk-head{display:none}.tk-pace>span:nth-child(1){grid-column:1/-1}.tk-hero h1{font-size:1.5rem}}
+.nw{white-space:nowrap}.tk-pace{grid-template-columns:1.5fr 1.5fr .8fr 1fr}
+.tk-guess{display:grid!important;grid-template-columns:1.2fr auto 1fr;align-items:center;gap:20px} .tk-gtext h2{margin:0 0 6px} @media (max-width:860px){.tk-guess{grid-template-columns:1fr}}

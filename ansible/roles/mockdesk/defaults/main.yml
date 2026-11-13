@@ -1,0 +1,23 @@
+---
+app_user: mockdesk
+base_dir: /opt/mockdesk              # releases/<id>/ and current -> latest release
+data_dir: /var/lib/mockdesk          # the database and uploaded images. Never touched by a release.
+node_major: "22"
+keep_releases: 3
+web_port: 80
+
+# Passed by Jenkins with -e
+release_id: manual
+app_archive: ""                      # path of app.tgz on the Jenkins machine
+admin_emails: ""                     # comma separated: these sign-ups become admins
+
+# "development": no HTTPS needed, OTP codes are printed in the log (journalctl).
+# "production": needs HTTPS (cookies are Secure) and a real OTP sender (SMTP or SMS).
+app_env: development
+
+# Optional email OTP. Leave empty to test with password sign-in or log-printed codes.
+smtp_host: ""
+smtp_port: "587"
+smtp_user: ""
+smtp_pass: ""
+mail_from: ""

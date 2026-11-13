@@ -1,0 +1,597 @@
+{
+ "section": "computer",
+ "questions": [
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: IFERROR",
+   "difficulty": "hard",
+   "text": "In Excel, which formula returns 0 instead of an error when A2 is divided by B2 and B2 happens to be zero or blank?",
+   "options": [
+    "=IF(A2/B2,0)",
+    "=ISERROR(A2/B2)",
+    "=A2/B2+0",
+    "=IFERROR(A2/B2,0)"
+   ],
+   "answer": 3,
+   "explanation": "IFERROR evaluates the expression and returns the alternative value if it results in an error.",
+   "steps": [
+    "Spot what the question tests: IF, IFERROR, ISERROR.",
+    "Option A (=IF(A2/B2,0)) is out: The IF function would itself return the error.",
+    "Option B (=ISERROR(A2/B2)) is out: It returns TRUE or FALSE, not a value.",
+    "Option C (=A2/B2+0) is out: The error is still returned.",
+    "Common slip to avoid: Choosing IF without a test.",
+    "So the answer is option D: =IFERROR(A2/B2,0)."
+   ],
+   "trap": "Choosing IF without a test.",
+   "revise": "IF, IFERROR, ISERROR",
+   "wrongReasons": [
+    "The IF function would itself return the error",
+    "It returns TRUE or FALSE, not a value",
+    "The error is still returned",
+    null
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: text functions",
+   "difficulty": "moderate",
+   "text": "If cell A1 contains 'SSC-CGL-2026', which formula returns 'CGL'?",
+   "options": [
+    "=LEFT(A1,3)",
+    "=RIGHT(A1,3)",
+    "=MID(A1,5,3)",
+    "=MID(A1,4,3)"
+   ],
+   "answer": 2,
+   "explanation": "MID(text, start, length) starts at character 5, which is the 'C' of CGL.",
+   "steps": [
+    "Spot what the question tests: LEFT, MID, RIGHT.",
+    "Option A (=LEFT(A1,3)) is out: Returns SSC.",
+    "Option B (=RIGHT(A1,3)) is out: Returns 026.",
+    "Option D (=MID(A1,4,3)) is out: Returns -CG.",
+    "Common slip to avoid: Starting one character early.",
+    "So the answer is option C: =MID(A1,5,3)."
+   ],
+   "trap": "Starting one character early.",
+   "revise": "LEFT, MID, RIGHT",
+   "wrongReasons": [
+    "Returns SSC",
+    "Returns 026",
+    null,
+    "Returns -CG"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: absolute and mixed references",
+   "difficulty": "hard",
+   "text": "A formula =$B2*C$1 is entered in cell D2 and copied to cell E3. What formula appears in E3?",
+   "options": [
+    "=$B2*D$1",
+    "=$C3*D$1",
+    "=$B3*D$2",
+    "=$B3*D$1"
+   ],
+   "answer": 3,
+   "explanation": "$B stays in column B but the row moves down one, and C$1 moves one column to the right while row 1 is locked.",
+   "steps": [
+    "Spot what the question tests: Mixed references.",
+    "Option A (=$B2*D$1) is out: The row of the first reference should move down.",
+    "Option B (=$C3*D$1) is out: The column of the first reference is locked.",
+    "Option C (=$B3*D$2) is out: The row of the second reference is locked.",
+    "Common slip to avoid: Moving a locked part of a reference.",
+    "So the answer is option D: =$B3*D$1."
+   ],
+   "trap": "Moving a locked part of a reference.",
+   "revise": "Mixed references",
+   "wrongReasons": [
+    "The row of the first reference should move down",
+    "The column of the first reference is locked",
+    "The row of the second reference is locked",
+    null
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Word: Track Changes",
+   "difficulty": "moderate",
+   "text": "Which Word feature records every insertion and deletion made by reviewers so that the author can accept or reject them?",
+   "options": [
+    "Track Changes",
+    "Mail Merge",
+    "Spelling and Grammar",
+    "Compare Documents"
+   ],
+   "answer": 0,
+   "explanation": "Track Changes marks edits for review.",
+   "steps": [
+    "Spot what the question tests: Review tab features.",
+    "Option B (Mail Merge) is out: It merges data into letters.",
+    "Option C (Spelling and Grammar) is out: It checks language only.",
+    "Option D (Compare Documents) is out: It compares two files after the event.",
+    "Common slip to avoid: Choosing Compare.",
+    "So the answer is option A: Track Changes."
+   ],
+   "trap": "Choosing Compare.",
+   "revise": "Review tab features",
+   "wrongReasons": [
+    null,
+    "It merges data into letters",
+    "It checks language only",
+    "It compares two files after the event"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "PowerPoint: presenter view",
+   "difficulty": "easy",
+   "text": "Which PowerPoint view lets the speaker see notes and the next slide while the audience sees only the current slide?",
+   "options": [
+    "Presenter View",
+    "Slide Sorter",
+    "Outline View",
+    "Normal View"
+   ],
+   "answer": 0,
+   "explanation": "Presenter View displays notes and the next slide on the speaker's screen.",
+   "steps": [
+    "Spot what the question tests: Slide show views.",
+    "Option B (Slide Sorter) is out: It arranges slides.",
+    "Option C (Outline View) is out: It shows text only.",
+    "Option D (Normal View) is out: It is for editing.",
+    "Common slip to avoid: Choosing Notes Page.",
+    "So the answer is option A: Presenter View."
+   ],
+   "trap": "Choosing Notes Page.",
+   "revise": "Slide show views",
+   "wrongReasons": [
+    null,
+    "It arranges slides",
+    "It shows text only",
+    "It is for editing"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "Digital signature",
+   "difficulty": "hard",
+   "text": "Which of the following is provided by a digital signature on a document?",
+   "options": [
+    "Confidentiality of the content",
+    "Faster delivery of the document",
+    "Authentication of the sender and integrity of the content",
+    "Compression of the document"
+   ],
+   "answer": 2,
+   "explanation": "A digital signature uses the sender's private key to prove origin and detect tampering.",
+   "steps": [
+    "Spot what the question tests: Digital signatures.",
+    "Option A (Confidentiality of the content) is out: Encryption provides this, not the signature itself.",
+    "Options B and D are out: Not a function.",
+    "Common slip to avoid: Believing that signing also encrypts.",
+    "So the answer is option C: Authentication of the sender and integrity of the content."
+   ],
+   "trap": "Believing that signing also encrypts.",
+   "revise": "Digital signatures",
+   "wrongReasons": [
+    "Encryption provides this, not the signature itself",
+    "Not a function",
+    null,
+    "Not a function"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "Firewall",
+   "difficulty": "moderate",
+   "text": "A firewall mainly serves to:",
+   "options": [
+    "repair corrupted files",
+    "filter incoming and outgoing network traffic according to rules",
+    "increase internet speed",
+    "remove all viruses from a computer"
+   ],
+   "answer": 1,
+   "explanation": "A firewall permits or blocks traffic according to defined rules.",
+   "steps": [
+    "Spot what the question tests: Firewall vs antivirus.",
+    "Options A and C are out: Not its function.",
+    "Option D (remove all viruses from a computer) is out: That is the job of antivirus software.",
+    "Common slip to avoid: Treating a firewall as antivirus.",
+    "So the answer is option B: filter incoming and outgoing network traffic according to rules."
+   ],
+   "trap": "Treating a firewall as antivirus.",
+   "revise": "Firewall vs antivirus",
+   "wrongReasons": [
+    "Not its function",
+    null,
+    "Not its function",
+    "That is the job of antivirus software"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "VPN",
+   "difficulty": "moderate",
+   "text": "What is the main purpose of a Virtual Private Network (VPN)?",
+   "options": [
+    "To increase the storage capacity of a server",
+    "To block advertisements",
+    "To create an encrypted tunnel over a public network",
+    "To compress video files"
+   ],
+   "answer": 2,
+   "explanation": "A VPN encrypts traffic between the user and the VPN endpoint.",
+   "steps": [
+    "Spot what the question tests: VPN.",
+    "Options A and D are out: Not its function.",
+    "Option B (To block advertisements) is out: Not its main function.",
+    "Common slip to avoid: Thinking it speeds up the connection.",
+    "So the answer is option C: To create an encrypted tunnel over a public network."
+   ],
+   "trap": "Thinking it speeds up the connection.",
+   "revise": "VPN",
+   "wrongReasons": [
+    "Not its function",
+    "Not its main function",
+    null,
+    "Not its function"
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "RISC and CISC",
+   "difficulty": "hard",
+   "text": "Which of the following is a characteristic of a RISC processor compared with a CISC processor?",
+   "options": [
+    "A large set of complex instructions",
+    "A small set of simple instructions, mostly of fixed length",
+    "Heavy use of microcode for every instruction",
+    "Instructions that take variable numbers of bytes"
+   ],
+   "answer": 1,
+   "explanation": "RISC designs use simple, fixed-length instructions that can be pipelined easily.",
+   "steps": [
+    "Spot what the question tests: RISC vs CISC.",
+    "Option A (A large set of complex instructions) is out: This describes CISC.",
+    "Options C and D are out: More typical of CISC.",
+    "Common slip to avoid: Reversing RISC and CISC.",
+    "So the answer is option B: A small set of simple instructions, mostly of fixed length."
+   ],
+   "trap": "Reversing RISC and CISC.",
+   "revise": "RISC vs CISC",
+   "wrongReasons": [
+    "This describes CISC",
+    null,
+    "More typical of CISC",
+    "More typical of CISC"
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "Interrupts",
+   "difficulty": "hard",
+   "text": "What happens when a device raises an interrupt while the CPU is executing a program?",
+   "options": [
+    "The CPU saves its state, runs the interrupt service routine and then resumes",
+    "The program is deleted from memory",
+    "The computer shuts down",
+    "The device takes over the operating system"
+   ],
+   "answer": 0,
+   "explanation": "The CPU services the interrupt and then returns to the interrupted program.",
+   "steps": [
+    "Spot what the question tests: Interrupt handling.",
+    "Options B, C and D are out: Not what happens.",
+    "Common slip to avoid: Thinking an interrupt is an error.",
+    "So the answer is option A: The CPU saves its state, runs the interrupt service routine and then…."
+   ],
+   "trap": "Thinking an interrupt is an error.",
+   "revise": "Interrupt handling",
+   "wrongReasons": [
+    null,
+    "Not what happens",
+    "Not what happens",
+    "Not what happens"
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "Number systems",
+   "difficulty": "moderate",
+   "text": "What is the hexadecimal equivalent of the decimal number 255?",
+   "options": [
+    "EE",
+    "F0",
+    "FF",
+    "1F"
+   ],
+   "answer": 2,
+   "explanation": "255 = 15 × 16 + 15, which is FF.",
+   "steps": [
+    "Spot what the question tests: Decimal to hexadecimal.",
+    "Option A (EE) is out: Equals 238.",
+    "Option B (F0) is out: Equals 240.",
+    "Option D (1F) is out: Equals 31.",
+    "Common slip to avoid: Writing a wrong digit.",
+    "So the answer is option C: FF."
+   ],
+   "trap": "Writing a wrong digit.",
+   "revise": "Decimal to hexadecimal",
+   "wrongReasons": [
+    "Equals 238",
+    "Equals 240",
+    null,
+    "Equals 31"
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "OSI model",
+   "difficulty": "hard",
+   "text": "At which layer of the OSI model does a router mainly operate?",
+   "options": [
+    "Data link layer",
+    "Physical layer",
+    "Transport layer",
+    "Network layer"
+   ],
+   "answer": 3,
+   "explanation": "Routers forward packets by IP address at layer 3.",
+   "steps": [
+    "Spot what the question tests: OSI layers and devices.",
+    "Option A (Data link layer) is out: Used by switches.",
+    "Option B (Physical layer) is out: Used by hubs and repeaters.",
+    "Option C (Transport layer) is out: Used by TCP and UDP.",
+    "Common slip to avoid: Choosing the data link layer.",
+    "So the answer is option D: Network layer."
+   ],
+   "trap": "Choosing the data link layer.",
+   "revise": "OSI layers and devices",
+   "wrongReasons": [
+    "Used by switches",
+    "Used by hubs and repeaters",
+    "Used by TCP and UDP",
+    null
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "TCP handshake",
+   "difficulty": "hard",
+   "text": "Which sequence of segments forms the TCP three-way handshake?",
+   "options": [
+    "SYN, ACK, FIN",
+    "ACK, SYN, SYN-ACK",
+    "SYN, SYN-ACK, ACK",
+    "SYN, FIN, ACK"
+   ],
+   "answer": 2,
+   "explanation": "The client sends SYN, the server replies SYN-ACK, and the client confirms with ACK.",
+   "steps": [
+    "Spot what the question tests: TCP handshake.",
+    "Option A (SYN, ACK, FIN) is out: FIN closes a connection.",
+    "Option B (ACK, SYN, SYN-ACK) is out: The order is wrong.",
+    "Option D (SYN, FIN, ACK) is out: FIN is not part of the opening.",
+    "Common slip to avoid: Mixing the order.",
+    "So the answer is option C: SYN, SYN-ACK, ACK."
+   ],
+   "trap": "Mixing the order.",
+   "revise": "TCP handshake",
+   "wrongReasons": [
+    "FIN closes a connection",
+    "The order is wrong",
+    null,
+    "FIN is not part of the opening"
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "DHCP",
+   "difficulty": "moderate",
+   "text": "Which protocol automatically assigns IP addresses to devices on a network?",
+   "options": [
+    "DNS",
+    "SMTP",
+    "FTP",
+    "DHCP"
+   ],
+   "answer": 3,
+   "explanation": "Dynamic Host Configuration Protocol leases addresses to hosts.",
+   "steps": [
+    "Spot what the question tests: DHCP.",
+    "Option A (DNS) is out: Resolves names.",
+    "Option B (SMTP) is out: Sends email.",
+    "Option C (FTP) is out: Transfers files.",
+    "Common slip to avoid: Choosing DNS.",
+    "So the answer is option D: DHCP."
+   ],
+   "trap": "Choosing DNS.",
+   "revise": "DHCP",
+   "wrongReasons": [
+    "Resolves names",
+    "Sends email",
+    "Transfers files",
+    null
+   ]
+  },
+  {
+   "topic": "DBMS",
+   "subtopic": "Normalisation",
+   "difficulty": "hard",
+   "text": "A table is in second normal form (2NF) if it is in first normal form and:",
+   "options": [
+    "it has no transitive dependencies",
+    "every non-key attribute depends on the whole primary key",
+    "every attribute is multi-valued",
+    "it has no primary key"
+   ],
+   "answer": 1,
+   "explanation": "2NF removes partial dependencies on part of a composite key.",
+   "steps": [
+    "Spot what the question tests: Normal forms.",
+    "Option A (it has no transitive dependencies) is out: This is the condition for 3NF.",
+    "Option C (every attribute is multi-valued) is out: This violates 1NF.",
+    "Option D (it has no primary key) is out: A key is required.",
+    "Common slip to avoid: Mixing up 2NF and 3NF.",
+    "So the answer is option B: every non-key attribute depends on the whole primary key."
+   ],
+   "trap": "Mixing up 2NF and 3NF.",
+   "revise": "Normal forms",
+   "wrongReasons": [
+    "This is the condition for 3NF",
+    null,
+    "This violates 1NF",
+    "A key is required"
+   ]
+  },
+  {
+   "topic": "DBMS",
+   "subtopic": "GROUP BY and HAVING",
+   "difficulty": "hard",
+   "text": "In SQL, which clause is used to filter groups after the GROUP BY clause has been applied?",
+   "options": [
+    "HAVING",
+    "WHERE",
+    "ORDER BY",
+    "DISTINCT"
+   ],
+   "answer": 0,
+   "explanation": "HAVING applies conditions to aggregated groups.",
+   "steps": [
+    "Spot what the question tests: WHERE vs HAVING.",
+    "Option B (WHERE) is out: It filters rows before grouping.",
+    "Option C (ORDER BY) is out: It sorts the result.",
+    "Option D (DISTINCT) is out: It removes duplicates.",
+    "Common slip to avoid: Choosing WHERE.",
+    "So the answer is option A: HAVING."
+   ],
+   "trap": "Choosing WHERE.",
+   "revise": "WHERE vs HAVING",
+   "wrongReasons": [
+    null,
+    "It filters rows before grouping",
+    "It sorts the result",
+    "It removes duplicates"
+   ]
+  },
+  {
+   "topic": "DBMS",
+   "subtopic": "Keys",
+   "difficulty": "moderate",
+   "text": "A candidate key that is chosen to identify the rows of a table uniquely is called the:",
+   "options": [
+    "Foreign key",
+    "Composite key",
+    "Secondary key",
+    "Primary key"
+   ],
+   "answer": 3,
+   "explanation": "One candidate key is selected as the primary key.",
+   "steps": [
+    "Spot what the question tests: Types of keys.",
+    "Option A (Foreign key) is out: Refers to another table.",
+    "Option B (Composite key) is out: Made of more than one column, but not necessarily chosen.",
+    "Option C (Secondary key) is out: Not used for unique identification.",
+    "Common slip to avoid: Choosing foreign key.",
+    "So the answer is option D: Primary key."
+   ],
+   "trap": "Choosing foreign key.",
+   "revise": "Types of keys",
+   "wrongReasons": [
+    "Refers to another table",
+    "Made of more than one column, but not necessarily chosen",
+    "Not used for unique identification",
+    null
+   ]
+  },
+  {
+   "topic": "Cloud and IT Infrastructure",
+   "subtopic": "Big Data",
+   "difficulty": "moderate",
+   "text": "Which of the following is NOT one of the three Vs commonly used to describe big data?",
+   "options": [
+    "Volume",
+    "Validity",
+    "Velocity",
+    "Variety"
+   ],
+   "answer": 1,
+   "explanation": "The three Vs are volume, velocity and variety.",
+   "steps": [
+    "Spot what the question tests: Characteristics of big data.",
+    "Options A, C and D are out: One of the three Vs.",
+    "Common slip to avoid: Not noticing the NOT.",
+    "So the answer is option B: Validity."
+   ],
+   "trap": "Not noticing the NOT.",
+   "revise": "Characteristics of big data",
+   "wrongReasons": [
+    "One of the three Vs",
+    null,
+    "One of the three Vs",
+    "One of the three Vs"
+   ]
+  },
+  {
+   "topic": "Cloud and IT Infrastructure",
+   "subtopic": "Blockchain",
+   "difficulty": "hard",
+   "text": "Which feature makes a blockchain record difficult to alter after it has been added?",
+   "options": [
+    "Each block is stored on one central server",
+    "Each block contains the hash of the previous block",
+    "Blocks are encrypted with a single shared password",
+    "Blocks are deleted after verification"
+   ],
+   "answer": 1,
+   "explanation": "Changing one block changes its hash and breaks all later links.",
+   "steps": [
+    "Spot what the question tests: Blockchain basics.",
+    "Option A (Each block is stored on one central server) is out: Blockchains are distributed.",
+    "Option C (Blocks are encrypted with a single shared passw…) is out: This is not how immutability arises.",
+    "Option D (Blocks are deleted after verification) is out: Records are kept.",
+    "Common slip to avoid: Thinking a central authority protects the data.",
+    "So the answer is option B: Each block contains the hash of the previous block."
+   ],
+   "trap": "Thinking a central authority protects the data.",
+   "revise": "Blockchain basics",
+   "wrongReasons": [
+    "Blockchains are distributed",
+    null,
+    "This is not how immutability arises",
+    "Records are kept"
+   ]
+  },
+  {
+   "topic": "Cloud and IT Infrastructure",
+   "subtopic": "Storage devices",
+   "difficulty": "moderate",
+   "text": "Which of the following is a non-volatile storage device that uses flash memory and has no moving parts?",
+   "options": [
+    "Solid State Drive",
+    "Hard Disk Drive",
+    "RAM module",
+    "Optical disc"
+   ],
+   "answer": 0,
+   "explanation": "An SSD stores data in flash memory without moving parts.",
+   "steps": [
+    "Spot what the question tests: Storage technologies.",
+    "Option B (Hard Disk Drive) is out: Uses spinning platters.",
+    "Option C (RAM module) is out: Volatile memory.",
+    "Option D (Optical disc) is out: Uses a laser and a spinning disc.",
+    "Common slip to avoid: Choosing HDD.",
+    "So the answer is option A: Solid State Drive."
+   ],
+   "trap": "Choosing HDD.",
+   "revise": "Storage technologies",
+   "wrongReasons": [
+    null,
+    "Uses spinning platters",
+    "Volatile memory",
+    "Uses a laser and a spinning disc"
+   ]
+  }
+ ]
+}

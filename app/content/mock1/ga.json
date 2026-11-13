@@ -1,0 +1,777 @@
+{
+ "section": "ga",
+ "questions": [
+  {
+   "topic": "History",
+   "subtopic": "Revolt of 1857",
+   "difficulty": "moderate",
+   "text": "Consider the following statements about the Revolt of 1857.\n1. Rani Lakshmibai led the rebels at Jhansi.\n2. Nana Sahib led the rebellion at Lucknow.\n3. Kunwar Singh led the rebels in the Jagdishpur region of Bihar.",
+   "options": [
+    "1 and 2 only",
+    "1 and 3 only",
+    "2 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 1,
+   "explanation": "Rani Lakshmibai (Jhansi) and Kunwar Singh (Jagdishpur, Bihar) are correctly matched. Lucknow was led by Begum Hazrat Mahal; Nana Sahib led at Kanpur.",
+   "steps": [
+    "Spot what the question tests: Centres and leaders of 1857.",
+    "Option A (1 and 2 only) is out: Statement 2 is wrong: Lucknow was led by Begum Hazrat Mahal; Nana Sahib led at Kanpur.",
+    "Option C (2 and 3 only) is out: Statement 2 is wrong and statement 1 is correct.",
+    "Option D (1, 2 and 3) is out: Statement 2 swaps the leaders of Kanpur and Lucknow.",
+    "Common slip to avoid: Swapping the Kanpur and Lucknow leaders.",
+    "So the answer is option B: 1 and 3 only."
+   ],
+   "trap": "Swapping the Kanpur and Lucknow leaders.",
+   "revise": "Centres and leaders of 1857",
+   "wrongReasons": [
+    "Statement 2 is wrong: Lucknow was led by Begum Hazrat Mahal; Nana Sahib led at Kanpur",
+    null,
+    "Statement 2 is wrong and statement 1 is correct",
+    "Statement 2 swaps the leaders of Kanpur and Lucknow"
+   ]
+  },
+  {
+   "topic": "History",
+   "subtopic": "Land revenue systems",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the Permanent Settlement of 1793.\n1. It was introduced by Lord Cornwallis in Bengal and Bihar.\n2. Zamindars were recognised as owners of land and paid a fixed revenue to the Company.\n3. It was the first system introduced in the Madras and Bombay presidencies.",
+   "options": [
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3",
+    "1 and 2 only"
+   ],
+   "answer": 3,
+   "explanation": "Cornwallis fixed the revenue in perpetuity with the zamindars. Ryotwari (Munro, Read) was used in Madras and Bombay.",
+   "steps": [
+    "Spot what the question tests: Permanent Settlement vs Ryotwari vs Mahalwari.",
+    "Option A (2 and 3 only) is out: Statement 1 is correct, so this option wrongly drops it.",
+    "Option B (1 and 3 only) is out: Statement 2 is correct, so this option wrongly drops it.",
+    "Option C (1, 2 and 3) is out: Madras and Bombay had the Ryotwari system, not the Permanent Settlement.",
+    "Common slip to avoid: Applying the zamindari system to south and west India.",
+    "So the answer is option D: 1 and 2 only."
+   ],
+   "trap": "Applying the zamindari system to south and west India.",
+   "revise": "Permanent Settlement vs Ryotwari vs Mahalwari",
+   "wrongReasons": [
+    "Statement 1 is correct, so this option wrongly drops it",
+    "Statement 2 is correct, so this option wrongly drops it",
+    "Madras and Bombay had the Ryotwari system, not the Permanent Settlement",
+    null
+   ]
+  },
+  {
+   "topic": "History",
+   "subtopic": "Governors-General",
+   "difficulty": "moderate",
+   "text": "Match List I (Governor-General) with List II (Policy or event).\nA. Lord Wellesley  B. Lord Dalhousie  C. Lord Curzon  D. Lord Ripon.\n1. Doctrine of Lapse  2. Subsidiary Alliance  3. Partition of Bengal, 1905  4. Local self-government resolution, 1882",
+   "options": [
+    "A-1, B-2, C-3, D-4",
+    "A-2, B-1, C-3, D-4",
+    "A-2, B-1, C-4, D-3",
+    "A-2, B-3, C-1, D-4"
+   ],
+   "answer": 1,
+   "explanation": "Wellesley: Subsidiary Alliance; Dalhousie: Doctrine of Lapse; Curzon: Partition of Bengal (1905); Ripon: 1882 Local Self-Government resolution.",
+   "steps": [
+    "Spot what the question tests: Governors-General and their policies.",
+    "Option A (A-1, B-2, C-3, D-4) is out: Wellesley and Dalhousie are swapped.",
+    "Option C (A-2, B-1, C-4, D-3) is out: Curzon and Ripon are swapped.",
+    "Option D (A-2, B-3, C-1, D-4) is out: Dalhousie is not linked with the Partition of Bengal.",
+    "Common slip to avoid: Swapping Wellesley and Dalhousie.",
+    "So the answer is option B: A-2, B-1, C-3, D-4."
+   ],
+   "trap": "Swapping Wellesley and Dalhousie.",
+   "revise": "Governors-General and their policies",
+   "wrongReasons": [
+    "Wellesley and Dalhousie are swapped",
+    null,
+    "Curzon and Ripon are swapped",
+    "Dalhousie is not linked with the Partition of Bengal"
+   ]
+  },
+  {
+   "topic": "History",
+   "subtopic": "Chola administration",
+   "difficulty": "hard",
+   "text": "The Uttaramerur inscriptions, which describe the working of village assemblies and the rules for electing their committees, belong to the reign of which Chola ruler?",
+   "options": [
+    "Rajaraja I",
+    "Rajendra I",
+    "Kulottunga I",
+    "Parantaka I"
+   ],
+   "answer": 3,
+   "explanation": "The Uttaramerur inscriptions of Parantaka I (c. 920 CE) detail the sabha and its committees, with eligibility rules and selection by lot.",
+   "steps": [
+    "Spot what the question tests: Chola local self-government.",
+    "Option A (Rajaraja I) is out: He is known for the Brihadeeswara temple and a strong central administration.",
+    "Option B (Rajendra I) is out: He is known for naval expeditions to the Ganga and Southeast Asia.",
+    "Option C (Kulottunga I) is out: He belongs to the later Chola-Chalukya line.",
+    "Common slip to avoid: Choosing Rajaraja I, the best-known Chola king.",
+    "So the answer is option D: Parantaka I."
+   ],
+   "trap": "Choosing Rajaraja I, the best-known Chola king.",
+   "revise": "Chola local self-government",
+   "wrongReasons": [
+    "He is known for the Brihadeeswara temple and a strong central administration",
+    "He is known for naval expeditions to the Ganga and Southeast Asia",
+    "He belongs to the later Chola-Chalukya line",
+    null
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Constitutional amendment",
+   "difficulty": "hard",
+   "text": "Consider the following statements about amendment of the Constitution.\n1. Parliament can amend Fundamental Rights under Article 368, subject to the basic structure.\n2. The basic structure doctrine was laid down in the Kesavananda Bharati case, 1973.\n3. A Constitution Amendment Bill can be introduced only with the prior recommendation of the President.",
+   "options": [
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3",
+    "1 and 2 only"
+   ],
+   "answer": 3,
+   "explanation": "Kesavananda Bharati (1973) allows amendment of rights but not of the basic structure. Prior recommendation of the President is required for Money Bills, not for Constitution Amendment Bills.",
+   "steps": [
+    "Spot what the question tests: Article 368, basic structure.",
+    "Option A (2 and 3 only) is out: Statement 1 is correct, so this option wrongly drops it.",
+    "Option B (1 and 3 only) is out: Statement 2 is correct, so this option wrongly drops it.",
+    "Option C (1, 2 and 3) is out: No prior presidential recommendation is needed to introduce an amendment Bill.",
+    "Common slip to avoid: Mixing the rule for Money Bills with amendment Bills.",
+    "So the answer is option D: 1 and 2 only."
+   ],
+   "trap": "Mixing the rule for Money Bills with amendment Bills.",
+   "revise": "Article 368, basic structure",
+   "wrongReasons": [
+    "Statement 1 is correct, so this option wrongly drops it",
+    "Statement 2 is correct, so this option wrongly drops it",
+    "No prior presidential recommendation is needed to introduce an amendment Bill",
+    null
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Rajya Sabha",
+   "difficulty": "moderate",
+   "text": "Consider the following statements about the Rajya Sabha.\n1. Twelve members are nominated by the President.\n2. Elected members are chosen by the single transferable vote under proportional representation.\n3. It can be dissolved by the President on the advice of the Prime Minister.",
+   "options": [
+    "1 and 2 only",
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 0,
+   "explanation": "The Rajya Sabha has 12 nominated members and is elected by STV; it is never dissolved, one-third of its members retire every second year.",
+   "steps": [
+    "Spot what the question tests: Composition of Parliament.",
+    "Option B (2 and 3 only) is out: Statement 1 is correct, so this option wrongly drops it.",
+    "Option C (1 and 3 only) is out: Statement 2 is correct, so this option wrongly drops it.",
+    "Option D (1, 2 and 3) is out: The Rajya Sabha is a permanent House and is not subject to dissolution.",
+    "Common slip to avoid: Applying Lok Sabha dissolution to the Rajya Sabha.",
+    "So the answer is option A: 1 and 2 only."
+   ],
+   "trap": "Applying Lok Sabha dissolution to the Rajya Sabha.",
+   "revise": "Composition of Parliament",
+   "wrongReasons": [
+    null,
+    "Statement 1 is correct, so this option wrongly drops it",
+    "Statement 2 is correct, so this option wrongly drops it",
+    "The Rajya Sabha is a permanent House and is not subject to dissolution"
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Centre-State legislation",
+   "difficulty": "hard",
+   "text": "Under which Article can Parliament legislate on a subject in the State List in the national interest if the Rajya Sabha passes a resolution supported by two-thirds of members present and voting?",
+   "options": [
+    "Article 249",
+    "Article 250",
+    "Article 252",
+    "Article 253"
+   ],
+   "answer": 0,
+   "explanation": "Article 249 empowers Parliament, after such a Rajya Sabha resolution, to make laws on State List matters for up to one year at a time.",
+   "steps": [
+    "Spot what the question tests: Parliament's power over the State List: Arts 249, 250, 252, 253.",
+    "Option B (Article 250) is out: It applies during a proclamation of emergency.",
+    "Option C (Article 252) is out: It applies when two or more States request Parliament by resolution.",
+    "Option D (Article 253) is out: It applies to give effect to international treaties.",
+    "Common slip to avoid: Choosing Article 250, the emergency provision.",
+    "So the answer is option A: Article 249."
+   ],
+   "trap": "Choosing Article 250, the emergency provision.",
+   "revise": "Parliament's power over the State List: Arts 249, 250, 252, 253",
+   "wrongReasons": [
+    null,
+    "It applies during a proclamation of emergency",
+    "It applies when two or more States request Parliament by resolution",
+    "It applies to give effect to international treaties"
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Finance Commission",
+   "difficulty": "moderate",
+   "text": "The 16th Finance Commission, headed by Arvind Panagariya, is constituted under which Article of the Constitution?",
+   "options": [
+    "Article 275",
+    "Article 148",
+    "Article 324",
+    "Article 280"
+   ],
+   "answer": 3,
+   "explanation": "Article 280 provides for the Finance Commission, constituted every five years to recommend sharing of taxes and grants between the Union and the States.",
+   "steps": [
+    "Spot what the question tests: Finance Commission: Article 280.",
+    "Option A (Article 275) is out: It deals with grants-in-aid to States.",
+    "Option B (Article 148) is out: It deals with the Comptroller and Auditor General.",
+    "Option C (Article 324) is out: It deals with the Election Commission.",
+    "Common slip to avoid: Choosing Article 275 because it mentions grants.",
+    "So the answer is option D: Article 280."
+   ],
+   "trap": "Choosing Article 275 because it mentions grants.",
+   "revise": "Finance Commission: Article 280",
+   "wrongReasons": [
+    "It deals with grants-in-aid to States",
+    "It deals with the Comptroller and Auditor General",
+    "It deals with the Election Commission",
+    null
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "GST",
+   "difficulty": "moderate",
+   "text": "Consider the following statements about the Goods and Services Tax.\n1. The GST Council is established under Article 279A.\n2. The Union Finance Minister is the Chairperson of the GST Council.\n3. Alcohol for human consumption is within the GST regime.",
+   "options": [
+    "1 and 2 only",
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 0,
+   "explanation": "Article 279A created the GST Council with the Union Finance Minister as chairperson. Alcohol for human consumption remains outside GST.",
+   "steps": [
+    "Spot what the question tests: GST Council, exclusions.",
+    "Option B (2 and 3 only) is out: Statement 1 is correct, so this option wrongly drops it.",
+    "Option C (1 and 3 only) is out: Statement 2 is correct, so this option wrongly drops it.",
+    "Option D (1, 2 and 3) is out: Alcohol for human consumption is outside GST and taxed by States.",
+    "Common slip to avoid: Assuming every commodity is under GST.",
+    "So the answer is option A: 1 and 2 only."
+   ],
+   "trap": "Assuming every commodity is under GST.",
+   "revise": "GST Council, exclusions",
+   "wrongReasons": [
+    null,
+    "Statement 1 is correct, so this option wrongly drops it",
+    "Statement 2 is correct, so this option wrongly drops it",
+    "Alcohol for human consumption is outside GST and taxed by States"
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "Banking: CRR and SLR",
+   "difficulty": "hard",
+   "text": "Consider the following statements.\n1. CRR must be maintained by banks as cash balances with the RBI.\n2. SLR may be maintained in liquid assets such as cash, gold and government securities.\n3. Banks earn interest from the RBI on the CRR balances.",
+   "options": [
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3",
+    "1 and 2 only"
+   ],
+   "answer": 3,
+   "explanation": "CRR is held with the RBI and earns no interest; SLR is held by the bank itself in liquid assets.",
+   "steps": [
+    "Spot what the question tests: CRR vs SLR.",
+    "Option A (2 and 3 only) is out: Statement 1 is correct, so this option wrongly drops it.",
+    "Option B (1 and 3 only) is out: Statement 2 is correct, so this option wrongly drops it.",
+    "Option C (1, 2 and 3) is out: The RBI pays no interest on CRR balances.",
+    "Common slip to avoid: Thinking CRR deposits earn interest.",
+    "So the answer is option D: 1 and 2 only."
+   ],
+   "trap": "Thinking CRR deposits earn interest.",
+   "revise": "CRR vs SLR",
+   "wrongReasons": [
+    "Statement 1 is correct, so this option wrongly drops it",
+    "Statement 2 is correct, so this option wrongly drops it",
+    "The RBI pays no interest on CRR balances",
+    null
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "Deficits",
+   "difficulty": "hard",
+   "text": "In a hypothetical budget, total expenditure is Rs 48.0 lakh crore, total receipts excluding borrowings are Rs 33.0 lakh crore and interest payments are Rs 11.0 lakh crore. What is the primary deficit?",
+   "options": [
+    "Rs 15.0 lakh crore",
+    "Rs 4.0 lakh crore",
+    "Rs 11.0 lakh crore",
+    "Rs 26.0 lakh crore"
+   ],
+   "answer": 1,
+   "explanation": "Fiscal deficit = 48.0 - 33.0 = 15.0. Primary deficit = fiscal deficit - interest = 15.0 - 11.0 = 4.0 lakh crore.",
+   "steps": [
+    "Spot what the question tests: Primary deficit = fiscal deficit - interest.",
+    "Option A (Rs 15.0 lakh crore) is out: This is the fiscal deficit, before interest is deducted.",
+    "Option C (Rs 11.0 lakh crore) is out: This is the interest bill, not the deficit.",
+    "Option D (Rs 26.0 lakh crore) is out: Interest has been added instead of subtracted.",
+    "Common slip to avoid: Stopping at the fiscal deficit.",
+    "So the answer is option B: Rs 4.0 lakh crore."
+   ],
+   "trap": "Stopping at the fiscal deficit.",
+   "revise": "Primary deficit = fiscal deficit - interest",
+   "wrongReasons": [
+    "This is the fiscal deficit, before interest is deducted",
+    null,
+    "This is the interest bill, not the deficit",
+    "Interest has been added instead of subtracted"
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "Monetary policy framework",
+   "difficulty": "moderate",
+   "text": "Which committee recommended that India adopt flexible inflation targeting and set up a Monetary Policy Committee?",
+   "options": [
+    "Rangarajan Committee",
+    "Narasimham Committee",
+    "Urjit Patel Committee",
+    "Y. V. Reddy Committee"
+   ],
+   "answer": 2,
+   "explanation": "The Urjit Patel Committee (2014) recommended the monetary policy framework; the MPC was formed in 2016.",
+   "steps": [
+    "Spot what the question tests: Committees: Urjit Patel, Narasimham.",
+    "Option A (Rangarajan Committee) is out: It dealt mainly with poverty estimation and balance of payments.",
+    "Option B (Narasimham Committee) is out: It recommended banking sector reforms.",
+    "Option D (Y. V. Reddy Committee) is out: It is not linked with inflation targeting.",
+    "Common slip to avoid: Choosing the Narasimham Committee.",
+    "So the answer is option C: Urjit Patel Committee."
+   ],
+   "trap": "Choosing the Narasimham Committee.",
+   "revise": "Committees: Urjit Patel, Narasimham",
+   "wrongReasons": [
+    "It dealt mainly with poverty estimation and balance of payments",
+    "It recommended banking sector reforms",
+    null,
+    "It is not linked with inflation targeting"
+   ]
+  },
+  {
+   "topic": "Sports",
+   "subtopic": "Olympics",
+   "difficulty": "moderate",
+   "text": "Consider the following statements about India at recent Olympic Games.\n1. Neeraj Chopra won gold in javelin at Tokyo 2020.\n2. Neeraj Chopra won silver in javelin at Paris 2024.\n3. India won gold in men's hockey at Paris 2024.",
+   "options": [
+    "1 and 2 only",
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 0,
+   "explanation": "India's hockey team won bronze at Paris 2024.",
+   "steps": [
+    "Spot what the question tests: India at Olympics 2020 and 2024.",
+    "Option B (2 and 3 only) is out: Statement 1 is correct, so this option wrongly drops it.",
+    "Option C (1 and 3 only) is out: Statement 2 is correct, so this option wrongly drops it.",
+    "Option D (1, 2 and 3) is out: India won bronze, not gold, in men's hockey at Paris 2024.",
+    "Common slip to avoid: Remembering Tokyo's hockey bronze as gold.",
+    "So the answer is option A: 1 and 2 only."
+   ],
+   "trap": "Remembering Tokyo's hockey bronze as gold.",
+   "revise": "India at Olympics 2020 and 2024",
+   "wrongReasons": [
+    null,
+    "Statement 1 is correct, so this option wrongly drops it",
+    "Statement 2 is correct, so this option wrongly drops it",
+    "India won bronze, not gold, in men's hockey at Paris 2024"
+   ]
+  },
+  {
+   "topic": "Geography",
+   "subtopic": "Indian rivers",
+   "difficulty": "hard",
+   "text": "Consider the following statements about Indian rivers.\n1. The Godavari is the longest river of peninsular India.\n2. The Narmada and Tapi flow westward into the Arabian Sea through rift valleys.\n3. The Mahanadi flows westward into the Arabian Sea.",
+   "options": [
+    "2 and 3 only",
+    "1 and 2 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 1,
+   "explanation": "The Mahanadi drains into the Bay of Bengal.",
+   "steps": [
+    "Spot what the question tests: East- and west-flowing peninsular rivers.",
+    "Option A (2 and 3 only) is out: Statement 1 is correct, so this option wrongly drops it.",
+    "Option C (1 and 3 only) is out: Statement 2 is correct, so this option wrongly drops it.",
+    "Option D (1, 2 and 3) is out: The Mahanadi flows east into the Bay of Bengal.",
+    "Common slip to avoid: Treating all large rivers of central India as west-flowing.",
+    "So the answer is option B: 1 and 2 only."
+   ],
+   "trap": "Treating all large rivers of central India as west-flowing.",
+   "revise": "East- and west-flowing peninsular rivers",
+   "wrongReasons": [
+    "Statement 1 is correct, so this option wrongly drops it",
+    null,
+    "Statement 2 is correct, so this option wrongly drops it",
+    "The Mahanadi flows east into the Bay of Bengal"
+   ]
+  },
+  {
+   "topic": "Geography",
+   "subtopic": "Environment treaties",
+   "difficulty": "moderate",
+   "text": "The Kigali Amendment to the Montreal Protocol aims to phase down which group of substances?",
+   "options": [
+    "Chlorofluorocarbons",
+    "Methane emissions from livestock",
+    "Hydrofluorocarbons",
+    "Black carbon"
+   ],
+   "answer": 2,
+   "explanation": "The 2016 Kigali Amendment targets HFCs, which do not harm ozone but are strong greenhouse gases.",
+   "steps": [
+    "Spot what the question tests: Montreal Protocol and Kigali Amendment.",
+    "Option A (Chlorofluorocarbons) is out: Phased out under the original Montreal Protocol.",
+    "Options B and D are out: Not covered by the amendment.",
+    "Common slip to avoid: Choosing CFCs, the original target of the Protocol.",
+    "So the answer is option C: Hydrofluorocarbons."
+   ],
+   "trap": "Choosing CFCs, the original target of the Protocol.",
+   "revise": "Montreal Protocol and Kigali Amendment",
+   "wrongReasons": [
+    "Phased out under the original Montreal Protocol",
+    "Not covered by the amendment",
+    null,
+    "Not covered by the amendment"
+   ]
+  },
+  {
+   "topic": "Science",
+   "subtopic": "Nutrition and deficiency",
+   "difficulty": "easy",
+   "text": "Which of the following pairs of a disease and its related vitamin is NOT correctly matched?",
+   "options": [
+    "Night blindness - Vitamin A",
+    "Beriberi - Vitamin B1",
+    "Scurvy - Vitamin C",
+    "Pellagra - Vitamin B12"
+   ],
+   "answer": 3,
+   "explanation": "Pellagra results from a deficiency of niacin (Vitamin B3). Vitamin B12 deficiency causes pernicious anaemia.",
+   "steps": [
+    "Spot what the question tests: Vitamin deficiency diseases.",
+    "Options A, B and C are out: Correctly matched.",
+    "Common slip to avoid: Not noticing the NOT in the stem.",
+    "So the answer is option D: Pellagra - Vitamin B12."
+   ],
+   "trap": "Not noticing the NOT in the stem.",
+   "revise": "Vitamin deficiency diseases",
+   "wrongReasons": [
+    "Correctly matched",
+    "Correctly matched",
+    "Correctly matched",
+    null
+   ]
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Sports",
+   "difficulty": "easy",
+   "text": "Royal Challengers Bengaluru won the IPL 2026 title, their second in a row. Which team did they beat in the final at the Narendra Modi Stadium, Ahmedabad?",
+   "options": [
+    "Gujarat Titans",
+    "Punjab Kings",
+    "Mumbai Indians",
+    "Delhi Capitals"
+   ],
+   "answer": 0,
+   "explanation": "RCB, led by Rajat Patidar, beat Gujarat Titans (captain Shubman Gill) by 5 wickets in the IPL 2026 final, chasing 156 after GT made 155/8.",
+   "steps": [
+    "Spot what the question tests: IPL 2026.",
+    "Option B (Punjab Kings) is out: They were RCB's opponents in the 2025 final.",
+    "Option C (Mumbai Indians) is out: They did not play the 2026 final.",
+    "Option D (Delhi Capitals) is out: They did not play the 2026 final.",
+    "Common slip to avoid: Remembering the 2025 final opponent.",
+    "So the answer is option A: Gujarat Titans."
+   ],
+   "trap": "Remembering the 2025 final opponent.",
+   "revise": "IPL 2026",
+   "wrongReasons": [
+    null,
+    "They were RCB's opponents in the 2025 final",
+    "They did not play the 2026 final",
+    "They did not play the 2026 final"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-05",
+   "source": "BCCI"
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Sports",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the 2026 French Open (Roland Garros).\n1. Alexander Zverev won the men's singles title, his first Grand Slam.\n2. Mirra Andreeva won the women's singles title, her first Grand Slam.\n3. Zverev beat Jannik Sinner in the men's final.",
+   "options": [
+    "2 and 3 only",
+    "1 and 2 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 1,
+   "explanation": "Zverev beat Italy's Flavio Cobolli in the 2026 men's final, and Andreeva beat Maja Chwalinska in the women's final. Sinner won Wimbledon later in 2026, not the French Open final.",
+   "steps": [
+    "Spot what the question tests: French Open 2026.",
+    "Option A (2 and 3 only) is out: Statement 1 is correct, so this option wrongly drops it.",
+    "Option C (1 and 3 only) is out: Statement 2 is correct, so this option wrongly drops it.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Assuming Sinner reached every 2026 final.",
+    "So the answer is option B: 1 and 2 only."
+   ],
+   "trap": "Assuming Sinner reached every 2026 final.",
+   "revise": "French Open 2026",
+   "wrongReasons": [
+    "Statement 1 is correct, so this option wrongly drops it",
+    null,
+    "Statement 2 is correct, so this option wrongly drops it",
+    "Statement 3 is incorrect"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-06",
+   "source": "Roland Garros"
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Judiciary",
+   "difficulty": "hard",
+   "text": "Consider the following statements.\n1. Justice Surya Kant was sworn in as the 53rd Chief Justice of India in November 2025.\n2. Judges of the Supreme Court retire at the age of 62.\n3. The Chief Justice is appointed by the President under Article 124.",
+   "options": [
+    "1 and 2 only",
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 2,
+   "explanation": "Supreme Court judges retire at 65; High Court judges at 62.",
+   "steps": [
+    "Spot what the question tests: Supreme Court judges: appointment and age.",
+    "Option A (1 and 2 only) is out: Statement 2 is wrong: Supreme Court judges retire at 65.",
+    "Option B (2 and 3 only) is out: Statement 2 is wrong and statement 1 is correct.",
+    "Option D (1, 2 and 3) is out: Statement 2 is wrong: retirement age is 65, not 62.",
+    "Common slip to avoid: Mixing the retirement ages of Supreme and High Court judges.",
+    "So the answer is option C: 1 and 3 only."
+   ],
+   "trap": "Mixing the retirement ages of Supreme and High Court judges.",
+   "revise": "Supreme Court judges: appointment and age",
+   "wrongReasons": [
+    "Statement 2 is wrong: Supreme Court judges retire at 65",
+    "Statement 2 is wrong and statement 1 is correct",
+    null,
+    "Statement 2 is wrong: retirement age is 65, not 62"
+   ],
+   "currentAffairs": true,
+   "asOf": "2025-11",
+   "source": "Supreme Court of India, PIB"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "International",
+   "difficulty": "easy",
+   "text": "The 2025 G20 Leaders' Summit, held in Johannesburg, was the first G20 summit hosted on which continent?",
+   "options": [
+    "Asia",
+    "South America",
+    "Africa",
+    "Oceania"
+   ],
+   "answer": 2,
+   "explanation": "South Africa's presidency brought the G20 summit to Africa for the first time, in November 2025.",
+   "steps": [
+    "Spot what the question tests: G20 hosts 2023-2025.",
+    "Option A (Asia) is out: India hosted the 2023 summit in New Delhi.",
+    "Option B (South America) is out: Brazil hosted in 2024, but it was not the first there.",
+    "Option D (Oceania) is out: No G20 summit has been held there.",
+    "Common slip to avoid: Remembering Brazil 2024.",
+    "So the answer is option C: Africa."
+   ],
+   "trap": "Remembering Brazil 2024.",
+   "revise": "G20 hosts 2023-2025",
+   "wrongReasons": [
+    "India hosted the 2023 summit in New Delhi",
+    "Brazil hosted in 2024, but it was not the first there",
+    null,
+    "No G20 summit has been held there"
+   ],
+   "currentAffairs": true,
+   "asOf": "2025-11",
+   "source": "MEA, South African Government"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Awards",
+   "difficulty": "hard",
+   "text": "Anne Carson, awarded the 2026 Nobel Prize in Literature, is a poet, essayist and translator from which country?",
+   "options": [
+    "Canada",
+    "United States",
+    "Ireland",
+    "Australia"
+   ],
+   "answer": 0,
+   "explanation": "The 2026 Nobel Prize in Literature went to Anne Carson of Canada, honoured for work that blends prose, poetry and translation and reimagines classical myth.",
+   "steps": [
+    "Spot what the question tests: Nobel Literature 2026.",
+    "Option B (United States) is out: She is widely published in the US but is Canadian.",
+    "Option C (Ireland) is out: Not her country.",
+    "Option D (Australia) is out: Not her country.",
+    "Common slip to avoid: Assuming a US writer because her books are mostly published there.",
+    "So the answer is option A: Canada."
+   ],
+   "trap": "Assuming a US writer because her books are mostly published there.",
+   "revise": "Nobel Literature 2026",
+   "wrongReasons": [
+    null,
+    "She is widely published in the US but is Canadian",
+    "Not her country",
+    "Not her country"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-10",
+   "source": "Nobel Committee"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Economy",
+   "difficulty": "hard",
+   "text": "The Union Budget 2026-27 set the fiscal deficit target at what percentage of GDP?",
+   "options": [
+    "4.4%",
+    "4.5%",
+    "4.3%",
+    "4.8%"
+   ],
+   "answer": 2,
+   "explanation": "The Budget 2026-27 targeted a fiscal deficit of 4.3% of GDP, continuing the consolidation path.",
+   "steps": [
+    "Spot what the question tests: Union Budget 2026-27.",
+    "Option A (4.4%) is out: The previous year's target.",
+    "Option B (4.5%) is out: The FY26 glide-path target.",
+    "Option D (4.8%) is out: A higher figure not set for 2026-27.",
+    "Common slip to avoid: Recalling the FY26 figure.",
+    "So the answer is option C: 4.3%."
+   ],
+   "trap": "Recalling the FY26 figure.",
+   "revise": "Union Budget 2026-27",
+   "wrongReasons": [
+    "The previous year's target",
+    "The FY26 glide-path target",
+    null,
+    "A higher figure not set for 2026-27"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-02",
+   "source": "Union Budget documents, PIB"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Policy",
+   "difficulty": "moderate",
+   "text": "Which one of the following is NOT among the four Labour Codes brought into force in India from 21 November 2025?",
+   "options": [
+    "Code on Minimum Employment Guarantee",
+    "Code on Wages",
+    "Industrial Relations Code",
+    "Code on Social Security"
+   ],
+   "answer": 0,
+   "explanation": "The four codes are Wages, Industrial Relations, Social Security, and Occupational Safety, Health and Working Conditions, replacing 29 laws.",
+   "steps": [
+    "Spot what the question tests: Four Labour Codes.",
+    "Options B, C and D are out: It is one of the four codes.",
+    "Common slip to avoid: Not noticing the NOT.",
+    "So the answer is option A: Code on Minimum Employment Guarantee."
+   ],
+   "trap": "Not noticing the NOT.",
+   "revise": "Four Labour Codes",
+   "wrongReasons": [
+    null,
+    "It is one of the four codes",
+    "It is one of the four codes",
+    "It is one of the four codes"
+   ],
+   "currentAffairs": true,
+   "asOf": "2025-11",
+   "source": "Ministry of Labour, PIB"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Awards",
+   "difficulty": "moderate",
+   "text": "Who was awarded the 2026 Nobel Peace Prize?",
+   "options": [
+    "Maria Ressa",
+    "Navi Pillay",
+    "Narges Mohammadi",
+    "María Corina Machado"
+   ],
+   "answer": 1,
+   "explanation": "The 2026 Nobel Peace Prize went to Navi Pillay, a South African jurist and former UN High Commissioner for Human Rights, for promoting international law and human rights.",
+   "steps": [
+    "Spot what the question tests: Nobel Peace Prize 2026.",
+    "Option A (Maria Ressa) is out: She shared the 2021 Peace Prize, not the 2026 one.",
+    "Option C (Narges Mohammadi) is out: She won in 2023.",
+    "Option D (María Corina Machado) is out: She won in 2025.",
+    "Common slip to avoid: Picking a recent laureate from 2021, 2023 or 2025.",
+    "So the answer is option B: Navi Pillay."
+   ],
+   "trap": "Picking a recent laureate from 2021, 2023 or 2025.",
+   "revise": "Nobel Peace Prize 2026",
+   "wrongReasons": [
+    "She shared the 2021 Peace Prize, not the 2026 one",
+    null,
+    "She won in 2023",
+    "She won in 2025"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-10",
+   "source": "Nobel Committee"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Economy",
+   "difficulty": "hard",
+   "text": "In its October 2026 policy, the RBI's Monetary Policy Committee raised the repo rate by 25 basis points. To which level, and with what stance?",
+   "options": [
+    "5.25%, neutral",
+    "5.75%, calibrated tightening",
+    "5.50%, calibrated tightening",
+    "5.50%, accommodative"
+   ],
+   "answer": 2,
+   "explanation": "The MPC raised the repo rate from 5.25% to 5.50% and shifted its stance to calibrated tightening.",
+   "steps": [
+    "Spot what the question tests: RBI MPC October 2026.",
+    "Option A (5.25%, neutral) is out: 5.25% was the rate before the hike.",
+    "Option B (5.75%, calibrated tightening) is out: The hike was 25 bps, taking it to 5.50%.",
+    "Option D (5.50%, accommodative) is out: The stance shifted to tightening, not accommodation.",
+    "Common slip to avoid: Mixing the pre-hike rate with the new stance.",
+    "So the answer is option C: 5.50%, calibrated tightening."
+   ],
+   "trap": "Mixing the pre-hike rate with the new stance.",
+   "revise": "RBI MPC October 2026",
+   "wrongReasons": [
+    "5.25% was the rate before the hike",
+    "The hike was 25 bps, taking it to 5.50%",
+    null,
+    "The stance shifted to tightening, not accommodation"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-10",
+   "source": "RBI press release"
+  }
+ ]
+}

@@ -1,0 +1,1354 @@
+{
+ "section": "english",
+ "passages": {
+  "p1": "A paper document that survives in a damp cupboard for a century is a nuisance to archivists; a digital file that survives for a decade is a minor miracle. The paradox of the digital age is that the more easily information is created, the less likely it is to endure. Formats go out of fashion, software that once opened them is no longer sold, and the storage media decay faster than most people suppose. Archivists therefore speak less of storing than of tending: files must be copied to new media every few years, converted to open formats whose specifications are public, and accompanied by notes explaining how they were made. This work is costly, invisible when done well, and noticed only when it fails. Governments that boast of digitising records often budget for the scanning but not for the tending, so that millions of pages are converted at great expense and then left to deteriorate on unattended servers. A few institutions have begun to treat preservation as a standing duty rather than a project, setting aside a fixed fraction of every digitisation grant for upkeep. Critics call this timid, arguing that no fraction can match the pace of technological change; yet the alternative, they concede, is to preserve nothing at all.",
+  "p2": "Cities that make buses free are often praised for their generosity and, just as often, accused of fiscal naivety. Both verdicts miss the point. A fare is not merely revenue; it is also a filter, discouraging trips that are not worth the price and thereby limiting crowding. Remove it, and demand rises, much of it from passengers who previously walked or cycled rather than from motorists, which is the opposite of what planners hoped. Yet the gains are not negligible: boarding is faster, since nobody fumbles for coins, and the poorest travellers, who spend a larger share of income on fares, benefit disproportionately. The experience of towns that have tried it suggests a middle course. Free travel for students, the elderly and job-seekers captures most of the social benefit at a fraction of the cost, while leaving the filter in place for the rest. The difficulty is administrative: any targeted scheme needs a means of proving eligibility, and the cost of checking can erode the savings. Proponents of universal free travel are therefore not wrong to say that simplicity has its own value, but they must then explain who will pay for the extra buses.",
+  "p3": "Deep in a mountain on the Norwegian island of Svalbard lies a vault holding duplicates of seed samples from gene banks around the world. It is often described as an insurance policy against catastrophe, but its most frequent use has been mundane. When war ruined the gene bank in Aleppo, researchers drew on the duplicates stored in the vault to rebuild their collection elsewhere. The episode taught conservationists a lesson that the vault's romantic reputation tends to obscure: seeds are not museum pieces. A sample that is stored but never grown loses viability, and a variety that farmers no longer plant ceases to adapt to changing pests and weather. The most resilient collections, therefore, are those that are repeatedly regrown, shared and replaced. Critics of the large vaults argue that money would be better spent on supporting farmers who still cultivate old varieties in their fields, where the plants continue to evolve. Defenders reply that the two methods are complements, not rivals: the vault protects the diversity that the field cannot, and the field supplies the fresh seed that the vault needs.",
+  "p4": "Scarcely had the monsoon (1) over the town when the river, long reduced to a thread of grey water, began to (2) its banks. Farmers who had (3) the sky for weeks now stood on the embankment, torn between relief and (4) at the speed of the rise. Officials, (5) of an earlier flood, had already moved the families from the lowest huts."
+ },
+ "questions": [
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Central idea",
+   "difficulty": "hard",
+   "text": "Which of the following best expresses the central argument of the passage?",
+   "options": [
+    "Paper records are more reliable than digital ones in every respect",
+    "Governments should stop digitising records",
+    "Open file formats have made preservation unnecessary",
+    "Digital preservation needs continuing care and funding, not just a one-time conversion"
+   ],
+   "answer": 3,
+   "explanation": "The passage argues that creating digital records is easy but keeping them alive requires continuing, funded work.",
+   "steps": [
+    "Spot what the question tests: Central idea: the claim the passage supports.",
+    "Option A (Paper records are more reliable than digital on…) is out: The passage calls paper survival a nuisance only in contrast and does not claim this.",
+    "Option B (Governments should stop digitising records) is out: The passage criticises poor upkeep, not digitisation.",
+    "Option C (Open file formats have made preservation unnece…) is out: Open formats are part of the tending, not a replacement for it.",
+    "Common slip to avoid: Taking the opening contrast as the argument.",
+    "So the answer is option D: Digital preservation needs continuing care and funding, not just a on…."
+   ],
+   "trap": "Taking the opening contrast as the argument.",
+   "revise": "Central idea: the claim the passage supports",
+   "wrongReasons": [
+    "The passage calls paper survival a nuisance only in contrast and does not claim this",
+    "The passage criticises poor upkeep, not digitisation",
+    "Open formats are part of the tending, not a replacement for it",
+    null
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "NOT / EXCEPT",
+   "difficulty": "hard",
+   "text": "According to the passage, archivists do each of the following to keep digital files usable EXCEPT:",
+   "options": [
+    "copying files to new media every few years",
+    "converting files to open formats",
+    "adding notes on how the files were made",
+    "printing every file on acid-free paper"
+   ],
+   "answer": 3,
+   "explanation": "Printing is not mentioned; the passage lists copying, converting and documenting.",
+   "steps": [
+    "Spot what the question tests: EXCEPT questions.",
+    "Options A, B and C are out: Stated.",
+    "Common slip to avoid: Picking a stated task.",
+    "So the answer is option D: printing every file on acid-free paper."
+   ],
+   "trap": "Picking a stated task.",
+   "revise": "EXCEPT questions",
+   "wrongReasons": [
+    "Stated",
+    "Stated",
+    "Stated",
+    null
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Tone / attitude",
+   "difficulty": "hard",
+   "text": "The author's attitude towards governments that boast of digitising records is best described as:",
+   "options": [
+    "approving",
+    "neutral",
+    "sceptical",
+    "sympathetic"
+   ],
+   "answer": 2,
+   "explanation": "The author notes that governments budget for scanning but not for upkeep, which is a sceptical remark.",
+   "steps": [
+    "Spot what the question tests: Tone questions.",
+    "Option A (approving) is out: The author points to neglect, not praise.",
+    "Option B (neutral) is out: The comment is pointed, not neutral.",
+    "Option D (sympathetic) is out: No sympathy is expressed.",
+    "Common slip to avoid: Reading the report of boasting as approval.",
+    "So the answer is option C: sceptical."
+   ],
+   "trap": "Reading the report of boasting as approval.",
+   "revise": "Tone questions",
+   "wrongReasons": [
+    "The author points to neglect, not praise",
+    "The comment is pointed, not neutral",
+    null,
+    "No sympathy is expressed"
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Vocabulary in context",
+   "difficulty": "moderate",
+   "text": "The word 'tending' as used in the passage most nearly means:",
+   "options": [
+    "continuing care",
+    "sudden replacement",
+    "inclination",
+    "careless storage"
+   ],
+   "answer": 0,
+   "explanation": "Archivists speak less of storing than of tending, so tending means ongoing care.",
+   "steps": [
+    "Spot what the question tests: Vocabulary: tending.",
+    "Option B (sudden replacement) is out: The passage speaks of regular care.",
+    "Option C (inclination) is out: This is another sense of the word.",
+    "Option D (careless storage) is out: The passage contrasts tending with storing.",
+    "Common slip to avoid: Choosing the 'inclination' sense.",
+    "So the answer is option A: continuing care."
+   ],
+   "trap": "Choosing the 'inclination' sense.",
+   "revise": "Vocabulary: tending",
+   "wrongReasons": [
+    null,
+    "The passage speaks of regular care",
+    "This is another sense of the word",
+    "The passage contrasts tending with storing"
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Inference",
+   "difficulty": "hard",
+   "text": "It can be inferred that the critics mentioned at the end of the passage:",
+   "options": [
+    "oppose any funding for preservation",
+    "think technological change is slowing",
+    "believe digitisation should stop",
+    "consider the fixed-fraction approach better than doing nothing"
+   ],
+   "answer": 3,
+   "explanation": "They call the approach timid but concede the alternative is to preserve nothing.",
+   "steps": [
+    "Spot what the question tests: Inference: concessions.",
+    "Option A (oppose any funding for preservation) is out: They concede that doing nothing is the alternative.",
+    "Option B (think technological change is slowing) is out: They stress its pace.",
+    "Option C (believe digitisation should stop) is out: Not stated.",
+    "Common slip to avoid: Reading criticism as rejection.",
+    "So the answer is option D: consider the fixed-fraction approach better than doing nothing."
+   ],
+   "trap": "Reading criticism as rejection.",
+   "revise": "Inference: concessions",
+   "wrongReasons": [
+    "They concede that doing nothing is the alternative",
+    "They stress its pace",
+    "Not stated",
+    null
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Central idea",
+   "difficulty": "hard",
+   "text": "What is the main point of the passage?",
+   "options": [
+    "Free buses always reduce car use",
+    "Fares should be raised in all cities",
+    "Students and the elderly should not be given any concession",
+    "Free fares bring real benefits but also unexpected costs, which makes targeted schemes a sensible middle course"
+   ],
+   "answer": 3,
+   "explanation": "The passage weighs benefits and drawbacks and favours free travel for selected groups.",
+   "steps": [
+    "Spot what the question tests: Main idea: balanced arguments.",
+    "Option A (Free buses always reduce car use) is out: The passage says most new riders came from walking or cycling.",
+    "Option B (Fares should be raised in all cities) is out: Not argued.",
+    "Option C (Students and the elderly should not be given an…) is out: The passage supports such concessions.",
+    "Common slip to avoid: Choosing a one-sided option.",
+    "So the answer is option D: Free fares bring real benefits but also unexpected costs, which makes…."
+   ],
+   "trap": "Choosing a one-sided option.",
+   "revise": "Main idea: balanced arguments",
+   "wrongReasons": [
+    "The passage says most new riders came from walking or cycling",
+    "Not argued",
+    "The passage supports such concessions",
+    null
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Detail",
+   "difficulty": "hard",
+   "text": "According to the passage, where do most of the new passengers on free buses come from?",
+   "options": [
+    "Motorists leaving their cars",
+    "People who previously walked or cycled",
+    "Tourists",
+    "Residents of neighbouring towns"
+   ],
+   "answer": 1,
+   "explanation": "Demand rises mostly from those who earlier walked or cycled, not from motorists.",
+   "steps": [
+    "Spot what the question tests: Detail questions.",
+    "Option A (Motorists leaving their cars) is out: The passage says the opposite.",
+    "Options C and D are out: Not mentioned.",
+    "Common slip to avoid: Assuming planners' hopes came true.",
+    "So the answer is option B: People who previously walked or cycled."
+   ],
+   "trap": "Assuming planners' hopes came true.",
+   "revise": "Detail questions",
+   "wrongReasons": [
+    "The passage says the opposite",
+    null,
+    "Not mentioned",
+    "Not mentioned"
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "NOT / EXCEPT",
+   "difficulty": "hard",
+   "text": "Each of the following is mentioned as a benefit of free bus travel EXCEPT:",
+   "options": [
+    "faster boarding",
+    "a sharp fall in car traffic",
+    "a greater gain for poorer travellers",
+    "most of the social benefit at lower cost, if limited to selected groups"
+   ],
+   "answer": 1,
+   "explanation": "The passage says motorists did not switch in large numbers.",
+   "steps": [
+    "Spot what the question tests: EXCEPT questions.",
+    "Options A, C and D are out: Stated.",
+    "Common slip to avoid: Choosing a stated benefit.",
+    "So the answer is option B: a sharp fall in car traffic."
+   ],
+   "trap": "Choosing a stated benefit.",
+   "revise": "EXCEPT questions",
+   "wrongReasons": [
+    "Stated",
+    null,
+    "Stated",
+    "Stated"
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Vocabulary in context",
+   "difficulty": "moderate",
+   "text": "The word 'disproportionately' as used in the passage most nearly means:",
+   "options": [
+    "equally",
+    "rarely",
+    "temporarily",
+    "to a greater degree than their numbers would suggest"
+   ],
+   "answer": 3,
+   "explanation": "The poorest benefit more, relative to their numbers, because fares take a bigger share of their income.",
+   "steps": [
+    "Spot what the question tests: Vocabulary: disproportionately.",
+    "Option A (equally) is out: Opposite of the sense.",
+    "Options B and C are out: Not the sense.",
+    "Common slip to avoid: Reading it as 'equally'.",
+    "So the answer is option D: to a greater degree than their numbers would suggest."
+   ],
+   "trap": "Reading it as 'equally'.",
+   "revise": "Vocabulary: disproportionately",
+   "wrongReasons": [
+    "Opposite of the sense",
+    "Not the sense",
+    "Not the sense",
+    null
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Inference",
+   "difficulty": "hard",
+   "text": "The author implies that universal free travel:",
+   "options": [
+    "is simple to administer but raises the question of who will pay",
+    "is certain to fail",
+    "has no administrative difficulty and no cost",
+    "is cheaper than targeted schemes"
+   ],
+   "answer": 0,
+   "explanation": "The final sentence grants the value of simplicity but asks who will pay for the extra buses.",
+   "steps": [
+    "Spot what the question tests: Inference: last sentence.",
+    "Option B (is certain to fail) is out: Not implied.",
+    "Option C (has no administrative difficulty and no cost) is out: The passage mentions cost.",
+    "Option D (is cheaper than targeted schemes) is out: Not stated.",
+    "Common slip to avoid: Ignoring the closing sentence.",
+    "So the answer is option A: is simple to administer but raises the question of who will pay."
+   ],
+   "trap": "Ignoring the closing sentence.",
+   "revise": "Inference: last sentence",
+   "wrongReasons": [
+    null,
+    "Not implied",
+    "The passage mentions cost",
+    "Not stated"
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Central idea",
+   "difficulty": "hard",
+   "text": "The passage is primarily concerned with:",
+   "options": [
+    "why seed collections need regrowing and sharing as well as storage",
+    "the geography of Svalbard",
+    "the history of the war in Aleppo",
+    "the cost of building seed vaults"
+   ],
+   "answer": 0,
+   "explanation": "The passage uses the Aleppo episode to argue that seeds must be regrown to stay viable.",
+   "steps": [
+    "Spot what the question tests: Central idea.",
+    "Option B (the geography of Svalbard) is out: Only the setting.",
+    "Option C (the history of the war in Aleppo) is out: Only an example.",
+    "Option D (the cost of building seed vaults) is out: Not discussed.",
+    "Common slip to avoid: Choosing the opening scene.",
+    "So the answer is option A: why seed collections need regrowing and sharing as well as storage."
+   ],
+   "trap": "Choosing the opening scene.",
+   "revise": "Central idea",
+   "wrongReasons": [
+    null,
+    "Only the setting",
+    "Only an example",
+    "Not discussed"
+   ],
+   "passageId": "p3"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Detail",
+   "difficulty": "moderate",
+   "text": "According to the passage, what has been the most frequent use of the Svalbard vault?",
+   "options": [
+    "Displaying seeds to visitors",
+    "Rebuilding collections damaged elsewhere",
+    "Testing new varieties of crops",
+    "Selling duplicate seeds"
+   ],
+   "answer": 1,
+   "explanation": "The passage says its use has been mundane, for example rebuilding the Aleppo collection.",
+   "steps": [
+    "Spot what the question tests: Detail questions.",
+    "Option A (Displaying seeds to visitors) is out: Contradicts the museum-piece remark.",
+    "Options C and D are out: Not mentioned.",
+    "Common slip to avoid: Choosing the romantic image.",
+    "So the answer is option B: Rebuilding collections damaged elsewhere."
+   ],
+   "trap": "Choosing the romantic image.",
+   "revise": "Detail questions",
+   "wrongReasons": [
+    "Contradicts the museum-piece remark",
+    null,
+    "Not mentioned",
+    "Not mentioned"
+   ],
+   "passageId": "p3"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Vocabulary in context",
+   "difficulty": "moderate",
+   "text": "The word 'mundane' as used in the passage most nearly means:",
+   "options": [
+    "worldwide",
+    "dramatic",
+    "secret",
+    "ordinary"
+   ],
+   "answer": 3,
+   "explanation": "'Mundane' contrasts with the romantic image of a catastrophe insurance policy.",
+   "steps": [
+    "Spot what the question tests: Vocabulary: mundane.",
+    "Option A (worldwide) is out: A different sense.",
+    "Option B (dramatic) is out: Opposite.",
+    "Option C (secret) is out: Not suggested.",
+    "Common slip to avoid: Taking 'mundane' to mean 'of the world'.",
+    "So the answer is option D: ordinary."
+   ],
+   "trap": "Taking 'mundane' to mean 'of the world'.",
+   "revise": "Vocabulary: mundane",
+   "wrongReasons": [
+    "A different sense",
+    "Opposite",
+    "Not suggested",
+    null
+   ],
+   "passageId": "p3"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Inference",
+   "difficulty": "hard",
+   "text": "Which of the following can be inferred about a seed sample that is stored but never grown?",
+   "options": [
+    "It may lose its ability to germinate",
+    "It will become more resistant to pests",
+    "It will multiply in the vault",
+    "It will be used first in an emergency"
+   ],
+   "answer": 0,
+   "explanation": "The passage says such a sample loses viability.",
+   "steps": [
+    "Spot what the question tests: Inference.",
+    "Option B (It will become more resistant to pests) is out: The passage says varieties that are not grown fail to adapt.",
+    "Options C and D are out: Not stated.",
+    "Common slip to avoid: Assuming stored seeds are safe forever.",
+    "So the answer is option A: It may lose its ability to germinate."
+   ],
+   "trap": "Assuming stored seeds are safe forever.",
+   "revise": "Inference",
+   "wrongReasons": [
+    null,
+    "The passage says varieties that are not grown fail to adapt",
+    "Not stated",
+    "Not stated"
+   ],
+   "passageId": "p3"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Author's view",
+   "difficulty": "hard",
+   "text": "The author's view of the debate between vault supporters and field conservationists is that:",
+   "options": [
+    "the two approaches are complements rather than rivals",
+    "only the vault matters",
+    "only the farmers matter",
+    "neither method works"
+   ],
+   "answer": 0,
+   "explanation": "Defenders say the vault protects diversity the field cannot and the field supplies fresh seed; the passage leans on this view.",
+   "steps": [
+    "Spot what the question tests: Author's view: reading the final lines.",
+    "Options B and C are out: The passage gives both methods a role.",
+    "Option D (neither method works) is out: Not stated.",
+    "Common slip to avoid: Taking one side.",
+    "So the answer is option A: the two approaches are complements rather than rivals."
+   ],
+   "trap": "Taking one side.",
+   "revise": "Author's view: reading the final lines",
+   "wrongReasons": [
+    null,
+    "The passage gives both methods a role",
+    "The passage gives both methods a role",
+    "Not stated"
+   ],
+   "passageId": "p3"
+  },
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Verb form",
+   "difficulty": "hard",
+   "text": "Choose the correct word for blank (1).",
+   "options": [
+    "broke",
+    "broken",
+    "breaks",
+    "breaking"
+   ],
+   "answer": 1,
+   "explanation": "'Scarcely had + subject + past participle ... when'.",
+   "steps": [
+    "Spot what the question tests: Scarcely ... when.",
+    "Options A, C and D are out: 'Scarcely had' needs the past participle.",
+    "Common slip to avoid: Using the simple past after 'had'.",
+    "So the answer is option B: broken."
+   ],
+   "trap": "Using the simple past after 'had'.",
+   "revise": "Scarcely ... when",
+   "wrongReasons": [
+    "'Scarcely had' needs the past participle",
+    null,
+    "'Scarcely had' needs the past participle",
+    "'Scarcely had' needs the past participle"
+   ],
+   "passageId": "p4"
+  },
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Verb form",
+   "difficulty": "moderate",
+   "text": "Choose the correct word for blank (2).",
+   "options": [
+    "overflowed",
+    "overflowing",
+    "overflows",
+    "overflow"
+   ],
+   "answer": 3,
+   "explanation": "'Began to' is followed by the base form.",
+   "steps": [
+    "Spot what the question tests: Infinitive after began.",
+    "Options A, B and C are out: 'Began to' takes the base form.",
+    "Common slip to avoid: Using a past tense after 'to'.",
+    "So the answer is option D: overflow."
+   ],
+   "trap": "Using a past tense after 'to'.",
+   "revise": "Infinitive after began",
+   "wrongReasons": [
+    "'Began to' takes the base form",
+    "'Began to' takes the base form",
+    "'Began to' takes the base form",
+    null
+   ],
+   "passageId": "p4"
+  },
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Vocabulary",
+   "difficulty": "moderate",
+   "text": "Choose the correct word for blank (3).",
+   "options": [
+    "scattered",
+    "scanned",
+    "scaled",
+    "scalded"
+   ],
+   "answer": 1,
+   "explanation": "'Scanned the sky' means searched it anxiously.",
+   "steps": [
+    "Spot what the question tests: Words starting with sca-.",
+    "Option A (scattered) is out: Does not fit 'the sky'.",
+    "Option C (scaled) is out: Means climbed.",
+    "Option D (scalded) is out: Means burnt.",
+    "Common slip to avoid: Choosing a similar-looking word.",
+    "So the answer is option B: scanned."
+   ],
+   "trap": "Choosing a similar-looking word.",
+   "revise": "Words starting with sca-",
+   "wrongReasons": [
+    "Does not fit 'the sky'",
+    null,
+    "Means climbed",
+    "Means burnt"
+   ],
+   "passageId": "p4"
+  },
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Word form",
+   "difficulty": "easy",
+   "text": "Choose the correct word for blank (4).",
+   "options": [
+    "alarmed",
+    "alarming",
+    "alarm",
+    "alarmingly"
+   ],
+   "answer": 2,
+   "explanation": "'Relief and alarm' are parallel nouns.",
+   "steps": [
+    "Spot what the question tests: Parallelism.",
+    "Options A and B are out: A noun is needed after 'relief and'.",
+    "Option D (alarmingly) is out: An adverb cannot follow 'relief and'.",
+    "Common slip to avoid: Missing the parallel structure.",
+    "So the answer is option C: alarm."
+   ],
+   "trap": "Missing the parallel structure.",
+   "revise": "Parallelism",
+   "wrongReasons": [
+    "A noun is needed after 'relief and'",
+    "A noun is needed after 'relief and'",
+    null,
+    "An adverb cannot follow 'relief and'"
+   ],
+   "passageId": "p4"
+  },
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Vocabulary",
+   "difficulty": "hard",
+   "text": "Choose the correct word for blank (5).",
+   "options": [
+    "wary",
+    "weary",
+    "worthy",
+    "wearily"
+   ],
+   "answer": 0,
+   "explanation": "'Wary of' means cautious about.",
+   "steps": [
+    "Spot what the question tests: Confusing pairs.",
+    "Option B (weary) is out: Means tired.",
+    "Option C (worthy) is out: Means deserving.",
+    "Option D (wearily) is out: An adverb does not fit.",
+    "Common slip to avoid: Mixing wary and weary.",
+    "So the answer is option A: wary."
+   ],
+   "trap": "Mixing wary and weary.",
+   "revise": "Confusing pairs",
+   "wrongReasons": [
+    null,
+    "Means tired",
+    "Means deserving",
+    "An adverb does not fit"
+   ],
+   "passageId": "p4"
+  },
+  {
+   "topic": "Narration",
+   "subtopic": "Exclamatory wishes",
+   "difficulty": "hard",
+   "text": "Select the correct indirect form of the sentence.\nThe old man said, \"May God bless you, my child!\"",
+   "options": [
+    "The old man said that God may bless his child.",
+    "The old man prayed that God will bless you.",
+    "The old man wished that God blesses the child.",
+    "The old man prayed that God might bless the child."
+   ],
+   "answer": 3,
+   "explanation": "A wish beginning with 'May' is reported with 'prayed that ... might'.",
+   "steps": [
+    "Spot what the question tests: Reporting optative sentences.",
+    "Option A (The old man said that God may bless his child.) is out: Loses the sense of a prayer.",
+    "Option B (The old man prayed that God will bless you.) is out: Pronoun and tense are not changed.",
+    "Option C (The old man wished that God blesses the child.) is out: Verb form is wrong.",
+    "Common slip to avoid: Using 'said that'.",
+    "So the answer is option D: The old man prayed that God might bless the child.."
+   ],
+   "trap": "Using 'said that'.",
+   "revise": "Reporting optative sentences",
+   "wrongReasons": [
+    "Loses the sense of a prayer",
+    "Pronoun and tense are not changed",
+    "Verb form is wrong",
+    null
+   ]
+  },
+  {
+   "topic": "Narration",
+   "subtopic": "Questions",
+   "difficulty": "hard",
+   "text": "Select the correct direct form of the sentence.\nHe asked the shopkeeper whether the shirt would shrink after the first wash.",
+   "options": [
+    "He said to the shopkeeper, \"Would the shirt shrink after the first wash?\"",
+    "He said to the shopkeeper, \"Will the shirt shrink after the first wash?\"",
+    "He said to the shopkeeper, \"Does the shirt shrink after the first wash?\"",
+    "He said to the shopkeeper, \"Will the shirt shrinks after the first wash?\""
+   ],
+   "answer": 1,
+   "explanation": "'Whether' is dropped and the inverted question order restored.",
+   "steps": [
+    "Spot what the question tests: Direct speech from questions.",
+    "Option A (He said to the shopkeeper, \"Would the shirt shr…) is out: 'Would' not restored to 'will'.",
+    "Option C (He said to the shopkeeper, \"Does the shirt shri…) is out: Changes the tense.",
+    "Option D (He said to the shopkeeper, \"Will the shirt shri…) is out: Ungrammatical verb form.",
+    "Common slip to avoid: Keeping 'would'.",
+    "So the answer is option B: He said to the shopkeeper, \"Will the shirt shrink after the first was…."
+   ],
+   "trap": "Keeping 'would'.",
+   "revise": "Direct speech from questions",
+   "wrongReasons": [
+    "'Would' not restored to 'will'",
+    null,
+    "Changes the tense",
+    "Ungrammatical verb form"
+   ]
+  },
+  {
+   "topic": "Narration",
+   "subtopic": "Let-sentences",
+   "difficulty": "hard",
+   "text": "Select the correct indirect form of the sentence.\nRohan said, \"Let us go for a walk.\"",
+   "options": [
+    "Rohan said that let them go for a walk.",
+    "Rohan ordered them to go for a walk.",
+    "Rohan suggested that they should go for a walk.",
+    "Rohan asked if they would go for a walk."
+   ],
+   "answer": 2,
+   "explanation": "'Let us' becomes 'suggested that ... should'.",
+   "steps": [
+    "Spot what the question tests: Reporting 'let us'.",
+    "Option A (Rohan said that let them go for a walk.) is out: Keeps the imperative.",
+    "Option B (Rohan ordered them to go for a walk.) is out: Changes a suggestion to a command.",
+    "Option D (Rohan asked if they would go for a walk.) is out: Changes a suggestion to a question.",
+    "Common slip to avoid: Using 'ordered'.",
+    "So the answer is option C: Rohan suggested that they should go for a walk.."
+   ],
+   "trap": "Using 'ordered'.",
+   "revise": "Reporting 'let us'",
+   "wrongReasons": [
+    "Keeps the imperative",
+    "Changes a suggestion to a command",
+    null,
+    "Changes a suggestion to a question"
+   ]
+  },
+  {
+   "topic": "Narration",
+   "subtopic": "Exclamations",
+   "difficulty": "hard",
+   "text": "Select the correct direct form of the sentence.\nThe captain exclaimed with joy that they had won the match.",
+   "options": [
+    "The captain said, \"Hurrah! We had won the match.\"",
+    "The captain said, \"Hurrah! We have won the match.\"",
+    "The captain said, \"Hurrah! They have won the match.\"",
+    "The captain said, \"How we won the match!\""
+   ],
+   "answer": 1,
+   "explanation": "'Exclaimed with joy' gives 'Hurrah!'; 'had won' becomes 'have won'.",
+   "steps": [
+    "Spot what the question tests: Reporting exclamations.",
+    "Option A (The captain said, \"Hurrah! We had won the match…) is out: Past perfect not restored.",
+    "Option C (The captain said, \"Hurrah! They have won the ma…) is out: Pronoun not restored.",
+    "Option D (The captain said, \"How we won the match!\") is out: Changes the structure.",
+    "Common slip to avoid: Keeping the past perfect.",
+    "So the answer is option B: The captain said, \"Hurrah! We have won the match.\"."
+   ],
+   "trap": "Keeping the past perfect.",
+   "revise": "Reporting exclamations",
+   "wrongReasons": [
+    "Past perfect not restored",
+    null,
+    "Pronoun not restored",
+    "Changes the structure"
+   ]
+  },
+  {
+   "topic": "Voice",
+   "subtopic": "Continuous",
+   "difficulty": "moderate",
+   "text": "Select the passive form of the sentence.\nThey are building a bridge over the river.",
+   "options": [
+    "A bridge is being built over the river by them.",
+    "A bridge was being built over the river by them.",
+    "A bridge is built over the river by them.",
+    "A bridge has been built over the river by them."
+   ],
+   "answer": 0,
+   "explanation": "Present continuous passive: is/are being + past participle.",
+   "steps": [
+    "Spot what the question tests: Voice: continuous tenses.",
+    "Option B (A bridge was being built over the river by them.) is out: Changes the tense.",
+    "Option C (A bridge is built over the river by them.) is out: Loses the continuous aspect.",
+    "Option D (A bridge has been built over the river by them.) is out: Changes the aspect.",
+    "Common slip to avoid: Losing the continuous form.",
+    "So the answer is option A: A bridge is being built over the river by them.."
+   ],
+   "trap": "Losing the continuous form.",
+   "revise": "Voice: continuous tenses",
+   "wrongReasons": [
+    null,
+    "Changes the tense",
+    "Loses the continuous aspect",
+    "Changes the aspect"
+   ]
+  },
+  {
+   "topic": "Voice",
+   "subtopic": "Perception verbs",
+   "difficulty": "hard",
+   "text": "Select the active form of the sentence.\nThe thief was seen running away by the watchman.",
+   "options": [
+    "The watchman saw the thief running away.",
+    "The watchman has seen the thief running away.",
+    "The watchman saw the thief ran away.",
+    "The thief saw the watchman running away."
+   ],
+   "answer": 0,
+   "explanation": "Passive of a perception verb with a participle becomes 'saw + object + -ing'.",
+   "steps": [
+    "Spot what the question tests: Voice: perception verbs.",
+    "Option B (The watchman has seen the thief running away.) is out: Changes the tense.",
+    "Option C (The watchman saw the thief ran away.) is out: Ungrammatical.",
+    "Option D (The thief saw the watchman running away.) is out: Reverses the roles.",
+    "Common slip to avoid: Reversing subject and object.",
+    "So the answer is option A: The watchman saw the thief running away.."
+   ],
+   "trap": "Reversing subject and object.",
+   "revise": "Voice: perception verbs",
+   "wrongReasons": [
+    null,
+    "Changes the tense",
+    "Ungrammatical",
+    "Reverses the roles"
+   ]
+  },
+  {
+   "topic": "Voice",
+   "subtopic": "Questions",
+   "difficulty": "hard",
+   "text": "Select the passive form of the sentence.\nWho taught you this song?",
+   "options": [
+    "By whom were you taught this song?",
+    "By whom was you taught this song?",
+    "Who was taught you this song by?",
+    "By whom have you been taught this song?"
+   ],
+   "answer": 0,
+   "explanation": "Simple past passive question: 'By whom were you taught ...?'.",
+   "steps": [
+    "Spot what the question tests: Voice: wh-questions.",
+    "Option B (By whom was you taught this song?) is out: Wrong verb form.",
+    "Option C (Who was taught you this song by?) is out: Awkward and ungrammatical.",
+    "Option D (By whom have you been taught this song?) is out: Changes the tense.",
+    "Common slip to avoid: Changing the tense.",
+    "So the answer is option A: By whom were you taught this song?."
+   ],
+   "trap": "Changing the tense.",
+   "revise": "Voice: wh-questions",
+   "wrongReasons": [
+    null,
+    "Wrong verb form",
+    "Awkward and ungrammatical",
+    "Changes the tense"
+   ]
+  },
+  {
+   "topic": "Para Jumbles",
+   "subtopic": "Sentence order",
+   "difficulty": "hard",
+   "text": "Arrange the sentences in the correct order.\nP. This delay, in turn, pushed the project's cost well beyond its budget.\nQ. The tender for the bridge was awarded in March after months of dispute.\nR. Heavy rain in June then halted work on the foundations for six weeks.\nS. Residents who had expected to cross by December are now being told to wait until next summer.",
+   "options": [
+    "QPRS",
+    "QRPS",
+    "RQPS",
+    "QRSP"
+   ],
+   "answer": 1,
+   "explanation": "Q starts the story, R gives the delay, P its effect, S the consequence for residents.",
+   "steps": [
+    "Spot what the question tests: Para jumble: chronology.",
+    "Option A (QPRS) is out: 'This delay' needs the rain delay first.",
+    "Option C (RQPS) is out: R refers to the work before it is awarded.",
+    "Option D (QRSP) is out: P must follow R directly.",
+    "Common slip to avoid: Placing 'This delay' too early.",
+    "So the answer is option B: QRPS."
+   ],
+   "trap": "Placing 'This delay' too early.",
+   "revise": "Para jumble: chronology",
+   "wrongReasons": [
+    "'This delay' needs the rain delay first",
+    null,
+    "R refers to the work before it is awarded",
+    "P must follow R directly"
+   ]
+  },
+  {
+   "topic": "Para Jumbles",
+   "subtopic": "Sentence order",
+   "difficulty": "hard",
+   "text": "Arrange the sentences in the correct order.\nP. Such restraint is easily mistaken for indifference.\nQ. A good editor rarely rewrites a writer's sentences wholesale.\nR. The aim is to let the writer's voice emerge more clearly, not to replace it.\nS. Instead, she points to the lines where the argument falters and asks questions.",
+   "options": [
+    "QRSP",
+    "SQRP",
+    "QSRP",
+    "QSPR"
+   ],
+   "answer": 2,
+   "explanation": "Q makes the claim, S the alternative method, R the aim, P the remark on restraint.",
+   "steps": [
+    "Spot what the question tests: Para jumble: contrast.",
+    "Option A (QRSP) is out: 'Instead' needs the statement it contrasts with directly before it.",
+    "Option B (SQRP) is out: S starts with 'Instead', which needs an antecedent.",
+    "Option D (QSPR) is out: 'Such restraint' must follow the aim, not the questions.",
+    "Common slip to avoid: Starting with the 'Instead' sentence.",
+    "So the answer is option C: QSRP."
+   ],
+   "trap": "Starting with the 'Instead' sentence.",
+   "revise": "Para jumble: contrast",
+   "wrongReasons": [
+    "'Instead' needs the statement it contrasts with directly before it",
+    "S starts with 'Instead', which needs an antecedent",
+    null,
+    "'Such restraint' must follow the aim, not the questions"
+   ]
+  },
+  {
+   "topic": "Para Jumbles",
+   "subtopic": "Sentence parts",
+   "difficulty": "hard",
+   "text": "Rearrange the parts P, Q, R and S to form a meaningful sentence.\nP. although it had been warned\nQ. The company went ahead with the launch\nR. that the software still contained serious flaws\nS. and customers soon began to complain",
+   "options": [
+    "QPRS",
+    "QRPS",
+    "PQRS",
+    "QPSR"
+   ],
+   "answer": 0,
+   "explanation": "'The company went ahead with the launch although it had been warned that the software still contained serious flaws and customers soon began to complain.'",
+   "steps": [
+    "Spot what the question tests: Para jumble: sentence parts.",
+    "Option B (QRPS) is out: 'launch that the software' breaks the sense.",
+    "Option C (PQRS) is out: The sentence cannot begin with 'although it had been warned'.",
+    "Option D (QPSR) is out: 'and customers' interrupts the 'warned that' clause.",
+    "Common slip to avoid: Joining parts loosely.",
+    "So the answer is option A: QPRS."
+   ],
+   "trap": "Joining parts loosely.",
+   "revise": "Para jumble: sentence parts",
+   "wrongReasons": [
+    null,
+    "'launch that the software' breaks the sense",
+    "The sentence cannot begin with 'although it had been warned'",
+    "'and customers' interrupts the 'warned that' clause"
+   ]
+  },
+  {
+   "topic": "Para Jumbles",
+   "subtopic": "Sentence order",
+   "difficulty": "hard",
+   "text": "Arrange the sentences in the correct order.\nP. Researchers therefore urge caution before the scheme is expanded nationwide.\nQ. The pilot, however, covered only three districts.\nR. Officials claim that attendance has risen sharply since free meals were introduced.\nS. This evidence is encouraging, but incomplete.",
+   "options": [
+    "RQSP",
+    "SRQP",
+    "RSPQ",
+    "RSQP"
+   ],
+   "answer": 3,
+   "explanation": "R states the claim, S assesses it, Q gives the limit, P the response.",
+   "steps": [
+    "Spot what the question tests: Para jumble: claim, limit, response.",
+    "Option A (RQSP) is out: 'This evidence' needs the claim first.",
+    "Option B (SRQP) is out: S has no antecedent.",
+    "Option C (RSPQ) is out: 'however' must precede 'therefore'.",
+    "Common slip to avoid: Putting the conclusion too early.",
+    "So the answer is option D: RSQP."
+   ],
+   "trap": "Putting the conclusion too early.",
+   "revise": "Para jumble: claim, limit, response",
+   "wrongReasons": [
+    "'This evidence' needs the claim first",
+    "S has no antecedent",
+    "'however' must precede 'therefore'",
+    null
+   ]
+  },
+  {
+   "topic": "Error Spotting",
+   "subtopic": "Subject-verb agreement",
+   "difficulty": "moderate",
+   "text": "Find the part of the sentence that has an error.\nThe number of unemployed graduates / have increased / sharply over the last / decade.",
+   "options": [
+    "The number of unemployed graduates",
+    "sharply over the last",
+    "have increased",
+    "decade"
+   ],
+   "answer": 2,
+   "explanation": "'The number of' takes a singular verb: 'has increased'.",
+   "steps": [
+    "Spot what the question tests: The number of vs A number of.",
+    "Options A, B and D are out: Correct.",
+    "Common slip to avoid: Agreeing with 'graduates'.",
+    "So the answer is option C: have increased."
+   ],
+   "trap": "Agreeing with 'graduates'.",
+   "revise": "The number of vs A number of",
+   "wrongReasons": [
+    "Correct",
+    "Correct",
+    null,
+    "Correct"
+   ]
+  },
+  {
+   "topic": "Error Spotting",
+   "subtopic": "Prepositions",
+   "difficulty": "moderate",
+   "text": "Find the part of the sentence that has an error.\nDespite of his poor health, / he completed the marathon / and finished among the / top ten runners.",
+   "options": [
+    "he completed the marathon",
+    "and finished among the",
+    "Despite of his poor health",
+    "top ten runners"
+   ],
+   "answer": 2,
+   "explanation": "'Despite' is not followed by 'of'.",
+   "steps": [
+    "Spot what the question tests: Despite vs in spite of.",
+    "Options A, B and D are out: Correct.",
+    "Common slip to avoid: Confusing with 'in spite of'.",
+    "So the answer is option C: Despite of his poor health."
+   ],
+   "trap": "Confusing with 'in spite of'.",
+   "revise": "Despite vs in spite of",
+   "wrongReasons": [
+    "Correct",
+    "Correct",
+    null,
+    "Correct"
+   ]
+  },
+  {
+   "topic": "Sentence Improvement",
+   "subtopic": "Conditionals",
+   "difficulty": "hard",
+   "text": "Choose the best replacement for the underlined part.\nIf I would have known the facts, I would have acted differently.",
+   "options": [
+    "had known",
+    "knew",
+    "would know",
+    "No improvement"
+   ],
+   "answer": 0,
+   "explanation": "A third conditional uses 'if + past perfect'.",
+   "steps": [
+    "Spot what the question tests: Third conditional.",
+    "Option B (knew) is out: Does not fit the past unreal condition.",
+    "Option C (would know) is out: Wrong tense.",
+    "Option D (No improvement) is out: 'if + would have' is incorrect.",
+    "Common slip to avoid: Using 'would' in the if-clause.",
+    "So the answer is option A: had known."
+   ],
+   "trap": "Using 'would' in the if-clause.",
+   "revise": "Third conditional",
+   "wrongReasons": [
+    null,
+    "Does not fit the past unreal condition",
+    "Wrong tense",
+    "'if + would have' is incorrect"
+   ]
+  },
+  {
+   "topic": "Sentence Improvement",
+   "subtopic": "Reported suggestions",
+   "difficulty": "hard",
+   "text": "Choose the best replacement for the underlined part.\nHe suggested me to consult a lawyer.",
+   "options": [
+    "suggested me consulting",
+    "suggested that I consult",
+    "suggested to me to consult",
+    "No improvement"
+   ],
+   "answer": 1,
+   "explanation": "'Suggest' takes a that-clause with a subjunctive or 'should'.",
+   "steps": [
+    "Spot what the question tests: Suggest patterns.",
+    "Option A (suggested me consulting) is out: 'Suggest' does not take an object this way.",
+    "Option C (suggested to me to consult) is out: 'Suggest' is not followed by 'to + verb'.",
+    "Option D (No improvement) is out: 'Suggest' needs a that-clause.",
+    "Common slip to avoid: Using 'suggest + object + to'.",
+    "So the answer is option B: suggested that I consult."
+   ],
+   "trap": "Using 'suggest + object + to'.",
+   "revise": "Suggest patterns",
+   "wrongReasons": [
+    "'Suggest' does not take an object this way",
+    null,
+    "'Suggest' is not followed by 'to + verb'",
+    "'Suggest' needs a that-clause"
+   ]
+  },
+  {
+   "topic": "Fill in the Blank",
+   "subtopic": "Vocabulary",
+   "difficulty": "moderate",
+   "text": "Select the most appropriate word to fill the blank.\nThe committee's findings were so ______ that no one could challenge them.",
+   "options": [
+    "inconsequential",
+    "incorrigible",
+    "incontrovertible",
+    "indispensable"
+   ],
+   "answer": 2,
+   "explanation": "'Incontrovertible' means impossible to deny.",
+   "steps": [
+    "Spot what the question tests: Words beginning with in-.",
+    "Option A (inconsequential) is out: Means unimportant.",
+    "Option B (incorrigible) is out: Means impossible to reform.",
+    "Option D (indispensable) is out: Means essential.",
+    "Common slip to avoid: Choosing a long word that sounds right.",
+    "So the answer is option C: incontrovertible."
+   ],
+   "trap": "Choosing a long word that sounds right.",
+   "revise": "Words beginning with in-",
+   "wrongReasons": [
+    "Means unimportant",
+    "Means impossible to reform",
+    null,
+    "Means essential"
+   ]
+  },
+  {
+   "topic": "Fill in the Blank",
+   "subtopic": "Vocabulary",
+   "difficulty": "moderate",
+   "text": "Select the most appropriate word to fill the blank.\nShe spoke with such ______ that even her critics fell silent.",
+   "options": [
+    "elegance",
+    "eloquence",
+    "eloquently",
+    "elocution"
+   ],
+   "answer": 1,
+   "explanation": "'Such eloquence' is a noun phrase meaning persuasive speech.",
+   "steps": [
+    "Spot what the question tests: Eloquence, elocution.",
+    "Option A (elegance) is out: Refers to style or grace, not speech.",
+    "Option C (eloquently) is out: An adverb cannot follow 'such'.",
+    "Option D (elocution) is out: Refers to the manner of speaking.",
+    "Common slip to avoid: Choosing 'elocution'.",
+    "So the answer is option B: eloquence."
+   ],
+   "trap": "Choosing 'elocution'.",
+   "revise": "Eloquence, elocution",
+   "wrongReasons": [
+    "Refers to style or grace, not speech",
+    null,
+    "An adverb cannot follow 'such'",
+    "Refers to the manner of speaking"
+   ]
+  },
+  {
+   "topic": "Idioms & Phrases",
+   "subtopic": "Meaning",
+   "difficulty": "easy",
+   "text": "Select the option that gives the meaning of the idiom.\nTo throw in the towel",
+   "options": [
+    "To start a fight",
+    "To clean up",
+    "To admit defeat",
+    "To refuse payment"
+   ],
+   "answer": 2,
+   "explanation": "The idiom comes from boxing and means giving up.",
+   "steps": [
+    "Spot what the question tests: Idioms: giving up.",
+    "Option A (To start a fight) is out: Opposite.",
+    "Option B (To clean up) is out: Literal.",
+    "Option D (To refuse payment) is out: Unrelated.",
+    "Common slip to avoid: Reading it literally.",
+    "So the answer is option C: To admit defeat."
+   ],
+   "trap": "Reading it literally.",
+   "revise": "Idioms: giving up",
+   "wrongReasons": [
+    "Opposite",
+    "Literal",
+    null,
+    "Unrelated"
+   ]
+  },
+  {
+   "topic": "Idioms & Phrases",
+   "subtopic": "Meaning",
+   "difficulty": "moderate",
+   "text": "Select the option that gives the meaning of the idiom.\nA red herring",
+   "options": [
+    "A rare discovery",
+    "A sign of danger",
+    "A misleading clue",
+    "A successful plan"
+   ],
+   "answer": 2,
+   "explanation": "A red herring distracts from the real issue.",
+   "steps": [
+    "Spot what the question tests: Idioms: distractions.",
+    "Options A, B and D are out: Not the sense.",
+    "Common slip to avoid: Reading it literally.",
+    "So the answer is option C: A misleading clue."
+   ],
+   "trap": "Reading it literally.",
+   "revise": "Idioms: distractions",
+   "wrongReasons": [
+    "Not the sense",
+    "Not the sense",
+    null,
+    "Not the sense"
+   ]
+  },
+  {
+   "topic": "Spelling Error",
+   "subtopic": "Incorrect spelling",
+   "difficulty": "moderate",
+   "text": "Select the word that is spelt incorrectly.",
+   "options": [
+    "pronounciation",
+    "conscience",
+    "questionnaire",
+    "sovereign"
+   ],
+   "answer": 0,
+   "explanation": "The correct spelling is 'pronunciation'.",
+   "steps": [
+    "Spot what the question tests: Commonly misspelt words.",
+    "Options B, C and D are out: Correct spelling.",
+    "Common slip to avoid: Adding an extra 'o'.",
+    "So the answer is option A: pronounciation."
+   ],
+   "trap": "Adding an extra 'o'.",
+   "revise": "Commonly misspelt words",
+   "wrongReasons": [
+    null,
+    "Correct spelling",
+    "Correct spelling",
+    "Correct spelling"
+   ]
+  },
+  {
+   "topic": "Spelling Error",
+   "subtopic": "Incorrect spelling",
+   "difficulty": "moderate",
+   "text": "Choose the incorrectly spelt word.",
+   "options": [
+    "embarrassment",
+    "necessary",
+    "maintenance",
+    "occassion"
+   ],
+   "answer": 3,
+   "explanation": "The correct spelling is 'occasion'.",
+   "steps": [
+    "Spot what the question tests: Commonly misspelt words.",
+    "Options A, B and C are out: Correct spelling.",
+    "Common slip to avoid: Doubling the 's'.",
+    "So the answer is option D: occassion."
+   ],
+   "trap": "Doubling the 's'.",
+   "revise": "Commonly misspelt words",
+   "wrongReasons": [
+    "Correct spelling",
+    "Correct spelling",
+    "Correct spelling",
+    null
+   ]
+  },
+  {
+   "topic": "Synonyms",
+   "subtopic": "Meaning",
+   "difficulty": "moderate",
+   "text": "Select the most appropriate synonym of the given word.\nEphemeral",
+   "options": [
+    "Eternal",
+    "Fragile",
+    "Ordinary",
+    "Transient"
+   ],
+   "answer": 3,
+   "explanation": "'Ephemeral' means lasting a very short time.",
+   "steps": [
+    "Spot what the question tests: Synonyms: ephemeral.",
+    "Option A (Eternal) is out: Opposite.",
+    "Option B (Fragile) is out: Related but not the same.",
+    "Option C (Ordinary) is out: Unrelated.",
+    "Common slip to avoid: Choosing 'fragile'.",
+    "So the answer is option D: Transient."
+   ],
+   "trap": "Choosing 'fragile'.",
+   "revise": "Synonyms: ephemeral",
+   "wrongReasons": [
+    "Opposite",
+    "Related but not the same",
+    "Unrelated",
+    null
+   ]
+  },
+  {
+   "topic": "Antonyms",
+   "subtopic": "Meaning",
+   "difficulty": "hard",
+   "text": "Select the most appropriate antonym of the given word.\nMagnanimous",
+   "options": [
+    "Generous",
+    "Noble",
+    "Petty",
+    "Forgiving"
+   ],
+   "answer": 2,
+   "explanation": "'Magnanimous' means generous and forgiving; 'petty' is the opposite.",
+   "steps": [
+    "Spot what the question tests: Antonyms: magnanimous.",
+    "Options A, B and D are out: Synonym.",
+    "Common slip to avoid: Choosing a synonym.",
+    "So the answer is option C: Petty."
+   ],
+   "trap": "Choosing a synonym.",
+   "revise": "Antonyms: magnanimous",
+   "wrongReasons": [
+    "Synonym",
+    "Synonym",
+    null,
+    "Synonym"
+   ]
+  },
+  {
+   "topic": "One Word Substitution",
+   "subtopic": "Government types",
+   "difficulty": "hard",
+   "text": "Select the option that can be used as a one-word substitute.\nGovernment by the wealthy",
+   "options": [
+    "Oligarchy",
+    "Plutocracy",
+    "Theocracy",
+    "Autocracy"
+   ],
+   "answer": 1,
+   "explanation": "'Plutocracy' is rule by the rich.",
+   "steps": [
+    "Spot what the question tests: Forms of government.",
+    "Option A (Oligarchy) is out: Rule by a few.",
+    "Option C (Theocracy) is out: Rule by religious leaders.",
+    "Option D (Autocracy) is out: Rule by one person.",
+    "Common slip to avoid: Choosing 'oligarchy'.",
+    "So the answer is option B: Plutocracy."
+   ],
+   "trap": "Choosing 'oligarchy'.",
+   "revise": "Forms of government",
+   "wrongReasons": [
+    "Rule by a few",
+    null,
+    "Rule by religious leaders",
+    "Rule by one person"
+   ]
+  },
+  {
+   "topic": "Homonyms",
+   "subtopic": "Same word, two senses",
+   "difficulty": "moderate",
+   "text": "Select the word that fits both blanks.\nThe strong ______ swept the boat away.\nThe ______ price of gold is higher than last year.",
+   "options": [
+    "tide",
+    "present",
+    "current",
+    "flow"
+   ],
+   "answer": 2,
+   "explanation": "'Current' is a noun (flow of water) and an adjective (present).",
+   "steps": [
+    "Spot what the question tests: Homonyms: current.",
+    "Options A and D are out: Fits only the first sentence.",
+    "Option B (present) is out: Fits only the second sentence.",
+    "Common slip to avoid: Choosing a word that fits one blank.",
+    "So the answer is option C: current."
+   ],
+   "trap": "Choosing a word that fits one blank.",
+   "revise": "Homonyms: current",
+   "wrongReasons": [
+    "Fits only the first sentence",
+    "Fits only the second sentence",
+    null,
+    "Fits only the first sentence"
+   ]
+  }
+ ]
+}

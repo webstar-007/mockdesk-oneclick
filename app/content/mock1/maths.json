@@ -1,0 +1,935 @@
+{
+ "section": "maths",
+ "questions": [
+  {
+   "topic": "Mensuration",
+   "subtopic": "Hemisphere cut into halves",
+   "difficulty": "hard",
+   "text": "A solid hemisphere of radius 14 cm is cut by a plane through its axis, perpendicular to its flat base, into two equal parts. Taking π = 22/7, what is the total surface area of one part?",
+   "options": [
+    "924 cm²",
+    "1,848 cm²",
+    "616 cm²",
+    "1,232 cm²"
+   ],
+   "answer": 3,
+   "value": 1232,
+   "check": "2*(22/7)*14*14",
+   "explanation": "One part has three surfaces: curved surface = ½ × 2πr² = πr² = 616; half of the flat base = ½πr² = 308; and the new cut face, a semicircle of radius 14, = ½πr² = 308. Total = 616 + 308 + 308 = 1,232 cm² (= 2πr²).",
+   "steps": [
+    "Curved part: ½ × 2πr² = πr² = 616",
+    "Half of the flat base: ½πr² = 308",
+    "Cut face is a semicircle: ½πr² = 308",
+    "Total = 616 + 308 + 308 = 1,232"
+   ],
+   "trap": "Halving 3πr² forgets that cutting creates a new face.",
+   "revise": "Surface area of cut solids",
+   "wrongReasons": [
+    "Halved the hemisphere's total surface area (3πr²) instead of adding the new cut face",
+    "Gave the total surface area of the whole hemisphere",
+    "Counted only the curved surface of the part",
+    null
+   ],
+   "shortcut": "Every cut through a solid adds two new faces in total, one to each piece: count the cut face."
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Prism with rhombus base",
+   "difficulty": "easy",
+   "text": "The base of a right prism is a rhombus whose diagonals are 24 cm and 18 cm. If the volume of the prism is 3,240 cm³, what is its total surface area?",
+   "options": [
+    "900 cm²",
+    "1,332 cm²",
+    "1,116 cm²",
+    "1,314 cm²"
+   ],
+   "answer": 1,
+   "value": 1332,
+   "check": "(4*Math.sqrt(12*12+9*9))*(3240/(0.5*24*18))+2*(0.5*24*18)",
+   "explanation": "Side of the rhombus = √(12² + 9²) = 15 cm, perimeter 60. Base area = ½ × 24 × 18 = 216. Height = 3,240 ÷ 216 = 15 cm. TSA = 60 × 15 + 2 × 216 = 900 + 432 = 1,332 cm².",
+   "steps": [
+    "Side = √(12² + 9²) = 15, perimeter = 60",
+    "Base area = ½ × 24 × 18 = 216",
+    "Height = 3,240 ÷ 216 = 15",
+    "TSA = 60 × 15 + 2 × 216 = 1,332"
+   ],
+   "trap": "Using d₁ × d₂ as the rhombus area.",
+   "revise": "Prism: base area, height from volume, TSA",
+   "wrongReasons": [
+    "Gave only the lateral surface area",
+    null,
+    "Added only one base to the lateral surface",
+    "Took the base area as 24 × 18 without the half"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Cone into cylinder",
+   "difficulty": "moderate",
+   "text": "A conical vessel with base radius 12 cm and height 35 cm is full of water. Its contents are poured 15 times into an empty cylindrical tank of base radius 20 cm, refilling the cone each time. What is the height of water in the tank?",
+   "options": [
+    "4.2 cm",
+    "63 cm",
+    "189 cm",
+    "15.75 cm"
+   ],
+   "answer": 1,
+   "value": 63,
+   "check": "15*(1/3*144*35)/400",
+   "explanation": "Volume of the cone = ⅓π × 12² × 35 = 1,680π. Fifteen cones = 25,200π. Base of the tank = π × 20² = 400π, so the height = 25,200 ÷ 400 = 63 cm.",
+   "steps": [
+    "Cone volume = ⅓π(144)(35) = 1,680π",
+    "15 cones = 25,200π",
+    "Tank base = 400π",
+    "Height = 25,200π ÷ 400π = 63 cm"
+   ],
+   "trap": "Forgetting the ⅓ or mixing radius and diameter.",
+   "revise": "Volume transfer between solids",
+   "wrongReasons": [
+    "Gave the rise after a single emptying",
+    null,
+    "Left out the ⅓ in the cone's volume",
+    "Used the tank's diameter (40 cm) as its radius"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Frustum capacity",
+   "difficulty": "hard",
+   "text": "A bucket is in the form of a frustum of a cone with top and bottom radii 21 cm and 7 cm and a slant height of 50 cm. Taking π = 22/7, what is its capacity in litres?",
+   "options": [
+    "32.032",
+    "33.367",
+    "24.64",
+    "96.096"
+   ],
+   "answer": 0,
+   "value": 32.032,
+   "check": "(22/7)*Math.sqrt(50*50-14*14)/3*(21*21+21*7+7*7)/1000",
+   "explanation": "The vertical height is h = √(50² − (21 − 7)²) = √(2,500 − 196) = 48 cm. Volume = ⅓πh(R² + Rr + r²) = ⅓ × 22/7 × 48 × (441 + 147 + 49) = 32,032 cm³ = 32.032 litres.",
+   "steps": [
+    "h = √(50² − 14²) = 48 cm",
+    "R² + Rr + r² = 441 + 147 + 49 = 637",
+    "V = ⅓ × 22/7 × 48 × 637 = 32,032 cm³",
+    "1,000 cm³ = 1 litre: 32.032 L"
+   ],
+   "trap": "Using the slant height in the volume formula.",
+   "revise": "Frustum: slant height vs vertical height",
+   "wrongReasons": [
+    null,
+    "Used the slant height 50 cm as the vertical height",
+    "Left out the product of the two radii (Rr) term",
+    "Left out the ⅓ in the frustum formula"
+   ],
+   "shortcut": "14, 48, 50 is a Pythagorean triple (7 × 2, 24 × 2, 25 × 2)."
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Semicircular region",
+   "difficulty": "easy",
+   "text": "The perimeter of a semicircular park, including its diameter, is 72 m. Taking π = 22/7, what is the area of the park?",
+   "options": [
+    "616 m²",
+    "154 m²",
+    "308 m²",
+    "392 m²"
+   ],
+   "answer": 2,
+   "value": 308,
+   "check": "0.5*(22/7)*Math.pow(72/(22/7+2),2)",
+   "explanation": "Perimeter = πr + 2r = r(22/7 + 2) = 36r/7 = 72, so r = 14 m. Area = ½πr² = ½ × 22/7 × 196 = 308 m².",
+   "steps": [
+    "Perimeter = πr + 2r = 36r/7",
+    "36r/7 = 72, r = 14",
+    "Area = ½ × 22/7 × 14² = 308"
+   ],
+   "trap": "Forgetting that the diameter is part of the perimeter.",
+   "revise": "Perimeter and area of a semicircle",
+   "wrongReasons": [
+    "Gave the area of the full circle",
+    "Gave the area of a quarter circle",
+    null,
+    "Took the area of the enclosing rectangle 28 × 14"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Recasting a sphere",
+   "difficulty": "moderate",
+   "text": "A solid metal sphere of radius 9 cm is melted and recast into small cones, each of base radius 3 cm and height 4.5 cm. If 25% of the metal is lost in the process, how many cones can be made?",
+   "options": [
+    "72",
+    "96",
+    "18",
+    "54"
+   ],
+   "answer": 3,
+   "value": 54,
+   "check": "(4/3*9*9*9*0.75)/(1/3*3*3*4.5)",
+   "explanation": "Sphere volume = 4/3 π × 729 = 972π. Usable metal = 0.75 × 972π = 729π. One cone = ⅓π × 9 × 4.5 = 13.5π. Number = 729 ÷ 13.5 = 54.",
+   "steps": [
+    "Sphere = 972π",
+    "Usable = 75% = 729π",
+    "Cone = 13.5π",
+    "729 ÷ 13.5 = 54"
+   ],
+   "trap": "Applying the loss in the wrong direction.",
+   "revise": "Recasting with wastage",
+   "wrongReasons": [
+    "Ignored the 25% loss",
+    "Divided by 0.75 instead of multiplying",
+    "Left out the ⅓ in the cone's volume",
+    null
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Cuboid edges from face areas",
+   "difficulty": "moderate",
+   "text": "The areas of three adjacent faces of a cuboid are 60 cm², 72 cm² and 120 cm². What is the sum of the lengths of all its 12 edges?",
+   "options": [
+    "112 cm",
+    "28 cm",
+    "56 cm",
+    "252 cm"
+   ],
+   "answer": 0,
+   "value": 112,
+   "check": "4*(Math.sqrt(60*72*120)/60+Math.sqrt(60*72*120)/72+Math.sqrt(60*72*120)/120)",
+   "explanation": "If the edges are a, b, c then ab = 60, bc = 72, ca = 120, so (abc)² = 60 × 72 × 120 = 518,400 and abc = 720. So c = 720 ÷ 60 = 12, a = 720 ÷ 72 = 10, b = 720 ÷ 120 = 6. Total length of edges = 4(a + b + c) = 4 × 28 = 112 cm.",
+   "steps": [
+    "(abc)² = 60 × 72 × 120, abc = 720",
+    "c = 720/60 = 12, a = 720/72 = 10, b = 720/120 = 6",
+    "a + b + c = 28",
+    "12 edges = 4 × 28 = 112"
+   ],
+   "trap": "Stopping at a + b + c or forgetting that each edge occurs four times.",
+   "revise": "Cuboid dimensions from face areas",
+   "wrongReasons": [
+    null,
+    "Gave a + b + c, the sum of the three different edges",
+    "Gave the perimeter-like 2(a + b + c)",
+    "Added the three face areas"
+   ]
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Mean after changes",
+   "difficulty": "moderate",
+   "text": "The mean of 12 numbers is 40. Each of the first 5 numbers is increased by 7 and each of the remaining 7 numbers is decreased by 5. What is the new mean?",
+   "options": [
+    "41",
+    "42",
+    "39",
+    "40"
+   ],
+   "answer": 3,
+   "value": 40,
+   "check": "(12*40+5*7-7*5)/12",
+   "explanation": "Total change = 5 × 7 − 7 × 5 = 35 − 35 = 0, so the sum, and therefore the mean, is unchanged at 40.",
+   "steps": [
+    "Increase: 5 × 7 = 35",
+    "Decrease: 7 × 5 = 35",
+    "Net change in total = 0",
+    "Mean stays 40"
+   ],
+   "trap": "Averaging the changes without weighting them by how many numbers each applies to.",
+   "revise": "Mean with unequal changes",
+   "wrongReasons": [
+    "Averaged the two changes (+7 and −5)",
+    "Added the net change of 2 straight to the mean",
+    "Averaged the two changes and subtracted it",
+    null
+   ]
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Grouped mean, missing frequency",
+   "difficulty": "moderate",
+   "text": "The mean of the following distribution is 36. Find the missing frequency x.",
+   "options": [
+    "10",
+    "15",
+    "12",
+    "20"
+   ],
+   "answer": 1,
+   "value": 15,
+   "check": "(36*25-915)/(35-36)",
+   "explanation": "Class marks: 15, 25, 35, 45, 55. Σf = 25 + x and Σfx = 60 + 175 + 35x + 405 + 275 = 915 + 35x. Setting (915 + 35x) ÷ (25 + x) = 36 gives 915 + 35x = 900 + 36x, so x = 15.",
+   "steps": [
+    "Class marks 15, 25, 35, 45, 55",
+    "Σfx = 915 + 35x, Σf = 25 + x",
+    "(915 + 35x) = 36(25 + x)",
+    "x = 15"
+   ],
+   "trap": "Using class limits instead of class marks.",
+   "revise": "Mean of grouped data with an unknown frequency",
+   "wrongReasons": [
+    "Gives a mean of about 36.14",
+    null,
+    "Gives a mean of about 36.08",
+    "Gives a mean of about 35.89"
+   ],
+   "table": {
+    "caption": "Marks obtained",
+    "headers": [
+     "Class",
+     "10–20",
+     "20–30",
+     "30–40",
+     "40–50",
+     "50–60"
+    ],
+    "rows": [
+     [
+      "Frequency",
+      "4",
+      "7",
+      "x",
+      "9",
+      "5"
+     ]
+    ]
+   }
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Grouped median",
+   "difficulty": "moderate",
+   "text": "Find the median of the following frequency distribution.",
+   "options": [
+    "42",
+    "42.5",
+    "40.2",
+    "45"
+   ],
+   "answer": 0,
+   "value": 42,
+   "check": "40+(28-25)/15*10",
+   "explanation": "N = 56, so N/2 = 28. Cumulative frequencies: 5, 13, 25, 40, 50, 56. The median class is 40–50 with cf before = 25 and f = 15. Median = 40 + (28 − 25)/15 × 10 = 42.",
+   "steps": [
+    "N = 56, N/2 = 28",
+    "Cumulative: 5, 13, 25, 40, …",
+    "Median class 40–50, cf = 25, f = 15",
+    "40 + (3/15) × 10 = 42"
+   ],
+   "trap": "Choosing the median class by looking at N rather than N/2.",
+   "revise": "Median of grouped data",
+   "wrongReasons": [
+    null,
+    "Used the class 30–40 with the wrong cumulative frequency",
+    "Forgot to multiply by the class width",
+    "Took the mid-point of the median class"
+   ],
+   "table": {
+    "caption": "Marks of 56 students",
+    "headers": [
+     "Class",
+     "10–20",
+     "20–30",
+     "30–40",
+     "40–50",
+     "50–60",
+     "60–70"
+    ],
+    "rows": [
+     [
+      "Frequency",
+      "5",
+      "8",
+      "12",
+      "15",
+      "10",
+      "6"
+     ]
+    ]
+   }
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Combined average",
+   "difficulty": "easy",
+   "text": "In a class of 45 students the average marks of the boys are 72 and of the girls 81. If the average of the whole class is 75, how many girls are there?",
+   "options": [
+    "30",
+    "22",
+    "15",
+    "18"
+   ],
+   "answer": 2,
+   "value": 15,
+   "check": "45*(75-72)/(81-72)",
+   "explanation": "Boys : girls = (81 − 75) : (75 − 72) = 6 : 3 = 2 : 1. Girls = 45 ÷ 3 = 15.",
+   "steps": [
+    "Distance of 72 from 75 = 3, of 81 from 75 = 6",
+    "Boys : girls = 6 : 3 = 2 : 1",
+    "Girls = 45/3 = 15"
+   ],
+   "trap": "Writing the ratio the wrong way round.",
+   "revise": "Alligation for averages",
+   "wrongReasons": [
+    "Gave the number of boys",
+    "Split the class (about) equally",
+    null,
+    "Read the boys : girls ratio as 3 : 2"
+   ],
+   "shortcut": "Boys : girls is the gap on the girls' side to the gap on the boys' side."
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Empirical relation",
+   "difficulty": "easy",
+   "text": "For a moderately skewed distribution the mean is 24 and the median is 22. What is the approximate value of the mode?",
+   "options": [
+    "18",
+    "28",
+    "23",
+    "22"
+   ],
+   "answer": 0,
+   "value": 18,
+   "check": "3*22-2*24",
+   "explanation": "Mode ≈ 3 × median − 2 × mean = 66 − 48 = 18.",
+   "steps": [
+    "Mode = 3 Median − 2 Mean",
+    "= 3 × 22 − 2 × 24",
+    "= 18"
+   ],
+   "trap": "Reversing the empirical formula.",
+   "revise": "Mean–median–mode relation",
+   "wrongReasons": [
+    null,
+    "Swapped the mean and the median in the formula",
+    "Took the average of the mean and the median",
+    "Took the median as the mode"
+   ]
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Effect of transformation on SD",
+   "difficulty": "moderate",
+   "text": "The standard deviation of 5 observations is 6. Each observation is multiplied by 3 and then 4 is added. What is the variance of the new set?",
+   "options": [
+    "36",
+    "324",
+    "22",
+    "18"
+   ],
+   "answer": 1,
+   "value": 324,
+   "check": "Math.pow(3*6,2)",
+   "explanation": "Adding 4 does not change spread; multiplying by 3 multiplies the SD by 3: new SD = 18. Variance = 18² = 324.",
+   "steps": [
+    "Shift of +4: no change in spread",
+    "Scale ×3: SD = 6 × 3 = 18",
+    "Variance = 18² = 324"
+   ],
+   "trap": "Adding the shift to the SD, or answering with the SD.",
+   "revise": "SD under change of origin and scale",
+   "wrongReasons": [
+    "Gave the original variance",
+    null,
+    "Treated 6 × 3 + 4 as the SD, not the variance",
+    "Gave the new standard deviation only"
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Compounding frequency",
+   "difficulty": "hard",
+   "text": "₹ 8,000 is invested for 1½ years at 10% per annum. What is the difference between the amount when interest is compounded half-yearly and the amount when it is compounded annually (simple interest being taken for the half year)?",
+   "options": [
+    "₹ 32",
+    "₹ 20",
+    "₹ 21",
+    "₹ 61"
+   ],
+   "answer": 2,
+   "value": 21,
+   "check": "8000*Math.pow(1.05,3)-8000*1.1*1.05",
+   "explanation": "Half-yearly: 8,000 × 1.05³ = 9,261. Annual compounding for 1 year gives 8,800, and the last half-year earns simple interest of 5% on 8,800 = 440, so the amount is 9,240. Difference = 9,261 − 9,240 = ₹ 21.",
+   "steps": [
+    "Half-yearly: 8,000 × (1.05)³ = 9,261",
+    "Annual: 8,000 × 1.1 = 8,800",
+    "Plus ½-year SI: 8,800 × 5% = 440, amount 9,240",
+    "Difference = ₹ 21"
+   ],
+   "trap": "Using the half-yearly rule for the annual case, or a fractional exponent.",
+   "revise": "Compound interest: half-yearly vs annual",
+   "wrongReasons": [
+    "Used the exact fractional power 1.1^1.5 for the annual case",
+    "Compared the first year only",
+    null,
+    "Compared with simple interest instead of annual compounding"
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Partnership with changes",
+   "difficulty": "hard",
+   "text": "A and B start a business with ₹ 30,000 and ₹ 60,000. After 5 months A withdraws one-third of his capital, and after 8 months C joins with ₹ 60,000. At the end of the year the total profit is ₹ 1,05,000. What is C's share (in ₹)?",
+   "options": [
+    "20,160",
+    "42,000",
+    "19,091",
+    "25,200"
+   ],
+   "answer": 0,
+   "value": 20160,
+   "check": "105000*(60000*4)/(30000*5+20000*7+60000*12+60000*4)",
+   "explanation": "A: 30,000 × 5 + 20,000 × 7 = 2,90,000. B: 60,000 × 12 = 7,20,000. C: 60,000 × 4 = 2,40,000. Ratio 29 : 72 : 24 (total 125). C's share = 1,05,000 × 24/125 = ₹ 20,160.",
+   "steps": [
+    "A: 30,000 × 5 + 20,000 × 7 = 290,000",
+    "B: 60,000 × 12 = 720,000",
+    "C: 60,000 × 4 = 240,000",
+    "C's share = 105,000 × 24/125 = 20,160"
+   ],
+   "trap": "Using capital ratio only, or forgetting that A's capital changes after 5 months.",
+   "revise": "Partnership with entry and withdrawal",
+   "wrongReasons": [
+    null,
+    "Ignored the time for which each amount was invested",
+    "Ignored A's withdrawal",
+    "Used 24 parts out of 100 instead of out of 125"
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Work in three stages",
+   "difficulty": "hard",
+   "text": "A, B and C can complete a piece of work in 24, 36 and 72 days respectively. A and B begin together. After 8 days A leaves and C joins B. After 6 more days B also leaves and the remaining work is finished by C alone. In how many days in all is the work completed?",
+   "options": [
+    "14",
+    "22",
+    "28",
+    "34"
+   ],
+   "answer": 2,
+   "value": 28,
+   "check": "8+6+(1-8*(1/24+1/36)-6*(1/36+1/72))*72",
+   "explanation": "Per day: A = 3/72, B = 2/72, C = 1/72. First 8 days: 8 × 5/72 = 40/72. Next 6 days (B + C): 6 × 3/72 = 18/72. Done = 58/72, left = 14/72, which C does in 14 days. Total = 8 + 6 + 14 = 28 days.",
+   "steps": [
+    "Rates in 72nds: A 3, B 2, C 1",
+    "Stage 1: 8 × (3 + 2) = 40",
+    "Stage 2: 6 × (2 + 1) = 18",
+    "Remaining 72 − 58 = 14, done by C in 14 days",
+    "Total = 8 + 6 + 14 = 28"
+   ],
+   "trap": "Dropping a stage or using the wrong pair of workers.",
+   "revise": "Time and work with changing workers",
+   "wrongReasons": [
+    "Gave only C's final stretch",
+    "Forgot the 6-day middle stage",
+    null,
+    "Let B work alone in the second stage, forgetting that C had joined"
+   ],
+   "shortcut": "Take the LCM (72) as the total work so every rate is a whole number."
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Boats and streams",
+   "difficulty": "moderate",
+   "text": "A boat takes 12 hours to cover 36 km upstream and 54 km downstream, and 13 hours to cover 54 km upstream and 36 km downstream. What is the speed of the stream (in km/h)?",
+   "options": [
+    "3",
+    "7.5",
+    "15",
+    "1.5"
+   ],
+   "answer": 3,
+   "value": 1.5,
+   "check": "(1/((36*13-54*12)/(36*36-54*54))-1/((12*36-54*13)/(36*36-54*54)))/2",
+   "explanation": "Let 1/u = x and 1/d = y. Then 36x + 54y = 12 and 54x + 36y = 13. Solving gives x = 1/6 and y = 1/9, so upstream speed = 6 and downstream speed = 9 km/h. Stream speed = (9 − 6)/2 = 1.5 km/h.",
+   "steps": [
+    "36x + 54y = 12, 54x + 36y = 13",
+    "Solve: x = 1/6, y = 1/9",
+    "Upstream 6, downstream 9",
+    "Stream = (9 − 6)/2 = 1.5"
+   ],
+   "trap": "Quoting the still-water speed or forgetting to halve.",
+   "revise": "Upstream and downstream with two equations",
+   "wrongReasons": [
+    "Gave the difference of the two speeds without halving",
+    "Gave the speed in still water",
+    "Added the upstream and downstream speeds",
+    null
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Replacement of mixture",
+   "difficulty": "moderate",
+   "text": "A vessel contains 60 litres of pure milk. 12 litres are taken out and replaced by water. Then 15 litres of the mixture are taken out and replaced by water. What is the ratio of milk to water in the vessel now?",
+   "options": [
+    "3 : 2",
+    "11 : 9",
+    "4 : 1",
+    "16 : 9"
+   ],
+   "answer": 0,
+   "explanation": "After the first step: milk 48, water 12. The 15 litres removed contain 15 × 48/60 = 12 litres of milk, so milk = 36 and water = 24. Ratio = 36 : 24 = 3 : 2.",
+   "steps": [
+    "After step 1: milk 48 L",
+    "15 L of mixture holds 12 L milk",
+    "Milk left = 36 L, water = 24 L",
+    "Ratio 3 : 2"
+   ],
+   "trap": "Treating the second withdrawal as pure milk.",
+   "revise": "Replacement problems",
+   "wrongReasons": [
+    null,
+    "Subtracted both withdrawals as if they were pure milk",
+    "Gave the ratio after the first replacement only",
+    "Used 12 litres again in the second step"
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Triangle centres",
+   "difficulty": "moderate",
+   "text": "In triangle ABC, ∠A = 70°. I is the incentre and O is the circumcentre. What is the ratio ∠BIC : ∠BOC?",
+   "options": [
+    "8 : 7",
+    "29 : 28",
+    "25 : 14",
+    "25 : 28"
+   ],
+   "answer": 3,
+   "explanation": "∠BIC = 90° + ½∠A = 90° + 35° = 125°. ∠BOC = 2∠A = 140°. Ratio = 125 : 140 = 25 : 28.",
+   "steps": [
+    "∠BIC = 90 + A/2 = 125°",
+    "∠BOC = 2A = 140°",
+    "125 : 140 = 25 : 28"
+   ],
+   "trap": "Mixing the incentre and circumcentre formulae.",
+   "revise": "Angles at incentre and circumcentre",
+   "wrongReasons": [
+    "Used ∠BIC = 90° + ∠A instead of 90° + ½∠A",
+    "Used ∠BIC = 180° − ½∠A",
+    "Took ∠BOC as ∠A instead of 2∠A",
+    null
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Common chord",
+   "difficulty": "moderate",
+   "text": "Two circles of radii 17 cm and 10 cm intersect, and their common chord is 16 cm long. If the centres lie on opposite sides of the common chord, what is the distance between the centres?",
+   "options": [
+    "9 cm",
+    "27 cm",
+    "25 cm",
+    "21 cm"
+   ],
+   "answer": 3,
+   "value": 21,
+   "check": "Math.sqrt(17*17-8*8)+Math.sqrt(10*10-8*8)",
+   "explanation": "Half the chord = 8. Distance of the centre of the bigger circle from the chord = √(17² − 8²) = 15; of the smaller = √(10² − 8²) = 6. Opposite sides: 15 + 6 = 21 cm.",
+   "steps": [
+    "Half-chord = 8",
+    "√(289 − 64) = 15",
+    "√(100 − 64) = 6",
+    "Opposite sides: 15 + 6 = 21"
+   ],
+   "trap": "Using the radii directly or adding when they should subtract.",
+   "revise": "Common chord of two circles",
+   "wrongReasons": [
+    "Gave the distance when the centres lie on the same side",
+    "Added the two radii",
+    "Added the larger radius and half of the chord",
+    null
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Chord of contact",
+   "difficulty": "moderate",
+   "text": "A point P is 25 cm from the centre O of a circle of radius 7 cm. The tangents PA and PB touch the circle at A and B. What is the length of the chord AB?",
+   "options": [
+    "24 cm",
+    "13.44 cm",
+    "14 cm",
+    "6.72 cm"
+   ],
+   "answer": 1,
+   "value": 13.44,
+   "check": "2*7*Math.sqrt(25*25-49)/25",
+   "explanation": "Tangent PA = √(25² − 7²) = 24. In the right triangle OAP, the foot of the perpendicular from A on OP gives half the chord = (OA × PA)/OP = 7 × 24/25 = 6.72. So AB = 2 × 6.72 = 13.44 cm.",
+   "steps": [
+    "PA = √(625 − 49) = 24",
+    "Half of AB = (7 × 24) ÷ 25 = 6.72",
+    "AB = 13.44 cm"
+   ],
+   "trap": "Stopping at the tangent length.",
+   "revise": "Tangents and chord of contact",
+   "wrongReasons": [
+    "Gave the length of a tangent",
+    null,
+    "Gave the diameter",
+    "Gave half of the chord"
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Trapezium and diagonals",
+   "difficulty": "hard",
+   "text": "In trapezium ABCD, AB ∥ CD and AB = 2 × CD. The diagonals meet at O. If the area of triangle AOB is 72 cm², what is the area of the trapezium?",
+   "options": [
+    "90 cm²",
+    "126 cm²",
+    "162 cm²",
+    "216 cm²"
+   ],
+   "answer": 2,
+   "value": 162,
+   "check": "72+72/4+2*Math.sqrt(72*18)",
+   "explanation": "Triangles AOB and COD are similar with ratio 2 : 1, so area COD = 72 ÷ 4 = 18. The side triangles AOD and BOC have equal areas √(72 × 18) = 36 each. Total = 72 + 18 + 36 + 36 = 162 cm².",
+   "steps": [
+    "Similar triangles, ratio 2 : 1: COD = 18",
+    "AOD = BOC = √(72 × 18) = 36",
+    "Total = 72 + 18 + 36 + 36 = 162"
+   ],
+   "trap": "Forgetting the two side triangles.",
+   "revise": "Trapezium diagonals and areas",
+   "wrongReasons": [
+    "Added only triangles AOB and COD",
+    "Counted only one of the two side triangles",
+    null,
+    "Took three times the area of AOB"
+   ]
+  },
+  {
+   "topic": "Trigonometry",
+   "subtopic": "Trigonometric ratios from an identity",
+   "difficulty": "moderate",
+   "text": "If sec θ + tan θ = 3 and θ is acute, what is the value of cosec θ + cot θ?",
+   "options": [
+    "3",
+    "5/4",
+    "2",
+    "3/4"
+   ],
+   "answer": 2,
+   "value": 2,
+   "check": "(5/4)+(3/4)",
+   "explanation": "sec θ − tan θ = 1/3, so sec θ = (3 + 1/3)/2 = 5/3 and tan θ = 4/3. Then cos θ = 3/5 and sin θ = 4/5, so cosec θ + cot θ = 5/4 + 3/4 = 2.",
+   "steps": [
+    "(sec − tan)(sec + tan) = 1 gives sec − tan = 1/3",
+    "sec = 5/3, tan = 4/3",
+    "sin = 4/5, cos = 3/5",
+    "cosec + cot = 5/4 + 3/4 = 2"
+   ],
+   "trap": "Swapping sine and cosine.",
+   "revise": "sec + tan identity",
+   "wrongReasons": [
+    "Swapped sin θ and cos θ",
+    "Gave cosec θ only",
+    null,
+    "Gave cot θ only"
+   ]
+  },
+  {
+   "topic": "Trigonometry",
+   "subtopic": "Angles of depression",
+   "difficulty": "moderate",
+   "text": "From the top of a 60 m tower, the angles of depression of two points on the same side of the tower and in line with its foot are 30° and 60°. What is the distance between the two points?",
+   "options": [
+    "40√3 m",
+    "20√3 m",
+    "60√3 m",
+    "80√3 m"
+   ],
+   "answer": 0,
+   "explanation": "Farther point: 60 ÷ tan 30° = 60√3. Nearer point: 60 ÷ tan 60° = 20√3. Distance between them = 60√3 − 20√3 = 40√3 m.",
+   "steps": [
+    "Farther: 60 cot 30° = 60√3",
+    "Nearer: 60 cot 60° = 20√3",
+    "Difference = 40√3 m"
+   ],
+   "trap": "Using the sum when both points are on the same side.",
+   "revise": "Heights and distances",
+   "wrongReasons": [
+    null,
+    "Gave the distance of the nearer point from the foot",
+    "Gave the distance of the farther point from the foot",
+    "Added the two distances, as for points on opposite sides"
+   ]
+  },
+  {
+   "topic": "Trigonometry",
+   "subtopic": "Identity with special angle",
+   "difficulty": "moderate",
+   "text": "What is the value of tan² 15° + cot² 15°?",
+   "options": [
+    "16",
+    "14",
+    "4",
+    "12"
+   ],
+   "answer": 1,
+   "value": 14,
+   "check": "Math.pow(Math.tan(Math.PI/12),2)+Math.pow(1/Math.tan(Math.PI/12),2)",
+   "explanation": "tan 15° = 2 − √3 and cot 15° = 2 + √3, so tan 15° + cot 15° = 4. Then tan² + cot² = (tan + cot)² − 2 tan cot = 16 − 2 = 14.",
+   "steps": [
+    "tan 15° = 2 − √3, cot 15° = 2 + √3",
+    "Sum = 4, product = 1",
+    "tan² + cot² = 4² − 2 × 1 = 14"
+   ],
+   "trap": "Forgetting the −2 term.",
+   "revise": "tan A + cot A identities",
+   "wrongReasons": [
+    "Squared tan 15° + cot 15° and did not subtract 2",
+    null,
+    "Gave tan 15° + cot 15° without squaring",
+    "Evaluated (cot 15° − tan 15°)²"
+   ]
+  },
+  {
+   "topic": "Algebra",
+   "subtopic": "Sum of cubes identity",
+   "difficulty": "easy",
+   "text": "If a + b + c = 12 and ab + bc + ca = 47, what is the value of a³ + b³ + c³ − 3abc?",
+   "options": [
+    "3",
+    "36",
+    "600",
+    "50"
+   ],
+   "answer": 1,
+   "value": 36,
+   "check": "12*(12*12-3*47)",
+   "explanation": "a² + b² + c² = 12² − 2 × 47 = 50. The expression = (a + b + c)(a² + b² + c² − ab − bc − ca) = 12 × (50 − 47) = 36.",
+   "steps": [
+    "a² + b² + c² = 144 − 94 = 50",
+    "Second factor = 50 − 47 = 3",
+    "12 × 3 = 36"
+   ],
+   "trap": "Forgetting the factor 2 in (a + b + c)².",
+   "revise": "a³ + b³ + c³ − 3abc",
+   "wrongReasons": [
+    "Gave only the second factor of the identity",
+    null,
+    "Used a² + b² + c² = 144 − 47 instead of 144 − 94",
+    "Gave a² + b² + c² only"
+   ]
+  },
+  {
+   "topic": "Algebra",
+   "subtopic": "Reciprocal powers",
+   "difficulty": "easy",
+   "text": "If x² − 6x + 1 = 0, what is the value of x⁴ + 1/x⁴?",
+   "options": [
+    "1,154",
+    "34",
+    "1,156",
+    "1,152"
+   ],
+   "answer": 0,
+   "value": 1154,
+   "check": "Math.pow(Math.pow(6,2)-2,2)-2",
+   "explanation": "Divide by x: x + 1/x = 6. Then x² + 1/x² = 36 − 2 = 34 and x⁴ + 1/x⁴ = 34² − 2 = 1,154.",
+   "steps": [
+    "x + 1/x = 6",
+    "x² + 1/x² = 34",
+    "x⁴ + 1/x⁴ = 1,156 − 2 = 1,154"
+   ],
+   "trap": "Stopping early or forgetting to subtract 2 twice.",
+   "revise": "Reciprocal identities",
+   "wrongReasons": [
+    null,
+    "Gave x² + 1/x²",
+    "Forgot to subtract 2 in the last step",
+    "Subtracted 4 instead of 2"
+   ]
+  },
+  {
+   "topic": "Algebra",
+   "subtopic": "Two-digit number",
+   "difficulty": "easy",
+   "text": "The sum of the digits of a two-digit number is 11. If 27 is subtracted from the number, the digits are reversed. What is the number?",
+   "options": [
+    "47",
+    "74",
+    "83",
+    "92"
+   ],
+   "answer": 1,
+   "value": 74,
+   "check": "(function(){for(let n=10;n<100;n++){const a=Math.floor(n/10),b=n%10;if(a+b===11&&n-27===b*10+a)return n}})()",
+   "explanation": "Let the number be 10a + b. a + b = 11 and (10a + b) − (10b + a) = 27 gives a − b = 3. So a = 7 and b = 4: the number is 74.",
+   "steps": [
+    "a + b = 11",
+    "9(a − b) = 27, so a − b = 3",
+    "a = 7, b = 4"
+   ],
+   "trap": "Choosing a number only from the digit sum.",
+   "revise": "Digit problems",
+   "wrongReasons": [
+    "Gave the reversed number",
+    null,
+    "Digits sum to 11 but 83 − 27 = 56",
+    "Digits sum to 11 but 92 − 27 = 65"
+   ]
+  },
+  {
+   "topic": "Number System",
+   "subtopic": "Counting multiples",
+   "difficulty": "moderate",
+   "text": "How many integers from 1 to 200 are divisible by 3 or 5 but not by 15?",
+   "options": [
+    "93",
+    "106",
+    "67",
+    "80"
+   ],
+   "answer": 3,
+   "value": 80,
+   "check": "Math.floor(200/3)+Math.floor(200/5)-2*Math.floor(200/15)",
+   "explanation": "Multiples of 3: 66; of 5: 40; of 15: 13. Divisible by 3 or 5 = 66 + 40 − 13 = 93. Remove those divisible by 15: 93 − 13 = 80. (Equivalently 66 + 40 − 2 × 13.)",
+   "steps": [
+    "⌊200/3⌋ = 66, ⌊200/5⌋ = 40, ⌊200/15⌋ = 13",
+    "3 or 5: 66 + 40 − 13 = 93",
+    "Not by 15: 93 − 13 = 80"
+   ],
+   "trap": "Using inclusion–exclusion but forgetting the 'not by 15' condition.",
+   "revise": "Inclusion–exclusion on multiples",
+   "wrongReasons": [
+    "Did not exclude the multiples of 15",
+    "Added the multiples of 3 and 5 without removing the common ones",
+    "Removed the multiples of 15 twice from 93 and then added again",
+    null
+   ]
+  },
+  {
+   "topic": "Number System",
+   "subtopic": "Roots of decimals",
+   "difficulty": "easy",
+   "text": "What is the value of √0.0081 × ∛0.000343 ÷ 0.21?",
+   "options": [
+    "0.3",
+    "0.003",
+    "0.03",
+    "0.09"
+   ],
+   "answer": 2,
+   "value": 0.03,
+   "check": "Math.sqrt(0.0081)*Math.cbrt(0.000343)/0.21",
+   "explanation": "√0.0081 = 0.09 and ∛0.000343 = 0.07. So 0.09 × 0.07 ÷ 0.21 = 0.0063 ÷ 0.21 = 0.03.",
+   "steps": [
+    "√0.0081 = 0.09",
+    "∛0.000343 = 0.07",
+    "0.09 × 0.07 = 0.0063",
+    "0.0063 ÷ 0.21 = 0.03"
+   ],
+   "trap": "Decimal-place slips when taking roots.",
+   "revise": "Roots of decimals",
+   "wrongReasons": [
+    "Misplaced the decimal point by one place",
+    "Misplaced the decimal point by one place the other way",
+    null,
+    "Gave only √0.0081"
+   ]
+  }
+ ]
+}

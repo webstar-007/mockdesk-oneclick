@@ -1,0 +1,26 @@
+---
+- name: The service is running
+  ansible.builtin.command: systemctl is-active mockdesk
+  register: svc
+  changed_when: false
+  failed_when: svc.stdout != 'active'
+
+- name: Health check (retries while the site starts)
+  ansible.builtin.uri:
+    url: "http://127.0.0.1:{{ web_port }}/api/health"
+    return_content: true
+  register: health
+  retries: 20
+  delay: 3
+  until: health.status is defined and health.status == 200
+
+- name: Home page is served
+  ansible.builtin.uri:
+    url: "http://127.0.0.1:{{ web_port }}/"
+    return_content: true
+  register: home
+  failed_when: "'<div id=\"root\">' not in home.content"
+
+- name: Result
+  ansible.builtin.debug:
+    msg: "MockDesk is up. Release {{ release_id }}. Health: {{ health.content | trim }}"

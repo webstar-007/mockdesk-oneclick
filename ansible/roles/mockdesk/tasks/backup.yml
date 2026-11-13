@@ -1,0 +1,17 @@
+---
+- name: Make a consistent copy of the database
+  ansible.builtin.shell: |
+    rm -f /tmp/mockdesk-backup.db
+    sqlite3 {{ data_dir }}/mockdesk.db "VACUUM INTO '/tmp/mockdesk-backup.db'"
+  changed_when: true
+
+- name: Download it to the Jenkins workspace (backups/)
+  ansible.builtin.fetch:
+    src: /tmp/mockdesk-backup.db
+    dest: "{{ playbook_dir }}/../backups/mockdesk-{{ release_id }}.db"
+    flat: true
+
+- name: Remove the temporary copy
+  ansible.builtin.file:
+    path: /tmp/mockdesk-backup.db
+    state: absent

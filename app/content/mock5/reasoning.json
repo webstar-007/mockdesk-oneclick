@@ -1,0 +1,925 @@
+{
+ "section": "reasoning",
+ "passages": {
+  "p1": "Eight persons A, B, C, D, E, F, G and H sit around a square table. Four of them sit at the corners and face outside; the other four sit in the middle of the sides and face the centre. Seats are counted one after another around the table, and 'left' and 'right' are taken from each person's own point of view.\nA sits in the middle of a side. B sits second to the left of A. C sits immediate right of B. D sits at a corner. E sits opposite D. F sits immediate left of E. G sits third to the right of C.",
+  "p2": "A machine rearranges a set of numbers step by step. An illustration of an input and its steps is given below.\nInput: 56 23 89 34 71 18\nStep I: 18 56 23 89 34 71\nStep II: 18 89 56 23 34 71\nStep III: 18 89 23 56 34 71\nStep IV: 18 89 23 71 56 34\nStep V: 18 89 23 71 34 56\nStep V is the last step of this input.\nStudy the rule and answer the questions for the following new input:\n40 15 72 29 63 8 51"
+ },
+ "questions": [
+  {
+   "topic": "Series",
+   "subtopic": "Geometric gaps",
+   "difficulty": "hard",
+   "text": "What should come in place of the question mark?\n\n3, 5, 11, 29, 83, ?",
+   "options": [
+    "245",
+    "191",
+    "227",
+    "263"
+   ],
+   "answer": 0,
+   "explanation": "The gaps are 2, 6, 18, 54, each three times the one before, so the next gap is 162 and the term is 83 + 162 = 245.",
+   "steps": [
+    "5 − 3 = 2",
+    "11 − 5 = 6",
+    "29 − 11 = 18",
+    "83 − 29 = 54",
+    "54 × 3 = 162, so 83 + 162 = 245"
+   ],
+   "trap": "Using a doubling gap instead of a tripling gap.",
+   "revise": "Series with gaps in geometric progression",
+   "wrongReasons": [
+    null,
+    "Added 108, the previous gap doubled",
+    "Added 144, a wrong multiple",
+    "Added 180, a wrong multiple"
+   ],
+   "value": 245,
+   "check": "83+54*3"
+  },
+  {
+   "topic": "Series",
+   "subtopic": "Squares as gaps",
+   "difficulty": "moderate",
+   "text": "What should come in place of the question mark?\n\n11, 12, 16, 25, 41, ?",
+   "options": [
+    "57",
+    "61",
+    "66",
+    "64"
+   ],
+   "answer": 2,
+   "explanation": "The gaps are 1², 2², 3², 4², and the next gap is 5² = 25. So 41 + 25 = 66.",
+   "steps": [
+    "12 − 11 = 1",
+    "16 − 12 = 4",
+    "25 − 16 = 9",
+    "41 − 25 = 16",
+    "Next gap 25: 41 + 25 = 66"
+   ],
+   "trap": "Picking the next square as the term instead of the next gap.",
+   "revise": "Series with square gaps",
+   "wrongReasons": [
+    "Added 16 again",
+    "Added 20",
+    null,
+    "Took the next square, 64, as the term"
+   ],
+   "value": 66,
+   "check": "41+25"
+  },
+  {
+   "topic": "Series",
+   "subtopic": "Letter-cluster series",
+   "difficulty": "hard",
+   "text": "Select the option that will come next in the series.\n\nZAB, XCE, UFI, QJN, ?",
+   "options": [
+    "LOS",
+    "LOT",
+    "KOT",
+    "LPT"
+   ],
+   "answer": 1,
+   "explanation": "First letters Z, X, U, Q move −2, −3, −4, so the next move is −5: Q → L. Second letters A, C, F, J move +2, +3, +4, so the next is +5: J → O. Third letters B, E, I, N move +3, +4, +5, so the next is +6: N → T.",
+   "steps": [
+    "First letters: −2, −3, −4, next −5: L",
+    "Second letters: +2, +3, +4, next +5: O",
+    "Third letters: +3, +4, +5, next +6: T",
+    "LOT"
+   ],
+   "trap": "Moving the first letter forward instead of backward.",
+   "revise": "Cluster series with both directions",
+   "wrongReasons": [
+    "Third letter moved +5 instead of +6",
+    null,
+    "First letter moved −6 instead of −5",
+    "Second letter moved +6 instead of +5"
+   ],
+   "shortcut": "Handle each letter position as a separate series."
+  },
+  {
+   "topic": "Analogy",
+   "subtopic": "Number analogy",
+   "difficulty": "moderate",
+   "text": "Select the number that is related to the third number in the same way as the second number is related to the first number.\n\n7 : 336 :: 5 : ?",
+   "options": [
+    "125",
+    "130",
+    "120",
+    "100"
+   ],
+   "answer": 2,
+   "explanation": "7 × (7² − 1) = 7 × 48 = 336. So 5 × (5² − 1) = 5 × 24 = 120.",
+   "steps": [
+    "336 = 7 × 48 and 48 = 7² − 1",
+    "Rule: n(n² − 1) = n³ − n",
+    "5³ − 5 = 125 − 5 = 120"
+   ],
+   "trap": "Using n³ and forgetting to subtract n.",
+   "revise": "Analogies with n³ − n",
+   "wrongReasons": [
+    "Used n³",
+    "Used n³ + n",
+    null,
+    "Used 4n²"
+   ],
+   "shortcut": "336 is close to 7³ = 343; the difference is 7.",
+   "value": 120,
+   "check": "5**3-5"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Mirror image",
+   "difficulty": "moderate",
+   "text": "A figure is shown with a mirror placed on its right-hand side as shown. Select the figure that correctly shows its mirror image.",
+   "options": [
+    "Figure A",
+    "Figure B",
+    "Figure C",
+    "Figure D"
+   ],
+   "answer": 2,
+   "optionFigures": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"10,10 10,40 25,40 25,60 45,60 45,70 65,70 65,50 45,50 45,30 30,30 30,10\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"10,10 40,10 40,25 60,25 60,45 70,45 70,65 50,65 50,45 30,45 30,30 10,30\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"70,70 70,40 55,40 55,20 35,20 35,10 15,10 15,30 35,30 35,50 50,50 50,70\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"10,70 10,40 25,40 25,20 45,20 45,10 65,10 65,30 45,30 45,50 30,50 30,70\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>"
+   ],
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 100\" role=\"img\"><g transform=\"translate(10,10)\"><polygon points=\"10,70 10,40 25,40 25,20 45,20 45,10 65,10 65,30 45,30 45,50 30,50 30,70\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></g><line x1=\"150\" y1=\"5\" x2=\"150\" y2=\"95\" stroke=\"#c0392b\" stroke-width=\"3\"/><text x=\"158\" y=\"55\" font-size=\"12\">mirror</text></svg>",
+   "explanation": "A mirror on the right reverses the figure left to right (lateral inversion) and leaves up and down unchanged.",
+   "steps": [
+    "Spot what the question tests: Mirror image = left-right swap; water image = top-bottom swap.",
+    "Option A (Figure A) is out: This is the water image, not the mirror image.",
+    "Option B (Figure B) is out: This is a rotation, which a mirror cannot produce.",
+    "Option D (Figure D) is out: This is the unchanged figure.",
+    "Common slip to avoid: Choosing the vertical flip, which is the water image.",
+    "So the answer is option C: Figure C."
+   ],
+   "trap": "Choosing the vertical flip, which is the water image.",
+   "revise": "Mirror image = left-right swap; water image = top-bottom swap",
+   "wrongReasons": [
+    "This is the water image, not the mirror image",
+    "This is a rotation, which a mirror cannot produce",
+    null,
+    "This is the unchanged figure"
+   ]
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Water image",
+   "difficulty": "moderate",
+   "text": "A figure is shown above a horizontal mirror (water surface). Select the figure that shows its water image.",
+   "options": [
+    "Figure A",
+    "Figure B",
+    "Figure C",
+    "Figure D"
+   ],
+   "answer": 1,
+   "optionFigures": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"70,70 70,40 55,40 55,20 35,20 35,10 15,10 15,30 35,30 35,50 50,50 50,70\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"10,10 10,40 25,40 25,60 45,60 45,70 65,70 65,50 45,50 45,30 30,30 30,10\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"10,10 40,10 40,25 60,25 60,45 70,45 70,65 50,65 50,45 30,45 30,30 10,30\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"70,10 70,40 55,40 55,60 35,60 35,70 15,70 15,50 35,50 35,30 50,30 50,10\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>"
+   ],
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 200\" role=\"img\"><g transform=\"translate(10,5)\"><polygon points=\"10,70 10,40 25,40 25,20 45,20 45,10 65,10 65,30 45,30 45,50 30,50 30,70\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></g><line x1=\"5\" y1=\"105\" x2=\"95\" y2=\"105\" stroke=\"#c0392b\" stroke-width=\"3\"/><text x=\"30\" y=\"125\" font-size=\"12\">mirror</text></svg>",
+   "explanation": "A horizontal mirror reverses the figure top to bottom; left and right stay as they were.",
+   "steps": [
+    "Spot what the question tests: Water image = top-bottom swap.",
+    "Option A (Figure A) is out: This is the left-right mirror image.",
+    "Option C (Figure C) is out: This is a rotation.",
+    "Option D (Figure D) is out: This is both flips, i.e. a 180° rotation.",
+    "Common slip to avoid: Choosing the left-right inversion.",
+    "So the answer is option B: Figure B."
+   ],
+   "trap": "Choosing the left-right inversion.",
+   "revise": "Water image = top-bottom swap",
+   "wrongReasons": [
+    "This is the left-right mirror image",
+    null,
+    "This is a rotation",
+    "This is both flips, i.e. a 180° rotation"
+   ]
+  },
+  {
+   "topic": "Coding-Decoding",
+   "subtopic": "Alternating shift code",
+   "difficulty": "moderate",
+   "text": "In a certain code language, STUDENT is written as TSVCFMU. How will PLANET be written in that code?",
+   "options": [
+    "QKBMFT",
+    "QKBMFS",
+    "QMBMFS",
+    "QKBNFS"
+   ],
+   "answer": 1,
+   "explanation": "STUDENT → TSVCFMU alternates +1 and −1 starting with +1. For PLANET: P+1 = Q, L−1 = K, A+1 = B, N−1 = M, E+1 = F, T−1 = S.",
+   "steps": [
+    "S+1 = T, T−1 = S, U+1 = V, D−1 = C",
+    "E+1 = F, N−1 = M, T+1 = U",
+    "Apply the same pattern to PLANET",
+    "QKBMFS"
+   ],
+   "trap": "Using +1 for every letter.",
+   "revise": "Alternating shift codes",
+   "wrongReasons": [
+    "Last letter shifted +1 instead of −1",
+    null,
+    "Second letter shifted +1 instead of −1",
+    "Fourth letter shifted 0 instead of −1"
+   ],
+   "shortcut": "Check the first two letters: the pair of shifts decides the pattern."
+  },
+  {
+   "topic": "Coding-Decoding",
+   "subtopic": "Letter-sum code",
+   "difficulty": "easy",
+   "text": "In a certain code language, CAT is written as 24 and DOG is written as 26. How will BIRD be written in that code?",
+   "options": [
+    "33",
+    "31",
+    "32",
+    "34"
+   ],
+   "answer": 0,
+   "explanation": "The code is the sum of the alphabet positions: CAT = 3 + 1 + 20 = 24 and DOG = 4 + 15 + 7 = 26. BIRD = 2 + 9 + 18 + 4 = 33.",
+   "steps": [
+    "C + A + T = 3 + 1 + 20 = 24",
+    "D + O + G = 4 + 15 + 7 = 26",
+    "B + I + R + D = 2 + 9 + 18 + 4 = 33"
+   ],
+   "trap": "Slipping on one position value.",
+   "revise": "Letter-position sums",
+   "wrongReasons": [
+    null,
+    "Used D = 2",
+    "Used I = 8",
+    "Used R = 19"
+   ],
+   "value": 33,
+   "check": "2+9+18+4"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Paper folding and punching",
+   "difficulty": "hard",
+   "text": "A square sheet is folded along both central dotted lines into a quarter as shown, and a hole is punched in the top-left quarter. Select the figure that shows the sheet when unfolded.",
+   "options": [
+    "Figure A",
+    "Figure B",
+    "Figure C",
+    "Figure D"
+   ],
+   "answer": 0,
+   "optionFigures": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"26\" cy=\"38\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"74\" cy=\"38\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"26\" cy=\"62\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"74\" cy=\"62\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"26\" cy=\"38\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"74\" cy=\"38\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"26\" cy=\"38\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"74\" cy=\"62\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"26\" cy=\"38\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"26\" cy=\"62\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"74\" cy=\"38\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"50\" cy=\"50\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>"
+   ],
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 210 110\" role=\"img\"><rect x=\"5\" y=\"5\" width=\"100\" height=\"100\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><g transform=\"translate(5,5)\"><rect x=\"0\" y=\"0\" width=\"50\" height=\"50\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"26\" cy=\"38\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></g><path d=\"M5 5 L105 5 L105 105 L5 105 Z\" stroke=\"#999\" stroke-dasharray=\"4\" fill=\"none\" stroke-width=\"1\"/><line x1=\"55\" y1=\"5\" x2=\"55\" y2=\"105\" stroke=\"#999\" stroke-dasharray=\"4\"/><line x1=\"5\" y1=\"55\" x2=\"105\" y2=\"55\" stroke=\"#999\" stroke-dasharray=\"4\"/><text x=\"115\" y=\"30\" font-size=\"11\">Folded twice,</text><text x=\"115\" y=\"45\" font-size=\"11\">hole punched in</text><text x=\"115\" y=\"60\" font-size=\"11\">the top-left</text><text x=\"115\" y=\"75\" font-size=\"11\">quarter</text></svg>",
+   "explanation": "Each fold reflects the hole across the fold line, so one punch gives four holes, one in each quarter, placed symmetrically about both centre lines.",
+   "steps": [
+    "Spot what the question tests: Fold line = mirror line for punched holes.",
+    "Option B (Figure B) is out: Only two holes: it misses the second fold.",
+    "Option C (Figure C) is out: Only two holes on a diagonal, which ignores one fold.",
+    "Option D (Figure D) is out: Has a stray hole at the centre and a missing quarter.",
+    "Common slip to avoid: Forgetting that two folds give four holes, or placing the extra holes diagonally only.",
+    "So the answer is option A: Figure A."
+   ],
+   "trap": "Forgetting that two folds give four holes, or placing the extra holes diagonally only.",
+   "revise": "Fold line = mirror line for punched holes",
+   "wrongReasons": [
+    null,
+    "Only two holes: it misses the second fold",
+    "Only two holes on a diagonal, which ignores one fold",
+    "Has a stray hole at the centre and a missing quarter"
+   ]
+  },
+  {
+   "topic": "Direction & Distance",
+   "subtopic": "Final displacement",
+   "difficulty": "hard",
+   "text": "Rahul starts from his house and walks 9 km towards the west. He turns left and walks 12 km, turns left again and walks 3 km, and finally turns left and walks 4 km. How far and in which direction is he from his house?",
+   "options": [
+    "14 km South-West",
+    "10 km South-West",
+    "8 km South",
+    "6 km West"
+   ],
+   "answer": 1,
+   "explanation": "West 9: (−9, 0). Left from west is south: 12 km to (−9, −12). Left from south is east: 3 km to (−6, −12). Left from east is north: 4 km to (−6, −8). Distance = √(6² + 8²) = 10 km, towards the south-west.",
+   "steps": [
+    "West 9: (−9, 0)",
+    "Left → south 12: (−9, −12)",
+    "Left → east 3: (−6, −12)",
+    "Left → north 4: (−6, −8)",
+    "√(36 + 64) = 10 km, South-West"
+   ],
+   "trap": "Adding 6 and 8 instead of using Pythagoras.",
+   "revise": "Turns relative to the direction faced",
+   "wrongReasons": [
+    "Added the net distances instead of using Pythagoras",
+    null,
+    "Ignored the west displacement",
+    "Ignored the south displacement"
+   ],
+   "shortcut": "6-8-10 triplet.",
+   "value": 10,
+   "check": "Math.hypot(6,8)"
+  },
+  {
+   "topic": "Order & Ranking",
+   "subtopic": "Row of persons",
+   "difficulty": "easy",
+   "text": "In a row of 40 boys, Arjun is 13th from the left and Bhanu is 17th from the right. How many boys are there between them?",
+   "options": [
+    "10",
+    "9",
+    "11",
+    "14"
+   ],
+   "answer": 0,
+   "explanation": "Bhanu is 40 − 17 + 1 = 24th from the left. Boys between positions 13 and 24 = 24 − 13 − 1 = 10.",
+   "steps": [
+    "Bhanu from left = 40 − 17 + 1 = 24",
+    "Between = 24 − 13 − 1 = 10"
+   ],
+   "trap": "Forgetting the +1 when converting the rank.",
+   "revise": "Rank from left and right",
+   "wrongReasons": [
+    null,
+    "Subtracted the ranks without removing both positions",
+    "Forgot to remove one position",
+    "Added the two ranks and removed 16"
+   ],
+   "value": 10,
+   "check": "(40-17+1)-13-1"
+  },
+  {
+   "topic": "Syllogism",
+   "subtopic": "Negative statements",
+   "difficulty": "hard",
+   "text": "Statements:\nNo lock is a key.\nAll keys are doors.\nSome doors are windows.\n\nConclusions:\nI. Some doors are not locks.\nII. Some windows are not locks.\nIII. No key is a lock.\n\nWhich of the conclusions follow(s)?",
+   "options": [
+    "Only I follows",
+    "Only II and III follow",
+    "Only I and III follow",
+    "All I, II and III follow"
+   ],
+   "answer": 2,
+   "explanation": "Keys are doors and no key is a lock, so some doors (the keys) are not locks (I). 'No lock is a key' converts to 'No key is a lock' (III). The windows that are doors may or may not be keys, so II is only a possibility.",
+   "steps": [
+    "All keys are doors; no key is a lock: some doors are not locks (I)",
+    "Converse of 'No lock is a key': no key is a lock (III)",
+    "Windows may be locks or not: II is not certain"
+   ],
+   "trap": "Treating a possibility as a definite conclusion.",
+   "revise": "Syllogisms with 'no' statements",
+   "wrongReasons": [
+    "III also follows: it is the converse of the first statement",
+    "II is not certain",
+    null,
+    "II does not follow"
+   ],
+   "approach": "Check the converse of every 'no' and 'some' statement first."
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Venn diagram",
+   "difficulty": "moderate",
+   "text": "Select the Venn diagram that best represents the relationship among: Writers (W), Poets (P), Teachers (T).",
+   "options": [
+    "Figure A",
+    "Figure B",
+    "Figure C",
+    "Figure D"
+   ],
+   "answer": 3,
+   "optionFigures": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 100\" role=\"img\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"46\" y=\"21\" font-size=\"10\">W</text><circle cx=\"105\" cy=\"30\" r=\"12\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"101\" y=\"34\" font-size=\"10\">P</text><circle cx=\"88\" cy=\"74\" r=\"20\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"84\" y=\"78\" font-size=\"10\">T</text></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 100\" role=\"img\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"46\" y=\"21\" font-size=\"10\">W</text><circle cx=\"36\" cy=\"56\" r=\"16\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"32\" y=\"60\" font-size=\"10\">T</text><circle cx=\"74\" cy=\"56\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"70\" y=\"60\" font-size=\"10\">P</text></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 100\" role=\"img\"><circle cx=\"30\" cy=\"50\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"26\" y=\"54\" font-size=\"10\">W</text><circle cx=\"60\" cy=\"50\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"56\" y=\"54\" font-size=\"10\">P</text><circle cx=\"90\" cy=\"50\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"86\" y=\"54\" font-size=\"10\">T</text></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 100\" role=\"img\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"46\" y=\"21\" font-size=\"10\">W</text><circle cx=\"36\" cy=\"56\" r=\"16\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"32\" y=\"60\" font-size=\"10\">P</text><circle cx=\"72\" cy=\"56\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"68\" y=\"60\" font-size=\"10\">T</text></svg>"
+   ],
+   "explanation": "All poets are writers, so P lies inside W. Some teachers are writers and some may be poets, so T overlaps both W and P.",
+   "steps": [
+    "Spot what the question tests: Venn: subset, overlap, disjoint.",
+    "Option A (Figure A) is out: Poets sits outside writers, which is false.",
+    "Option B (Figure B) is out: Poets and teachers are swapped.",
+    "Option C (Figure C) is out: Writers, poets and teachers are drawn as separate sets.",
+    "Common slip to avoid: Drawing teachers as separate from poets.",
+    "So the answer is option D: Figure D."
+   ],
+   "trap": "Drawing teachers as separate from poets.",
+   "revise": "Venn: subset, overlap, disjoint",
+   "wrongReasons": [
+    "Poets sits outside writers, which is false",
+    "Poets and teachers are swapped",
+    "Writers, poets and teachers are drawn as separate sets",
+    null
+   ]
+  },
+  {
+   "topic": "Calendar",
+   "subtopic": "Day of the week",
+   "difficulty": "hard",
+   "text": "If 18 July 2026 is a Saturday, on which day of the week was 3 March 2026?",
+   "options": [
+    "Monday",
+    "Wednesday",
+    "Tuesday",
+    "Sunday"
+   ],
+   "answer": 2,
+   "explanation": "From 3 March to 18 July is 28 + 30 + 31 + 30 + 18 = 137 days. 137 = 19 weeks + 4 days, so 3 March was 4 days before a Saturday: Tuesday.",
+   "steps": [
+    "Days left in March after the 3rd: 28",
+    "April 30, May 31, June 30, July 18",
+    "28 + 30 + 31 + 30 + 18 = 137",
+    "137 mod 7 = 4",
+    "Saturday − 4 = Tuesday"
+   ],
+   "trap": "Counting March as having 31 days from the 3rd.",
+   "revise": "Odd days across months",
+   "wrongReasons": [
+    "Counted 136 days",
+    "Counted 138 days",
+    null,
+    "Counted 135 days"
+   ],
+   "shortcut": "Months in odd days: 28, 30, 31, 30, 18 → 0, 2, 3, 2, 4 = 11 → 4."
+  },
+  {
+   "topic": "Clock",
+   "subtopic": "Gaining clock",
+   "difficulty": "moderate",
+   "text": "A clock gains 5 minutes every hour. It is set right at 6 a.m. What time will it show at the true time of 12 noon?",
+   "options": [
+    "12:05 p.m.",
+    "12:30 p.m.",
+    "12:35 p.m.",
+    "12:25 p.m."
+   ],
+   "answer": 1,
+   "explanation": "In 6 true hours the clock gains 6 × 5 = 30 minutes. At the true time of 12 noon it shows 12:30 p.m.",
+   "steps": [
+    "True time elapsed = 6 hours",
+    "Gain = 6 × 5 = 30 minutes",
+    "Clock shows 12:30 p.m."
+   ],
+   "trap": "Adding the hourly gain only once.",
+   "revise": "Clocks that gain or lose time",
+   "wrongReasons": [
+    "Added only 5 minutes",
+    null,
+    "Added 35 minutes",
+    "Added 25 minutes"
+   ],
+   "value": 30,
+   "check": "6*5"
+  },
+  {
+   "topic": "Data Sufficiency",
+   "subtopic": "Seating",
+   "difficulty": "hard",
+   "text": "Three persons P, Q and R sit in a row facing north. Who sits in the middle?\n\nI. P sits to the right of R.\nII. Q does not sit at the extreme left end.",
+   "options": [
+    "Statement I alone is sufficient",
+    "Statement II alone is sufficient",
+    "Both statements together are sufficient",
+    "Both statements together are not sufficient"
+   ],
+   "answer": 3,
+   "explanation": "From I, the possible orders (left to right) are R-P-Q, R-Q-P and Q-R-P. Statement II removes Q-R-P, but R-P-Q and R-Q-P remain, so the middle person is P or Q.",
+   "steps": [
+    "I: R is left of P: RPQ, RQP, QRP",
+    "II: Q not at the left end: removes QRP",
+    "RPQ and RQP remain: middle is P or Q",
+    "Not sufficient"
+   ],
+   "trap": "Assuming the two clues together fix a single order.",
+   "revise": "Data sufficiency in seating",
+   "wrongReasons": [
+    "Q could still be in the middle or at an end",
+    "R and P are not placed",
+    "R P Q and R Q P are both possible",
+    null
+   ],
+   "approach": "List every arrangement allowed by each statement and combine them."
+  },
+  {
+   "topic": "Mathematical Operations",
+   "subtopic": "Defined operation",
+   "difficulty": "hard",
+   "text": "If a ◇ b = a² + b² − ab, what is the value of (3 ◇ 4) ◇ 1?",
+   "options": [
+    "169",
+    "157",
+    "145",
+    "183"
+   ],
+   "answer": 1,
+   "explanation": "3 ◇ 4 = 9 + 16 − 12 = 13. Then 13 ◇ 1 = 169 + 1 − 13 = 157.",
+   "steps": [
+    "3 ◇ 4 = 3² + 4² − 3 × 4 = 13",
+    "13 ◇ 1 = 13² + 1² − 13 × 1",
+    "= 169 + 1 − 13 = 157"
+   ],
+   "trap": "Skipping the −ab term in the second step.",
+   "revise": "Defined operations with brackets",
+   "wrongReasons": [
+    "Computed (3 ◇ 4) as 13 and squared it, forgetting the other terms",
+    null,
+    "Used + ab instead of − ab in the second step",
+    "Used 3 ◇ 4 = 37"
+   ],
+   "value": 157,
+   "check": "169+1-13"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Counting squares",
+   "difficulty": "moderate",
+   "text": "An 8 x 8 grid is shown. How many squares of all sizes are there in the figure?",
+   "options": [
+    "64",
+    "204",
+    "203",
+    "1296"
+   ],
+   "answer": 1,
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 340 340\" role=\"img\"><rect x=\"10\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"290\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"290\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"290\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"290\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"290\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"290\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"290\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"290\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+   "explanation": "1x1: 64, 2x2: 49, 3x3: 36, 4x4: 25, 5x5: 16, 6x6: 9, 7x7: 4, 8x8: 1. Total = 204.",
+   "steps": [
+    "Spot what the question tests: Squares in an n x n grid = n(n+1)(2n+1)/6.",
+    "Option A (64) is out: Only 1x1 squares counted.",
+    "Option C (203) is out: The 8x8 square missed.",
+    "Option D (1296) is out: Rectangles counted along with squares.",
+    "Common slip to avoid: Counting only the 64 small squares.",
+    "So the answer is option B: 204."
+   ],
+   "trap": "Counting only the 64 small squares.",
+   "revise": "Squares in an n x n grid = n(n+1)(2n+1)/6",
+   "wrongReasons": [
+    "Only 1x1 squares counted",
+    null,
+    "The 8x8 square missed",
+    "Rectangles counted along with squares"
+   ]
+  },
+  {
+   "topic": "Alphabet Test",
+   "subtopic": "Position of letters",
+   "difficulty": "moderate",
+   "text": "Which letter is the 8th to the left of the 14th letter from the right end of the English alphabet?",
+   "options": [
+    "U",
+    "D",
+    "F",
+    "E"
+   ],
+   "answer": 3,
+   "explanation": "The 14th letter from the right end is the 27 − 14 = 13th from the left, which is M. The 8th letter to its left is the 13 − 8 = 5th letter, E.",
+   "steps": [
+    "14th from the right = 27 − 14 = 13th from the left",
+    "13th letter = M",
+    "8th to the left = 5th letter = E"
+   ],
+   "trap": "Using 26 − 14 instead of 27 − 14.",
+   "revise": "Positions from the left and right of the alphabet",
+   "wrongReasons": [
+    "Counted 8 to the right instead of the left",
+    "Counted the 9th to the left",
+    "Counted the 7th to the left",
+    null
+   ],
+   "shortcut": "Position from left + position from right = 27."
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Counting squares",
+   "difficulty": "hard",
+   "text": "A grid of 7 rows and 9 columns is shown. How many squares of all sizes does it contain?",
+   "options": [
+    "63",
+    "193",
+    "196",
+    "1008"
+   ],
+   "answer": 2,
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 380 300\" role=\"img\"><rect x=\"10\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"330\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"330\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"330\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"330\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"330\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"330\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"290\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"330\" y=\"250\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+   "explanation": "1x1: 63, 2x2: 48, 3x3: 35, 4x4: 24, 5x5: 15, 6x6: 8, 7x7: 3. Total = 196.",
+   "steps": [
+    "Spot what the question tests: Squares in an m x n grid = sum of (m-k+1)(n-k+1).",
+    "Option A (63) is out: Only 1x1 squares counted.",
+    "Option B (193) is out: 7x7 squares missed.",
+    "Option D (1008) is out: Rectangles counted along with squares.",
+    "Common slip to avoid: Counting only the 12 small squares or forgetting the 3x3 squares.",
+    "So the answer is option C: 196."
+   ],
+   "trap": "Counting only the 12 small squares or forgetting the 3x3 squares.",
+   "revise": "Squares in an m x n grid = sum of (m-k+1)(n-k+1)",
+   "wrongReasons": [
+    "Only 1x1 squares counted",
+    "7x7 squares missed",
+    null,
+    "Rectangles counted along with squares"
+   ]
+  },
+  {
+   "topic": "Mathematical Operations",
+   "subtopic": "Pattern-based operation",
+   "difficulty": "hard",
+   "text": "If 5 # 3 = 52, 4 # 2 = 24 and 6 # 4 = 100, then 7 # 5 = ?",
+   "options": [
+    "174",
+    "144",
+    "154",
+    "184"
+   ],
+   "answer": 0,
+   "explanation": "The rule is a² + b³: 5² + 3³ = 25 + 27 = 52, 4² + 2³ = 16 + 8 = 24 and 6² + 4³ = 36 + 64 = 100. So 7² + 5³ = 49 + 125 = 174.",
+   "steps": [
+    "Test a² + b³ on the first example: 25 + 27 = 52",
+    "4² + 2³ = 24 and 6² + 4³ = 100",
+    "7² + 5³ = 49 + 125 = 174"
+   ],
+   "trap": "Trying products and sums before powers.",
+   "revise": "Finding the rule for a defined operation",
+   "wrongReasons": [
+    null,
+    "Used a² + b² + a",
+    "Used a² + 3b² + b",
+    "Used a² + b³ + 10"
+   ],
+   "shortcut": "Check a small pair first: 4 # 2 = 24 splits easily into 16 + 8.",
+   "value": 174,
+   "check": "49+125"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Counting triangles",
+   "difficulty": "hard",
+   "text": "How many triangles are there in the following figure?",
+   "options": [
+    "45",
+    "9",
+    "36",
+    "55"
+   ],
+   "answer": 0,
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 150\" role=\"img\"><polygon points=\"120.0,10 10,140 230,140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"34.44444444444444\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"58.888888888888886\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"83.33333333333333\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"107.77777777777777\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"132.22222222222223\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"156.66666666666666\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"181.11111111111111\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"205.55555555555554\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+   "explanation": "Ten lines meet at the apex, so any two of them with the base form a triangle: C(10,2) = 45.",
+   "steps": [
+    "Spot what the question tests: Triangles = C(k,2) for k lines from the apex.",
+    "Option B (9) is out: Only the smallest triangles counted.",
+    "Option C (36) is out: One line fewer assumed.",
+    "Option D (55) is out: One extra line assumed.",
+    "Common slip to avoid: Counting only the 5 small triangles.",
+    "So the answer is option A: 45."
+   ],
+   "trap": "Counting only the 5 small triangles.",
+   "revise": "Triangles = C(k,2) for k lines from the apex",
+   "wrongReasons": [
+    null,
+    "Only the smallest triangles counted",
+    "One line fewer assumed",
+    "One extra line assumed"
+   ]
+  },
+  {
+   "topic": "Seating Arrangement",
+   "subtopic": "Square table",
+   "difficulty": "moderate",
+   "text": "Who sits immediate right of H?",
+   "options": [
+    "F",
+    "G",
+    "D",
+    "E"
+   ],
+   "answer": 0,
+   "explanation": "Going clockwise: E, A, C, B, D, G, H, F (E, C, D and H at the corners). H sits at a corner and faces outside, so H's right is the next seat clockwise, which is F.",
+   "steps": [
+    "Place A in the middle of a side; B is second to its left (A faces the centre, so left is clockwise): B is 2 seats clockwise of A",
+    "C is immediate right of B: C is the corner between A and B",
+    "D at a corner, E opposite D: E is the corner before A",
+    "F is immediate left of E (E faces outside, so left is anticlockwise): F sits before E",
+    "G is third to the right of C: G sits between D and H",
+    "Clockwise order: E, A, C, B, D, G, H, F",
+    "H faces outside, right is clockwise: F"
+   ],
+   "trap": "Using the facing-centre rule for a person at a corner.",
+   "revise": "Square-table seating",
+   "wrongReasons": [
+    null,
+    "G sits immediate left of H",
+    "D sits opposite E",
+    "E sits opposite D"
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Dice",
+   "difficulty": "hard",
+   "text": "Two positions of the same cube are shown. Which number is on the face opposite to 1?",
+   "options": [
+    "5",
+    "4",
+    "2",
+    "6"
+   ],
+   "answer": 3,
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 260 125\" role=\"img\"><polygon points=\"70,20 115,40 70,60 25,40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><polygon points=\"25,40 70,60 70,110 25,90\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><polygon points=\"70,60 115,40 115,90 70,110\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"66\" y=\"45\" font-size=\"15\">4</text><text x=\"40\" y=\"82\" font-size=\"15\">5</text><text x=\"86\" y=\"82\" font-size=\"15\">1</text><polygon points=\"190,20 235,40 190,60 145,40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><polygon points=\"145,40 190,60 190,110 145,90\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><polygon points=\"190,60 235,40 235,90 190,110\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"186\" y=\"45\" font-size=\"15\">4</text><text x=\"160\" y=\"82\" font-size=\"15\">6</text><text x=\"206\" y=\"82\" font-size=\"15\">5</text></svg>",
+   "explanation": "Between the two views the cube is turned about the vertical axis with 4 on top. Face 1 has turned out of view and the face now at the left (6) came from behind it, so 6 is opposite 1.",
+   "steps": [
+    "Spot what the question tests: Dice: a face never appears together with its opposite.",
+    "Option A (5) is out: 5 is next to 1 in the first view.",
+    "Option B (4) is out: 4 is on top in both views, next to 1.",
+    "Option C (2) is out: 2 is never visible, so it cannot be fixed by these views.",
+    "Common slip to avoid: Choosing 5, which is next to 1 in the first view.",
+    "So the answer is option D: 6."
+   ],
+   "trap": "Choosing 5, which is next to 1 in the first view.",
+   "revise": "Dice: a face never appears together with its opposite",
+   "wrongReasons": [
+    "5 is next to 1 in the first view",
+    "4 is on top in both views, next to 1",
+    "2 is never visible, so it cannot be fixed by these views",
+    null
+   ]
+  },
+  {
+   "topic": "Seating Arrangement",
+   "subtopic": "Square table",
+   "difficulty": "hard",
+   "text": "Who sits second to the left of F?",
+   "options": [
+    "E",
+    "C",
+    "A",
+    "H"
+   ],
+   "answer": 2,
+   "explanation": "F sits in the middle of a side and faces the centre, so F's left is the next seat clockwise. First to the left is E, second is A.",
+   "steps": [
+    "F faces the centre: left is clockwise",
+    "Clockwise from F: E, then A",
+    "Second to the left is A"
+   ],
+   "trap": "Counting anticlockwise for a person facing the centre.",
+   "revise": "Left and right at a square table",
+   "wrongReasons": [
+    "E is the immediate left of F",
+    "C is third to the left of F",
+    null,
+    "H is immediate right of F"
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Seating Arrangement",
+   "subtopic": "Square table",
+   "difficulty": "hard",
+   "text": "Which of the following pairs sit opposite each other?",
+   "options": [
+    "B and E",
+    "A and G",
+    "C and F",
+    "D and H"
+   ],
+   "answer": 1,
+   "explanation": "A and G sit in the middle of opposite sides. The other pairs are not opposite each other.",
+   "steps": [
+    "Opposite pairs: E–D, A–G, C–H, B–F",
+    "Only A and G is among the options"
+   ],
+   "trap": "Choosing neighbours that look opposite in the diagram.",
+   "revise": "Opposite seats at a table",
+   "wrongReasons": [
+    "They are not opposite",
+    null,
+    "They are not opposite",
+    "They are not opposite"
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Input-Output",
+   "subtopic": "Machine rearrangement",
+   "difficulty": "moderate",
+   "text": "What will Step III be for the new input?",
+   "options": [
+    "8 72 40 15 29 63 51",
+    "8 72 15 63 40 29 51",
+    "8 72 15 40 29 51 63",
+    "8 72 15 40 29 63 51"
+   ],
+   "answer": 3,
+   "explanation": "Each step alternates: smallest of the rest to the front, then largest of the rest, and so on. Step III gives 8 72 15 40 29 63 51.",
+   "steps": [
+    "Step I: smallest (8) to the left end",
+    "Step II: largest of the rest (72) to the second place",
+    "Step III: smallest of the rest (15) to the third place: 8 72 15 40 29 63 51"
+   ],
+   "trap": "Moving the wrong number at an odd step.",
+   "revise": "Input-output rearrangement",
+   "wrongReasons": [
+    "This is Step II",
+    "This is Step IV",
+    "Swapped the last two numbers",
+    null
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Input-Output",
+   "subtopic": "Machine rearrangement",
+   "difficulty": "moderate",
+   "text": "Which number will be in the 4th position from the left in Step IV of the new input?",
+   "options": [
+    "40",
+    "29",
+    "51",
+    "63"
+   ],
+   "answer": 3,
+   "explanation": "Step IV moves the largest of the numbers after the third place to the fourth place. Step III is 8 72 15 40 29 63 51; the largest of 40, 29, 63 and 51 is 63, so Step IV is 8 72 15 63 40 29 51.",
+   "steps": [
+    "Step III: 8 72 15 40 29 63 51",
+    "Step IV: largest of the remaining (63) goes to the 4th place",
+    "4th position = 63"
+   ],
+   "trap": "Using the Step III arrangement.",
+   "revise": "Alternating smallest and largest",
+   "wrongReasons": [
+    "That is the 4th number in Step III",
+    "That is the 5th number in Step III",
+    "That is the last number",
+    null
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Input-Output",
+   "subtopic": "Machine rearrangement",
+   "difficulty": "hard",
+   "text": "How many steps are required to complete the rearrangement of the new input?",
+   "options": [
+    "6",
+    "5",
+    "7",
+    "4"
+   ],
+   "answer": 0,
+   "explanation": "For an input of n numbers, the arrangement is complete after n − 1 steps. The new input has 7 numbers, so 6 steps are required. Step VI is 8 72 15 63 29 51 40.",
+   "steps": [
+    "The illustration has 6 numbers and finishes at Step V",
+    "The new input has 7 numbers",
+    "Steps = 7 − 1 = 6"
+   ],
+   "trap": "Using the number of steps from the illustration.",
+   "revise": "Number of steps in a sorting rule",
+   "wrongReasons": [
+    null,
+    "The last step of the illustration, which has one fewer number",
+    "Counted a step for each number",
+    "Stopped when the sequence became sorted in parts"
+   ],
+   "value": 6,
+   "check": "7-1",
+   "passageId": "p2"
+  },
+  {
+   "topic": "Input-Output",
+   "subtopic": "Machine rearrangement",
+   "difficulty": "hard",
+   "text": "In the last step of the new input, what is the sum of the numbers at the 3rd and 6th positions from the left?",
+   "options": [
+    "55",
+    "80",
+    "114",
+    "66"
+   ],
+   "answer": 3,
+   "explanation": "The last step is 8 72 15 63 29 51 40. The 3rd number is 15 and the 6th is 51. The sum is 15 + 51 = 66.",
+   "steps": [
+    "Final arrangement: 8, 72, 15, 63, 29, 51, 40",
+    "3rd = 15, 6th = 51",
+    "Sum = 66"
+   ],
+   "trap": "Using the arrangement of an earlier step.",
+   "revise": "Reading positions in the final step",
+   "wrongReasons": [
+    "Used the 3rd and 7th numbers",
+    "Used the 5th and 6th numbers",
+    "Used the 4th and 6th numbers",
+    null
+   ],
+   "value": 66,
+   "check": "15+51",
+   "passageId": "p2"
+  }
+ ]
+}

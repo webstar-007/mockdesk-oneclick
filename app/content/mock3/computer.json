@@ -1,0 +1,600 @@
+{
+ "section": "computer",
+ "questions": [
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: COUNTIFS",
+   "difficulty": "hard",
+   "text": "In an Excel sheet, column B holds departments and column C holds salaries for rows 2 to 101. Which formula counts employees in the 'Sales' department earning more than 40000?",
+   "options": [
+    "=COUNTIF(B2:C101,\"Sales\",\">40000\")",
+    "=SUMIFS(C2:C101,B2:B101,\"Sales\")",
+    "=COUNTIFS(B2:B101,\"Sales\",C2:C101,\">40000\")",
+    "=COUNT(B2:B101,\"Sales\",C2:C101,\">40000\")"
+   ],
+   "answer": 2,
+   "explanation": "COUNTIFS applies several range-criteria pairs and counts rows meeting all of them.",
+   "steps": [
+    "Spot what the question tests: COUNTIF vs COUNTIFS vs SUMIFS.",
+    "Option A (=COUNTIF(B2:C101,\"Sales\",\">40000\")) is out: COUNTIF accepts only one range and one criterion.",
+    "Option B (=SUMIFS(C2:C101,B2:B101,\"Sales\")) is out: It adds salaries; it does not count employees above a limit.",
+    "Option D (=COUNT(B2:B101,\"Sales\",C2:C101,\">40000\")) is out: COUNT counts numbers and does not apply criteria.",
+    "Common slip to avoid: Choosing COUNTIF with two criteria.",
+    "So the answer is option C: =COUNTIFS(B2:B101,\"Sales\",C2:C101,\">40000\")."
+   ],
+   "trap": "Choosing COUNTIF with two criteria.",
+   "revise": "COUNTIF vs COUNTIFS vs SUMIFS",
+   "wrongReasons": [
+    "COUNTIF accepts only one range and one criterion",
+    "It adds salaries; it does not count employees above a limit",
+    null,
+    "COUNT counts numbers and does not apply criteria"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: INDEX and MATCH",
+   "difficulty": "hard",
+   "text": "Which combination of functions can look up a value in a column to the left of the lookup column, which VLOOKUP cannot do?",
+   "options": [
+    "SUM with IF",
+    "LEFT with LEN",
+    "CHOOSE with ROW",
+    "INDEX with MATCH"
+   ],
+   "answer": 3,
+   "explanation": "MATCH finds the row position and INDEX returns the value from any column.",
+   "steps": [
+    "Spot what the question tests: INDEX-MATCH.",
+    "Option A (SUM with IF) is out: Does not perform lookups.",
+    "Option B (LEFT with LEN) is out: Text functions only.",
+    "Option C (CHOOSE with ROW) is out: Does not search by value.",
+    "Common slip to avoid: Assuming VLOOKUP can search leftwards.",
+    "So the answer is option D: INDEX with MATCH."
+   ],
+   "trap": "Assuming VLOOKUP can search leftwards.",
+   "revise": "INDEX-MATCH",
+   "wrongReasons": [
+    "Does not perform lookups",
+    "Text functions only",
+    "Does not search by value",
+    null
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: conditional formatting",
+   "difficulty": "easy",
+   "text": "Which Excel feature automatically colours cells that satisfy a rule, such as values above the average?",
+   "options": [
+    "Data Validation",
+    "Conditional Formatting",
+    "Flash Fill",
+    "Text to Columns"
+   ],
+   "answer": 1,
+   "explanation": "Conditional Formatting changes cell appearance based on rules.",
+   "steps": [
+    "Spot what the question tests: Conditional Formatting.",
+    "Option A (Data Validation) is out: It restricts entries.",
+    "Option C (Flash Fill) is out: It fills data from a pattern.",
+    "Option D (Text to Columns) is out: It splits cell contents.",
+    "Common slip to avoid: Choosing Data Validation.",
+    "So the answer is option B: Conditional Formatting."
+   ],
+   "trap": "Choosing Data Validation.",
+   "revise": "Conditional Formatting",
+   "wrongReasons": [
+    "It restricts entries",
+    null,
+    "It fills data from a pattern",
+    "It splits cell contents"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Word: Table of contents",
+   "difficulty": "moderate",
+   "text": "A long Word document has chapter titles formatted with Heading 1. Which step creates an automatically updating table of contents?",
+   "options": [
+    "Insert > Page Number",
+    "Review > Track Changes",
+    "Layout > Columns",
+    "References > Table of Contents"
+   ],
+   "answer": 3,
+   "explanation": "The table of contents is built from heading styles and can be refreshed.",
+   "steps": [
+    "Spot what the question tests: Heading styles and TOC.",
+    "Option A (Insert > Page Number) is out: Adds page numbers only.",
+    "Option B (Review > Track Changes) is out: Records edits.",
+    "Option C (Layout > Columns) is out: Changes the text layout.",
+    "Common slip to avoid: Typing the table by hand.",
+    "So the answer is option D: References > Table of Contents."
+   ],
+   "trap": "Typing the table by hand.",
+   "revise": "Heading styles and TOC",
+   "wrongReasons": [
+    "Adds page numbers only",
+    "Records edits",
+    "Changes the text layout",
+    null
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "PowerPoint: themes",
+   "difficulty": "moderate",
+   "text": "In MS PowerPoint, which feature applies a consistent set of fonts, colours and effects to the whole presentation in one step?",
+   "options": [
+    "Design theme",
+    "Slide transition",
+    "Rehearse Timings",
+    "Hyperlink"
+   ],
+   "answer": 0,
+   "explanation": "A theme on the Design tab applies matching fonts, colours and effects to every slide.",
+   "steps": [
+    "Open the Design tab",
+    "Choose a theme",
+    "It is applied to all slides"
+   ],
+   "trap": "Choosing a transition.",
+   "revise": "PowerPoint themes",
+   "wrongReasons": [
+    null,
+    "Controls movement between slides",
+    "Records the time spent on each slide",
+    "Links text or objects to a target"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "Symmetric keys",
+   "difficulty": "hard",
+   "text": "In a group of 20 users, every pair needs a separate secret key for symmetric encryption. How many keys are needed in total?",
+   "options": [
+    "20",
+    "40",
+    "190",
+    "380"
+   ],
+   "answer": 2,
+   "explanation": "Number of keys = n(n − 1)/2 = 20 × 19/2 = 190.",
+   "steps": [
+    "Spot what the question tests: Key counts: symmetric vs asymmetric.",
+    "Option A (20) is out: One per user.",
+    "Option B (40) is out: Two per user.",
+    "Option D (380) is out: Counted each pair twice.",
+    "Common slip to avoid: Counting each pair twice.",
+    "So the answer is option C: 190."
+   ],
+   "trap": "Counting each pair twice.",
+   "revise": "Key counts: symmetric vs asymmetric",
+   "wrongReasons": [
+    "One per user",
+    "Two per user",
+    null,
+    "Counted each pair twice"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "Man-in-the-middle",
+   "difficulty": "hard",
+   "text": "An attacker secretly relays and may alter messages between two parties who believe they are communicating directly. This attack is called:",
+   "options": [
+    "Man-in-the-middle attack",
+    "Denial of service attack",
+    "Brute-force attack",
+    "Replay attack"
+   ],
+   "answer": 0,
+   "explanation": "The attacker sits between the two parties.",
+   "steps": [
+    "Spot what the question tests: Types of attacks.",
+    "Option B (Denial of service attack) is out: It floods a service to make it unavailable.",
+    "Option C (Brute-force attack) is out: It tries many passwords.",
+    "Option D (Replay attack) is out: It resends a captured message without altering it.",
+    "Common slip to avoid: Choosing replay because it also uses captured messages.",
+    "So the answer is option A: Man-in-the-middle attack."
+   ],
+   "trap": "Choosing replay because it also uses captured messages.",
+   "revise": "Types of attacks",
+   "wrongReasons": [
+    null,
+    "It floods a service to make it unavailable",
+    "It tries many passwords",
+    "It resends a captured message without altering it"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "SQL injection",
+   "difficulty": "moderate",
+   "text": "An attacker enters a crafted string in a login form so that the database runs an unintended command. This attack is called:",
+   "options": [
+    "Cross-site scripting",
+    "Phishing",
+    "SQL injection",
+    "Spoofing"
+   ],
+   "answer": 2,
+   "explanation": "SQL injection exploits unfiltered input to alter database queries.",
+   "steps": [
+    "Spot what the question tests: Web attacks.",
+    "Option A (Cross-site scripting) is out: It injects scripts into web pages.",
+    "Option B (Phishing) is out: It deceives users by messages.",
+    "Option D (Spoofing) is out: It disguises an identity.",
+    "Common slip to avoid: Choosing cross-site scripting.",
+    "So the answer is option C: SQL injection."
+   ],
+   "trap": "Choosing cross-site scripting.",
+   "revise": "Web attacks",
+   "wrongReasons": [
+    "It injects scripts into web pages",
+    "It deceives users by messages",
+    null,
+    "It disguises an identity"
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "Pipelining",
+   "difficulty": "hard",
+   "text": "What is the main advantage of instruction pipelining in a processor?",
+   "options": [
+    "Each instruction finishes in fewer clock cycles",
+    "Several instructions are in different stages of execution at the same time",
+    "It removes the need for a clock",
+    "It increases the size of main memory"
+   ],
+   "answer": 1,
+   "explanation": "Pipelining overlaps the stages of consecutive instructions, improving throughput.",
+   "steps": [
+    "Spot what the question tests: Pipelining: throughput vs latency.",
+    "Option A (Each instruction finishes in fewer clock cycles) is out: Latency of a single instruction is not reduced.",
+    "Option C (It removes the need for a clock) is out: The clock is still required.",
+    "Option D (It increases the size of main memory) is out: It has no effect on memory capacity.",
+    "Common slip to avoid: Believing each instruction becomes faster.",
+    "So the answer is option B: Several instructions are in different stages of execution at the same…."
+   ],
+   "trap": "Believing each instruction becomes faster.",
+   "revise": "Pipelining: throughput vs latency",
+   "wrongReasons": [
+    "Latency of a single instruction is not reduced",
+    null,
+    "The clock is still required",
+    "It has no effect on memory capacity"
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "Virtual memory",
+   "difficulty": "hard",
+   "text": "In a system using virtual memory, what is a page fault?",
+   "options": [
+    "A hardware failure of the RAM",
+    "An attempt to write to read-only memory",
+    "A shortage of disk space",
+    "An access to a page that is not currently in main memory"
+   ],
+   "answer": 3,
+   "explanation": "A page fault causes the operating system to load the required page from disk.",
+   "steps": [
+    "Spot what the question tests: Paging and page faults.",
+    "Option A (A hardware failure of the RAM) is out: It is not a hardware fault.",
+    "Option B (An attempt to write to read-only memory) is out: This is a protection fault.",
+    "Option C (A shortage of disk space) is out: It concerns residency of a page.",
+    "Common slip to avoid: Treating a page fault as an error.",
+    "So the answer is option D: An access to a page that is not currently in main memory."
+   ],
+   "trap": "Treating a page fault as an error.",
+   "revise": "Paging and page faults",
+   "wrongReasons": [
+    "It is not a hardware fault",
+    "This is a protection fault",
+    "It concerns residency of a page",
+    null
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "RAID",
+   "difficulty": "hard",
+   "text": "Which RAID level uses disk mirroring and so keeps an exact copy of the data on a second disk?",
+   "options": [
+    "RAID 0",
+    "RAID 1",
+    "RAID 5",
+    "RAID 6"
+   ],
+   "answer": 1,
+   "explanation": "RAID 1 duplicates data on two disks.",
+   "steps": [
+    "Spot what the question tests: RAID levels.",
+    "Option A (RAID 0) is out: Striping without redundancy.",
+    "Option C (RAID 5) is out: Striping with distributed parity.",
+    "Option D (RAID 6) is out: Striping with double parity.",
+    "Common slip to avoid: Choosing RAID 5 because it is 'redundant'.",
+    "So the answer is option B: RAID 1."
+   ],
+   "trap": "Choosing RAID 5 because it is 'redundant'.",
+   "revise": "RAID levels",
+   "wrongReasons": [
+    "Striping without redundancy",
+    null,
+    "Striping with distributed parity",
+    "Striping with double parity"
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "Subnetting",
+   "difficulty": "hard",
+   "text": "A network uses the subnet mask 255.255.255.192. How many usable host addresses does each subnet have?",
+   "options": [
+    "64",
+    "126",
+    "30",
+    "62"
+   ],
+   "answer": 3,
+   "explanation": "The mask has 26 network bits, leaving 6 host bits: 2⁶ − 2 = 62 usable hosts.",
+   "steps": [
+    "Spot what the question tests: Subnetting.",
+    "Option A (64) is out: Counts the network and broadcast addresses too.",
+    "Option B (126) is out: Corresponds to /25.",
+    "Option C (30) is out: Corresponds to /27.",
+    "Common slip to avoid: Forgetting to subtract two addresses.",
+    "So the answer is option D: 62."
+   ],
+   "trap": "Forgetting to subtract two addresses.",
+   "revise": "Subnetting",
+   "wrongReasons": [
+    "Counts the network and broadcast addresses too",
+    "Corresponds to /25",
+    "Corresponds to /27",
+    null
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "ARP",
+   "difficulty": "moderate",
+   "text": "Which protocol maps an IP address to a physical (MAC) address on a local network?",
+   "options": [
+    "ARP",
+    "DNS",
+    "DHCP",
+    "ICMP"
+   ],
+   "answer": 0,
+   "explanation": "Address Resolution Protocol finds the MAC address for a known IP address.",
+   "steps": [
+    "Spot what the question tests: ARP, DNS, DHCP.",
+    "Option B (DNS) is out: Maps domain names to IP addresses.",
+    "Option C (DHCP) is out: Assigns IP addresses automatically.",
+    "Option D (ICMP) is out: Reports errors and tests connectivity.",
+    "Common slip to avoid: Choosing DNS.",
+    "So the answer is option A: ARP."
+   ],
+   "trap": "Choosing DNS.",
+   "revise": "ARP, DNS, DHCP",
+   "wrongReasons": [
+    null,
+    "Maps domain names to IP addresses",
+    "Assigns IP addresses automatically",
+    "Reports errors and tests connectivity"
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "Hub and switch",
+   "difficulty": "easy",
+   "text": "Which device forwards a frame only to the port of the destination MAC address, reducing unnecessary traffic?",
+   "options": [
+    "Hub",
+    "Repeater",
+    "Switch",
+    "Modem"
+   ],
+   "answer": 2,
+   "explanation": "A switch learns MAC addresses and forwards frames selectively.",
+   "steps": [
+    "Spot what the question tests: Hub vs switch.",
+    "Option A (Hub) is out: It sends data to all ports.",
+    "Option B (Repeater) is out: It only regenerates signals.",
+    "Option D (Modem) is out: It converts signals.",
+    "Common slip to avoid: Choosing hub.",
+    "So the answer is option C: Switch."
+   ],
+   "trap": "Choosing hub.",
+   "revise": "Hub vs switch",
+   "wrongReasons": [
+    "It sends data to all ports",
+    "It only regenerates signals",
+    null,
+    "It converts signals"
+   ]
+  },
+  {
+   "topic": "DBMS",
+   "subtopic": "ACID properties",
+   "difficulty": "hard",
+   "text": "Which ACID property ensures that a transaction is either completed fully or not at all?",
+   "options": [
+    "Consistency",
+    "Atomicity",
+    "Isolation",
+    "Durability"
+   ],
+   "answer": 1,
+   "explanation": "Atomicity means all or nothing.",
+   "steps": [
+    "Spot what the question tests: ACID properties.",
+    "Option A (Consistency) is out: Keeps the database valid.",
+    "Option C (Isolation) is out: Separates concurrent transactions.",
+    "Option D (Durability) is out: Keeps committed data permanent.",
+    "Common slip to avoid: Choosing consistency.",
+    "So the answer is option B: Atomicity."
+   ],
+   "trap": "Choosing consistency.",
+   "revise": "ACID properties",
+   "wrongReasons": [
+    "Keeps the database valid",
+    null,
+    "Separates concurrent transactions",
+    "Keeps committed data permanent"
+   ]
+  },
+  {
+   "topic": "DBMS",
+   "subtopic": "Joins",
+   "difficulty": "hard",
+   "text": "Which SQL join returns all rows from the left table and the matching rows from the right table, with NULLs where there is no match?",
+   "options": [
+    "INNER JOIN",
+    "LEFT OUTER JOIN",
+    "RIGHT OUTER JOIN",
+    "CROSS JOIN"
+   ],
+   "answer": 1,
+   "explanation": "A left outer join preserves unmatched rows from the left table.",
+   "steps": [
+    "Spot what the question tests: Types of joins.",
+    "Option A (INNER JOIN) is out: Returns only matching rows.",
+    "Option C (RIGHT OUTER JOIN) is out: Keeps all rows of the right table.",
+    "Option D (CROSS JOIN) is out: Returns every combination of rows.",
+    "Common slip to avoid: Choosing INNER JOIN.",
+    "So the answer is option B: LEFT OUTER JOIN."
+   ],
+   "trap": "Choosing INNER JOIN.",
+   "revise": "Types of joins",
+   "wrongReasons": [
+    "Returns only matching rows",
+    null,
+    "Keeps all rows of the right table",
+    "Returns every combination of rows"
+   ]
+  },
+  {
+   "topic": "DBMS",
+   "subtopic": "ER model",
+   "difficulty": "moderate",
+   "text": "In an entity-relationship diagram, a diamond shape represents:",
+   "options": [
+    "A relationship",
+    "An entity",
+    "An attribute",
+    "A key"
+   ],
+   "answer": 0,
+   "explanation": "Diamonds depict relationships between entities.",
+   "steps": [
+    "Spot what the question tests: ER symbols.",
+    "Option B (An entity) is out: Shown by a rectangle.",
+    "Option C (An attribute) is out: Shown by an oval.",
+    "Option D (A key) is out: Shown by an underline.",
+    "Common slip to avoid: Choosing entity.",
+    "So the answer is option A: A relationship."
+   ],
+   "trap": "Choosing entity.",
+   "revise": "ER symbols",
+   "wrongReasons": [
+    null,
+    "Shown by a rectangle",
+    "Shown by an oval",
+    "Shown by an underline"
+   ]
+  },
+  {
+   "topic": "Cloud and IT Infrastructure",
+   "subtopic": "Deadlock",
+   "difficulty": "hard",
+   "text": "Which of the following is NOT one of the four necessary conditions for deadlock?",
+   "options": [
+    "Pre-emption",
+    "Mutual exclusion",
+    "Hold and wait",
+    "Circular wait"
+   ],
+   "answer": 0,
+   "explanation": "The fourth condition is 'no pre-emption'; deadlock needs the absence of pre-emption, not pre-emption itself.",
+   "steps": [
+    "Spot what the question tests: Conditions for deadlock.",
+    "Options B, C and D are out: A necessary condition.",
+    "Common slip to avoid: Missing the word 'no'.",
+    "So the answer is option A: Pre-emption."
+   ],
+   "trap": "Missing the word 'no'.",
+   "revise": "Conditions for deadlock",
+   "wrongReasons": [
+    null,
+    "A necessary condition",
+    "A necessary condition",
+    "A necessary condition"
+   ]
+  },
+  {
+   "topic": "Cloud and IT Infrastructure",
+   "subtopic": "Process and thread",
+   "difficulty": "moderate",
+   "text": "Compared with a process, a thread of the same process:",
+   "options": [
+    "has its own separate address space",
+    "cannot run in parallel on multiple cores",
+    "is always slower to switch",
+    "shares the code and data of the process and is lighter to create"
+   ],
+   "answer": 3,
+   "explanation": "Threads share the address space of their process.",
+   "steps": [
+    "Spot what the question tests: Process vs thread.",
+    "Option A (has its own separate address space) is out: This is a process.",
+    "Option B (cannot run in parallel on multiple cores) is out: Threads can run in parallel.",
+    "Option C (is always slower to switch) is out: Thread switching is usually faster.",
+    "Common slip to avoid: Believing threads have separate address spaces.",
+    "So the answer is option D: shares the code and data of the process and is lighter to create."
+   ],
+   "trap": "Believing threads have separate address spaces.",
+   "revise": "Process vs thread",
+   "wrongReasons": [
+    "This is a process",
+    "Threads can run in parallel",
+    "Thread switching is usually faster",
+    null
+   ]
+  },
+  {
+   "topic": "Cloud and IT Infrastructure",
+   "subtopic": "Operating system scheduling",
+   "difficulty": "hard",
+   "text": "Which CPU scheduling algorithm can cause starvation of long processes if shorter processes keep arriving?",
+   "options": [
+    "Round Robin",
+    "First Come First Served",
+    "Shortest Job First",
+    "Multilevel feedback with ageing"
+   ],
+   "answer": 2,
+   "explanation": "SJF always prefers the shortest job, so long jobs may wait indefinitely.",
+   "steps": [
+    "Spot what the question tests: Scheduling and starvation.",
+    "Option A (Round Robin) is out: Gives every process a time slice.",
+    "Option B (First Come First Served) is out: Serves in arrival order.",
+    "Option D (Multilevel feedback with ageing) is out: Ageing prevents starvation.",
+    "Common slip to avoid: Choosing FCFS.",
+    "So the answer is option C: Shortest Job First."
+   ],
+   "trap": "Choosing FCFS.",
+   "revise": "Scheduling and starvation",
+   "wrongReasons": [
+    "Gives every process a time slice",
+    "Serves in arrival order",
+    null,
+    "Ageing prevents starvation"
+   ]
+  }
+ ]
+}

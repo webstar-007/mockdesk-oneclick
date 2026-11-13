@@ -1,0 +1,8 @@
+---
+- name: Last 80 lines of the MockDesk log (look here for [OTP · development] codes)
+  ansible.builtin.command: journalctl -u mockdesk -n 80 --no-pager
+  register: j
+  changed_when: false
+
+- ansible.builtin.debug:
+    msg: "{{ j.stdout_lines }}"

@@ -1,0 +1,14 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App.jsx';
+import './styles/global.css';
+import './styles/exam.css';
+import './styles/analysis.css';
+import './styles/home.css';
+import './styles/auth.css';
+import './styles/profile.css';
+import './styles/toolkit.css';
+import './styles/instr.css';
+import './styles/admin.css';
+createRoot(document.getElementById('root')).render(<BrowserRouter><App /></BrowserRouter>);

@@ -1,0 +1,763 @@
+{
+ "section": "ga",
+ "questions": [
+  {
+   "topic": "History",
+   "subtopic": "Ashoka's Dhamma",
+   "difficulty": "moderate",
+   "text": "Assertion (A): Ashoka's Dhamma was not a new religion.\nReason (R): It was a code of ethical conduct meant for all his subjects.",
+   "options": [
+    "Both A and R are true but R is not the correct explanation of A",
+    "A is true but R is false",
+    "Both A and R are true and R is the correct explanation of A",
+    "A is false but R is true"
+   ],
+   "answer": 2,
+   "explanation": "Ashoka's Dhamma urged tolerance, non-violence and respect for elders, and was not tied to any sect.",
+   "steps": [
+    "Spot what the question tests: Ashoka's Dhamma.",
+    "Options A, B and D are out: Does not match the truth of A and R.",
+    "Common slip to avoid: Treating Dhamma as Buddhism.",
+    "So the answer is option C: Both A and R are true and R is the correct explanation of A."
+   ],
+   "trap": "Treating Dhamma as Buddhism.",
+   "revise": "Ashoka's Dhamma",
+   "wrongReasons": [
+    "Does not match the truth of A and R",
+    "Does not match the truth of A and R",
+    null,
+    "Does not match the truth of A and R"
+   ]
+  },
+  {
+   "topic": "History",
+   "subtopic": "Indus Valley",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the Harappan civilisation.\n1. The Harappans used iron tools extensively.\n2. Lothal has evidence of a dockyard.\n3. Kalibangan has evidence of a ploughed field.",
+   "options": [
+    "2 and 3 only",
+    "1 and 2 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 0,
+   "explanation": "The Harappans were a Bronze Age people and did not use iron extensively.",
+   "steps": [
+    "Spot what the question tests: Harappan sites and features.",
+    "Options B and C are out: Includes statement 1, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 1 is incorrect.",
+    "Common slip to avoid: Assuming all early urban cultures used iron.",
+    "So the answer is option A: 2 and 3 only."
+   ],
+   "trap": "Assuming all early urban cultures used iron.",
+   "revise": "Harappan sites and features",
+   "wrongReasons": [
+    null,
+    "Includes statement 1, which is incorrect",
+    "Includes statement 1, which is incorrect",
+    "Statement 1 is incorrect"
+   ]
+  },
+  {
+   "topic": "History",
+   "subtopic": "Classical literature",
+   "difficulty": "moderate",
+   "text": "Match List I (Work) with List II (Author).\nA. Mudrarakshasa  B. Rajatarangini  C. Kadambari  D. Gita Govinda.\n1. Jayadeva  2. Banabhatta  3. Kalhana  4. Vishakhadatta",
+   "options": [
+    "A-3, B-4, C-2, D-1",
+    "A-4, B-3, C-2, D-1",
+    "A-4, B-3, C-1, D-2",
+    "A-2, B-3, C-4, D-1"
+   ],
+   "answer": 1,
+   "explanation": "Vishakhadatta wrote Mudrarakshasa, Kalhana the Rajatarangini, Banabhatta the Kadambari and Jayadeva the Gita Govinda.",
+   "steps": [
+    "Spot what the question tests: Authors of Sanskrit works.",
+    "Option A (A-3, B-4, C-2, D-1) is out: Mudrarakshasa and Rajatarangini are swapped.",
+    "Option C (A-4, B-3, C-1, D-2) is out: Kadambari and Gita Govinda are swapped.",
+    "Option D (A-2, B-3, C-4, D-1) is out: Kadambari and Mudrarakshasa are swapped.",
+    "Common slip to avoid: Swapping Sanskrit authors.",
+    "So the answer is option B: A-4, B-3, C-2, D-1."
+   ],
+   "trap": "Swapping Sanskrit authors.",
+   "revise": "Authors of Sanskrit works",
+   "wrongReasons": [
+    "Mudrarakshasa and Rajatarangini are swapped",
+    null,
+    "Kadambari and Gita Govinda are swapped",
+    "Kadambari and Mudrarakshasa are swapped"
+   ]
+  },
+  {
+   "topic": "History",
+   "subtopic": "Freedom struggle",
+   "difficulty": "moderate",
+   "text": "Gandhi's fast unto death in Yerwada jail in September 1932 led to which agreement?",
+   "options": [
+    "Poona Pact",
+    "Gandhi-Irwin Pact",
+    "Cripps Mission offer",
+    "Cabinet Mission Plan"
+   ],
+   "answer": 0,
+   "explanation": "The Poona Pact gave reserved seats to the Depressed Classes within the general electorate in place of separate electorates.",
+   "steps": [
+    "Spot what the question tests: Communal Award and Poona Pact.",
+    "Option B (Gandhi-Irwin Pact) is out: It was signed in 1931.",
+    "Option C (Cripps Mission offer) is out: It came in 1942.",
+    "Option D (Cabinet Mission Plan) is out: It came in 1946.",
+    "Common slip to avoid: Confusing the dates of the 1930s settlements.",
+    "So the answer is option A: Poona Pact."
+   ],
+   "trap": "Confusing the dates of the 1930s settlements.",
+   "revise": "Communal Award and Poona Pact",
+   "wrongReasons": [
+    null,
+    "It was signed in 1931",
+    "It came in 1942",
+    "It came in 1946"
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Money Bills",
+   "difficulty": "hard",
+   "text": "Assertion (A): The President cannot return a Money Bill to Parliament for reconsideration.\nReason (R): A Money Bill is certified as such by the Speaker of the Lok Sabha.",
+   "options": [
+    "Both A and R are true and R is the correct explanation of A",
+    "Both A and R are true but R is not the correct explanation of A",
+    "A is true but R is false",
+    "A is false but R is true"
+   ],
+   "answer": 1,
+   "explanation": "Under Article 111 the President can only give or withhold assent to a Money Bill. The Speaker's certificate is a separate procedural fact and does not explain it.",
+   "steps": [
+    "Spot what the question tests: Money Bills: Articles 109, 110, 111.",
+    "Options A, C and D are out: Does not match the truth of A and R.",
+    "Common slip to avoid: Assuming that every true reason explains the assertion.",
+    "So the answer is option B: Both A and R are true but R is not the correct explanation of A."
+   ],
+   "trap": "Assuming that every true reason explains the assertion.",
+   "revise": "Money Bills: Articles 109, 110, 111",
+   "wrongReasons": [
+    "Does not match the truth of A and R",
+    null,
+    "Does not match the truth of A and R",
+    "Does not match the truth of A and R"
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Emergency",
+   "difficulty": "hard",
+   "text": "Consider the following statements about a National Emergency under Article 352.\n1. It can be proclaimed on the ground of armed rebellion.\n2. It must be approved by Parliament within one month of the proclamation.\n3. The approving resolution can be passed by a simple majority of the members present.",
+   "options": [
+    "2 and 3 only",
+    "1 and 3 only",
+    "1 and 2 only",
+    "1, 2 and 3"
+   ],
+   "answer": 2,
+   "explanation": "The 44th Amendment requires approval by a special majority of each House.",
+   "steps": [
+    "Spot what the question tests: Article 352 after the 44th Amendment.",
+    "Options A and B are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Applying the rule for ordinary legislation.",
+    "So the answer is option C: 1 and 2 only."
+   ],
+   "trap": "Applying the rule for ordinary legislation.",
+   "revise": "Article 352 after the 44th Amendment",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    null,
+    "Statement 3 is incorrect"
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Anti-defection law",
+   "difficulty": "moderate",
+   "text": "The Tenth Schedule, containing the provisions on disqualification on the ground of defection, was added by which Constitutional Amendment?",
+   "options": [
+    "42nd Amendment",
+    "73rd Amendment",
+    "91st Amendment",
+    "52nd Amendment"
+   ],
+   "answer": 3,
+   "explanation": "The 52nd Amendment (1985) added the Tenth Schedule.",
+   "steps": [
+    "Spot what the question tests: Schedules and amendments.",
+    "Option A (42nd Amendment) is out: Added the Fundamental Duties.",
+    "Option B (73rd Amendment) is out: Added Panchayati Raj.",
+    "Option C (91st Amendment) is out: Limited the size of the Council of Ministers.",
+    "Common slip to avoid: Confusing it with the 91st Amendment.",
+    "So the answer is option D: 52nd Amendment."
+   ],
+   "trap": "Confusing it with the 91st Amendment.",
+   "revise": "Schedules and amendments",
+   "wrongReasons": [
+    "Added the Fundamental Duties",
+    "Added Panchayati Raj",
+    "Limited the size of the Council of Ministers",
+    null
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Attorney General",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the Attorney General of India.\n1. The Attorney General is appointed by the President.\n2. The Attorney General holds office during the pleasure of the President.\n3. The Attorney General has the right to vote in Parliament.",
+   "options": [
+    "2 and 3 only",
+    "1 and 3 only",
+    "1 and 2 only",
+    "1, 2 and 3"
+   ],
+   "answer": 2,
+   "explanation": "The Attorney General may speak in and take part in the proceedings of Parliament but has no right to vote.",
+   "steps": [
+    "Spot what the question tests: Article 76.",
+    "Options A and B are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Equating the right to speak with the right to vote.",
+    "So the answer is option C: 1 and 2 only."
+   ],
+   "trap": "Equating the right to speak with the right to vote.",
+   "revise": "Article 76",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    null,
+    "Statement 3 is incorrect"
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "CRR",
+   "difficulty": "moderate",
+   "text": "Assertion (A): An increase in the Cash Reserve Ratio reduces the credit-creating capacity of banks.\nReason (R): Banks are left with less cash to lend when more must be kept with the RBI.",
+   "options": [
+    "Both A and R are true but R is not the correct explanation of A",
+    "Both A and R are true and R is the correct explanation of A",
+    "A is true but R is false",
+    "A is false but R is true"
+   ],
+   "answer": 1,
+   "explanation": "A higher CRR locks up a larger share of deposits with the RBI, reducing funds available for lending.",
+   "steps": [
+    "Spot what the question tests: CRR and credit creation.",
+    "Options A, C and D are out: Does not match the truth of A and R.",
+    "Common slip to avoid: Thinking CRR affects only the interest rate.",
+    "So the answer is option B: Both A and R are true and R is the correct explanation of A."
+   ],
+   "trap": "Thinking CRR affects only the interest rate.",
+   "revise": "CRR and credit creation",
+   "wrongReasons": [
+    "Does not match the truth of A and R",
+    null,
+    "Does not match the truth of A and R",
+    "Does not match the truth of A and R"
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "FRBM",
+   "difficulty": "hard",
+   "text": "Consider the following statements about public finance.\n1. The FRBM Act, 2003 seeks to ensure fiscal discipline and reduce the fiscal deficit.\n2. Fiscal deficit equals total expenditure minus total receipts excluding borrowings.\n3. Primary deficit equals fiscal deficit plus interest payments.",
+   "options": [
+    "2 and 3 only",
+    "1 and 2 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 1,
+   "explanation": "Primary deficit = fiscal deficit minus interest payments.",
+   "steps": [
+    "Spot what the question tests: Deficit measures.",
+    "Options A and C are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Adding instead of subtracting interest.",
+    "So the answer is option B: 1 and 2 only."
+   ],
+   "trap": "Adding instead of subtracting interest.",
+   "revise": "Deficit measures",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    null,
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect"
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "International institutions",
+   "difficulty": "hard",
+   "text": "The headquarters of the New Development Bank, set up by the BRICS countries, is located in:",
+   "options": [
+    "Beijing",
+    "New Delhi",
+    "Johannesburg",
+    "Shanghai"
+   ],
+   "answer": 3,
+   "explanation": "The NDB's headquarters are in Shanghai, China.",
+   "steps": [
+    "Spot what the question tests: Headquarters of international banks.",
+    "Option A (Beijing) is out: Headquarters of the Asian Infrastructure Investment Bank.",
+    "Option B (New Delhi) is out: India is a founding member, but the bank is elsewhere.",
+    "Option C (Johannesburg) is out: It hosts the Africa Regional Centre.",
+    "Common slip to avoid: Choosing Beijing, the AIIB headquarters.",
+    "So the answer is option D: Shanghai."
+   ],
+   "trap": "Choosing Beijing, the AIIB headquarters.",
+   "revise": "Headquarters of international banks",
+   "wrongReasons": [
+    "Headquarters of the Asian Infrastructure Investment Bank",
+    "India is a founding member, but the bank is elsewhere",
+    "It hosts the Africa Regional Centre",
+    null
+   ]
+  },
+  {
+   "topic": "Geography",
+   "subtopic": "Himalayan ranges",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the Himalayan ranges.\n1. The Shiwaliks are the outermost range.\n2. The Himadri, the northernmost range, contains Mount Everest.\n3. The Pir Panjal range is part of the Greater Himalaya.",
+   "options": [
+    "1 and 2 only",
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 0,
+   "explanation": "The Pir Panjal is part of the Lesser Himalaya (Himachal).",
+   "steps": [
+    "Spot what the question tests: Himalayan divisions.",
+    "Options B and C are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Treating all Kashmir ranges as Greater Himalaya.",
+    "So the answer is option A: 1 and 2 only."
+   ],
+   "trap": "Treating all Kashmir ranges as Greater Himalaya.",
+   "revise": "Himalayan divisions",
+   "wrongReasons": [
+    null,
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect"
+   ]
+  },
+  {
+   "topic": "Geography",
+   "subtopic": "Tropic of Cancer",
+   "difficulty": "moderate",
+   "text": "The Tropic of Cancer passes through how many States of India?",
+   "options": [
+    "6",
+    "7",
+    "9",
+    "8"
+   ],
+   "answer": 3,
+   "explanation": "It passes through Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura and Mizoram.",
+   "steps": [
+    "Spot what the question tests: States on the Tropic of Cancer.",
+    "Option A (6) is out: Two States are missed.",
+    "Option B (7) is out: One State is missed.",
+    "Option C (9) is out: One State too many.",
+    "Common slip to avoid: Missing Tripura or Mizoram.",
+    "So the answer is option D: 8."
+   ],
+   "trap": "Missing Tripura or Mizoram.",
+   "revise": "States on the Tropic of Cancer",
+   "wrongReasons": [
+    "Two States are missed",
+    "One State is missed",
+    "One State too many",
+    null
+   ]
+  },
+  {
+   "topic": "Geography",
+   "subtopic": "Lakes",
+   "difficulty": "easy",
+   "text": "Chilika Lake, the largest brackish-water lagoon in Asia, is located in which State?",
+   "options": [
+    "Andhra Pradesh",
+    "Tamil Nadu",
+    "West Bengal",
+    "Odisha"
+   ],
+   "answer": 3,
+   "explanation": "Chilika Lake lies on the coast of Odisha.",
+   "steps": [
+    "Spot what the question tests: Important lakes.",
+    "Option A (Andhra Pradesh) is out: Pulicat Lake lies partly in Andhra Pradesh.",
+    "Option B (Tamil Nadu) is out: Pulicat also touches Tamil Nadu.",
+    "Option C (West Bengal) is out: Not located there.",
+    "Common slip to avoid: Choosing the State of Pulicat.",
+    "So the answer is option D: Odisha."
+   ],
+   "trap": "Choosing the State of Pulicat.",
+   "revise": "Important lakes",
+   "wrongReasons": [
+    "Pulicat Lake lies partly in Andhra Pradesh",
+    "Pulicat also touches Tamil Nadu",
+    "Not located there",
+    null
+   ]
+  },
+  {
+   "topic": "Science",
+   "subtopic": "Plant hormones",
+   "difficulty": "easy",
+   "text": "Which gas is used to ripen fruits artificially?",
+   "options": [
+    "Methane",
+    "Carbon dioxide",
+    "Ethylene",
+    "Nitrogen"
+   ],
+   "answer": 2,
+   "explanation": "Ethylene is a plant hormone that induces ripening.",
+   "steps": [
+    "Spot what the question tests: Plant hormones.",
+    "Option A (Methane) is out: It is a fuel gas.",
+    "Option B (Carbon dioxide) is out: Used in fizzy drinks and fire extinguishers.",
+    "Option D (Nitrogen) is out: It is inert in this respect.",
+    "Common slip to avoid: Choosing carbon dioxide.",
+    "So the answer is option C: Ethylene."
+   ],
+   "trap": "Choosing carbon dioxide.",
+   "revise": "Plant hormones",
+   "wrongReasons": [
+    "It is a fuel gas",
+    "Used in fizzy drinks and fire extinguishers",
+    null,
+    "It is inert in this respect"
+   ]
+  },
+  {
+   "topic": "Science",
+   "subtopic": "Human brain",
+   "difficulty": "moderate",
+   "text": "Which part of the human brain is mainly responsible for balance and the coordination of voluntary movement?",
+   "options": [
+    "Cerebrum",
+    "Medulla oblongata",
+    "Hypothalamus",
+    "Cerebellum"
+   ],
+   "answer": 3,
+   "explanation": "The cerebellum coordinates posture and balance.",
+   "steps": [
+    "Spot what the question tests: Parts of the brain.",
+    "Option A (Cerebrum) is out: It controls thinking and voluntary action.",
+    "Option B (Medulla oblongata) is out: It controls involuntary actions such as breathing.",
+    "Option C (Hypothalamus) is out: It regulates temperature and hunger.",
+    "Common slip to avoid: Choosing the cerebrum.",
+    "So the answer is option D: Cerebellum."
+   ],
+   "trap": "Choosing the cerebrum.",
+   "revise": "Parts of the brain",
+   "wrongReasons": [
+    "It controls thinking and voluntary action",
+    "It controls involuntary actions such as breathing",
+    "It regulates temperature and hunger",
+    null
+   ]
+  },
+  {
+   "topic": "Science",
+   "subtopic": "Scattering of light",
+   "difficulty": "moderate",
+   "text": "The blue colour of the sky is due to which phenomenon?",
+   "options": [
+    "Rayleigh scattering",
+    "Total internal reflection",
+    "Dispersion",
+    "Diffraction"
+   ],
+   "answer": 0,
+   "explanation": "Shorter wavelengths are scattered more strongly by air molecules, so blue is seen.",
+   "steps": [
+    "Spot what the question tests: Light scattering.",
+    "Option B (Total internal reflection) is out: It causes mirages and optical fibre action.",
+    "Option C (Dispersion) is out: It splits white light by a prism.",
+    "Option D (Diffraction) is out: It is the bending of light around obstacles.",
+    "Common slip to avoid: Choosing dispersion.",
+    "So the answer is option A: Rayleigh scattering."
+   ],
+   "trap": "Choosing dispersion.",
+   "revise": "Light scattering",
+   "wrongReasons": [
+    null,
+    "It causes mirages and optical fibre action",
+    "It splits white light by a prism",
+    "It is the bending of light around obstacles"
+   ]
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Sports",
+   "difficulty": "moderate",
+   "text": "Consider the following statements about the 2026 FIFA World Cup.\n1. Spain won the tournament, beating Argentina in the final.\n2. The tournament was co-hosted by the United States, Canada and Mexico.\n3. It was contested by 32 teams for the first time.",
+   "options": [
+    "1 and 2 only",
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 0,
+   "explanation": "The 2026 tournament was the first with 48 teams.",
+   "steps": [
+    "Spot what the question tests: FIFA World Cup 2026.",
+    "Options B and C are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Remembering the older 32-team format.",
+    "So the answer is option A: 1 and 2 only."
+   ],
+   "trap": "Remembering the older 32-team format.",
+   "revise": "FIFA World Cup 2026",
+   "wrongReasons": [
+    null,
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-07",
+   "source": "FIFA"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Politics",
+   "difficulty": "moderate",
+   "text": "After the NDA's victory in the November 2025 Bihar Assembly election, Nitish Kumar took oath as Chief Minister for the record:",
+   "options": [
+    "8th time",
+    "10th time",
+    "9th time",
+    "11th time"
+   ],
+   "answer": 1,
+   "explanation": "Nitish Kumar was sworn in as Chief Minister of Bihar for a record tenth time.",
+   "steps": [
+    "Spot what the question tests: Bihar election 2025.",
+    "Options A and C are out: An earlier count.",
+    "Option D (11th time) is out: A higher count than the record.",
+    "Common slip to avoid: Using an older tally.",
+    "So the answer is option B: 10th time."
+   ],
+   "trap": "Using an older tally.",
+   "revise": "Bihar election 2025",
+   "wrongReasons": [
+    "An earlier count",
+    null,
+    "An earlier count",
+    "A higher count than the record"
+   ],
+   "currentAffairs": true,
+   "asOf": "2025-11",
+   "source": "ECI, news reports"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Polity and governance",
+   "difficulty": "hard",
+   "text": "Consider the following statements about Census 2027.\n1. The first phase, houselisting, was scheduled between 1 April and 30 September 2026.\n2. It is India's first digital census and includes caste enumeration.\n3. It is to be completed in a single phase.",
+   "options": [
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3",
+    "1 and 2 only"
+   ],
+   "answer": 3,
+   "explanation": "Census 2027 has two phases: houselisting and population enumeration.",
+   "steps": [
+    "Spot what the question tests: Census 2027.",
+    "Options A and B are out: Includes statement 3, which is incorrect.",
+    "Option C (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Assuming a single phase like earlier counts.",
+    "So the answer is option D: 1 and 2 only."
+   ],
+   "trap": "Assuming a single phase like earlier counts.",
+   "revise": "Census 2027",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect",
+    null
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-04",
+   "source": "Ministry of Home Affairs"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Economy",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the GST rate reform of September 2025.\n1. The main rates were reduced to two slabs, 5% and 18%.\n2. A special 40% rate was kept for sin and luxury goods.\n3. The new rates took effect on 1 October 2025.",
+   "options": [
+    "2 and 3 only",
+    "1 and 3 only",
+    "1 and 2 only",
+    "1, 2 and 3"
+   ],
+   "answer": 2,
+   "explanation": "The new rates took effect on 22 September 2025.",
+   "steps": [
+    "Spot what the question tests: GST 2.0.",
+    "Options A and B are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Misplacing the effective date.",
+    "So the answer is option C: 1 and 2 only."
+   ],
+   "trap": "Misplacing the effective date.",
+   "revise": "GST 2.0",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    null,
+    "Statement 3 is incorrect"
+   ],
+   "currentAffairs": true,
+   "asOf": "2025-09",
+   "source": "GST Council, PIB"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Awards",
+   "difficulty": "moderate",
+   "text": "The 2026 Nobel Memorial Prize in Economic Sciences went to Robert Hall and Michael Woodford for work on what?",
+   "options": [
+    "Macroeconomic models that help governments stabilise the economy",
+    "Auction theory and new auction formats",
+    "How institutions shape prosperity",
+    "Innovation-driven growth"
+   ],
+   "answer": 0,
+   "explanation": "Hall and Woodford, both American economists, developed models that help governments and central banks manage fluctuations such as energy shocks and inflation.",
+   "steps": [
+    "Spot what the question tests: Nobel Economics 2026.",
+    "Option B (Auction theory and new auction formats) is out: That was the 2020 prize.",
+    "Option C (How institutions shape prosperity) is out: That was the 2024 prize.",
+    "Option D (Innovation-driven growth) is out: That was the 2025 prize.",
+    "Common slip to avoid: Picking the topic of an earlier Economics prize.",
+    "So the answer is option A: Macroeconomic models that help governments stabilise the economy."
+   ],
+   "trap": "Picking the topic of an earlier Economics prize.",
+   "revise": "Nobel Economics 2026",
+   "wrongReasons": [
+    null,
+    "That was the 2020 prize",
+    "That was the 2024 prize",
+    "That was the 2025 prize"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-10",
+   "source": "Nobel Committee"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Economy",
+   "difficulty": "hard",
+   "text": "India's real GDP grew at what rate in the first quarter (April-June) of 2026-27, according to NSO data released on 31 August 2026?",
+   "options": [
+    "6.5%",
+    "7.4%",
+    "7.8%",
+    "8.2%"
+   ],
+   "answer": 2,
+   "explanation": "The NSO estimated GDP growth at 7.8% in Q1 FY27.",
+   "steps": [
+    "Spot what the question tests: GDP growth Q1 FY27.",
+    "Options A and B are out: A lower figure.",
+    "Option D (8.2%) is out: A higher figure.",
+    "Common slip to avoid: Confusing it with the previous year's quarterly rate.",
+    "So the answer is option C: 7.8%."
+   ],
+   "trap": "Confusing it with the previous year's quarterly rate.",
+   "revise": "GDP growth Q1 FY27",
+   "wrongReasons": [
+    "A lower figure",
+    "A lower figure",
+    null,
+    "A higher figure"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-08",
+   "source": "NSO, PIB"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Awards",
+   "difficulty": "moderate",
+   "text": "The 2026 Nobel Prize in Physics went to Francis Halzen, known for the IceCube observatory at the South Pole. Which particles does it detect?",
+   "options": [
+    "Photons in entangled states",
+    "Neutrinos",
+    "Gravitational waves",
+    "Macroscopic quantum tunnelling"
+   ],
+   "answer": 1,
+   "explanation": "IceCube uses a cubic kilometre of Antarctic ice to detect high-energy neutrinos, elusive cosmic particles. Halzen proposed the idea and led the project.",
+   "steps": [
+    "Spot what the question tests: Nobel Physics 2026.",
+    "Option A (Photons in entangled states) is out: That was the 2022 prize topic.",
+    "Option C (Gravitational waves) is out: That was the 2017 prize topic.",
+    "Option D (Macroscopic quantum tunnelling) is out: That was the 2025 prize topic.",
+    "Common slip to avoid: Choosing a topic from an earlier Physics prize.",
+    "So the answer is option B: Neutrinos."
+   ],
+   "trap": "Choosing a topic from an earlier Physics prize.",
+   "revise": "Nobel Physics 2026",
+   "wrongReasons": [
+    "That was the 2022 prize topic",
+    null,
+    "That was the 2017 prize topic",
+    "That was the 2025 prize topic"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-10",
+   "source": "Nobel Committee"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Sports",
+   "difficulty": "moderate",
+   "text": "India finished fourth at the 2026 Asian Games in Aichi-Nagoya with 85 medals in all. How many gold medals did it win?",
+   "options": [
+    "21",
+    "16",
+    "28",
+    "25"
+   ],
+   "answer": 0,
+   "explanation": "India won 21 gold, 27 silver and 37 bronze (85 in all) and finished behind China and two other nations.",
+   "steps": [
+    "Spot what the question tests: Asian Games 2026.",
+    "Option B (16) is out: That was India's gold count in 2018.",
+    "Option C (28) is out: That was India's gold count in 2023.",
+    "Option D (25) is out: Too high; India won 21 gold.",
+    "Common slip to avoid: Recalling the 2018 or 2023 gold tallies.",
+    "So the answer is option A: 21."
+   ],
+   "trap": "Recalling the 2018 or 2023 gold tallies.",
+   "revise": "Asian Games 2026",
+   "wrongReasons": [
+    null,
+    "That was India's gold count in 2018",
+    "That was India's gold count in 2023",
+    "Too high; India won 21 gold"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-10",
+   "source": "OCA, SAI"
+  }
+ ]
+}

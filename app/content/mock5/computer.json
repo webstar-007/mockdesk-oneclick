@@ -1,0 +1,596 @@
+{
+ "section": "computer",
+ "questions": [
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: COUNTIFS",
+   "difficulty": "hard",
+   "text": "In Excel, A2:A10 holds departments and B2:B10 holds salaries. Which formula counts employees of the 'Sales' department earning more than 50000?",
+   "options": [
+    "=COUNTIF(A2:A10,\"Sales\",B2:B10,\">50000\")",
+    "=SUMIFS(B2:B10,A2:A10,\"Sales\",B2:B10,\">50000\")",
+    "=COUNTA(A2:A10,\"Sales\")",
+    "=COUNTIFS(A2:A10,\"Sales\",B2:B10,\">50000\")"
+   ],
+   "answer": 3,
+   "explanation": "COUNTIFS takes several range-criterion pairs and counts rows meeting all of them.",
+   "steps": [
+    "Spot what the question tests: COUNTIF vs COUNTIFS.",
+    "Option A (=COUNTIF(A2:A10,\"Sales\",B2:B10,\">50000\")) is out: COUNTIF accepts only one range and one criterion.",
+    "Option B (=SUMIFS(B2:B10,A2:A10,\"Sales\",B2:B10,\">50000\")) is out: Returns the total salary, not the count.",
+    "Option C (=COUNTA(A2:A10,\"Sales\")) is out: Counts non-empty cells, ignoring the criteria.",
+    "Common slip to avoid: Using COUNTIF with two pairs.",
+    "So the answer is option D: =COUNTIFS(A2:A10,\"Sales\",B2:B10,\">50000\")."
+   ],
+   "trap": "Using COUNTIF with two pairs.",
+   "revise": "COUNTIF vs COUNTIFS",
+   "wrongReasons": [
+    "COUNTIF accepts only one range and one criterion",
+    "Returns the total salary, not the count",
+    "Counts non-empty cells, ignoring the criteria",
+    null
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: rounding",
+   "difficulty": "hard",
+   "text": "In Excel, what is the result of =ROUND(-2.5,0)?",
+   "options": [
+    "-2",
+    "-2.5",
+    "-3",
+    "3"
+   ],
+   "answer": 2,
+   "explanation": "Excel's ROUND rounds halves away from zero, so -2.5 becomes -3.",
+   "steps": [
+    "Spot what the question tests: ROUND behaviour.",
+    "Option A (-2) is out: Excel does not round half to even.",
+    "Option B (-2.5) is out: No rounding applied.",
+    "Option D (3) is out: Sign is lost.",
+    "Common slip to avoid: Applying banker's rounding.",
+    "So the answer is option C: -3."
+   ],
+   "trap": "Applying banker's rounding.",
+   "revise": "ROUND behaviour",
+   "wrongReasons": [
+    "Excel does not round half to even",
+    "No rounding applied",
+    null,
+    "Sign is lost"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: view",
+   "difficulty": "moderate",
+   "text": "Which tab in MS Excel contains the Freeze Panes command?",
+   "options": [
+    "Home",
+    "Data",
+    "Page Layout",
+    "View"
+   ],
+   "answer": 3,
+   "explanation": "Freeze Panes is in the Window group of the View tab.",
+   "steps": [
+    "Spot what the question tests: Excel ribbon tabs.",
+    "Option A (Home) is out: Holds formatting and clipboard tools.",
+    "Option B (Data) is out: Holds sorting and filtering tools.",
+    "Option C (Page Layout) is out: Holds page setup tools.",
+    "Common slip to avoid: Choosing Page Layout.",
+    "So the answer is option D: View."
+   ],
+   "trap": "Choosing Page Layout.",
+   "revise": "Excel ribbon tabs",
+   "wrongReasons": [
+    "Holds formatting and clipboard tools",
+    "Holds sorting and filtering tools",
+    "Holds page setup tools",
+    null
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Word: sections",
+   "difficulty": "moderate",
+   "text": "In MS Word, to make one page landscape while the rest remain portrait, which should be inserted around that page?",
+   "options": [
+    "Page breaks",
+    "Column breaks",
+    "Section breaks",
+    "Text wrapping breaks"
+   ],
+   "answer": 2,
+   "explanation": "A section break lets a section have its own orientation.",
+   "steps": [
+    "Spot what the question tests: Breaks in Word.",
+    "Option A (Page breaks) is out: They start a new page but keep the same page setup.",
+    "Option B (Column breaks) is out: They affect text columns only.",
+    "Option D (Text wrapping breaks) is out: They affect text flow around objects.",
+    "Common slip to avoid: Using a page break.",
+    "So the answer is option C: Section breaks."
+   ],
+   "trap": "Using a page break.",
+   "revise": "Breaks in Word",
+   "wrongReasons": [
+    "They start a new page but keep the same page setup",
+    "They affect text columns only",
+    null,
+    "They affect text flow around objects"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "PowerPoint: shortcuts",
+   "difficulty": "easy",
+   "text": "In MS PowerPoint, which key starts the slide show from the first slide?",
+   "options": [
+    "Shift + F5",
+    "F5",
+    "F7",
+    "F12"
+   ],
+   "answer": 1,
+   "explanation": "F5 starts the show from the beginning; Shift + F5 starts it from the current slide.",
+   "steps": [
+    "F5 runs from slide 1",
+    "Shift + F5 runs from the selected slide"
+   ],
+   "trap": "Choosing Shift + F5.",
+   "revise": "PowerPoint shortcuts",
+   "wrongReasons": [
+    "Starts from the current slide",
+    null,
+    "Starts the spelling check",
+    "Opens the Save As dialog"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "Phishing types",
+   "difficulty": "easy",
+   "text": "A fraudulent attempt to steal information through SMS text messages is called:",
+   "options": [
+    "Vishing",
+    "Pharming",
+    "Spoofing",
+    "Smishing"
+   ],
+   "answer": 3,
+   "explanation": "Smishing combines SMS and phishing.",
+   "steps": [
+    "Spot what the question tests: Phishing variants.",
+    "Option A (Vishing) is out: Done over voice calls.",
+    "Option B (Pharming) is out: Redirects users through DNS or host changes.",
+    "Option C (Spoofing) is out: Impersonation in general.",
+    "Common slip to avoid: Choosing vishing.",
+    "So the answer is option D: Smishing."
+   ],
+   "trap": "Choosing vishing.",
+   "revise": "Phishing variants",
+   "wrongReasons": [
+    "Done over voice calls",
+    "Redirects users through DNS or host changes",
+    "Impersonation in general",
+    null
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "Cryptography",
+   "difficulty": "moderate",
+   "text": "Which of the following is an asymmetric-key algorithm?",
+   "options": [
+    "AES",
+    "DES",
+    "RSA",
+    "RC4"
+   ],
+   "answer": 2,
+   "explanation": "RSA uses a public key and a private key.",
+   "steps": [
+    "Spot what the question tests: Symmetric vs asymmetric.",
+    "Options A and B are out: A symmetric block cipher.",
+    "Option D (RC4) is out: A symmetric stream cipher.",
+    "Common slip to avoid: Choosing AES.",
+    "So the answer is option C: RSA."
+   ],
+   "trap": "Choosing AES.",
+   "revise": "Symmetric vs asymmetric",
+   "wrongReasons": [
+    "A symmetric block cipher",
+    "A symmetric block cipher",
+    null,
+    "A symmetric stream cipher"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "CIA triad",
+   "difficulty": "moderate",
+   "text": "A Distributed Denial of Service attack mainly compromises which element of the CIA triad?",
+   "options": [
+    "Availability",
+    "Confidentiality",
+    "Integrity",
+    "Authenticity"
+   ],
+   "answer": 0,
+   "explanation": "It floods a service so that legitimate users cannot reach it.",
+   "steps": [
+    "Spot what the question tests: CIA triad.",
+    "Option B (Confidentiality) is out: Concerns unauthorised disclosure.",
+    "Option C (Integrity) is out: Concerns unauthorised modification.",
+    "Option D (Authenticity) is out: Not a part of the triad.",
+    "Common slip to avoid: Choosing confidentiality.",
+    "So the answer is option A: Availability."
+   ],
+   "trap": "Choosing confidentiality.",
+   "revise": "CIA triad",
+   "wrongReasons": [
+    null,
+    "Concerns unauthorised disclosure",
+    "Concerns unauthorised modification",
+    "Not a part of the triad"
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "CPU registers",
+   "difficulty": "moderate",
+   "text": "Which CPU register holds the address of the next instruction to be fetched?",
+   "options": [
+    "Instruction Register",
+    "Program Counter",
+    "Accumulator",
+    "Memory Data Register"
+   ],
+   "answer": 1,
+   "explanation": "The Program Counter points to the next instruction.",
+   "steps": [
+    "Spot what the question tests: CPU registers.",
+    "Option A (Instruction Register) is out: Holds the instruction being executed.",
+    "Option C (Accumulator) is out: Holds arithmetic results.",
+    "Option D (Memory Data Register) is out: Holds the data read or written.",
+    "Common slip to avoid: Choosing the Instruction Register.",
+    "So the answer is option B: Program Counter."
+   ],
+   "trap": "Choosing the Instruction Register.",
+   "revise": "CPU registers",
+   "wrongReasons": [
+    "Holds the instruction being executed",
+    null,
+    "Holds arithmetic results",
+    "Holds the data read or written"
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "Number systems",
+   "difficulty": "hard",
+   "text": "What is the 8-bit two's complement representation of the binary number 00010110?",
+   "options": [
+    "11101010",
+    "11101001",
+    "11101011",
+    "10010110"
+   ],
+   "answer": 0,
+   "explanation": "Invert to 11101001 and add 1 to get 11101010.",
+   "steps": [
+    "Spot what the question tests: Two's complement.",
+    "Option B (11101001) is out: This is the one's complement.",
+    "Option C (11101011) is out: One more than the correct value.",
+    "Option D (10010110) is out: Only the sign bit is changed.",
+    "Common slip to avoid: Stopping at the one's complement.",
+    "So the answer is option A: 11101010."
+   ],
+   "trap": "Stopping at the one's complement.",
+   "revise": "Two's complement",
+   "wrongReasons": [
+    null,
+    "This is the one's complement",
+    "One more than the correct value",
+    "Only the sign bit is changed"
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "Number systems",
+   "difficulty": "moderate",
+   "text": "What is the decimal value of the hexadecimal number (3F)₁₆?",
+   "options": [
+    "63",
+    "48",
+    "18",
+    "255"
+   ],
+   "answer": 0,
+   "explanation": "3 x 16 + 15 = 63.",
+   "steps": [
+    "Spot what the question tests: Hex to decimal.",
+    "Option B (48) is out: Counts only the 3 in the sixteens place.",
+    "Option C (18) is out: Adds the digits.",
+    "Option D (255) is out: This is (FF)₁₆.",
+    "Common slip to avoid: Adding digits instead of weighting.",
+    "So the answer is option A: 63."
+   ],
+   "trap": "Adding digits instead of weighting.",
+   "revise": "Hex to decimal",
+   "wrongReasons": [
+    null,
+    "Counts only the 3 in the sixteens place",
+    "Adds the digits",
+    "This is (FF)₁₆"
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "IP addressing",
+   "difficulty": "hard",
+   "text": "Which of the following is a private IPv4 address?",
+   "options": [
+    "172.32.4.1",
+    "192.169.0.1",
+    "172.20.4.1",
+    "11.0.0.5"
+   ],
+   "answer": 2,
+   "explanation": "The private ranges are 10.x.x.x, 172.16.x.x to 172.31.x.x and 192.168.x.x.",
+   "steps": [
+    "172.16 to 172.31 is private",
+    "172.20 falls in that range"
+   ],
+   "trap": "Treating all 172.x.x.x addresses as private.",
+   "revise": "Private IPv4 ranges",
+   "wrongReasons": [
+    "The private range ends at 172.31.255.255",
+    "Only 192.168.x.x is private",
+    null,
+    "Not in a private range"
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "IP classes",
+   "difficulty": "moderate",
+   "text": "The IP address 172.16.5.4 belongs to which class?",
+   "options": [
+    "Class A",
+    "Class C",
+    "Class D",
+    "Class B"
+   ],
+   "answer": 3,
+   "explanation": "A first octet of 128 to 191 means Class B.",
+   "steps": [
+    "Spot what the question tests: IP address classes.",
+    "Option A (Class A) is out: First octet 1 to 126.",
+    "Option B (Class C) is out: First octet 192 to 223.",
+    "Option C (Class D) is out: First octet 224 to 239, used for multicast.",
+    "Common slip to avoid: Misjudging the range.",
+    "So the answer is option D: Class B."
+   ],
+   "trap": "Misjudging the range.",
+   "revise": "IP address classes",
+   "wrongReasons": [
+    "First octet 1 to 126",
+    "First octet 192 to 223",
+    "First octet 224 to 239, used for multicast",
+    null
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "Ports",
+   "difficulty": "moderate",
+   "text": "Which port number is used by the Secure Shell (SSH) protocol by default?",
+   "options": [
+    "22",
+    "23",
+    "21",
+    "25"
+   ],
+   "answer": 0,
+   "explanation": "SSH runs on TCP port 22.",
+   "steps": [
+    "Spot what the question tests: Well-known ports.",
+    "Option B (23) is out: Used by Telnet.",
+    "Option C (21) is out: Used by FTP.",
+    "Option D (25) is out: Used by SMTP.",
+    "Common slip to avoid: Choosing Telnet's port.",
+    "So the answer is option A: 22."
+   ],
+   "trap": "Choosing Telnet's port.",
+   "revise": "Well-known ports",
+   "wrongReasons": [
+    null,
+    "Used by Telnet",
+    "Used by FTP",
+    "Used by SMTP"
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "Subnetting",
+   "difficulty": "hard",
+   "text": "How many usable host addresses are there in the network 192.168.1.0/27?",
+   "options": [
+    "32",
+    "31",
+    "30",
+    "62"
+   ],
+   "answer": 2,
+   "explanation": "A /27 leaves 5 host bits: 2^5 - 2 = 30.",
+   "steps": [
+    "Spot what the question tests: Host count formula.",
+    "Option A (32) is out: Includes the network and broadcast addresses.",
+    "Option B (31) is out: Subtracts only one address.",
+    "Option D (62) is out: This is for a /26 network.",
+    "Common slip to avoid: Forgetting the network and broadcast addresses.",
+    "So the answer is option C: 30."
+   ],
+   "trap": "Forgetting the network and broadcast addresses.",
+   "revise": "Host count formula",
+   "wrongReasons": [
+    "Includes the network and broadcast addresses",
+    "Subtracts only one address",
+    null,
+    "This is for a /26 network"
+   ]
+  },
+  {
+   "topic": "DBMS",
+   "subtopic": "Normalisation",
+   "difficulty": "hard",
+   "text": "What is the lowest normal form that eliminates transitive dependencies of non-key attributes on the primary key?",
+   "options": [
+    "First normal form",
+    "Third normal form",
+    "Second normal form",
+    "Fourth normal form"
+   ],
+   "answer": 1,
+   "explanation": "3NF removes transitive dependencies.",
+   "steps": [
+    "Spot what the question tests: Normal forms.",
+    "Option A (First normal form) is out: Deals with atomic values.",
+    "Option C (Second normal form) is out: Deals with partial dependencies.",
+    "Option D (Fourth normal form) is out: A higher form dealing with multivalued dependencies.",
+    "Common slip to avoid: Choosing 2NF.",
+    "So the answer is option B: Third normal form."
+   ],
+   "trap": "Choosing 2NF.",
+   "revise": "Normal forms",
+   "wrongReasons": [
+    "Deals with atomic values",
+    null,
+    "Deals with partial dependencies",
+    "A higher form dealing with multivalued dependencies"
+   ]
+  },
+  {
+   "topic": "DBMS",
+   "subtopic": "SQL: NULLs",
+   "difficulty": "hard",
+   "text": "A table has 10 rows and the column Phone contains NULL in 3 of them. What does SELECT COUNT(Phone) return?",
+   "options": [
+    "10",
+    "3",
+    "0",
+    "7"
+   ],
+   "answer": 3,
+   "explanation": "COUNT(column) ignores NULL values.",
+   "steps": [
+    "Spot what the question tests: COUNT(*) vs COUNT(column).",
+    "Option A (10) is out: This is COUNT(*).",
+    "Option B (3) is out: Counts the NULLs.",
+    "Option C (0) is out: NULLs are not all values.",
+    "Common slip to avoid: Confusing it with COUNT(*).",
+    "So the answer is option D: 7."
+   ],
+   "trap": "Confusing it with COUNT(*).",
+   "revise": "COUNT(*) vs COUNT(column)",
+   "wrongReasons": [
+    "This is COUNT(*)",
+    "Counts the NULLs",
+    "NULLs are not all values",
+    null
+   ]
+  },
+  {
+   "topic": "Cloud and IT Infrastructure",
+   "subtopic": "Memory management",
+   "difficulty": "moderate",
+   "text": "Which memory management technique divides memory into fixed-size blocks called frames?",
+   "options": [
+    "Segmentation",
+    "Paging",
+    "Swapping",
+    "Compaction"
+   ],
+   "answer": 1,
+   "explanation": "Paging splits physical memory into frames and logical memory into pages.",
+   "steps": [
+    "Spot what the question tests: Paging vs segmentation.",
+    "Option A (Segmentation) is out: Uses variable-sized logical units.",
+    "Option C (Swapping) is out: Moves processes between memory and disk.",
+    "Option D (Compaction) is out: Joins free memory areas.",
+    "Common slip to avoid: Choosing segmentation.",
+    "So the answer is option B: Paging."
+   ],
+   "trap": "Choosing segmentation.",
+   "revise": "Paging vs segmentation",
+   "wrongReasons": [
+    "Uses variable-sized logical units",
+    null,
+    "Moves processes between memory and disk",
+    "Joins free memory areas"
+   ]
+  },
+  {
+   "topic": "Cloud and IT Infrastructure",
+   "subtopic": "Cloud service models",
+   "difficulty": "moderate",
+   "text": "In cloud computing, which model gives developers a platform to build and run applications without managing the underlying servers?",
+   "options": [
+    "Infrastructure as a Service",
+    "Platform as a Service",
+    "Software as a Service",
+    "Network as a Service"
+   ],
+   "answer": 1,
+   "explanation": "PaaS provides the runtime environment and tools.",
+   "steps": [
+    "Spot what the question tests: IaaS, PaaS, SaaS.",
+    "Option A (Infrastructure as a Service) is out: Gives virtual machines and storage.",
+    "Option C (Software as a Service) is out: Gives finished applications.",
+    "Option D (Network as a Service) is out: Gives network connectivity.",
+    "Common slip to avoid: Choosing IaaS.",
+    "So the answer is option B: Platform as a Service."
+   ],
+   "trap": "Choosing IaaS.",
+   "revise": "IaaS, PaaS, SaaS",
+   "wrongReasons": [
+    "Gives virtual machines and storage",
+    null,
+    "Gives finished applications",
+    "Gives network connectivity"
+   ]
+  },
+  {
+   "topic": "Cloud and IT Infrastructure",
+   "subtopic": "Windows shortcuts",
+   "difficulty": "easy",
+   "text": "Which key combination locks a Windows computer immediately?",
+   "options": [
+    "Windows key + L",
+    "Windows key + D",
+    "Ctrl + Alt + L",
+    "Windows key + R"
+   ],
+   "answer": 0,
+   "explanation": "Windows key + L locks the session.",
+   "steps": [
+    "Spot what the question tests: Windows shortcuts.",
+    "Option B (Windows key + D) is out: Shows the desktop.",
+    "Option C (Ctrl + Alt + L) is out: Not a lock shortcut.",
+    "Option D (Windows key + R) is out: Opens the Run box.",
+    "Common slip to avoid: Choosing the desktop shortcut.",
+    "So the answer is option A: Windows key + L."
+   ],
+   "trap": "Choosing the desktop shortcut.",
+   "revise": "Windows shortcuts",
+   "wrongReasons": [
+    null,
+    "Shows the desktop",
+    "Not a lock shortcut",
+    "Opens the Run box"
+   ]
+  }
+ ]
+}

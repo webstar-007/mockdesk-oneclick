@@ -1,0 +1,931 @@
+{
+ "section": "reasoning",
+ "passages": {
+  "p1": "Eight friends A, B, C, D, E, F, G and H sit around a circular table, all facing the centre. For any person, 'immediate left' is the next seat clockwise and 'immediate right' is the next seat anticlockwise.\nH sits opposite A. D sits immediate left of A. B sits third to the left of A. F sits between D and B. C sits immediate left of H. G sits immediate right of A.",
+  "p2": "Six lectures P, Q, R, S, T and U are scheduled on six consecutive days from Monday to Saturday, one lecture per day.\nP is scheduled on the day immediately before U. R is scheduled before P, with exactly one lecture between R and P. Q is scheduled after U. T is scheduled before R.",
+  "p3": "Six friends P, Q, R, S, T and U have different heights.\nR is taller than P but shorter than Q. S is taller than only U. T is taller than R but shorter than Q."
+ },
+ "questions": [
+  {
+   "topic": "Analogy",
+   "subtopic": "Number analogy",
+   "difficulty": "easy",
+   "text": "Select the option that is related to the third number in the same way as the second number is related to the first.\n\n8 : 65 :: 5 : ?",
+   "options": [
+    "24",
+    "30",
+    "25",
+    "26"
+   ],
+   "answer": 3,
+   "explanation": "8 → 65 is 8² + 1. So 5 → 5² + 1 = 26.",
+   "steps": [
+    "8² = 64 and 64 + 1 = 65",
+    "Apply the same rule: 5² = 25",
+    "25 + 1 = 26"
+   ],
+   "trap": "Taking the square and forgetting the + 1.",
+   "revise": "Squares with an added constant",
+   "wrongReasons": [
+    "Used n² − 1 instead of n² + 1",
+    "Used n × (n + 1)",
+    "Stopped at n²",
+    null
+   ],
+   "shortcut": "65 is one more than 64, a perfect square: test n² + 1 first.",
+   "value": 26,
+   "check": "5*5+1"
+  },
+  {
+   "topic": "Classification",
+   "subtopic": "Word classification",
+   "difficulty": "easy",
+   "text": "Select the odd one out.",
+   "options": [
+    "Kolkata",
+    "Mumbai",
+    "Hyderabad",
+    "Chennai"
+   ],
+   "answer": 2,
+   "explanation": "Kolkata, Mumbai and Chennai are all port cities on a coast or tidal river. Hyderabad is an inland city with no seaport.",
+   "steps": [
+    "Check what the three cities share: they are ports",
+    "Hyderabad is inland",
+    "So it is the odd one"
+   ],
+   "trap": "Looking for a language or state link instead of the port link.",
+   "revise": "Port cities of India",
+   "wrongReasons": [
+    "A major seaport on the Hooghly river",
+    "A major seaport on the Arabian Sea",
+    null,
+    "A major seaport on the Bay of Bengal"
+   ],
+   "approach": "Look for a geographic or functional link shared by exactly three items."
+  },
+  {
+   "topic": "Classification",
+   "subtopic": "Number-triplet classification",
+   "difficulty": "moderate",
+   "text": "Select the number-triplet that is different from the other three.",
+   "options": [
+    "(14, 25, 35)",
+    "(6, 15, 24)",
+    "(9, 18, 27)",
+    "(12, 21, 30)"
+   ],
+   "answer": 0,
+   "explanation": "In the other triplets each number is 9 more than the previous one. In (14, 25, 35) the gaps are 11 and 10.",
+   "steps": [
+    "6, 15, 24: gaps 9, 9",
+    "9, 18, 27: gaps 9, 9",
+    "12, 21, 30: gaps 9, 9",
+    "14, 25, 35: gaps 11, 10, so this is the odd one"
+   ],
+   "trap": "Comparing totals instead of the gaps.",
+   "revise": "Arithmetic progression triplets",
+   "wrongReasons": [
+    null,
+    "Common difference of 9",
+    "Common difference of 9",
+    "Common difference of 9"
+   ],
+   "shortcut": "Check the two gaps in each triplet; three will match."
+  },
+  {
+   "topic": "Series",
+   "subtopic": "Number series",
+   "difficulty": "moderate",
+   "text": "What should come in place of the question mark?\n\n12, 14, 18, 26, 42, ?",
+   "options": [
+    "74",
+    "58",
+    "66",
+    "84"
+   ],
+   "answer": 0,
+   "explanation": "The differences double each time: 2, 4, 8, 16, so the next difference is 32. 42 + 32 = 74.",
+   "steps": [
+    "14 − 12 = 2",
+    "18 − 14 = 4, 26 − 18 = 8, 42 − 26 = 16",
+    "Next difference = 32",
+    "42 + 32 = 74"
+   ],
+   "trap": "Repeating the last difference (16) instead of doubling it.",
+   "revise": "Series with doubling differences",
+   "wrongReasons": [
+    null,
+    "Added 16 to 42",
+    "Added 24 to 42",
+    "Doubled 42"
+   ],
+   "shortcut": "Subtract 2 from each term: 10, 12, 16, 24, 40 shows a doubling pattern 2, 4, 8, 16.",
+   "value": 74,
+   "check": "42+32"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Mirror image",
+   "difficulty": "moderate",
+   "text": "A figure is shown with a mirror placed on its right-hand side as shown. Select the figure that correctly shows its mirror image.",
+   "options": [
+    "Figure A",
+    "Figure B",
+    "Figure C",
+    "Figure D"
+   ],
+   "answer": 1,
+   "optionFigures": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"10,10 10,50 30,50 30,70 60,70 60,50 70,50 70,30 30,30 30,10\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"70,70 70,30 50,30 50,10 20,10 20,30 10,30 10,50 50,50 50,70\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"10,10 50,10 50,30 70,30 70,60 50,60 50,70 30,70 30,30 10,30\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"10,70 10,30 30,30 30,10 60,10 60,30 70,30 70,50 30,50 30,70\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>"
+   ],
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 100\" role=\"img\"><g transform=\"translate(10,10)\"><polygon points=\"10,70 10,30 30,30 30,10 60,10 60,30 70,30 70,50 30,50 30,70\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></g><line x1=\"150\" y1=\"5\" x2=\"150\" y2=\"95\" stroke=\"#c0392b\" stroke-width=\"3\"/><text x=\"158\" y=\"55\" font-size=\"12\">mirror</text></svg>",
+   "explanation": "A mirror on the right reverses the figure left to right (lateral inversion) and leaves up and down unchanged.",
+   "steps": [
+    "Spot what the question tests: Mirror image = left-right swap; water image = top-bottom swap.",
+    "Option A (Figure A) is out: This is the water image, not the mirror image.",
+    "Option C (Figure C) is out: This is a rotation, which a mirror cannot produce.",
+    "Option D (Figure D) is out: This is the unchanged figure.",
+    "Common slip to avoid: Choosing the vertical flip, which is the water image.",
+    "So the answer is option B: Figure B."
+   ],
+   "trap": "Choosing the vertical flip, which is the water image.",
+   "revise": "Mirror image = left-right swap; water image = top-bottom swap",
+   "wrongReasons": [
+    "This is the water image, not the mirror image",
+    null,
+    "This is a rotation, which a mirror cannot produce",
+    "This is the unchanged figure"
+   ]
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Water image",
+   "difficulty": "moderate",
+   "text": "A figure is shown above a horizontal mirror (water surface). Select the figure that shows its water image.",
+   "options": [
+    "Figure A",
+    "Figure B",
+    "Figure C",
+    "Figure D"
+   ],
+   "answer": 2,
+   "optionFigures": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"70,70 70,30 50,30 50,10 20,10 20,30 10,30 10,50 50,50 50,70\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"10,10 50,10 50,30 70,30 70,60 50,60 50,70 30,70 30,30 10,30\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"10,10 10,50 30,50 30,70 60,70 60,50 70,50 70,30 30,30 30,10\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"70,10 70,50 50,50 50,70 20,70 20,50 10,50 10,30 50,30 50,10\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>"
+   ],
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 200\" role=\"img\"><g transform=\"translate(10,5)\"><polygon points=\"10,70 10,30 30,30 30,10 60,10 60,30 70,30 70,50 30,50 30,70\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></g><line x1=\"5\" y1=\"105\" x2=\"95\" y2=\"105\" stroke=\"#c0392b\" stroke-width=\"3\"/><text x=\"30\" y=\"125\" font-size=\"12\">mirror</text></svg>",
+   "explanation": "A horizontal mirror reverses the figure top to bottom; left and right stay as they were.",
+   "steps": [
+    "Spot what the question tests: Water image = top-bottom swap.",
+    "Option A (Figure A) is out: This is the left-right mirror image.",
+    "Option B (Figure B) is out: This is a rotation.",
+    "Option D (Figure D) is out: This is both flips, i.e. a 180° rotation.",
+    "Common slip to avoid: Choosing the left-right inversion.",
+    "So the answer is option C: Figure C."
+   ],
+   "trap": "Choosing the left-right inversion.",
+   "revise": "Water image = top-bottom swap",
+   "wrongReasons": [
+    "This is the left-right mirror image",
+    "This is a rotation",
+    null,
+    "This is both flips, i.e. a 180° rotation"
+   ]
+  },
+  {
+   "topic": "Coding-Decoding",
+   "subtopic": "Alternating shift code",
+   "difficulty": "moderate",
+   "text": "In a certain code language, ROUTES is written as SNWRHP. How will PLANET be written in that code?",
+   "options": [
+    "QKCLHP",
+    "QMCLHQ",
+    "QKCLHQ",
+    "QKDLHQ"
+   ],
+   "answer": 2,
+   "explanation": "ROUTES → SNWRHP uses the shifts +1, −1, +2, −2, +3, −3. Apply them to PLANET: P+1=Q, L−1=K, A+2=C, N−2=L, E+3=H, T−3=Q.",
+   "steps": [
+    "R→S (+1), O→N (−1), U→W (+2), T→R (−2), E→H (+3), S→P (−3)",
+    "Apply to PLANET",
+    "P+1 = Q, L−1 = K, A+2 = C",
+    "N−2 = L, E+3 = H, T−3 = Q",
+    "Code: QKCLHQ"
+   ],
+   "trap": "Missing that the shift sizes grow while the direction alternates.",
+   "revise": "Alternating shift codes",
+   "wrongReasons": [
+    "Last letter shifted −4 instead of −3",
+    "Second letter shifted +1 instead of −1",
+    null,
+    "Third letter shifted +3 instead of +2"
+   ],
+   "shortcut": "Work out only the first two or three shifts, then test the rule on the remaining letters."
+  },
+  {
+   "topic": "Coding-Decoding",
+   "subtopic": "Vowel-consonant rule code",
+   "difficulty": "hard",
+   "text": "In a certain code, every vowel in a word is replaced by the letter immediately before it in the alphabet, and every consonant is replaced by the letter immediately after it. How will EDUCATION be written in that code?",
+   "options": [
+    "DETDZUHNO",
+    "DETDAUHNO",
+    "FETDZUHNO",
+    "DETEZUHNO"
+   ],
+   "answer": 0,
+   "explanation": "Vowels (E, U, A, I, O) move one letter back: D, T, Z, H, N. Consonants (D, C, T, N) move one letter forward: E, D, U, O. Reading EDUCATION letter by letter gives D E T D Z U H N O.",
+   "steps": [
+    "E (vowel) → D",
+    "D (consonant) → E",
+    "U (vowel) → T",
+    "C (consonant) → D",
+    "A (vowel) → Z",
+    "T (consonant) → U",
+    "I (vowel) → H",
+    "O (vowel) → N",
+    "N (consonant) → O"
+   ],
+   "trap": "Applying one rule to every letter, or forgetting that A goes back to Z.",
+   "revise": "Conditional letter codes (vowel/consonant rules)",
+   "wrongReasons": [
+    null,
+    "A replaced by B instead of Z",
+    "E replaced by F instead of D",
+    "C replaced by E instead of D"
+   ],
+   "shortcut": "Mark each letter V or C first; then apply the correct shift to each."
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Paper folding and punching",
+   "difficulty": "hard",
+   "text": "A square sheet is folded along both central dotted lines into a quarter as shown, and a hole is punched in the top-left quarter. Select the figure that shows the sheet when unfolded.",
+   "options": [
+    "Figure A",
+    "Figure B",
+    "Figure C",
+    "Figure D"
+   ],
+   "answer": 3,
+   "optionFigures": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"20\" cy=\"35\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"80\" cy=\"35\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"20\" cy=\"35\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"80\" cy=\"65\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"20\" cy=\"35\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"20\" cy=\"65\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"80\" cy=\"35\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"50\" cy=\"50\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"20\" cy=\"35\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"80\" cy=\"35\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"20\" cy=\"65\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"80\" cy=\"65\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>"
+   ],
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 210 110\" role=\"img\"><rect x=\"5\" y=\"5\" width=\"100\" height=\"100\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><g transform=\"translate(5,5)\"><rect x=\"0\" y=\"0\" width=\"50\" height=\"50\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"20\" cy=\"35\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></g><path d=\"M5 5 L105 5 L105 105 L5 105 Z\" stroke=\"#999\" stroke-dasharray=\"4\" fill=\"none\" stroke-width=\"1\"/><line x1=\"55\" y1=\"5\" x2=\"55\" y2=\"105\" stroke=\"#999\" stroke-dasharray=\"4\"/><line x1=\"5\" y1=\"55\" x2=\"105\" y2=\"55\" stroke=\"#999\" stroke-dasharray=\"4\"/><text x=\"115\" y=\"30\" font-size=\"11\">Folded twice,</text><text x=\"115\" y=\"45\" font-size=\"11\">hole punched in</text><text x=\"115\" y=\"60\" font-size=\"11\">the top-left</text><text x=\"115\" y=\"75\" font-size=\"11\">quarter</text></svg>",
+   "explanation": "Each fold reflects the hole across the fold line, so one punch gives four holes, one in each quarter, placed symmetrically about both centre lines.",
+   "steps": [
+    "Spot what the question tests: Fold line = mirror line for punched holes.",
+    "Option A (Figure A) is out: Only two holes: it misses the second fold.",
+    "Option B (Figure B) is out: Only two holes on a diagonal, which ignores one fold.",
+    "Option C (Figure C) is out: Has a stray hole at the centre and a missing quarter.",
+    "Common slip to avoid: Forgetting that two folds give four holes, or placing the extra holes diagonally only.",
+    "So the answer is option D: Figure D."
+   ],
+   "trap": "Forgetting that two folds give four holes, or placing the extra holes diagonally only.",
+   "revise": "Fold line = mirror line for punched holes",
+   "wrongReasons": [
+    "Only two holes: it misses the second fold",
+    "Only two holes on a diagonal, which ignores one fold",
+    "Has a stray hole at the centre and a missing quarter",
+    null
+   ]
+  },
+  {
+   "topic": "Blood Relations",
+   "subtopic": "Chain of relations",
+   "difficulty": "easy",
+   "text": "A is the sister of B. C is the mother of B. D is the father of C. E is the mother of D. How is E related to A?",
+   "options": [
+    "Grandmother",
+    "Aunt",
+    "Great-grandmother",
+    "Mother-in-law"
+   ],
+   "answer": 2,
+   "explanation": "C is the mother of A and B. D is C's father, so D is A's grandfather. E is D's mother, so E is A's great-grandmother.",
+   "steps": [
+    "A and B are siblings; C is their mother",
+    "D is C's father: A's grandfather",
+    "E is D's mother: A's great-grandmother"
+   ],
+   "trap": "Stopping one generation short and answering 'grandmother'.",
+   "revise": "Generation counting",
+   "wrongReasons": [
+    "That would be C's mother, not C's father's mother",
+    "E is two generations above C, not a sibling of a parent",
+    null,
+    "No marriage link is given between A and E"
+   ],
+   "shortcut": "Count generations upward: mother (1), her father (2), his mother (3) = great-grandmother."
+  },
+  {
+   "topic": "Blood Relations",
+   "subtopic": "Family chain",
+   "difficulty": "moderate",
+   "text": "A is the father of B and C. C is the husband of D. D is the daughter of E. F is the only son of E. How is F related to C?",
+   "options": [
+    "Uncle",
+    "Brother-in-law",
+    "Brother",
+    "Father-in-law"
+   ],
+   "answer": 1,
+   "explanation": "D is C's wife. F is the only son of E, so he is D's brother. A wife's brother is the husband's brother-in-law.",
+   "steps": [
+    "C is married to D",
+    "D and F are children of E, so F is D's brother",
+    "F is the brother of C's wife: brother-in-law"
+   ],
+   "trap": "Calling F a brother because the names share a family.",
+   "revise": "In-law relations",
+   "wrongReasons": [
+    "F is not a sibling of C's parent",
+    null,
+    "F is the brother of C's wife, not of C",
+    "E, not F, is C's father-in-law"
+   ],
+   "approach": "Link each person to the person they are married to or descended from, then name the relation."
+  },
+  {
+   "topic": "Direction & Distance",
+   "subtopic": "Final position",
+   "difficulty": "moderate",
+   "text": "Meena starts from point P and walks 15 m towards the west. She turns left and walks 12 m, turns left again and walks 15 m, and then turns right and walks 9 m. How far and in which direction is she from P?",
+   "options": [
+    "3 m South",
+    "27 m South-West",
+    "12 m South",
+    "21 m South"
+   ],
+   "answer": 3,
+   "explanation": "West 15 m takes her to (−15, 0). Left from west is south: 12 m to (−15, −12). Left from south is east: 15 m to (0, −12). Right from east is south: 9 m to (0, −21). She is 21 m south of P.",
+   "steps": [
+    "West 15: (−15, 0)",
+    "Left → south 12: (−15, −12)",
+    "Left → east 15: (0, −12)",
+    "Right → south 9: (0, −21)",
+    "Distance 21 m, due south"
+   ],
+   "trap": "Adding the 15 m legs together instead of seeing that they cancel.",
+   "revise": "Left and right turns relative to the facing direction",
+   "wrongReasons": [
+    "Subtracted 12 − 9 instead of adding",
+    "Added the two 15 m legs instead of cancelling them",
+    "Ignored the final 9 m leg",
+    null
+   ],
+   "shortcut": "The two 15 m legs are in opposite directions and cancel; only 12 + 9 = 21 m south remains.",
+   "value": 21,
+   "check": "12+9"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Venn diagram",
+   "difficulty": "moderate",
+   "text": "Select the Venn diagram that best represents the relationship among: Birds (B), Parrots (P), Pets (T).",
+   "options": [
+    "Figure A",
+    "Figure B",
+    "Figure C",
+    "Figure D"
+   ],
+   "answer": 0,
+   "optionFigures": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 100\" role=\"img\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"46\" y=\"21\" font-size=\"10\">B</text><circle cx=\"36\" cy=\"56\" r=\"16\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"32\" y=\"60\" font-size=\"10\">P</text><circle cx=\"72\" cy=\"56\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"68\" y=\"60\" font-size=\"10\">T</text></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 100\" role=\"img\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"46\" y=\"21\" font-size=\"10\">B</text><circle cx=\"105\" cy=\"30\" r=\"12\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"101\" y=\"34\" font-size=\"10\">P</text><circle cx=\"88\" cy=\"74\" r=\"20\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"84\" y=\"78\" font-size=\"10\">T</text></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 100\" role=\"img\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"46\" y=\"21\" font-size=\"10\">B</text><circle cx=\"36\" cy=\"56\" r=\"16\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"32\" y=\"60\" font-size=\"10\">T</text><circle cx=\"74\" cy=\"56\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"70\" y=\"60\" font-size=\"10\">P</text></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 100\" role=\"img\"><circle cx=\"30\" cy=\"50\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"26\" y=\"54\" font-size=\"10\">B</text><circle cx=\"60\" cy=\"50\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"56\" y=\"54\" font-size=\"10\">P</text><circle cx=\"90\" cy=\"50\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"86\" y=\"54\" font-size=\"10\">T</text></svg>"
+   ],
+   "explanation": "All parrots are birds, so P lies inside B. Some pets are birds and some may be parrots, so T overlaps both B and P.",
+   "steps": [
+    "Spot what the question tests: Venn: subset, overlap, disjoint.",
+    "Option B (Figure B) is out: Parrots sits outside birds, which is false.",
+    "Option C (Figure C) is out: Parrots and pets are swapped.",
+    "Option D (Figure D) is out: Birds, parrots and pets are drawn as separate sets.",
+    "Common slip to avoid: Drawing pets as separate from parrots.",
+    "So the answer is option A: Figure A."
+   ],
+   "trap": "Drawing pets as separate from parrots.",
+   "revise": "Venn: subset, overlap, disjoint",
+   "wrongReasons": [
+    null,
+    "Parrots sits outside birds, which is false",
+    "Parrots and pets are swapped",
+    "Birds, parrots and pets are drawn as separate sets"
+   ]
+  },
+  {
+   "topic": "Order & Ranking",
+   "subtopic": "Rank between two persons",
+   "difficulty": "moderate",
+   "text": "In a class of 60 students, Ravi ranks 17th from the top and Amit ranks 22nd from the bottom. How many students are there between Ravi and Amit?",
+   "options": [
+    "20",
+    "22",
+    "23",
+    "21"
+   ],
+   "answer": 3,
+   "explanation": "Amit's rank from the top is 60 − 22 + 1 = 39. Students between rank 17 and rank 39 = 39 − 17 − 1 = 21.",
+   "steps": [
+    "Amit from top = 60 − 22 + 1 = 39",
+    "Between = 39 − 17 − 1",
+    "= 21"
+   ],
+   "trap": "Subtracting 17 from 39 and forgetting to drop one place.",
+   "revise": "Rank from top and bottom, persons between",
+   "wrongReasons": [
+    "Forgot to remove Ravi's own place",
+    "Used Amit's rank from the bottom directly",
+    "Added 1 twice",
+    null
+   ],
+   "shortcut": "Persons between = difference of the two ranks (same end) − 1.",
+   "value": 21,
+   "check": "(60-22+1)-17-1"
+  },
+  {
+   "topic": "Syllogism",
+   "subtopic": "'Only a few' statements",
+   "difficulty": "hard",
+   "text": "Statements:\nOnly a few cars are buses.\nAll buses are trains.\nNo train is a bike.\n\nConclusions:\nI. Some cars are trains.\nII. No bike is a bus.\nIII. Some cars are bikes.\n\nWhich of the conclusions follow(s)?",
+   "options": [
+    "Only I follows",
+    "Only I and II follow",
+    "Only II and III follow",
+    "All I, II and III follow"
+   ],
+   "answer": 1,
+   "explanation": "Some cars are buses and all buses are trains, so some cars are trains (I). No train is a bike, so no bus is a bike (II). Cars and bikes are not linked, so III is uncertain.",
+   "steps": [
+    "Some cars are buses, and all buses are trains: some cars are trains (I)",
+    "Buses ⊂ trains, and trains share nothing with bikes: no bike is a bus (II)",
+    "Nothing links cars to bikes definitely: III fails"
+   ],
+   "trap": "Treating 'some cars are not buses' as proof that those cars are bikes.",
+   "revise": "'Only a few' statements: some are, some are not",
+   "wrongReasons": [
+    "II also follows: buses are trains and no train is a bike",
+    null,
+    "III is only a possibility, since some cars are not buses",
+    "III does not follow"
+   ],
+   "approach": "Translate 'only a few A are B' into 'some A are B' and 'some A are not B' before drawing."
+  },
+  {
+   "topic": "Venn Diagram",
+   "subtopic": "Relationship of sets",
+   "difficulty": "moderate",
+   "text": "Which of the following best describes the relationship among Mothers, Women and Doctors?",
+   "options": [
+    "Mothers form a part of Women; Doctors overlaps both Women and Mothers",
+    "The three groups are completely separate",
+    "Women form a part of Doctors; Mothers is separate",
+    "Doctors form a part of Mothers, and both lie inside Women"
+   ],
+   "answer": 0,
+   "explanation": "Every mother is a woman, so Mothers lies inside Women. Doctors include women and men, and some mothers can be doctors, so Doctors overlaps both Women and Mothers but is not contained in either.",
+   "steps": [
+    "Mothers ⊂ Women",
+    "Doctors include men, so Doctors is not inside Women",
+    "Some women and some mothers are doctors: overlap with both"
+   ],
+   "trap": "Placing Doctors fully inside Women.",
+   "revise": "Venn relations among three common groups",
+   "wrongReasons": [
+    null,
+    "Some mothers and women are doctors",
+    "Not all women are doctors, and mothers are women",
+    "Not all doctors are mothers, and men can be doctors"
+   ],
+   "shortcut": "Subset first, then find which group crosses the boundary."
+  },
+  {
+   "topic": "Seating Arrangement",
+   "subtopic": "Circular arrangement",
+   "difficulty": "moderate",
+   "text": "Who sits second to the right of D?",
+   "options": [
+    "H",
+    "E",
+    "C",
+    "G"
+   ],
+   "answer": 3,
+   "explanation": "Going clockwise from A: A, D, F, B, H, C, E, G. For D, immediate right is the next seat anticlockwise (A) and the second to the right is G.",
+   "steps": [
+    "H opposite A; D immediate left of A; B third left of A",
+    "F between D and B; C immediate left of H",
+    "G immediate right of A; E takes the last seat",
+    "Clockwise: A, D, F, B, H, C, E, G",
+    "Right of D: A (first), G (second)"
+   ],
+   "trap": "Counting to the left (clockwise) instead of to the right.",
+   "revise": "Left and right in circular seating facing the centre",
+   "wrongReasons": [
+    "H sits second to the left of C, not second to the right of D",
+    "E sits between C and G",
+    "C sits immediate left of H",
+    null
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Counting squares",
+   "difficulty": "moderate",
+   "text": "A 5 x 5 grid is shown. How many squares of all sizes are there in the figure?",
+   "options": [
+    "25",
+    "50",
+    "55",
+    "54"
+   ],
+   "answer": 2,
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 220\" role=\"img\"><rect x=\"10\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+   "explanation": "1x1: 25, 2x2: 16, 3x3: 9, 4x4: 4, 5x5: 1. Total = 55.",
+   "steps": [
+    "Spot what the question tests: Squares in an n x n grid = n(n+1)(2n+1)/6.",
+    "Option A (25) is out: Only 1x1 squares counted.",
+    "Option B (50) is out: One size of squares counted twice.",
+    "Option D (54) is out: Rectangles counted along with squares.",
+    "Common slip to avoid: Counting only the 25 small squares.",
+    "So the answer is option C: 55."
+   ],
+   "trap": "Counting only the 25 small squares.",
+   "revise": "Squares in an n x n grid = n(n+1)(2n+1)/6",
+   "wrongReasons": [
+    "Only 1x1 squares counted",
+    "One size of squares counted twice",
+    null,
+    "Rectangles counted along with squares"
+   ]
+  },
+  {
+   "topic": "Puzzle",
+   "subtopic": "Scheduling",
+   "difficulty": "moderate",
+   "text": "Which lecture is scheduled on Thursday?",
+   "options": [
+    "U",
+    "P",
+    "S",
+    "R"
+   ],
+   "answer": 1,
+   "explanation": "P is immediately before U. R is two days before P, and T is before R. With U on Friday and Q after U on Saturday, P is on Thursday, R on Tuesday, T on Monday and S on Wednesday.",
+   "steps": [
+    "R is two days before P, and T is before R",
+    "So R can only be Tuesday (P Thursday) when T takes Monday",
+    "U is the day after P: Friday; Q after U: Saturday",
+    "S takes the remaining day, Wednesday",
+    "Mon T, Tue R, Wed S, Thu P, Fri U, Sat Q"
+   ],
+   "trap": "Placing P earlier because R and P are only two days apart.",
+   "revise": "Day-wise scheduling",
+   "wrongReasons": [
+    "U is on Friday",
+    null,
+    "S is on Wednesday",
+    "R is on Tuesday"
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Counting squares",
+   "difficulty": "hard",
+   "text": "A grid of 4 rows and 5 columns is shown. How many squares of all sizes does it contain?",
+   "options": [
+    "20",
+    "40",
+    "38",
+    "60"
+   ],
+   "answer": 1,
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 180\" role=\"img\"><rect x=\"10\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+   "explanation": "1x1: 20, 2x2: 12, 3x3: 6, 4x4: 2. Total = 40.",
+   "steps": [
+    "Spot what the question tests: Squares in an m x n grid = sum of (m-k+1)(n-k+1).",
+    "Option A (20) is out: Only 1x1 squares counted.",
+    "Option C (38) is out: 4x4 squares forgotten.",
+    "Option D (60) is out: Rectangles counted along with squares.",
+    "Common slip to avoid: Counting only the 12 small squares or forgetting the 3x3 squares.",
+    "So the answer is option B: 40."
+   ],
+   "trap": "Counting only the 12 small squares or forgetting the 3x3 squares.",
+   "revise": "Squares in an m x n grid = sum of (m-k+1)(n-k+1)",
+   "wrongReasons": [
+    "Only 1x1 squares counted",
+    null,
+    "4x4 squares forgotten",
+    "Rectangles counted along with squares"
+   ]
+  },
+  {
+   "topic": "Puzzle",
+   "subtopic": "Height ordering",
+   "difficulty": "easy",
+   "text": "Who is the third tallest among the six friends?",
+   "options": [
+    "R",
+    "T",
+    "P",
+    "Q"
+   ],
+   "answer": 0,
+   "explanation": "S is taller than only U, so S is fifth and U is sixth. The remaining four are ordered Q > T > R > P. The order is Q, T, R, P, S, U, so R is third.",
+   "steps": [
+    "S is fifth and U is sixth",
+    "T is between Q and R: Q > T > R",
+    "P is shorter than R: R > P",
+    "Order: Q, T, R, P, S, U",
+    "Third tallest = R"
+   ],
+   "trap": "Putting P above R after reading 'R is taller than P' backwards.",
+   "revise": "Height and age ordering puzzles",
+   "wrongReasons": [
+    null,
+    "T is second tallest",
+    "P is fourth tallest",
+    "Q is the tallest"
+   ],
+   "passageId": "p3"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Counting triangles",
+   "difficulty": "hard",
+   "text": "How many triangles are there in the following figure?",
+   "options": [
+    "6",
+    "15",
+    "28",
+    "21"
+   ],
+   "answer": 3,
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 150\" role=\"img\"><polygon points=\"120.0,10 10,140 230,140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"46.666666666666664\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"83.33333333333333\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"120.0\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"156.66666666666666\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"193.33333333333334\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+   "explanation": "Seven lines meet at the apex, so any two of them with the base form a triangle: C(7,2) = 21.",
+   "steps": [
+    "Spot what the question tests: Triangles = C(k,2) for k lines from the apex.",
+    "Option A (6) is out: Only the smallest triangles counted.",
+    "Option B (15) is out: One line fewer assumed.",
+    "Option C (28) is out: One extra line assumed.",
+    "Common slip to avoid: Counting only the 5 small triangles.",
+    "So the answer is option D: 21."
+   ],
+   "trap": "Counting only the 5 small triangles.",
+   "revise": "Triangles = C(k,2) for k lines from the apex",
+   "wrongReasons": [
+    "Only the smallest triangles counted",
+    "One line fewer assumed",
+    "One extra line assumed",
+    null
+   ]
+  },
+  {
+   "topic": "Mathematical Operations",
+   "subtopic": "Interchange of signs",
+   "difficulty": "moderate",
+   "text": "If '×' means '+', '÷' means '−', '+' means '÷' and '−' means '×', then what is the value of 24 + 6 × 9 − 2 ÷ 4 ?",
+   "options": [
+    "16",
+    "22",
+    "18",
+    "14"
+   ],
+   "answer": 2,
+   "explanation": "Replace the symbols: 24 ÷ 6 + 9 × 2 − 4. By BODMAS: 24 ÷ 6 = 4, 9 × 2 = 18, then 4 + 18 − 4 = 18.",
+   "steps": [
+    "Replace: + → ÷, × → +, − → ×, ÷ → −",
+    "Expression: 24 ÷ 6 + 9 × 2 − 4",
+    "24 ÷ 6 = 4 and 9 × 2 = 18",
+    "4 + 18 − 4 = 18"
+   ],
+   "trap": "Computing with the printed signs instead of substituting first.",
+   "revise": "Interchange of signs, BODMAS",
+   "wrongReasons": [
+    "Swapped '+' and '×' the wrong way round",
+    "Dropped the final − 4",
+    null,
+    "Evaluated 9 × 2 as 16"
+   ],
+   "value": 18,
+   "check": "24/6+9*2-4"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Dice",
+   "difficulty": "hard",
+   "text": "Two positions of the same cube are shown. Which number is on the face opposite to 3?",
+   "options": [
+    "1",
+    "5",
+    "4",
+    "2"
+   ],
+   "answer": 3,
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 260 125\" role=\"img\"><polygon points=\"70,20 115,40 70,60 25,40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><polygon points=\"25,40 70,60 70,110 25,90\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><polygon points=\"70,60 115,40 115,90 70,110\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"66\" y=\"45\" font-size=\"15\">5</text><text x=\"40\" y=\"82\" font-size=\"15\">1</text><text x=\"86\" y=\"82\" font-size=\"15\">3</text><polygon points=\"190,20 235,40 190,60 145,40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><polygon points=\"145,40 190,60 190,110 145,90\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><polygon points=\"190,60 235,40 235,90 190,110\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"186\" y=\"45\" font-size=\"15\">5</text><text x=\"160\" y=\"82\" font-size=\"15\">2</text><text x=\"206\" y=\"82\" font-size=\"15\">1</text></svg>",
+   "explanation": "Between the two views the cube is turned about the vertical axis with 5 on top. Face 3 has turned out of view and the face now at the left (2) came from behind it, so 2 is opposite 3.",
+   "steps": [
+    "Spot what the question tests: Dice: a face never appears together with its opposite.",
+    "Option A (1) is out: 1 is adjacent to 3 in the first view.",
+    "Option B (5) is out: 5 is adjacent to 3: both are visible together.",
+    "Option C (4) is out: 4 is never visible, so it cannot be fixed by these views.",
+    "Common slip to avoid: Choosing 1, which is next to 3 in the first view.",
+    "So the answer is option D: 2."
+   ],
+   "trap": "Choosing 1, which is next to 3 in the first view.",
+   "revise": "Dice: a face never appears together with its opposite",
+   "wrongReasons": [
+    "1 is adjacent to 3 in the first view",
+    "5 is adjacent to 3: both are visible together",
+    "4 is never visible, so it cannot be fixed by these views",
+    null
+   ]
+  },
+  {
+   "topic": "Missing Number",
+   "subtopic": "Triplet pattern",
+   "difficulty": "moderate",
+   "text": "Find the missing number.\n\n(4, 6, 20), (5, 7, 30), (6, 8, ?)",
+   "options": [
+    "40",
+    "42",
+    "48",
+    "44"
+   ],
+   "answer": 1,
+   "explanation": "In each triplet the third number is the first × (second − 1): 4 × 5 = 20 and 5 × 6 = 30. So 6 × 7 = 42.",
+   "steps": [
+    "4 × (6 − 1) = 20",
+    "5 × (7 − 1) = 30",
+    "6 × (8 − 1) = 42"
+   ],
+   "trap": "Using the product of the first two numbers only.",
+   "revise": "Triplet patterns with product adjustments",
+   "wrongReasons": [
+    "Used 6 × 8 − 8",
+    null,
+    "Used 6 × 8 without subtracting",
+    "Used 6 × 8 − 4"
+   ],
+   "value": 42,
+   "check": "6*7"
+  },
+  {
+   "topic": "Missing Number",
+   "subtopic": "Row pattern",
+   "difficulty": "moderate",
+   "text": "Find the missing number.\n\nRow 1: 7, 3, 16\nRow 2: 9, 4, 25\nRow 3: 11, 5, ?",
+   "options": [
+    "36",
+    "34",
+    "41",
+    "30"
+   ],
+   "answer": 0,
+   "explanation": "In every row the third number is the first number plus the square of the second: 7 + 3² = 16 and 9 + 4² = 25. So 11 + 5² = 36.",
+   "steps": [
+    "7 + 3² = 7 + 9 = 16",
+    "9 + 4² = 9 + 16 = 25",
+    "11 + 5² = 11 + 25 = 36"
+   ],
+   "trap": "Trying products of the first two numbers, which do not fit.",
+   "revise": "Grids with squares and sums",
+   "wrongReasons": [
+    null,
+    "Used 11 + 5 × 5 − 2",
+    "Used 11 × 5 − 14",
+    "Used 11 + 5 + 14"
+   ],
+   "value": 36,
+   "check": "11+25"
+  },
+  {
+   "topic": "Inequality",
+   "subtopic": "Coded chain",
+   "difficulty": "hard",
+   "text": "In the following question, the symbols have their usual meanings. Statements: M < N ≤ O = P ≤ Q > R, with P > R given as a separate statement.\n\nConclusions:\nI. M < P\nII. Q > N\nIII. R < O\n\nWhich of the conclusions definitely follow(s)?",
+   "options": [
+    "Only I and III follow",
+    "Only I and II follow",
+    "Only II and III follow",
+    "All I, II and III follow"
+   ],
+   "answer": 0,
+   "explanation": "M < N ≤ O = P gives M < P (I). P > R and O = P gives R < O (III). From N ≤ O = P ≤ Q we only get Q ≥ N, so Q > N (II) is not certain.",
+   "steps": [
+    "M < N and N ≤ O = P, so M < P: I follows",
+    "P > R and O = P, so O > R: III follows",
+    "N ≤ O = P ≤ Q gives Q ≥ N only, so II fails"
+   ],
+   "trap": "Reading a chain of ≤ signs as a strict inequality.",
+   "revise": "Inequalities with mixed signs",
+   "wrongReasons": [
+    null,
+    "II is not certain because Q ≥ N only",
+    "I also follows: M < N ≤ O = P",
+    "II does not definitely follow"
+   ],
+   "shortcut": "One '≤' anywhere in the chain turns a '>' conclusion into a 'maybe'."
+  },
+  {
+   "topic": "Clock",
+   "subtopic": "Angle between hands",
+   "difficulty": "moderate",
+   "text": "What is the angle between the hour hand and the minute hand of a clock at 7:40?",
+   "options": [
+    "20°",
+    "30°",
+    "10°",
+    "5°"
+   ],
+   "answer": 2,
+   "explanation": "Angle = |30H − 5.5M| = |30 × 7 − 5.5 × 40| = |210 − 220| = 10°.",
+   "steps": [
+    "Use |30H − 5.5M| with H = 7, M = 40",
+    "30 × 7 = 210",
+    "5.5 × 40 = 220",
+    "|210 − 220| = 10°"
+   ],
+   "trap": "Forgetting that the hour hand moves between numbers.",
+   "revise": "Clock angles",
+   "wrongReasons": [
+    "Used 0.5° per minute for the hour hand only",
+    "Took the hour hand at exactly 7",
+    null,
+    "Halved the correct angle"
+   ],
+   "shortcut": "Hour hand moves 0.5° per minute; minute hand 6° per minute.",
+   "value": 10,
+   "check": "Math.abs(30*7-5.5*40)"
+  },
+  {
+   "topic": "Data Sufficiency",
+   "subtopic": "Ordering",
+   "difficulty": "hard",
+   "text": "Who is the youngest among P, Q, R and S?\n\nI. R is younger than P and S.\nII. Q is older than R but younger than S.",
+   "options": [
+    "Statement I alone is sufficient",
+    "Both statements together are sufficient, but neither alone is",
+    "Statement II alone is sufficient",
+    "Neither statement is sufficient even together"
+   ],
+   "answer": 1,
+   "explanation": "Statement I gives R < P and R < S but says nothing about Q, so Q or R could be youngest. Statement II gives R < Q < S but says nothing about P. Together, R is younger than P, S and Q, so R is the youngest.",
+   "steps": [
+    "I alone: R < P, R < S, Q unknown: not enough",
+    "II alone: R < Q < S, P unknown: not enough",
+    "Together: R < P, R < Q, R < S",
+    "R is the youngest"
+   ],
+   "trap": "Stopping after one statement because it seems to point to R.",
+   "revise": "Data sufficiency in ordering questions",
+   "wrongReasons": [
+    "Q could still be younger than R",
+    null,
+    "P could still be younger than R",
+    "Together they make R younger than P, Q and S"
+   ],
+   "approach": "Test each statement separately, looking for a second possible answer, then combine."
+  },
+  {
+   "topic": "Statement and Assumption",
+   "subtopic": "Implicit assumption",
+   "difficulty": "moderate",
+   "text": "Statement: 'The company has announced a 20% discount on all its products for one week to attract more customers.'\n\nAssumptions:\nI. A discount can attract more customers.\nII. Customers are unaware of the company's products.\n\nWhich of the assumptions is/are implicit in the statement?",
+   "options": [
+    "Only II is implicit",
+    "Only I is implicit",
+    "Both I and II are implicit",
+    "Neither I nor II is implicit"
+   ],
+   "answer": 1,
+   "explanation": "The company announces a discount in order to attract customers, so it must believe discounts attract customers (I). Nothing in the statement suggests that customers do not know the products (II).",
+   "steps": [
+    "Ask what the company must believe for the plan to be sensible",
+    "It believes discounts attract customers: I is implicit",
+    "No need to assume customers are unaware: II is not implicit"
+   ],
+   "trap": "Picking an assumption that merely sounds possible.",
+   "revise": "Statement and assumption: what must be true for the plan to make sense",
+   "wrongReasons": [
+    "The aim is more customers, not awareness of products",
+    null,
+    "II is not needed for the plan to make sense",
+    "I is the very belief behind the announcement"
+   ],
+   "shortcut": "An assumption is implicit only if the statement would be pointless without it."
+  }
+ ]
+}

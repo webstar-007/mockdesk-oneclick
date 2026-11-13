@@ -1,0 +1,605 @@
+{
+ "section": "computer",
+ "questions": [
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: VLOOKUP exact match",
+   "difficulty": "hard",
+   "text": "A user enters =VLOOKUP(E2,A2:C50,3,TRUE) on an unsorted product list and gets wrong prices for some codes. Which change will make the function return only exact matches?",
+   "options": [
+    "Replace TRUE with FALSE",
+    "Replace 3 with 2",
+    "Replace A2:C50 with C2:C50",
+    "Replace VLOOKUP with HLOOKUP"
+   ],
+   "answer": 0,
+   "explanation": "The fourth argument controls the match: TRUE (approximate) needs sorted data, FALSE gives an exact match.",
+   "steps": [
+    "Spot what the question tests: VLOOKUP: range_lookup argument.",
+    "Option B (Replace 3 with 2) is out: It changes the returned column, not the matching mode.",
+    "Option C (Replace A2:C50 with C2:C50) is out: The lookup column must remain the first column of the range.",
+    "Option D (Replace VLOOKUP with HLOOKUP) is out: HLOOKUP searches across rows, not down a column.",
+    "Common slip to avoid: Believing that the column number controls accuracy.",
+    "So the answer is option A: Replace TRUE with FALSE."
+   ],
+   "trap": "Believing that the column number controls accuracy.",
+   "revise": "VLOOKUP: range_lookup argument",
+   "wrongReasons": [
+    null,
+    "It changes the returned column, not the matching mode",
+    "The lookup column must remain the first column of the range",
+    "HLOOKUP searches across rows, not down a column"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: reference types",
+   "difficulty": "moderate",
+   "text": "While editing a formula in Excel, which key is pressed to cycle a cell reference between relative, absolute and mixed forms such as $A$1 and A$1?",
+   "options": [
+    "F2",
+    "F4",
+    "F9",
+    "F5"
+   ],
+   "answer": 1,
+   "explanation": "F4 toggles the dollar signs in a reference being edited.",
+   "steps": [
+    "Spot what the question tests: Absolute, relative and mixed references.",
+    "Option A (F2) is out: It puts the cell in edit mode.",
+    "Option C (F9) is out: It recalculates formulas.",
+    "Option D (F5) is out: It opens the Go To dialog.",
+    "Common slip to avoid: Choosing F2, which starts editing.",
+    "So the answer is option B: F4."
+   ],
+   "trap": "Choosing F2, which starts editing.",
+   "revise": "Absolute, relative and mixed references",
+   "wrongReasons": [
+    "It puts the cell in edit mode",
+    null,
+    "It recalculates formulas",
+    "It opens the Go To dialog"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Excel: PivotTable",
+   "difficulty": "easy",
+   "text": "Which Excel tool summarises a large table by letting the user drag fields into rows, columns and values areas?",
+   "options": [
+    "Goal Seek",
+    "Scenario Manager",
+    "PivotTable",
+    "Data Validation"
+   ],
+   "answer": 2,
+   "explanation": "A PivotTable aggregates and cross-tabulates data without altering the source.",
+   "steps": [
+    "Spot what the question tests: PivotTable, Goal Seek, Scenario Manager.",
+    "Option A (Goal Seek) is out: It finds the input needed to reach a target result.",
+    "Option B (Scenario Manager) is out: It stores sets of input values.",
+    "Option D (Data Validation) is out: It restricts the values that can be entered.",
+    "Common slip to avoid: Choosing Goal Seek because it is also a what-if tool.",
+    "So the answer is option C: PivotTable."
+   ],
+   "trap": "Choosing Goal Seek because it is also a what-if tool.",
+   "revise": "PivotTable, Goal Seek, Scenario Manager",
+   "wrongReasons": [
+    "It finds the input needed to reach a target result",
+    "It stores sets of input values",
+    null,
+    "It restricts the values that can be entered"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Word: mail merge",
+   "difficulty": "moderate",
+   "text": "A school wants to send the same letter to 300 parents, each addressed by name from an Excel list. Which Word feature should be used?",
+   "options": [
+    "Macro",
+    "Mail Merge",
+    "Cross-reference",
+    "Template"
+   ],
+   "answer": 1,
+   "explanation": "Mail Merge combines a main document with a data source to produce personalised copies.",
+   "steps": [
+    "Spot what the question tests: Mail Merge.",
+    "Option A (Macro) is out: It records and plays a series of actions.",
+    "Option C (Cross-reference) is out: It links to another part of the document.",
+    "Option D (Template) is out: It stores a layout but not a data source.",
+    "Common slip to avoid: Choosing Template, which has no data link.",
+    "So the answer is option B: Mail Merge."
+   ],
+   "trap": "Choosing Template, which has no data link.",
+   "revise": "Mail Merge",
+   "wrongReasons": [
+    "It records and plays a series of actions",
+    null,
+    "It links to another part of the document",
+    "It stores a layout but not a data source"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Word: section breaks",
+   "difficulty": "hard",
+   "text": "In a Word report, the front pages should be numbered i, ii, iii and the main chapters should restart at 1. Which of the following is essential?",
+   "options": [
+    "Insert a page break between the two parts",
+    "Apply the Heading 1 style to the first chapter",
+    "Insert a Next Page section break and unlink the footer of the new section",
+    "Use Print Layout view"
+   ],
+   "answer": 2,
+   "explanation": "Different number formats need separate sections and a footer that is not linked to the previous one.",
+   "steps": [
+    "Spot what the question tests: Sections, headers and footers.",
+    "Option A (Insert a page break between the two parts) is out: A page break does not create a separate numbering scheme.",
+    "Option B (Apply the Heading 1 style to the first chapter) is out: Styles do not control page-number formats.",
+    "Option D (Use Print Layout view) is out: The view does not alter numbering.",
+    "Common slip to avoid: Using a simple page break.",
+    "So the answer is option C: Insert a Next Page section break and unlink the footer of the new sec…."
+   ],
+   "trap": "Using a simple page break.",
+   "revise": "Sections, headers and footers",
+   "wrongReasons": [
+    "A page break does not create a separate numbering scheme",
+    "Styles do not control page-number formats",
+    null,
+    "The view does not alter numbering"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "PowerPoint: transitions",
+   "difficulty": "easy",
+   "text": "In PowerPoint, which option controls how one slide changes to the next in a slide show?",
+   "options": [
+    "Animation",
+    "Transition",
+    "Slide Master",
+    "Hyperlink"
+   ],
+   "answer": 1,
+   "explanation": "Transitions are applied between slides; animations act on objects inside a slide.",
+   "steps": [
+    "Spot what the question tests: Transition vs Animation.",
+    "Option A (Animation) is out: It controls the movement of objects within a slide.",
+    "Option C (Slide Master) is out: It defines the layout of all slides.",
+    "Option D (Hyperlink) is out: It links to another location.",
+    "Common slip to avoid: Choosing Animation.",
+    "So the answer is option B: Transition."
+   ],
+   "trap": "Choosing Animation.",
+   "revise": "Transition vs Animation",
+   "wrongReasons": [
+    "It controls the movement of objects within a slide",
+    null,
+    "It defines the layout of all slides",
+    "It links to another location"
+   ]
+  },
+  {
+   "topic": "MS Office",
+   "subtopic": "Windows shortcut",
+   "difficulty": "moderate",
+   "text": "Which key combination opens Task Manager directly in Windows?",
+   "options": [
+    "Ctrl + Alt + Tab",
+    "Alt + Shift + Esc",
+    "Ctrl + Shift + Esc",
+    "Windows + Tab"
+   ],
+   "answer": 2,
+   "explanation": "Ctrl + Shift + Esc opens Task Manager without the security screen.",
+   "steps": [
+    "Spot what the question tests: Windows shortcuts.",
+    "Option A (Ctrl + Alt + Tab) is out: It keeps the task switcher open.",
+    "Option B (Alt + Shift + Esc) is out: It cycles through windows.",
+    "Option D (Windows + Tab) is out: It opens Task View.",
+    "Common slip to avoid: Mixing it with Ctrl + Alt + Delete.",
+    "So the answer is option C: Ctrl + Shift + Esc."
+   ],
+   "trap": "Mixing it with Ctrl + Alt + Delete.",
+   "revise": "Windows shortcuts",
+   "wrongReasons": [
+    "It keeps the task switcher open",
+    "It cycles through windows",
+    null,
+    "It opens Task View"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "Phishing and pharming",
+   "difficulty": "hard",
+   "text": "An attacker corrupts DNS data so that users typing the correct bank address are sent to a fake site. This attack is called:",
+   "options": [
+    "Phishing",
+    "Pharming",
+    "Spoofing a MAC address",
+    "Keylogging"
+   ],
+   "answer": 1,
+   "explanation": "Pharming redirects users to fake sites even when the address is typed correctly.",
+   "steps": [
+    "Spot what the question tests: Phishing vs pharming.",
+    "Option A (Phishing) is out: It lures users by messages, not by changing DNS.",
+    "Option C (Spoofing a MAC address) is out: It acts on the local network.",
+    "Option D (Keylogging) is out: It records keystrokes on a device.",
+    "Common slip to avoid: Choosing phishing because both lead to fake sites.",
+    "So the answer is option B: Pharming."
+   ],
+   "trap": "Choosing phishing because both lead to fake sites.",
+   "revise": "Phishing vs pharming",
+   "wrongReasons": [
+    "It lures users by messages, not by changing DNS",
+    null,
+    "It acts on the local network",
+    "It records keystrokes on a device"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "Ransomware",
+   "difficulty": "moderate",
+   "text": "Malware that encrypts the files of a user and demands payment for the key to decrypt them is called:",
+   "options": [
+    "Spyware",
+    "Adware",
+    "Ransomware",
+    "Rootkit"
+   ],
+   "answer": 2,
+   "explanation": "Ransomware locks data and demands a ransom.",
+   "steps": [
+    "Spot what the question tests: Types of malware.",
+    "Option A (Spyware) is out: It secretly collects information.",
+    "Option B (Adware) is out: It displays advertisements.",
+    "Option D (Rootkit) is out: It hides the presence of other malware.",
+    "Common slip to avoid: Confusing it with spyware.",
+    "So the answer is option C: Ransomware."
+   ],
+   "trap": "Confusing it with spyware.",
+   "revise": "Types of malware",
+   "wrongReasons": [
+    "It secretly collects information",
+    "It displays advertisements",
+    null,
+    "It hides the presence of other malware"
+   ]
+  },
+  {
+   "topic": "Security and Cryptography",
+   "subtopic": "Hash functions",
+   "difficulty": "hard",
+   "text": "Which property makes a cryptographic hash function such as SHA-256 useful for checking the integrity of a downloaded file?",
+   "options": [
+    "The digest can be reversed to recover the file",
+    "The digest length grows with the file size",
+    "The same digest is produced for any two files",
+    "A small change in the file produces a completely different fixed-length digest"
+   ],
+   "answer": 3,
+   "explanation": "Any change in the input alters the digest unpredictably, so tampering is noticed.",
+   "steps": [
+    "Spot what the question tests: Hash functions and integrity.",
+    "Option A (The digest can be reversed to recover the file) is out: Hash functions are one-way.",
+    "Option B (The digest length grows with the file size) is out: The output length is fixed.",
+    "Option C (The same digest is produced for any two files) is out: This would be a collision and defeats the purpose.",
+    "Common slip to avoid: Thinking a hash can be decrypted.",
+    "So the answer is option D: A small change in the file produces a completely different fixed-leng…."
+   ],
+   "trap": "Thinking a hash can be decrypted.",
+   "revise": "Hash functions and integrity",
+   "wrongReasons": [
+    "Hash functions are one-way",
+    "The output length is fixed",
+    "This would be a collision and defeats the purpose",
+    null
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "Cache memory",
+   "difficulty": "moderate",
+   "text": "In a modern processor, which memory is the fastest and the smallest?",
+   "options": [
+    "L2 cache",
+    "Main memory (RAM)",
+    "L1 cache",
+    "Secondary storage"
+   ],
+   "answer": 2,
+   "explanation": "L1 cache sits closest to the core and has the shortest access time.",
+   "steps": [
+    "Spot what the question tests: Memory hierarchy.",
+    "Option A (L2 cache) is out: Larger and slower than L1.",
+    "Option B (Main memory (RAM)) is out: Much larger and slower.",
+    "Option D (Secondary storage) is out: Largest and slowest.",
+    "Common slip to avoid: Choosing RAM because it is called main memory.",
+    "So the answer is option C: L1 cache."
+   ],
+   "trap": "Choosing RAM because it is called main memory.",
+   "revise": "Memory hierarchy",
+   "wrongReasons": [
+    "Larger and slower than L1",
+    "Much larger and slower",
+    null,
+    "Largest and slowest"
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "ROM types",
+   "difficulty": "hard",
+   "text": "Which type of ROM can be erased by exposing the chip to ultraviolet light and then reprogrammed?",
+   "options": [
+    "PROM",
+    "EEPROM",
+    "Mask ROM",
+    "EPROM"
+   ],
+   "answer": 3,
+   "explanation": "EPROM has a quartz window for UV erasure; EEPROM is erased electrically.",
+   "steps": [
+    "Spot what the question tests: PROM, EPROM, EEPROM.",
+    "Option A (PROM) is out: It can be programmed only once.",
+    "Option B (EEPROM) is out: It is erased electrically.",
+    "Option C (Mask ROM) is out: It is programmed at the factory.",
+    "Common slip to avoid: Choosing EEPROM.",
+    "So the answer is option D: EPROM."
+   ],
+   "trap": "Choosing EEPROM.",
+   "revise": "PROM, EPROM, EEPROM",
+   "wrongReasons": [
+    "It can be programmed only once",
+    "It is erased electrically",
+    "It is programmed at the factory",
+    null
+   ]
+  },
+  {
+   "topic": "Computer Organisation",
+   "subtopic": "Number systems",
+   "difficulty": "moderate",
+   "text": "What is the binary representation of the decimal number 45?",
+   "options": [
+    "101101",
+    "101011",
+    "110101",
+    "100111"
+   ],
+   "answer": 0,
+   "explanation": "45 = 32 + 8 + 4 + 1, which is 101101.",
+   "steps": [
+    "Spot what the question tests: Decimal to binary conversion.",
+    "Option B (101011) is out: Equals 43.",
+    "Option C (110101) is out: Equals 53.",
+    "Option D (100111) is out: Equals 39.",
+    "Common slip to avoid: Misplacing one of the bits.",
+    "So the answer is option A: 101101."
+   ],
+   "trap": "Misplacing one of the bits.",
+   "revise": "Decimal to binary conversion",
+   "wrongReasons": [
+    null,
+    "Equals 43",
+    "Equals 53",
+    "Equals 39"
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "IPv6",
+   "difficulty": "moderate",
+   "text": "How many bits are there in an IPv6 address?",
+   "options": [
+    "32",
+    "64",
+    "256",
+    "128"
+   ],
+   "answer": 3,
+   "explanation": "IPv6 uses 128-bit addresses, written in hexadecimal groups.",
+   "steps": [
+    "Spot what the question tests: IPv4 vs IPv6.",
+    "Option A (32) is out: This is IPv4.",
+    "Option B (64) is out: Only half of an IPv6 address.",
+    "Option C (256) is out: Twice the actual size.",
+    "Common slip to avoid: Choosing the IPv4 size.",
+    "So the answer is option D: 128."
+   ],
+   "trap": "Choosing the IPv4 size.",
+   "revise": "IPv4 vs IPv6",
+   "wrongReasons": [
+    "This is IPv4",
+    "Only half of an IPv6 address",
+    "Twice the actual size",
+    null
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "TCP and UDP",
+   "difficulty": "hard",
+   "text": "Which protocol is connectionless and is typically used for live video streaming where speed matters more than guaranteed delivery?",
+   "options": [
+    "TCP",
+    "UDP",
+    "FTP",
+    "SMTP"
+   ],
+   "answer": 1,
+   "explanation": "UDP sends datagrams without handshakes or retransmission.",
+   "steps": [
+    "Spot what the question tests: TCP vs UDP.",
+    "Option A (TCP) is out: It is connection-oriented with retransmission.",
+    "Option C (FTP) is out: It transfers files over TCP.",
+    "Option D (SMTP) is out: It sends email over TCP.",
+    "Common slip to avoid: Choosing TCP because it is 'more reliable'.",
+    "So the answer is option B: UDP."
+   ],
+   "trap": "Choosing TCP because it is 'more reliable'.",
+   "revise": "TCP vs UDP",
+   "wrongReasons": [
+    "It is connection-oriented with retransmission",
+    null,
+    "It transfers files over TCP",
+    "It sends email over TCP"
+   ]
+  },
+  {
+   "topic": "Networking",
+   "subtopic": "Ports",
+   "difficulty": "moderate",
+   "text": "Which default port number is used by HTTPS?",
+   "options": [
+    "443",
+    "80",
+    "21",
+    "25"
+   ],
+   "answer": 0,
+   "explanation": "HTTPS runs on port 443 by default.",
+   "steps": [
+    "Spot what the question tests: Common port numbers.",
+    "Option B (80) is out: The default port of HTTP.",
+    "Option C (21) is out: The control port of FTP.",
+    "Option D (25) is out: The default port of SMTP.",
+    "Common slip to avoid: Choosing 80.",
+    "So the answer is option A: 443."
+   ],
+   "trap": "Choosing 80.",
+   "revise": "Common port numbers",
+   "wrongReasons": [
+    null,
+    "The default port of HTTP",
+    "The control port of FTP",
+    "The default port of SMTP"
+   ]
+  },
+  {
+   "topic": "Cloud and IT Infrastructure",
+   "subtopic": "Cloud service models",
+   "difficulty": "hard",
+   "text": "A software team wants to deploy its application without managing servers, operating systems or runtime installation. Which service model suits this?",
+   "options": [
+    "Platform as a Service (PaaS)",
+    "Infrastructure as a Service (IaaS)",
+    "Software as a Service (SaaS)",
+    "Network as a Service"
+   ],
+   "answer": 0,
+   "explanation": "PaaS provides the runtime and platform, leaving the developer to manage code and data.",
+   "steps": [
+    "Spot what the question tests: IaaS, PaaS, SaaS.",
+    "Option B (Infrastructure as a Service (IaaS)) is out: The team must manage the operating system and runtime.",
+    "Option C (Software as a Service (SaaS)) is out: It delivers a finished application, not a place to deploy one.",
+    "Option D (Network as a Service) is out: It is not the standard fit.",
+    "Common slip to avoid: Choosing IaaS or SaaS.",
+    "So the answer is option A: Platform as a Service (PaaS)."
+   ],
+   "trap": "Choosing IaaS or SaaS.",
+   "revise": "IaaS, PaaS, SaaS",
+   "wrongReasons": [
+    null,
+    "The team must manage the operating system and runtime",
+    "It delivers a finished application, not a place to deploy one",
+    "It is not the standard fit"
+   ]
+  },
+  {
+   "topic": "Cloud and IT Infrastructure",
+   "subtopic": "Virtualisation",
+   "difficulty": "moderate",
+   "text": "Which software layer allows several virtual machines to share a single physical server?",
+   "options": [
+    "Compiler",
+    "Firewall",
+    "BIOS",
+    "Hypervisor"
+   ],
+   "answer": 3,
+   "explanation": "A hypervisor creates and manages virtual machines.",
+   "steps": [
+    "Spot what the question tests: Virtualisation and hypervisor.",
+    "Option A (Compiler) is out: It converts source code to machine code.",
+    "Option B (Firewall) is out: It filters network traffic.",
+    "Option C (BIOS) is out: It starts the computer.",
+    "Common slip to avoid: Choosing BIOS.",
+    "So the answer is option D: Hypervisor."
+   ],
+   "trap": "Choosing BIOS.",
+   "revise": "Virtualisation and hypervisor",
+   "wrongReasons": [
+    "It converts source code to machine code",
+    "It filters network traffic",
+    "It starts the computer",
+    null
+   ]
+  },
+  {
+   "topic": "DBMS",
+   "subtopic": "SQL: DELETE, TRUNCATE, DROP",
+   "difficulty": "hard",
+   "text": "Which SQL command removes all the rows of a table but keeps the table structure for future use, and is usually not logged row by row?",
+   "options": [
+    "TRUNCATE",
+    "DROP",
+    "DELETE without WHERE",
+    "ALTER"
+   ],
+   "answer": 0,
+   "explanation": "TRUNCATE empties the table quickly while keeping its definition.",
+   "steps": [
+    "Spot what the question tests: DELETE vs TRUNCATE vs DROP.",
+    "Option B (DROP) is out: It removes the table structure as well.",
+    "Option C (DELETE without WHERE) is out: It removes rows but logs each row and can be rolled back.",
+    "Option D (ALTER) is out: It changes the structure of the table.",
+    "Common slip to avoid: Choosing DROP.",
+    "So the answer is option A: TRUNCATE."
+   ],
+   "trap": "Choosing DROP.",
+   "revise": "DELETE vs TRUNCATE vs DROP",
+   "wrongReasons": [
+    null,
+    "It removes the table structure as well",
+    "It removes rows but logs each row and can be rolled back",
+    "It changes the structure of the table"
+   ]
+  },
+  {
+   "topic": "DBMS",
+   "subtopic": "Keys",
+   "difficulty": "moderate",
+   "text": "In a relational database, which key in one table refers to the primary key of another table and enforces referential integrity?",
+   "options": [
+    "Candidate key",
+    "Super key",
+    "Alternate key",
+    "Foreign key"
+   ],
+   "answer": 3,
+   "explanation": "A foreign key links tables and ensures that references exist.",
+   "steps": [
+    "Spot what the question tests: Types of keys.",
+    "Option A (Candidate key) is out: It is a possible primary key.",
+    "Option B (Super key) is out: It uniquely identifies rows but may contain extra attributes.",
+    "Option C (Alternate key) is out: It is a candidate key not chosen as primary.",
+    "Common slip to avoid: Confusing it with candidate key.",
+    "So the answer is option D: Foreign key."
+   ],
+   "trap": "Confusing it with candidate key.",
+   "revise": "Types of keys",
+   "wrongReasons": [
+    "It is a possible primary key",
+    "It uniquely identifies rows but may contain extra attributes",
+    "It is a candidate key not chosen as primary",
+    null
+   ]
+  }
+ ]
+}

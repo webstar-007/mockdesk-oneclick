@@ -1,0 +1,919 @@
+{
+ "section": "reasoning",
+ "passages": {
+  "p1": "Eight persons A, B, C, D, E, F, G and H sit in two parallel rows of four persons each. Row 1 persons face south and Row 2 persons face north, so every person in Row 1 faces exactly one person in Row 2.\nA faces E. F sits immediate right of A. B faces H. C sits at an extreme end of Row 1. D sits second to the left of E. B sits at an extreme end of a row, but not in the same row as A.",
+  "p2": "Seven persons J, K, L, M, N, O and P live on seven different floors of a building, numbered 1 (ground) to 7 (topmost). Each owns a car of a different colour: red, blue, white, black, grey, green and silver.\nThere are exactly two floors between J and L. N lives on a floor above J and below L. O lives immediately above K. M lives below K but above J. P lives immediately above J. K owns the blue car and J owns the black car. The person on the top floor owns the silver car and the person on the fifth floor owns the grey car. The owner of the red car lives below K. The person living immediately below L owns the green car. L does not own the white car.",
+  "p3": "Five friends P, Q, R, S and T are a doctor, an engineer, a lawyer, a teacher and a pilot, not necessarily in that order. Each lives in a different city among Delhi, Pune, Goa, Agra and Surat.\nQ is neither the doctor nor the teacher. R is neither the pilot nor the doctor. S is the teacher. The pilot lives in Surat and the lawyer lives in Delhi. The doctor lives neither in Delhi nor in Goa. S lives neither in Goa nor in Pune. Q lives in Goa. P does not live in Surat."
+ },
+ "questions": [
+  {
+   "topic": "Series",
+   "subtopic": "Multiply-and-add series",
+   "difficulty": "hard",
+   "text": "What should come in place of the question mark?\n\n2, 5, 12, 27, 58, ?",
+   "options": [
+    "116",
+    "121",
+    "120",
+    "122"
+   ],
+   "answer": 1,
+   "explanation": "Each term is the previous term × 2 plus n, with n = 1, 2, 3, 4, 5: 58 × 2 + 5 = 121.",
+   "steps": [
+    "2 × 2 + 1 = 5",
+    "5 × 2 + 2 = 12",
+    "12 × 2 + 3 = 27",
+    "27 × 2 + 4 = 58",
+    "58 × 2 + 5 = 121"
+   ],
+   "trap": "Doubling without the rising addend.",
+   "revise": "Series of the form (previous × 2) + n",
+   "wrongReasons": [
+    "Doubled but did not add 5",
+    null,
+    "Added 4 again instead of 5",
+    "Added 6 instead of 5"
+   ],
+   "value": 121,
+   "check": "58*2+5"
+  },
+  {
+   "topic": "Series",
+   "subtopic": "Letter-cluster series",
+   "difficulty": "hard",
+   "text": "Select the option that will come next in the series.\n\nACF, DGK, HKP, MOU, ?",
+   "options": [
+    "RSZ",
+    "SSY",
+    "SSZ",
+    "STZ"
+   ],
+   "answer": 2,
+   "explanation": "Treat the three positions separately. First letters: A, D, H, M move +3, +4, +5, so the next is +6: S. Second letters: C, G, K, O move +4 each, so next is S. Third letters: F, K, P, U move +5 each, so next is Z.",
+   "steps": [
+    "First letters A, D, H, M: gaps 3, 4, 5, then 6: M + 6 = S",
+    "Second letters C, G, K, O: gap 4: O + 4 = S",
+    "Third letters F, K, P, U: gap 5: U + 5 = Z",
+    "Cluster: SSZ"
+   ],
+   "trap": "Assuming all three positions follow the same rule.",
+   "revise": "Letter-cluster series with different rules per position",
+   "wrongReasons": [
+    "First letter moved +5 instead of +6",
+    "Third letter moved +4 instead of +5",
+    null,
+    "Second letter moved +5 instead of +4"
+   ],
+   "shortcut": "Write the three letter columns separately and find each gap."
+  },
+  {
+   "topic": "Analogy",
+   "subtopic": "Number analogy",
+   "difficulty": "moderate",
+   "text": "Select the number that is related to the third number in the same way as the second number is related to the first number.\n\n17 : 304 :: 12 : ?",
+   "options": [
+    "156",
+    "142",
+    "146",
+    "154"
+   ],
+   "answer": 3,
+   "explanation": "17² + 17 − 2 = 289 + 15 = 304, so the rule is n² + n − 2 (that is, n(n + 1) − 2). For 12: 144 + 12 − 2 = 154.",
+   "steps": [
+    "17² = 289 and 304 − 289 = 15",
+    "15 = 17 − 2, so the rule is n² + n − 2",
+    "12² = 144",
+    "144 + 12 − 2 = 154"
+   ],
+   "trap": "Stopping at n(n + 1) and missing the − 2.",
+   "revise": "Squares with linear adjustments",
+   "wrongReasons": [
+    "Used n² + n and forgot to subtract 2",
+    "Used n² − 2",
+    "Used n² + 2",
+    null
+   ],
+   "shortcut": "304 is just below 17 × 18 = 306: test n(n + 1) − 2.",
+   "value": 154,
+   "check": "12*12+12-2"
+  },
+  {
+   "topic": "Analogy",
+   "subtopic": "Letter-value analogy",
+   "difficulty": "moderate",
+   "text": "Select the option that is related to the third term in the same way as the second term is related to the first term.\n\nBAD : 14 :: FOG : ?",
+   "options": [
+    "28",
+    "54",
+    "58",
+    "56"
+   ],
+   "answer": 3,
+   "explanation": "BAD: B = 2, A = 1, D = 4, sum 7, and 7 × 2 = 14. FOG: F = 6, O = 15, G = 7, sum 28, and 28 × 2 = 56.",
+   "steps": [
+    "B + A + D = 2 + 1 + 4 = 7",
+    "7 × 2 = 14, so double the sum",
+    "F + O + G = 6 + 15 + 7 = 28",
+    "28 × 2 = 56"
+   ],
+   "trap": "Giving only the sum and missing the doubling.",
+   "revise": "Alphabet position values",
+   "wrongReasons": [
+    "Added the letter values but did not double",
+    "Took O as 14 instead of 15",
+    "Took G as 8 instead of 7",
+    null
+   ],
+   "value": 56,
+   "check": "2*(6+15+7)"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Mirror image",
+   "difficulty": "moderate",
+   "text": "A figure is shown with a mirror placed on its right-hand side as shown. Select the figure that correctly shows its mirror image.",
+   "options": [
+    "Figure A",
+    "Figure B",
+    "Figure C",
+    "Figure D"
+   ],
+   "answer": 0,
+   "optionFigures": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"68,68 68,12 44,12 44,32 10,32 10,48 30,48 30,68\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"12,12 12,68 36,68 36,48 70,48 70,32 50,32 50,12\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"12,12 68,12 68,36 48,36 48,70 32,70 32,50 12,50\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"12,68 12,12 36,12 36,32 70,32 70,48 50,48 50,68\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>"
+   ],
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 100\" role=\"img\"><g transform=\"translate(10,10)\"><polygon points=\"12,68 12,12 36,12 36,32 70,32 70,48 50,48 50,68\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></g><line x1=\"150\" y1=\"5\" x2=\"150\" y2=\"95\" stroke=\"#c0392b\" stroke-width=\"3\"/><text x=\"158\" y=\"55\" font-size=\"12\">mirror</text></svg>",
+   "explanation": "A mirror on the right reverses the figure left to right (lateral inversion) and leaves up and down unchanged.",
+   "steps": [
+    "Spot what the question tests: Mirror image = left-right swap; water image = top-bottom swap.",
+    "Option B (Figure B) is out: This is the water image, not the mirror image.",
+    "Option C (Figure C) is out: This is a rotation, which a mirror cannot produce.",
+    "Option D (Figure D) is out: This is the unchanged figure.",
+    "Common slip to avoid: Choosing the vertical flip, which is the water image.",
+    "So the answer is option A: Figure A."
+   ],
+   "trap": "Choosing the vertical flip, which is the water image.",
+   "revise": "Mirror image = left-right swap; water image = top-bottom swap",
+   "wrongReasons": [
+    null,
+    "This is the water image, not the mirror image",
+    "This is a rotation, which a mirror cannot produce",
+    "This is the unchanged figure"
+   ]
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Water image",
+   "difficulty": "moderate",
+   "text": "A figure is shown above a horizontal mirror (water surface). Select the figure that shows its water image.",
+   "options": [
+    "Figure A",
+    "Figure B",
+    "Figure C",
+    "Figure D"
+   ],
+   "answer": 3,
+   "optionFigures": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"68,68 68,12 44,12 44,32 10,32 10,48 30,48 30,68\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"12,12 68,12 68,36 48,36 48,70 32,70 32,50 12,50\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"68,12 68,68 44,68 44,48 10,48 10,32 30,32 30,12\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#bbb\" stroke-width=\"1\" fill=\"none\"/><polygon points=\"12,12 12,68 36,68 36,48 70,48 70,32 50,32 50,12\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>"
+   ],
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 200\" role=\"img\"><g transform=\"translate(10,5)\"><polygon points=\"12,68 12,12 36,12 36,32 70,32 70,48 50,48 50,68\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></g><line x1=\"5\" y1=\"105\" x2=\"95\" y2=\"105\" stroke=\"#c0392b\" stroke-width=\"3\"/><text x=\"30\" y=\"125\" font-size=\"12\">mirror</text></svg>",
+   "explanation": "A horizontal mirror reverses the figure top to bottom; left and right stay as they were.",
+   "steps": [
+    "Spot what the question tests: Water image = top-bottom swap.",
+    "Option A (Figure A) is out: This is the left-right mirror image.",
+    "Option B (Figure B) is out: This is a rotation.",
+    "Option C (Figure C) is out: This is both flips, i.e. a 180° rotation.",
+    "Common slip to avoid: Choosing the left-right inversion.",
+    "So the answer is option D: Figure D."
+   ],
+   "trap": "Choosing the left-right inversion.",
+   "revise": "Water image = top-bottom swap",
+   "wrongReasons": [
+    "This is the left-right mirror image",
+    "This is a rotation",
+    "This is both flips, i.e. a 180° rotation",
+    null
+   ]
+  },
+  {
+   "topic": "Blood Relations",
+   "subtopic": "Single-statement relation",
+   "difficulty": "moderate",
+   "text": "Pointing to a woman, Kiran said, 'Her husband is the only son of my mother's mother.' How is the woman related to Kiran?",
+   "options": [
+    "Kiran's mother's sister",
+    "Kiran's maternal grandmother",
+    "Wife of Kiran's maternal uncle",
+    "Wife of Kiran's paternal uncle"
+   ],
+   "answer": 2,
+   "explanation": "Kiran's mother's mother is his maternal grandmother. Her only son is Kiran's maternal uncle. The woman is that uncle's wife.",
+   "steps": [
+    "Mother's mother = maternal grandmother",
+    "Her only son = Kiran's maternal uncle",
+    "The woman is his wife: wife of maternal uncle"
+   ],
+   "trap": "Mixing up the mother's side and the father's side.",
+   "revise": "Maternal and paternal relations",
+   "wrongReasons": [
+    "She is married into the family, not born into it",
+    "The grandmother is the mother of her husband, not the wife",
+    null,
+    "The relative is on the mother's side"
+   ],
+   "approach": "Resolve the phrase from the inside out: mother's mother, then her son, then his wife."
+  },
+  {
+   "topic": "Blood Relations",
+   "subtopic": "Coded relations",
+   "difficulty": "hard",
+   "text": "In a certain code, 'A + B' means 'A is the mother of B', 'A − B' means 'A is the brother of B', 'A × B' means 'A is the father of B' and 'A ÷ B' means 'A is the sister of B'.\n\nIf P × Q ÷ R + S, how is P related to S?",
+   "options": [
+    "Paternal grandfather",
+    "Maternal grandfather",
+    "Father",
+    "Maternal uncle"
+   ],
+   "answer": 1,
+   "explanation": "P × Q: P is the father of Q. Q ÷ R: Q is the sister of R, so P is also the father of R. R + S: R is the mother of S. P is the father of S's mother, so P is S's maternal grandfather.",
+   "steps": [
+    "P × Q: P is Q's father",
+    "Q ÷ R: Q and R are siblings, so P is R's father too",
+    "R + S: R is S's mother",
+    "P is the father of S's mother: maternal grandfather"
+   ],
+   "trap": "Choosing paternal because the symbol chain looks male-line.",
+   "revise": "Coded blood relations",
+   "wrongReasons": [
+    "R, who is S's mother, is P's daughter, so P is on the mother's side",
+    null,
+    "P is two generations above S",
+    "P is a generation higher than an uncle"
+   ],
+   "shortcut": "Translate each symbol, then decide on whose side the link to the child runs."
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Paper folding and punching",
+   "difficulty": "hard",
+   "text": "A square sheet is folded along both central dotted lines into a quarter as shown, and a hole is punched in the top-left quarter. Select the figure that shows the sheet when unfolded.",
+   "options": [
+    "Figure A",
+    "Figure B",
+    "Figure C",
+    "Figure D"
+   ],
+   "answer": 2,
+   "optionFigures": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"35\" cy=\"15\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"65\" cy=\"15\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"35\" cy=\"15\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"65\" cy=\"85\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"35\" cy=\"15\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"65\" cy=\"15\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"35\" cy=\"85\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"65\" cy=\"85\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\"><rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"35\" cy=\"15\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"35\" cy=\"85\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"65\" cy=\"15\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"50\" cy=\"50\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>"
+   ],
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 210 110\" role=\"img\"><rect x=\"5\" y=\"5\" width=\"100\" height=\"100\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><g transform=\"translate(5,5)\"><rect x=\"0\" y=\"0\" width=\"50\" height=\"50\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"35\" cy=\"15\" r=\"6\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></g><path d=\"M5 5 L105 5 L105 105 L5 105 Z\" stroke=\"#999\" stroke-dasharray=\"4\" fill=\"none\" stroke-width=\"1\"/><line x1=\"55\" y1=\"5\" x2=\"55\" y2=\"105\" stroke=\"#999\" stroke-dasharray=\"4\"/><line x1=\"5\" y1=\"55\" x2=\"105\" y2=\"55\" stroke=\"#999\" stroke-dasharray=\"4\"/><text x=\"115\" y=\"30\" font-size=\"11\">Folded twice,</text><text x=\"115\" y=\"45\" font-size=\"11\">hole punched in</text><text x=\"115\" y=\"60\" font-size=\"11\">the top-left</text><text x=\"115\" y=\"75\" font-size=\"11\">quarter</text></svg>",
+   "explanation": "Each fold reflects the hole across the fold line, so one punch gives four holes, one in each quarter, placed symmetrically about both centre lines.",
+   "steps": [
+    "Spot what the question tests: Fold line = mirror line for punched holes.",
+    "Option A (Figure A) is out: Only two holes: it misses the second fold.",
+    "Option B (Figure B) is out: Only two holes on a diagonal, which ignores one fold.",
+    "Option D (Figure D) is out: Has a stray hole at the centre and a missing quarter.",
+    "Common slip to avoid: Forgetting that two folds give four holes, or placing the extra holes diagonally only.",
+    "So the answer is option C: Figure C."
+   ],
+   "trap": "Forgetting that two folds give four holes, or placing the extra holes diagonally only.",
+   "revise": "Fold line = mirror line for punched holes",
+   "wrongReasons": [
+    "Only two holes: it misses the second fold",
+    "Only two holes on a diagonal, which ignores one fold",
+    null,
+    "Has a stray hole at the centre and a missing quarter"
+   ]
+  },
+  {
+   "topic": "Order & Ranking",
+   "subtopic": "Exchange of positions",
+   "difficulty": "hard",
+   "text": "In a row of students, Anil is 12th from the left and Bina is 15th from the right. If they exchange their positions, Anil becomes 25th from the left. How many students are there in the row?",
+   "options": [
+    "40",
+    "39",
+    "27",
+    "52"
+   ],
+   "answer": 1,
+   "explanation": "After the exchange Anil stands where Bina stood, so Bina was 25th from the left. She is also 15th from the right. Total = 25 + 15 − 1 = 39.",
+   "steps": [
+    "Anil's new place = Bina's old place",
+    "Bina: 25th from left, 15th from right",
+    "Total = 25 + 15 − 1 = 39"
+   ],
+   "trap": "Using Anil's old rank of 12, which is a distraction.",
+   "revise": "Rank from both ends after an exchange",
+   "wrongReasons": [
+    "Added 25 and 15 without removing the shared place",
+    null,
+    "Added Anil's original rank (12) and Bina's rank (15)",
+    "Added all three numbers"
+   ],
+   "shortcut": "Total = rank from left + rank from right − 1 for the same person.",
+   "value": 39,
+   "check": "25+15-1"
+  },
+  {
+   "topic": "Syllogism",
+   "subtopic": "Three statements",
+   "difficulty": "hard",
+   "text": "Statements:\nSome tables are chairs.\nAll chairs are sofas.\nNo sofa is a bed.\n\nConclusions:\nI. Some sofas are tables.\nII. No chair is a bed.\nIII. All tables are sofas.\n\nWhich of the conclusions follow(s)?",
+   "options": [
+    "Only I follows",
+    "Only I and II follow",
+    "Only II and III follow",
+    "All I, II and III follow"
+   ],
+   "answer": 1,
+   "explanation": "Some tables are chairs and all chairs are sofas, so some tables are sofas, and the converse gives I. Chairs are sofas and no sofa is a bed, so no chair is a bed: II. Only some tables are chairs, so we cannot say all tables are sofas: III fails.",
+   "steps": [
+    "Tables ∩ chairs, chairs ⊂ sofas: some tables are sofas, so some sofas are tables (I)",
+    "Chairs ⊂ sofas and sofas have no beds: no chair is a bed (II)",
+    "'Some' tables cannot be stretched to 'all': III fails"
+   ],
+   "trap": "Extending 'some' to 'all' in the last conclusion.",
+   "revise": "Chain syllogism with a negative",
+   "wrongReasons": [
+    "II also follows: chairs are sofas and no sofa is a bed",
+    null,
+    "III fails: only some tables are chairs",
+    "III does not follow"
+   ],
+   "approach": "Draw tables and chairs overlapping, chairs inside sofas, and beds fully outside sofas."
+  },
+  {
+   "topic": "Inequality",
+   "subtopic": "Coded inequality",
+   "difficulty": "hard",
+   "text": "In the following question, the symbols are used as: 'P @ Q' means P > Q, 'P # Q' means P < Q, 'P $ Q' means P = Q, 'P % Q' means P ≥ Q and 'P & Q' means P ≤ Q.\n\nStatement: P # Q & R @ S $ T\n\nConclusions:\nI. P < R\nII. R > T\nIII. Q > S\n\nWhich of the conclusions definitely follow(s)?",
+   "options": [
+    "Only I and II follow",
+    "Only I follows",
+    "Only II and III follow",
+    "All I, II and III follow"
+   ],
+   "answer": 0,
+   "explanation": "The statement reads P < Q ≤ R > S = T. P < Q ≤ R gives P < R (I). R > S = T gives R > T (II). Q and S are both below R but their relation is not given, so III is not certain.",
+   "steps": [
+    "Decode: P < Q ≤ R > S = T",
+    "P < Q ≤ R: P < R, so I follows",
+    "R > S = T: R > T, so II follows",
+    "Q and S are both smaller than or equal to R only: III is uncertain"
+   ],
+   "trap": "Linking two items that share only a larger common element.",
+   "revise": "Coded inequalities with a peak",
+   "wrongReasons": [
+    null,
+    "II also follows: R > S = T",
+    "I also follows, and III does not",
+    "III is not certain"
+   ],
+   "shortcut": "In a chain with a peak (≤ then >), items on opposite sides of the peak cannot be compared."
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Venn diagram",
+   "difficulty": "moderate",
+   "text": "Select the Venn diagram that best represents the relationship among: Fruits (F), Mangoes (M), Sweet things (S).",
+   "options": [
+    "Figure A",
+    "Figure B",
+    "Figure C",
+    "Figure D"
+   ],
+   "answer": 2,
+   "optionFigures": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 100\" role=\"img\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"46\" y=\"21\" font-size=\"10\">F</text><circle cx=\"105\" cy=\"30\" r=\"12\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"101\" y=\"34\" font-size=\"10\">M</text><circle cx=\"88\" cy=\"74\" r=\"20\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"84\" y=\"78\" font-size=\"10\">S</text></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 100\" role=\"img\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"46\" y=\"21\" font-size=\"10\">F</text><circle cx=\"36\" cy=\"56\" r=\"16\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"32\" y=\"60\" font-size=\"10\">S</text><circle cx=\"74\" cy=\"56\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"70\" y=\"60\" font-size=\"10\">M</text></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 100\" role=\"img\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"46\" y=\"21\" font-size=\"10\">F</text><circle cx=\"36\" cy=\"56\" r=\"16\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"32\" y=\"60\" font-size=\"10\">M</text><circle cx=\"72\" cy=\"56\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"68\" y=\"60\" font-size=\"10\">S</text></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 100\" role=\"img\"><circle cx=\"30\" cy=\"50\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"26\" y=\"54\" font-size=\"10\">F</text><circle cx=\"60\" cy=\"50\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"56\" y=\"54\" font-size=\"10\">M</text><circle cx=\"90\" cy=\"50\" r=\"22\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"86\" y=\"54\" font-size=\"10\">S</text></svg>"
+   ],
+   "explanation": "All mangoes are fruits, so M lies inside F. Some sweet things are fruits and some may be mangoes, so S overlaps both F and M.",
+   "steps": [
+    "Spot what the question tests: Venn: subset, overlap, disjoint.",
+    "Option A (Figure A) is out: Mangoes sits outside fruits, which is false.",
+    "Option B (Figure B) is out: Mangoes and sweet things are swapped.",
+    "Option D (Figure D) is out: Fruits, mangoes and sweet things are drawn as separate sets.",
+    "Common slip to avoid: Drawing sweet things as separate from mangoes.",
+    "So the answer is option C: Figure C."
+   ],
+   "trap": "Drawing sweet things as separate from mangoes.",
+   "revise": "Venn: subset, overlap, disjoint",
+   "wrongReasons": [
+    "Mangoes sits outside fruits, which is false",
+    "Mangoes and sweet things are swapped",
+    null,
+    "Fruits, mangoes and sweet things are drawn as separate sets"
+   ]
+  },
+  {
+   "topic": "Data Sufficiency",
+   "subtopic": "Ordering",
+   "difficulty": "hard",
+   "text": "Who is the tallest among P, Q, R, S and T?\n\nI. Q is taller than R and S; R is taller than T, and T is taller than P.\nII. S is taller than P.",
+   "options": [
+    "Statement I alone is sufficient",
+    "Statement II alone is sufficient",
+    "Both statements together are needed",
+    "Neither statement is sufficient even together"
+   ],
+   "answer": 0,
+   "explanation": "From I: Q > R > T > P and Q > S, so Q is taller than all four others. II only compares S and P, which does not help, and cannot settle the tallest on its own.",
+   "steps": [
+    "I: Q > R > T > P and Q > S, so Q is tallest",
+    "II: S > P only, so the tallest is still unknown",
+    "I alone is sufficient"
+   ],
+   "trap": "Feeling that both statements must be used.",
+   "revise": "Data sufficiency in ordering questions",
+   "wrongReasons": [
+    null,
+    "II only says S is taller than P",
+    "II adds nothing to what I already settles",
+    "I alone already makes Q the tallest"
+   ],
+   "approach": "Test each statement on its own before combining."
+  },
+  {
+   "topic": "Mathematical Operations",
+   "subtopic": "Interchange of signs",
+   "difficulty": "moderate",
+   "text": "If '+' means '×', '−' means '÷', '×' means '−' and '÷' means '+', then find the value of 36 − 9 × 4 + 3 ÷ 5.",
+   "options": [
+    "5",
+    "-13",
+    "-3",
+    "3"
+   ],
+   "answer": 2,
+   "explanation": "Replace the symbols: 36 ÷ 9 − 4 × 3 + 5. By BODMAS: 36 ÷ 9 = 4, 4 × 3 = 12, so 4 − 12 + 5 = −3.",
+   "steps": [
+    "Replace: − → ÷, × → −, + → ×, ÷ → +",
+    "Expression: 36 ÷ 9 − 4 × 3 + 5",
+    "36 ÷ 9 = 4 and 4 × 3 = 12",
+    "4 − 12 + 5 = −3"
+   ],
+   "trap": "Calculating with the printed signs or left to right.",
+   "revise": "Interchanged signs and BODMAS",
+   "wrongReasons": [
+    "Worked from left to right ignoring BODMAS",
+    "Treated the last operation as subtraction",
+    null,
+    "Dropped the negative sign"
+   ],
+   "value": -3,
+   "check": "36/9-4*3+5"
+  },
+  {
+   "topic": "Venn Diagram",
+   "subtopic": "Two sets",
+   "difficulty": "easy",
+   "text": "In a class of 60 students, 35 play cricket, 28 play football and 10 play neither game. How many students play both games?",
+   "options": [
+    "13",
+    "3",
+    "15",
+    "22"
+   ],
+   "answer": 0,
+   "explanation": "Students playing at least one game = 60 − 10 = 50. Both = 35 + 28 − 50 = 13.",
+   "steps": [
+    "At least one game: 60 − 10 = 50",
+    "Cricket + football = 35 + 28 = 63",
+    "Both = 63 − 50 = 13"
+   ],
+   "trap": "Forgetting to remove those who play neither.",
+   "revise": "Two-set formula",
+   "wrongReasons": [
+    null,
+    "Subtracted 60 and forgot the 10 who play neither",
+    "That is the number who play only football",
+    "That is the number who play only cricket"
+   ],
+   "value": 13,
+   "check": "35+28-(60-10)"
+  },
+  {
+   "topic": "Alphabet Test",
+   "subtopic": "Letter pairs",
+   "difficulty": "hard",
+   "text": "How many pairs of letters in the word PLANTED have as many letters between them in the word as there are between them in the English alphabet (counting in either direction)?",
+   "options": [
+    "2",
+    "3",
+    "4",
+    "1"
+   ],
+   "answer": 1,
+   "explanation": "Pairs: P and T have three letters between them in the word (L, A, N) and three between them in the alphabet (Q, R, S). L and N have A between them in the word and M in the alphabet. E and D are adjacent in the word and adjacent in the alphabet. That makes 3.",
+   "steps": [
+    "Positions: P1 L2 A3 N4 T5 E6 D7",
+    "P (16) and T (20): 4 apart in both",
+    "L (12) and N (14), positions 2 and 4: 2 apart in both",
+    "E (5) and D (4), positions 6 and 7: 1 apart in both",
+    "Total 3"
+   ],
+   "trap": "Counting only pairs that appear in alphabetical order.",
+   "revise": "Alphabet position pairs",
+   "wrongReasons": [
+    "Counted only pairs in forward alphabetical order",
+    null,
+    "Counted an extra pair with unequal gaps",
+    "Counted only the adjacent pair"
+   ],
+   "shortcut": "Compare the position gap with the alphabet-value gap for each pair."
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Counting squares",
+   "difficulty": "moderate",
+   "text": "A 6 x 6 grid is shown. How many squares of all sizes are there in the figure?",
+   "options": [
+    "36",
+    "55",
+    "91",
+    "100"
+   ],
+   "answer": 2,
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 260 260\" role=\"img\"><rect x=\"10\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"210\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+   "explanation": "1x1: 36, 2x2: 25, 3x3: 16, 4x4: 9, 5x5: 4, 6x6: 1. Total = 91.",
+   "steps": [
+    "Spot what the question tests: Squares in an n x n grid = n(n+1)(2n+1)/6.",
+    "Option A (36) is out: Only 1x1 squares counted.",
+    "Option B (55) is out: The 6x6 square missed.",
+    "Option D (100) is out: Rectangles counted along with squares.",
+    "Common slip to avoid: Counting only the 36 small squares.",
+    "So the answer is option C: 91."
+   ],
+   "trap": "Counting only the 36 small squares.",
+   "revise": "Squares in an n x n grid = n(n+1)(2n+1)/6",
+   "wrongReasons": [
+    "Only 1x1 squares counted",
+    "The 6x6 square missed",
+    null,
+    "Rectangles counted along with squares"
+   ]
+  },
+  {
+   "topic": "Seating Arrangement",
+   "subtopic": "Two rows facing each other",
+   "difficulty": "moderate",
+   "text": "Who faces F?",
+   "options": [
+    "D",
+    "G",
+    "E",
+    "B"
+   ],
+   "answer": 1,
+   "explanation": "Row 1 (west to east): C, F, A, H. Row 2: D, G, E, B. F is second from the west in Row 1, and G is second from the west in Row 2, so G faces F.",
+   "steps": [
+    "A faces E; F sits immediate right of A (west of A in a south-facing row)",
+    "B faces H; B is at an end but not in A's row",
+    "C is at an end of Row 1; D sits second to the left of E",
+    "Row 1: C, F, A, H. Row 2: D, G, E, B",
+    "F is opposite G"
+   ],
+   "trap": "Mixing up left and right for the row that faces north.",
+   "revise": "Left and right in rows facing opposite directions",
+   "wrongReasons": [
+    "D faces C",
+    null,
+    "E faces A",
+    "B faces H"
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Counting squares",
+   "difficulty": "hard",
+   "text": "A grid of 5 rows and 7 columns is shown. How many squares of all sizes does it contain?",
+   "options": [
+    "35",
+    "112",
+    "76",
+    "85"
+   ],
+   "answer": 3,
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 220\" role=\"img\"><rect x=\"10\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"10\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"50\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"90\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"130\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"10\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"50\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"90\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"130\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"170\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"210\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><rect x=\"250\" y=\"170\" width=\"40\" height=\"40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+   "explanation": "1x1: 35, 2x2: 24, 3x3: 15, 4x4: 8, 5x5: 3. Total = 85.",
+   "steps": [
+    "Spot what the question tests: Squares in an m x n grid = sum of (m-k+1)(n-k+1).",
+    "Option A (35) is out: Only 1x1 squares counted.",
+    "Option B (112) is out: Rectangles counted along with squares.",
+    "Option C (76) is out: 5x5 squares missed.",
+    "Common slip to avoid: Counting only the 12 small squares or forgetting the 3x3 squares.",
+    "So the answer is option D: 85."
+   ],
+   "trap": "Counting only the 12 small squares or forgetting the 3x3 squares.",
+   "revise": "Squares in an m x n grid = sum of (m-k+1)(n-k+1)",
+   "wrongReasons": [
+    "Only 1x1 squares counted",
+    "Rectangles counted along with squares",
+    "5x5 squares missed",
+    null
+   ]
+  },
+  {
+   "topic": "Seating Arrangement",
+   "subtopic": "Two rows facing each other",
+   "difficulty": "hard",
+   "text": "Who sits immediate left of the person who faces F?",
+   "options": [
+    "D",
+    "E",
+    "A",
+    "C"
+   ],
+   "answer": 0,
+   "explanation": "F faces G. G is in Row 2, which faces north, so left is west. The person immediately west of G is D.",
+   "steps": [
+    "F is opposite G",
+    "Row 2 faces north, so left is west",
+    "West of G is D"
+   ],
+   "trap": "Reading the left of F instead of the left of the person who faces F.",
+   "revise": "Two-step questions on facing rows",
+   "wrongReasons": [
+    null,
+    "E sits to the right of G, not to the left",
+    "A is F's own neighbour in Row 1",
+    "C faces D, not the person left of G"
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Counting triangles",
+   "difficulty": "hard",
+   "text": "How many triangles are there in the following figure?",
+   "options": [
+    "28",
+    "7",
+    "21",
+    "36"
+   ],
+   "answer": 0,
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 150\" role=\"img\"><polygon points=\"120.0,10 10,140 230,140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"41.42857142857143\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"72.85714285714286\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"104.28571428571429\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"135.71428571428572\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"167.14285714285714\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><line x1=\"120.0\" y1=\"10\" x2=\"198.57142857142858\" y2=\"140\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/></svg>",
+   "explanation": "Eight lines meet at the apex, so any two of them with the base form a triangle: C(8,2) = 28.",
+   "steps": [
+    "Spot what the question tests: Triangles = C(k,2) for k lines from the apex.",
+    "Option B (7) is out: Only the smallest triangles counted.",
+    "Option C (21) is out: One line fewer assumed.",
+    "Option D (36) is out: One extra line assumed.",
+    "Common slip to avoid: Counting only the 5 small triangles.",
+    "So the answer is option A: 28."
+   ],
+   "trap": "Counting only the 5 small triangles.",
+   "revise": "Triangles = C(k,2) for k lines from the apex",
+   "wrongReasons": [
+    null,
+    "Only the smallest triangles counted",
+    "One line fewer assumed",
+    "One extra line assumed"
+   ]
+  },
+  {
+   "topic": "Floor and Car Puzzle",
+   "subtopic": "Floors and colours",
+   "difficulty": "moderate",
+   "text": "Who owns the white car?",
+   "options": [
+    "N",
+    "P",
+    "L",
+    "M"
+   ],
+   "answer": 1,
+   "explanation": "Floor by floor: 1 J black, 2 P white, 3 N green, 4 L red, 5 M grey, 6 K blue, 7 O silver. So P owns the white car.",
+   "steps": [
+    "J and L have two floors between them and P is above J; solving gives J = 1, L = 4",
+    "P = 2, N = 3, M = 5, K = 6, O = 7",
+    "Colours: J black, K blue, O silver, M grey, N green (below L), L red (not white), so P is white"
+   ],
+   "trap": "Giving L the white car; the clue rules it out.",
+   "revise": "Floor and colour puzzles",
+   "wrongReasons": [
+    "N owns the green car",
+    null,
+    "L owns the red car",
+    "M owns the grey car"
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Non-verbal",
+   "subtopic": "Dice",
+   "difficulty": "hard",
+   "text": "Two positions of the same cube are shown. Which number is on the face opposite to 4?",
+   "options": [
+    "2",
+    "6",
+    "1",
+    "5"
+   ],
+   "answer": 3,
+   "figure": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 260 125\" role=\"img\"><polygon points=\"70,20 115,40 70,60 25,40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><polygon points=\"25,40 70,60 70,110 25,90\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><polygon points=\"70,60 115,40 115,90 70,110\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"66\" y=\"45\" font-size=\"15\">6</text><text x=\"40\" y=\"82\" font-size=\"15\">2</text><text x=\"86\" y=\"82\" font-size=\"15\">4</text><polygon points=\"190,20 235,40 190,60 145,40\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><polygon points=\"145,40 190,60 190,110 145,90\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><polygon points=\"190,60 235,40 235,90 190,110\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\"/><text x=\"186\" y=\"45\" font-size=\"15\">6</text><text x=\"160\" y=\"82\" font-size=\"15\">5</text><text x=\"206\" y=\"82\" font-size=\"15\">2</text></svg>",
+   "explanation": "Between the two views the cube is turned about the vertical axis with 6 on top. Face 4 has turned out of view and the face now at the left (5) came from behind it, so 5 is opposite 4.",
+   "steps": [
+    "Spot what the question tests: Dice: a face never appears together with its opposite.",
+    "Option A (2) is out: 2 is next to 4 in the first view.",
+    "Option B (6) is out: 6 is on top in both views, next to 4.",
+    "Option C (1) is out: 1 is never visible, so it cannot be fixed by these views.",
+    "Common slip to avoid: Choosing 2, which is next to 4 in the first view.",
+    "So the answer is option D: 5."
+   ],
+   "trap": "Choosing 2, which is next to 4 in the first view.",
+   "revise": "Dice: a face never appears together with its opposite",
+   "wrongReasons": [
+    "2 is next to 4 in the first view",
+    "6 is on top in both views, next to 4",
+    "1 is never visible, so it cannot be fixed by these views",
+    null
+   ]
+  },
+  {
+   "topic": "Floor and Car Puzzle",
+   "subtopic": "Floors and colours",
+   "difficulty": "hard",
+   "text": "Which of the following is correctly matched (person – floor – car colour)?",
+   "options": [
+    "L – 4 – white",
+    "M – 6 – grey",
+    "O – 7 – blue",
+    "N – 3 – green"
+   ],
+   "answer": 3,
+   "explanation": "The full arrangement is J (1, black), P (2, white), N (3, green), L (4, red), M (5, grey), K (6, blue), O (7, silver). Only 'N – 3 – green' is correct.",
+   "steps": [
+    "Rebuild the table: J1 black, P2 white, N3 green, L4 red, M5 grey, K6 blue, O7 silver",
+    "Test each option against it",
+    "Only N – 3 – green matches"
+   ],
+   "trap": "Trusting a plausible combination without checking all three fields.",
+   "revise": "Matching all attributes",
+   "wrongReasons": [
+    "L owns the red car",
+    "M lives on floor 5",
+    "O owns the silver car",
+    null
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Floor and Car Puzzle",
+   "subtopic": "Floors and colours",
+   "difficulty": "hard",
+   "text": "What is the colour of the car owned by the person who lives immediately below the owner of the blue car?",
+   "options": [
+    "Grey",
+    "Red",
+    "Green",
+    "Silver"
+   ],
+   "answer": 0,
+   "explanation": "The blue car belongs to K on floor 6. The person immediately below lives on floor 5, M, who owns the grey car.",
+   "steps": [
+    "Blue car: K on floor 6",
+    "Floor 5 is M",
+    "M owns the grey car"
+   ],
+   "trap": "Going up (to O) instead of down.",
+   "revise": "Relative position questions",
+   "wrongReasons": [
+    null,
+    "Red belongs to L on floor 4, two floors below K",
+    "Green belongs to N on floor 3",
+    "Silver belongs to O, who lives above K"
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Logic Grid",
+   "subtopic": "Profession and city",
+   "difficulty": "moderate",
+   "text": "What is the profession of the person who lives in Pune?",
+   "options": [
+    "Engineer",
+    "Teacher",
+    "Pilot",
+    "Doctor"
+   ],
+   "answer": 3,
+   "explanation": "P is the doctor and lives in Pune. Full solution: P doctor Pune, Q engineer Goa, R lawyer Delhi, S teacher Agra, T pilot Surat.",
+   "steps": [
+    "S is the teacher; Q lives in Goa, so Q is neither pilot nor lawyer, hence the engineer",
+    "R is neither pilot nor doctor, so R is the lawyer in Delhi",
+    "P cannot be the pilot (not in Surat), so T is the pilot and P the doctor",
+    "Doctor is not in Delhi or Goa and Surat is the pilot's, so the doctor is in Pune"
+   ],
+   "trap": "Not eliminating S's cities first (S cannot be in Goa or Pune).",
+   "revise": "Logic grid puzzles",
+   "wrongReasons": [
+    "The engineer lives in Goa",
+    "The teacher lives in Agra",
+    "The pilot lives in Surat",
+    null
+   ],
+   "passageId": "p3"
+  },
+  {
+   "topic": "Logic Grid",
+   "subtopic": "Profession and city",
+   "difficulty": "moderate",
+   "text": "Who is the pilot?",
+   "options": [
+    "T",
+    "P",
+    "Q",
+    "R"
+   ],
+   "answer": 0,
+   "explanation": "Q lives in Goa, not Surat, so Q is not the pilot; R is not the pilot; S is the teacher; P does not live in Surat. So T is the pilot.",
+   "steps": [
+    "Pilot lives in Surat",
+    "Q lives in Goa: not the pilot; R is excluded; S is the teacher",
+    "P is not in Surat",
+    "T is the pilot"
+   ],
+   "trap": "Forgetting that P's city rules P out.",
+   "revise": "Elimination",
+   "wrongReasons": [
+    null,
+    "P does not live in Surat, where the pilot lives",
+    "Q lives in Goa",
+    "R is not the pilot"
+   ],
+   "passageId": "p3"
+  },
+  {
+   "topic": "Logic Grid",
+   "subtopic": "Profession and city",
+   "difficulty": "hard",
+   "text": "Which of the following combinations is correct?",
+   "options": [
+    "P – Engineer – Pune",
+    "R – Lawyer – Delhi",
+    "T – Doctor – Surat",
+    "S – Teacher – Goa"
+   ],
+   "answer": 1,
+   "explanation": "The solution is P doctor Pune, Q engineer Goa, R lawyer Delhi, S teacher Agra, T pilot Surat. Only 'R – Lawyer – Delhi' matches.",
+   "steps": [
+    "Build the complete table",
+    "Compare each option against it",
+    "R – Lawyer – Delhi is the only match"
+   ],
+   "trap": "Checking only the profession or only the city.",
+   "revise": "Verifying combinations",
+   "wrongReasons": [
+    "P is the doctor",
+    null,
+    "T is the pilot",
+    "S lives in Agra"
+   ],
+   "passageId": "p3"
+  },
+  {
+   "topic": "Logic Grid",
+   "subtopic": "Profession and city",
+   "difficulty": "hard",
+   "text": "Which of the following statements is NOT true?",
+   "options": [
+    "T lives in Surat and is the pilot",
+    "The teacher lives in Agra",
+    "Q lives in Pune and is the engineer",
+    "P and R are the doctor and the lawyer respectively"
+   ],
+   "answer": 2,
+   "explanation": "The engineer is Q, who lives in Goa, not Pune. The other three statements agree with the arrangement.",
+   "steps": [
+    "Table: P doctor Pune, Q engineer Goa, R lawyer Delhi, S teacher Agra, T pilot Surat",
+    "Check each statement",
+    "Q lives in Goa: this statement is false"
+   ],
+   "trap": "Reading the question as 'which is true'.",
+   "revise": "'Not true' style questions",
+   "wrongReasons": [
+    "True",
+    "True",
+    null,
+    "True"
+   ],
+   "passageId": "p3"
+  }
+ ]
+}

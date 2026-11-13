@@ -1,0 +1,1345 @@
+{
+ "section": "english",
+ "passages": {
+  "p1": "Insurers have long known that protection changes behaviour. A householder with full cover against fire may take less care with a faulty heater; a farmer insured against crop failure may plant less carefully. Economists call this moral hazard, and it explains why policies carry deductibles, requiring the insured to bear a small part of every loss. The device is imperfect. Set the deductible too low and carelessness persists; set it too high and the policy becomes a gesture that few can afford to buy. India's experiment with subsidised crop insurance illustrates the dilemma. Premiums were kept low to draw farmers in, and enrolment rose. But payouts depended on yield estimates made by crop-cutting experiments that covered only a sample of villages, so a farmer whose field failed could go uncompensated while a neighbour with a good harvest received a claim. Trust eroded, and with it the willingness to pay even small premiums. The lesson is not that insurance for the poor is unworkable. It is that a scheme must be judged less by how many it enrols than by whether those who suffer the loss believe they will be paid, for belief, once lost, is costlier to rebuild than any premium.",
+  "p2": "Before air-conditioning, builders in hot regions relied on knowledge that now looks like ingenuity: thick walls of mud or stone that absorb heat during the day and release it at night, narrow lanes that keep one another in shade, courtyards that draw cool air through a house, and screens of carved stone that admit breeze while shutting out glare. None of these devices was invented by architects with graphs; they were refined by generations who suffered the consequences of error. The modern glass tower, by contrast, is designed in one climate and built in another, and it survives only by the constant labour of machines. Defenders of the tower say that it makes efficient use of scarce urban land, and so it does; but efficiency measured in floor area per plot ignores the energy consumed afterwards. A few architects have begun to combine the two traditions, placing deep verandas on high-rise blocks and using stone latticework to cut the heat that reaches the glass. These experiments are modest, yet they suggest a conclusion that the profession is slow to accept: that tradition is not nostalgia, but accumulated testing.",
+  "p3": "Scientific journals depend on peer review, the practice of sending a manuscript to independent experts before publication. It is often described as a guarantee of quality, but its record is mixed. Reviewers are unpaid and overworked, they usually see only the finished paper rather than the raw data, and they are rarely rewarded for finding errors. Studies in which deliberate mistakes were planted in manuscripts found that most reviewers missed most of them. Yet the system has survived, partly because no one has devised a better filter and partly because it serves a purpose beyond error detection: it forces authors to anticipate objections. A paper written with a hostile reader in mind is, on the whole, clearer than one written for admirers. Reforms now under trial include publishing reviews alongside papers, sharing data at the time of submission, and rewarding reviewers with recognised credit. None of these will turn the process into a guarantee, but together they may shift its reputation from that of a seal of truth to what it ought always to have claimed: a first, imperfect and useful check.",
+  "p4": "Hardly had the examination (1) when the invigilator, who had been (2) the hall for an hour, noticed a candidate (3) with his sleeve. Instead of (4) him publicly, he quietly asked the candidate (5) accompany him."
+ },
+ "questions": [
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Central idea",
+   "difficulty": "hard",
+   "text": "Which of the following best expresses the central idea of the passage?",
+   "options": [
+    "A scheme for insuring the poor should be judged by whether sufferers trust that they will be paid",
+    "Insurance for farmers cannot work in India",
+    "Low premiums are the key to successful insurance",
+    "Deductibles should be abolished"
+   ],
+   "answer": 0,
+   "explanation": "The passage ends by saying that belief in being paid matters more than enrolment numbers.",
+   "steps": [
+    "Spot what the question tests: Central idea: the closing lesson.",
+    "Option B (Insurance for farmers cannot work in India) is out: The author says the lesson is not that it is unworkable.",
+    "Option C (Low premiums are the key to successful insurance) is out: Low premiums drew enrolment but trust still eroded.",
+    "Option D (Deductibles should be abolished) is out: The passage explains why they exist.",
+    "Common slip to avoid: Taking the failure of one scheme as a failure of the idea.",
+    "So the answer is option A: A scheme for insuring the poor should be judged by whether sufferers…."
+   ],
+   "trap": "Taking the failure of one scheme as a failure of the idea.",
+   "revise": "Central idea: the closing lesson",
+   "wrongReasons": [
+    null,
+    "The author says the lesson is not that it is unworkable",
+    "Low premiums drew enrolment but trust still eroded",
+    "The passage explains why they exist"
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Detail",
+   "difficulty": "moderate",
+   "text": "According to the passage, what is the purpose of a deductible?",
+   "options": [
+    "To raise the premium",
+    "To speed up payment of claims",
+    "To make the insured bear part of every loss so that they take care",
+    "To cover the insurer's administrative cost"
+   ],
+   "answer": 2,
+   "explanation": "Deductibles require the insured to bear a small part of each loss, countering moral hazard.",
+   "steps": [
+    "Spot what the question tests: Detail: purpose of a device.",
+    "Options A, B and D are out: Not stated.",
+    "Common slip to avoid: Choosing a commercial motive.",
+    "So the answer is option C: To make the insured bear part of every loss so that they take care."
+   ],
+   "trap": "Choosing a commercial motive.",
+   "revise": "Detail: purpose of a device",
+   "wrongReasons": [
+    "Not stated",
+    "Not stated",
+    null,
+    "Not stated"
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Inference",
+   "difficulty": "hard",
+   "text": "Which of the following can be inferred about the crop-insurance scheme described?",
+   "options": [
+    "Its premiums were too high for most farmers",
+    "It was abandoned by all states",
+    "Its yield estimates did not always reflect the loss of individual farmers",
+    "It paid every farmer in full"
+   ],
+   "answer": 2,
+   "explanation": "A farmer with a failed field could go uncompensated while a neighbour with a good harvest received a claim.",
+   "steps": [
+    "Spot what the question tests: Inference: sample-based estimates.",
+    "Option A (Its premiums were too high for most farmers) is out: The passage says premiums were kept low.",
+    "Option B (It was abandoned by all states) is out: Not stated.",
+    "Option D (It paid every farmer in full) is out: The passage says some were not compensated.",
+    "Common slip to avoid: Reading the low premium as the cause of failure.",
+    "So the answer is option C: Its yield estimates did not always reflect the loss of individual far…."
+   ],
+   "trap": "Reading the low premium as the cause of failure.",
+   "revise": "Inference: sample-based estimates",
+   "wrongReasons": [
+    "The passage says premiums were kept low",
+    "Not stated",
+    null,
+    "The passage says some were not compensated"
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Vocabulary in context",
+   "difficulty": "hard",
+   "text": "The word 'gesture' as used in the passage most nearly means:",
+   "options": [
+    "a movement of the hand",
+    "a symbolic act without real effect",
+    "a polite greeting",
+    "a generous gift"
+   ],
+   "answer": 1,
+   "explanation": "A policy that few can afford to buy is only a gesture, an act without real effect.",
+   "steps": [
+    "Spot what the question tests: Vocabulary: gesture.",
+    "Option A (a movement of the hand) is out: The literal sense.",
+    "Options C and D are out: Not the sense.",
+    "Common slip to avoid: Taking the literal meaning.",
+    "So the answer is option B: a symbolic act without real effect."
+   ],
+   "trap": "Taking the literal meaning.",
+   "revise": "Vocabulary: gesture",
+   "wrongReasons": [
+    "The literal sense",
+    null,
+    "Not the sense",
+    "Not the sense"
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "NOT / EXCEPT",
+   "difficulty": "hard",
+   "text": "Each of the following is mentioned as a consequence of the failures in the crop-insurance scheme EXCEPT:",
+   "options": [
+    "loss of trust among farmers",
+    "reluctance to pay even small premiums",
+    "a rise in premiums charged to farmers",
+    "some farmers with failed crops going uncompensated"
+   ],
+   "answer": 2,
+   "explanation": "The passage does not say that premiums were raised.",
+   "steps": [
+    "Spot what the question tests: EXCEPT questions.",
+    "Options A, B and D are out: Stated.",
+    "Common slip to avoid: Choosing a stated consequence.",
+    "So the answer is option C: a rise in premiums charged to farmers."
+   ],
+   "trap": "Choosing a stated consequence.",
+   "revise": "EXCEPT questions",
+   "wrongReasons": [
+    "Stated",
+    "Stated",
+    null,
+    "Stated"
+   ],
+   "passageId": "p1"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Central idea",
+   "difficulty": "hard",
+   "text": "What is the main argument of the passage?",
+   "options": [
+    "Traditional building methods embody tested knowledge that modern design can usefully combine with",
+    "Glass towers should be banned",
+    "Hot regions need no cooling",
+    "Architects should return fully to mud walls"
+   ],
+   "answer": 0,
+   "explanation": "The passage ends by calling tradition accumulated testing and shows combined experiments.",
+   "steps": [
+    "Spot what the question tests: Main idea: combining traditions.",
+    "Option B (Glass towers should be banned) is out: The passage allows their land efficiency.",
+    "Option C (Hot regions need no cooling) is out: Not stated.",
+    "Option D (Architects should return fully to mud walls) is out: The passage supports combining the two traditions.",
+    "Common slip to avoid: Treating the passage as one-sided.",
+    "So the answer is option A: Traditional building methods embody tested knowledge that modern desi…."
+   ],
+   "trap": "Treating the passage as one-sided.",
+   "revise": "Main idea: combining traditions",
+   "wrongReasons": [
+    null,
+    "The passage allows their land efficiency",
+    "Not stated",
+    "The passage supports combining the two traditions"
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "NOT / EXCEPT",
+   "difficulty": "hard",
+   "text": "Each of the following is mentioned as a feature of traditional hot-climate buildings EXCEPT:",
+   "options": [
+    "thick walls of mud or stone",
+    "courtyards that draw air through a house",
+    "carved stone screens that admit breeze",
+    "roofs covered with reflective metal sheets"
+   ],
+   "answer": 3,
+   "explanation": "Metal roofing is not mentioned.",
+   "steps": [
+    "Spot what the question tests: EXCEPT questions.",
+    "Options A, B and C are out: Stated.",
+    "Common slip to avoid: Selecting a stated feature.",
+    "So the answer is option D: roofs covered with reflective metal sheets."
+   ],
+   "trap": "Selecting a stated feature.",
+   "revise": "EXCEPT questions",
+   "wrongReasons": [
+    "Stated",
+    "Stated",
+    "Stated",
+    null
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Tone / attitude",
+   "difficulty": "hard",
+   "text": "The author's attitude towards the modern glass tower is best described as:",
+   "options": [
+    "scornful",
+    "admiring",
+    "critical but fair",
+    "indifferent"
+   ],
+   "answer": 2,
+   "explanation": "The author concedes the tower's land efficiency but points out hidden energy costs.",
+   "steps": [
+    "Spot what the question tests: Tone questions.",
+    "Option A (scornful) is out: The author grants its efficient use of land.",
+    "Option B (admiring) is out: The author notes its dependence on machines.",
+    "Option D (indifferent) is out: The author discusses it in detail.",
+    "Common slip to avoid: Overstating the criticism.",
+    "So the answer is option C: critical but fair."
+   ],
+   "trap": "Overstating the criticism.",
+   "revise": "Tone questions",
+   "wrongReasons": [
+    "The author grants its efficient use of land",
+    "The author notes its dependence on machines",
+    null,
+    "The author discusses it in detail"
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Vocabulary in context",
+   "difficulty": "moderate",
+   "text": "The word 'ingenuity' as used in the passage most nearly means:",
+   "options": [
+    "honesty",
+    "clever inventiveness",
+    "luck",
+    "wealth"
+   ],
+   "answer": 1,
+   "explanation": "The devices look like ingenuity: clever solutions to the problem of heat.",
+   "steps": [
+    "Spot what the question tests: Vocabulary: ingenuity.",
+    "Options A, C and D are out: Not the sense.",
+    "Common slip to avoid: Confusing it with 'ingenuousness'.",
+    "So the answer is option B: clever inventiveness."
+   ],
+   "trap": "Confusing it with 'ingenuousness'.",
+   "revise": "Vocabulary: ingenuity",
+   "wrongReasons": [
+    "Not the sense",
+    null,
+    "Not the sense",
+    "Not the sense"
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Inference",
+   "difficulty": "hard",
+   "text": "What does the author mean by saying that tradition is 'accumulated testing'?",
+   "options": [
+    "Old buildings were tested in laboratories",
+    "Methods that survived over generations have been tried and corrected by experience",
+    "Tradition is always better than science",
+    "Builders tested only new materials"
+   ],
+   "answer": 1,
+   "explanation": "Generations who suffered the consequences of error refined the devices.",
+   "steps": [
+    "Spot what the question tests: Inference: phrase meaning.",
+    "Option A (Old buildings were tested in laboratories) is out: The passage says builders had no graphs.",
+    "Option C (Tradition is always better than science) is out: Not claimed.",
+    "Option D (Builders tested only new materials) is out: Not stated.",
+    "Common slip to avoid: Reading 'testing' as formal experiments.",
+    "So the answer is option B: Methods that survived over generations have been tried and corrected…."
+   ],
+   "trap": "Reading 'testing' as formal experiments.",
+   "revise": "Inference: phrase meaning",
+   "wrongReasons": [
+    "The passage says builders had no graphs",
+    null,
+    "Not claimed",
+    "Not stated"
+   ],
+   "passageId": "p2"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Central idea",
+   "difficulty": "hard",
+   "text": "The passage is chiefly about:",
+   "options": [
+    "the history of scientific journals",
+    "the need to abolish peer review",
+    "the pay of reviewers",
+    "the limits of peer review and the reforms that may improve its reputation"
+   ],
+   "answer": 3,
+   "explanation": "The passage describes weaknesses, a hidden benefit and reforms.",
+   "steps": [
+    "Spot what the question tests: Central idea.",
+    "Option A (the history of scientific journals) is out: Not discussed.",
+    "Option B (the need to abolish peer review) is out: The author says it survives for a purpose.",
+    "Option C (the pay of reviewers) is out: Only a minor point.",
+    "Common slip to avoid: Choosing a narrow detail.",
+    "So the answer is option D: the limits of peer review and the reforms that may improve its reputa…."
+   ],
+   "trap": "Choosing a narrow detail.",
+   "revise": "Central idea",
+   "wrongReasons": [
+    "Not discussed",
+    "The author says it survives for a purpose",
+    "Only a minor point",
+    null
+   ],
+   "passageId": "p3"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Detail",
+   "difficulty": "moderate",
+   "text": "What did studies in which deliberate mistakes were planted in manuscripts show?",
+   "options": [
+    "All reviewers found every mistake",
+    "Authors corrected most mistakes themselves",
+    "Journals rejected all such manuscripts",
+    "Most reviewers missed most of the mistakes"
+   ],
+   "answer": 3,
+   "explanation": "The passage states that most reviewers missed most of the planted errors.",
+   "steps": [
+    "Spot what the question tests: Detail questions.",
+    "Option A (All reviewers found every mistake) is out: Contradicts the passage.",
+    "Options B and C are out: Not stated.",
+    "Common slip to avoid: Choosing the opposite result.",
+    "So the answer is option D: Most reviewers missed most of the mistakes."
+   ],
+   "trap": "Choosing the opposite result.",
+   "revise": "Detail questions",
+   "wrongReasons": [
+    "Contradicts the passage",
+    "Not stated",
+    "Not stated",
+    null
+   ],
+   "passageId": "p3"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Inference",
+   "difficulty": "hard",
+   "text": "According to the passage, what purpose does peer review serve apart from detecting errors?",
+   "options": [
+    "It guarantees the truth of the findings",
+    "It forces authors to anticipate objections",
+    "It pays authors for their work",
+    "It shortens the time to publication"
+   ],
+   "answer": 1,
+   "explanation": "A paper written with a hostile reader in mind is clearer.",
+   "steps": [
+    "Spot what the question tests: Inference: hidden purpose.",
+    "Option A (It guarantees the truth of the findings) is out: The passage denies that it is a guarantee.",
+    "Options C and D are out: Not stated.",
+    "Common slip to avoid: Taking the 'guarantee' reputation as its purpose.",
+    "So the answer is option B: It forces authors to anticipate objections."
+   ],
+   "trap": "Taking the 'guarantee' reputation as its purpose.",
+   "revise": "Inference: hidden purpose",
+   "wrongReasons": [
+    "The passage denies that it is a guarantee",
+    null,
+    "Not stated",
+    "Not stated"
+   ],
+   "passageId": "p3"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "NOT / EXCEPT",
+   "difficulty": "hard",
+   "text": "Each of the following is mentioned among the reforms being tried EXCEPT:",
+   "options": [
+    "publishing reviews alongside papers",
+    "paying authors a fee for every accepted paper",
+    "sharing data at the time of submission",
+    "giving reviewers recognised credit"
+   ],
+   "answer": 1,
+   "explanation": "Payment of authors is not mentioned.",
+   "steps": [
+    "Spot what the question tests: EXCEPT questions.",
+    "Options A, C and D are out: Stated.",
+    "Common slip to avoid: Choosing a stated reform.",
+    "So the answer is option B: paying authors a fee for every accepted paper."
+   ],
+   "trap": "Choosing a stated reform.",
+   "revise": "EXCEPT questions",
+   "wrongReasons": [
+    "Stated",
+    null,
+    "Stated",
+    "Stated"
+   ],
+   "passageId": "p3"
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Author's view",
+   "difficulty": "hard",
+   "text": "The author would most probably agree that peer review should be seen as:",
+   "options": [
+    "a useful but imperfect first check",
+    "a seal of truth",
+    "a useless ritual",
+    "a substitute for replication"
+   ],
+   "answer": 0,
+   "explanation": "The final sentence says it should claim only to be a first, imperfect and useful check.",
+   "steps": [
+    "Spot what the question tests: Author's view.",
+    "Option B (a seal of truth) is out: The author says it ought not to claim this.",
+    "Option C (a useless ritual) is out: The author finds it useful.",
+    "Option D (a substitute for replication) is out: Not stated.",
+    "Common slip to avoid: Choosing the popular reputation.",
+    "So the answer is option A: a useful but imperfect first check."
+   ],
+   "trap": "Choosing the popular reputation.",
+   "revise": "Author's view",
+   "wrongReasons": [
+    null,
+    "The author says it ought not to claim this",
+    "The author finds it useful",
+    "Not stated"
+   ],
+   "passageId": "p3"
+  },
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Verb form",
+   "difficulty": "hard",
+   "text": "Choose the correct word for blank (1).",
+   "options": [
+    "began",
+    "begun",
+    "begin",
+    "begins"
+   ],
+   "answer": 1,
+   "explanation": "'Hardly had + subject + past participle ... when'.",
+   "steps": [
+    "Spot what the question tests: Hardly ... when.",
+    "Options A, C and D are out: 'Hardly had' needs the past participle.",
+    "Common slip to avoid: Using the simple past.",
+    "So the answer is option B: begun."
+   ],
+   "trap": "Using the simple past.",
+   "revise": "Hardly ... when",
+   "wrongReasons": [
+    "'Hardly had' needs the past participle",
+    null,
+    "'Hardly had' needs the past participle",
+    "'Hardly had' needs the past participle"
+   ],
+   "passageId": "p4"
+  },
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Verb form",
+   "difficulty": "moderate",
+   "text": "Choose the correct word for blank (2).",
+   "options": [
+    "paced",
+    "pacing",
+    "pace",
+    "paces"
+   ],
+   "answer": 1,
+   "explanation": "Past perfect continuous: had been + -ing.",
+   "steps": [
+    "Spot what the question tests: Past perfect continuous.",
+    "Options A, C and D are out: 'Had been' needs an -ing form.",
+    "Common slip to avoid: Using a past form after 'had been'.",
+    "So the answer is option B: pacing."
+   ],
+   "trap": "Using a past form after 'had been'.",
+   "revise": "Past perfect continuous",
+   "wrongReasons": [
+    "'Had been' needs an -ing form",
+    null,
+    "'Had been' needs an -ing form",
+    "'Had been' needs an -ing form"
+   ],
+   "passageId": "p4"
+  },
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Verb form",
+   "difficulty": "hard",
+   "text": "Choose the correct word for blank (3).",
+   "options": [
+    "fumbling",
+    "fumbled",
+    "fumble",
+    "fumbles"
+   ],
+   "answer": 0,
+   "explanation": "'Noticed a candidate fumbling' describes an ongoing action.",
+   "steps": [
+    "Spot what the question tests: Perception verbs + -ing.",
+    "Option B (fumbled) is out: Does not follow 'noticed a candidate'.",
+    "Option C (fumble) is out: A bare verb can only follow 'noticed him' for a complete act.",
+    "Option D (fumbles) is out: Wrong form.",
+    "Common slip to avoid: Choosing the past form.",
+    "So the answer is option A: fumbling."
+   ],
+   "trap": "Choosing the past form.",
+   "revise": "Perception verbs + -ing",
+   "wrongReasons": [
+    null,
+    "Does not follow 'noticed a candidate'",
+    "A bare verb can only follow 'noticed him' for a complete act",
+    "Wrong form"
+   ],
+   "passageId": "p4"
+  },
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Gerund",
+   "difficulty": "easy",
+   "text": "Choose the correct word for blank (4).",
+   "options": [
+    "accuse",
+    "accused",
+    "to accuse",
+    "accusing"
+   ],
+   "answer": 3,
+   "explanation": "A preposition is followed by a gerund.",
+   "steps": [
+    "Spot what the question tests: Preposition + gerund.",
+    "Options A, B and C are out: 'Instead of' needs a gerund.",
+    "Common slip to avoid: Using the infinitive after 'instead of'.",
+    "So the answer is option D: accusing."
+   ],
+   "trap": "Using the infinitive after 'instead of'.",
+   "revise": "Preposition + gerund",
+   "wrongReasons": [
+    "'Instead of' needs a gerund",
+    "'Instead of' needs a gerund",
+    "'Instead of' needs a gerund",
+    null
+   ],
+   "passageId": "p4"
+  },
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Infinitive",
+   "difficulty": "hard",
+   "text": "Choose the correct word for blank (5).",
+   "options": [
+    "that",
+    "to",
+    "for",
+    "of"
+   ],
+   "answer": 1,
+   "explanation": "'Ask someone to + verb' is the pattern.",
+   "steps": [
+    "Spot what the question tests: Ask + object + to.",
+    "Option A (that) is out: 'Asked ... that' needs a clause.",
+    "Option C (for) is out: Changes the sense.",
+    "Option D (of) is out: Does not fit.",
+    "Common slip to avoid: Choosing 'that'.",
+    "So the answer is option B: to."
+   ],
+   "trap": "Choosing 'that'.",
+   "revise": "Ask + object + to",
+   "wrongReasons": [
+    "'Asked ... that' needs a clause",
+    null,
+    "Changes the sense",
+    "Does not fit"
+   ],
+   "passageId": "p4"
+  },
+  {
+   "topic": "Narration",
+   "subtopic": "Wishes",
+   "difficulty": "hard",
+   "text": "Select the correct indirect form of the sentence.\nHe said, \"I wish I were a bird.\"",
+   "options": [
+    "He wished that he were a bird.",
+    "He wished that he had been a bird.",
+    "He said that he wished to be a bird.",
+    "He said that I wished I were a bird."
+   ],
+   "answer": 0,
+   "explanation": "A wish is reported with 'wished' and the subjunctive 'were' is kept.",
+   "steps": [
+    "Spot what the question tests: Reporting wishes.",
+    "Option B (He wished that he had been a bird.) is out: Changes the time reference.",
+    "Option C (He said that he wished to be a bird.) is out: Changes the structure.",
+    "Option D (He said that I wished I were a bird.) is out: Pronoun not changed.",
+    "Common slip to avoid: Backshifting 'were'.",
+    "So the answer is option A: He wished that he were a bird.."
+   ],
+   "trap": "Backshifting 'were'.",
+   "revise": "Reporting wishes",
+   "wrongReasons": [
+    null,
+    "Changes the time reference",
+    "Changes the structure",
+    "Pronoun not changed"
+   ]
+  },
+  {
+   "topic": "Narration",
+   "subtopic": "Questions",
+   "difficulty": "hard",
+   "text": "Select the correct indirect form of the sentence.\nMother said to me, \"Where have you been all day?\"",
+   "options": [
+    "Mother asked me where had I been all day.",
+    "Mother told me where I had been all day.",
+    "Mother asked me where I had been all day.",
+    "Mother asked me where have I been all day."
+   ],
+   "answer": 2,
+   "explanation": "The present perfect becomes the past perfect and the order becomes that of a statement.",
+   "steps": [
+    "Spot what the question tests: Reporting wh-questions.",
+    "Option A (Mother asked me where had I been all day.) is out: Keeps the question order.",
+    "Option B (Mother told me where I had been all day.) is out: Changes a question to a statement.",
+    "Option D (Mother asked me where have I been all day.) is out: Tense and order not changed.",
+    "Common slip to avoid: Keeping the question order.",
+    "So the answer is option C: Mother asked me where I had been all day.."
+   ],
+   "trap": "Keeping the question order.",
+   "revise": "Reporting wh-questions",
+   "wrongReasons": [
+    "Keeps the question order",
+    "Changes a question to a statement",
+    null,
+    "Tense and order not changed"
+   ]
+  },
+  {
+   "topic": "Narration",
+   "subtopic": "Requests",
+   "difficulty": "moderate",
+   "text": "Select the correct indirect form of the sentence.\n\"Please wait here,\" said the clerk to us.",
+   "options": [
+    "The clerk requested us to wait there.",
+    "The clerk told us wait there.",
+    "The clerk requested us that wait here.",
+    "The clerk said us to wait there."
+   ],
+   "answer": 0,
+   "explanation": "A polite command is reported with 'requested ... to'.",
+   "steps": [
+    "Spot what the question tests: Reporting requests.",
+    "Option B (The clerk told us wait there.) is out: Missing 'to'.",
+    "Option C (The clerk requested us that wait here.) is out: Wrong structure.",
+    "Option D (The clerk said us to wait there.) is out: 'Said' does not take an object this way.",
+    "Common slip to avoid: Keeping 'here'.",
+    "So the answer is option A: The clerk requested us to wait there.."
+   ],
+   "trap": "Keeping 'here'.",
+   "revise": "Reporting requests",
+   "wrongReasons": [
+    null,
+    "Missing 'to'",
+    "Wrong structure",
+    "'Said' does not take an object this way"
+   ]
+  },
+  {
+   "topic": "Narration",
+   "subtopic": "Time and tense",
+   "difficulty": "hard",
+   "text": "Select the correct direct form of the sentence.\nShe told him that she would never forgive him for what he had done.",
+   "options": [
+    "She said to him, \"I would never forgive you for what you had done.\"",
+    "She said to him, \"She will never forgive him for what he has done.\"",
+    "She said to him, \"I will never forgive you for what you have done.\"",
+    "She said to him, \"I will never forgive her for what you have done.\""
+   ],
+   "answer": 2,
+   "explanation": "The pronouns and the tenses go back to their direct forms.",
+   "steps": [
+    "Spot what the question tests: Direct speech from indirect.",
+    "Option A (She said to him, \"I would never forgive you for…) is out: Tenses not restored.",
+    "Option B (She said to him, \"She will never forgive him fo…) is out: Pronouns not restored.",
+    "Option D (She said to him, \"I will never forgive her for…) is out: Pronoun error.",
+    "Common slip to avoid: Keeping the backshifted tenses.",
+    "So the answer is option C: She said to him, \"I will never forgive you for what you have done.\"."
+   ],
+   "trap": "Keeping the backshifted tenses.",
+   "revise": "Direct speech from indirect",
+   "wrongReasons": [
+    "Tenses not restored",
+    "Pronouns not restored",
+    null,
+    "Pronoun error"
+   ]
+  },
+  {
+   "topic": "Voice",
+   "subtopic": "Continuous past",
+   "difficulty": "hard",
+   "text": "Select the active form of the sentence.\nThe students were being taught by the new teacher.",
+   "options": [
+    "The new teacher taught the students.",
+    "The new teacher has taught the students.",
+    "The new teacher was teaching the students.",
+    "The students were teaching the new teacher."
+   ],
+   "answer": 2,
+   "explanation": "Past continuous passive 'were being taught' becomes 'was teaching'.",
+   "steps": [
+    "Spot what the question tests: Voice: past continuous.",
+    "Option A (The new teacher taught the students.) is out: Loses the continuous aspect.",
+    "Option B (The new teacher has taught the students.) is out: Changes the tense.",
+    "Option D (The students were teaching the new teacher.) is out: Reverses the roles.",
+    "Common slip to avoid: Dropping the continuous aspect.",
+    "So the answer is option C: The new teacher was teaching the students.."
+   ],
+   "trap": "Dropping the continuous aspect.",
+   "revise": "Voice: past continuous",
+   "wrongReasons": [
+    "Loses the continuous aspect",
+    "Changes the tense",
+    null,
+    "Reverses the roles"
+   ]
+  },
+  {
+   "topic": "Voice",
+   "subtopic": "Questions",
+   "difficulty": "moderate",
+   "text": "Select the active form of the sentence.\nIs the mailbox emptied every day?",
+   "options": [
+    "Does someone empty the mailbox every day?",
+    "Is someone emptying the mailbox every day?",
+    "Did someone empty the mailbox every day?",
+    "Has someone emptied the mailbox every day?"
+   ],
+   "answer": 0,
+   "explanation": "The present simple passive question becomes a present simple active question.",
+   "steps": [
+    "Spot what the question tests: Voice: questions.",
+    "Option B (Is someone emptying the mailbox every day?) is out: Changes the aspect.",
+    "Options C and D are out: Changes the tense.",
+    "Common slip to avoid: Changing the aspect.",
+    "So the answer is option A: Does someone empty the mailbox every day?."
+   ],
+   "trap": "Changing the aspect.",
+   "revise": "Voice: questions",
+   "wrongReasons": [
+    null,
+    "Changes the aspect",
+    "Changes the tense",
+    "Changes the tense"
+   ]
+  },
+  {
+   "topic": "Voice",
+   "subtopic": "Causative",
+   "difficulty": "hard",
+   "text": "Select the active form of the sentence.\nHe was made to apologise by the principal.",
+   "options": [
+    "The principal made him to apologise.",
+    "The principal made him apologise.",
+    "The principal makes him apologise.",
+    "The principal has made him apologise."
+   ],
+   "answer": 1,
+   "explanation": "In the active, 'make' takes a bare infinitive; in the passive it takes 'to'.",
+   "steps": [
+    "Spot what the question tests: Voice: make.",
+    "Option A (The principal made him to apologise.) is out: 'Made' takes a bare infinitive in the active.",
+    "Options C and D are out: Changes the tense.",
+    "Common slip to avoid: Keeping 'to' in the active.",
+    "So the answer is option B: The principal made him apologise.."
+   ],
+   "trap": "Keeping 'to' in the active.",
+   "revise": "Voice: make",
+   "wrongReasons": [
+    "'Made' takes a bare infinitive in the active",
+    null,
+    "Changes the tense",
+    "Changes the tense"
+   ]
+  },
+  {
+   "topic": "Para Jumbles",
+   "subtopic": "Sentence order",
+   "difficulty": "hard",
+   "text": "Arrange the sentences in the correct order.\nP. The resulting images, assembled over years, showed the clouds moving.\nQ. Astronomers first pointed the telescope at the same patch of sky every night.\nR. Each exposure alone revealed little but a smear of light.\nS. Only when the exposures were stacked did the pattern appear.",
+   "options": [
+    "QSRP",
+    "QRSP",
+    "RQSP",
+    "PQRS"
+   ],
+   "answer": 1,
+   "explanation": "Q introduces the method, R the single exposures, S the stacking, P the result.",
+   "steps": [
+    "Spot what the question tests: Para jumble: process.",
+    "Option A (QSRP) is out: 'Only when stacked' needs the single exposures first.",
+    "Option C (RQSP) is out: 'Each exposure' needs the introduction first.",
+    "Option D (PQRS) is out: The result comes before the process.",
+    "Common slip to avoid: Putting the result first.",
+    "So the answer is option B: QRSP."
+   ],
+   "trap": "Putting the result first.",
+   "revise": "Para jumble: process",
+   "wrongReasons": [
+    "'Only when stacked' needs the single exposures first",
+    null,
+    "'Each exposure' needs the introduction first",
+    "The result comes before the process"
+   ]
+  },
+  {
+   "topic": "Para Jumbles",
+   "subtopic": "Sentence order",
+   "difficulty": "hard",
+   "text": "Arrange the sentences in the correct order.\nP. The proposal was therefore sent back to the committee.\nQ. However, no one could say who would bear the cost of maintenance.\nR. Most members agreed that the new library would benefit the town.\nS. This silence, more than any objection, decided its fate.",
+   "options": [
+    "RQPS",
+    "QRSP",
+    "RSQP",
+    "RQSP"
+   ],
+   "answer": 3,
+   "explanation": "R states the agreement, Q the difficulty, S the silence, P the consequence.",
+   "steps": [
+    "Spot what the question tests: Para jumble: contrast.",
+    "Options A and C are out: 'This silence' needs Q before it.",
+    "Option B (QRSP) is out: 'However' needs the agreement first.",
+    "Common slip to avoid: Starting with 'However'.",
+    "So the answer is option D: RQSP."
+   ],
+   "trap": "Starting with 'However'.",
+   "revise": "Para jumble: contrast",
+   "wrongReasons": [
+    "'This silence' needs Q before it",
+    "'However' needs the agreement first",
+    "'This silence' needs Q before it",
+    null
+   ]
+  },
+  {
+   "topic": "Para Jumbles",
+   "subtopic": "Sentence parts",
+   "difficulty": "hard",
+   "text": "Rearrange the parts P, Q, R and S to form a meaningful sentence.\nP. whose grandfather had planted the first orchard\nQ. The old farmer,\nR. refused to sell the land\nS. even when the price doubled",
+   "options": [
+    "QRPS",
+    "PQRS",
+    "QPRS",
+    "QPSR"
+   ],
+   "answer": 2,
+   "explanation": "'The old farmer, whose grandfather had planted the first orchard, refused to sell the land even when the price doubled.'",
+   "steps": [
+    "Spot what the question tests: Para jumble: sentence parts.",
+    "Option A (QRPS) is out: The relative clause breaks the verb phrase.",
+    "Option B (PQRS) is out: The sentence cannot begin with a relative clause.",
+    "Option D (QPSR) is out: 'even when' must follow 'refused to sell'.",
+    "Common slip to avoid: Misplacing the relative clause.",
+    "So the answer is option C: QPRS."
+   ],
+   "trap": "Misplacing the relative clause.",
+   "revise": "Para jumble: sentence parts",
+   "wrongReasons": [
+    "The relative clause breaks the verb phrase",
+    "The sentence cannot begin with a relative clause",
+    null,
+    "'even when' must follow 'refused to sell'"
+   ]
+  },
+  {
+   "topic": "Para Jumbles",
+   "subtopic": "Sentence order",
+   "difficulty": "hard",
+   "text": "Arrange the sentences in the correct order.\nP. The study's authors, however, caution against reading too much into the figures.\nQ. Reports of its findings were widely shared on social media.\nR. Their sample, they note, was small and drawn from one region.\nS. A recent study claims that regular afternoon naps improve memory in adults.",
+   "options": [
+    "SPQR",
+    "QSPR",
+    "SQPR",
+    "SQRP"
+   ],
+   "answer": 2,
+   "explanation": "S introduces the study, Q the reports, P the caution, R the reason.",
+   "steps": [
+    "Spot what the question tests: Para jumble: claim and caution.",
+    "Option A (SPQR) is out: 'however' needs the reports first.",
+    "Option B (QSPR) is out: Q refers to a study not yet introduced.",
+    "Option D (SQRP) is out: 'Their sample' needs the authors' caution first.",
+    "Common slip to avoid: Placing 'however' before the claim is reported.",
+    "So the answer is option C: SQPR."
+   ],
+   "trap": "Placing 'however' before the claim is reported.",
+   "revise": "Para jumble: claim and caution",
+   "wrongReasons": [
+    "'however' needs the reports first",
+    "Q refers to a study not yet introduced",
+    null,
+    "'Their sample' needs the authors' caution first"
+   ]
+  },
+  {
+   "topic": "Error Spotting",
+   "subtopic": "Conjunctions",
+   "difficulty": "hard",
+   "text": "Find the part of the sentence that has an error.\nScarcely had he / reached the platform / than the train / left.",
+   "options": [
+    "than the train",
+    "Scarcely had he",
+    "reached the platform",
+    "left"
+   ],
+   "answer": 0,
+   "explanation": "'Scarcely ... when', not 'than'.",
+   "steps": [
+    "Spot what the question tests: Scarcely/hardly ... when.",
+    "Options B, C and D are out: Correct.",
+    "Common slip to avoid: Using 'than' as in 'No sooner ... than'.",
+    "So the answer is option A: than the train."
+   ],
+   "trap": "Using 'than' as in 'No sooner ... than'.",
+   "revise": "Scarcely/hardly ... when",
+   "wrongReasons": [
+    null,
+    "Correct",
+    "Correct",
+    "Correct"
+   ]
+  },
+  {
+   "topic": "Error Spotting",
+   "subtopic": "Subject-verb agreement",
+   "difficulty": "hard",
+   "text": "Find the part of the sentence that has an error.\nNeither of the two candidates / have submitted / the required documents / on time.",
+   "options": [
+    "have submitted",
+    "Neither of the two candidates",
+    "the required documents",
+    "on time"
+   ],
+   "answer": 0,
+   "explanation": "'Neither' takes a singular verb: 'has submitted'.",
+   "steps": [
+    "Spot what the question tests: Neither/either + singular.",
+    "Options B, C and D are out: Correct.",
+    "Common slip to avoid: Agreeing with 'candidates'.",
+    "So the answer is option A: have submitted."
+   ],
+   "trap": "Agreeing with 'candidates'.",
+   "revise": "Neither/either + singular",
+   "wrongReasons": [
+    null,
+    "Correct",
+    "Correct",
+    "Correct"
+   ]
+  },
+  {
+   "topic": "Sentence Improvement",
+   "subtopic": "Prevent from",
+   "difficulty": "hard",
+   "text": "Choose the best replacement for the underlined part.\nShe prevented me to go out.",
+   "options": [
+    "prevented me from go out",
+    "prevented me from going out",
+    "prevented me for going out",
+    "No improvement"
+   ],
+   "answer": 1,
+   "explanation": "'Prevent someone from doing something' is the correct pattern.",
+   "steps": [
+    "Spot what the question tests: Prevent from.",
+    "Option A (prevented me from go out) is out: Needs a gerund.",
+    "Option C (prevented me for going out) is out: Wrong preposition.",
+    "Option D (No improvement) is out: 'Prevent' takes 'from + -ing'.",
+    "Common slip to avoid: Using the infinitive.",
+    "So the answer is option B: prevented me from going out."
+   ],
+   "trap": "Using the infinitive.",
+   "revise": "Prevent from",
+   "wrongReasons": [
+    "Needs a gerund",
+    null,
+    "Wrong preposition",
+    "'Prevent' takes 'from + -ing'"
+   ]
+  },
+  {
+   "topic": "Sentence Improvement",
+   "subtopic": "As well as",
+   "difficulty": "hard",
+   "text": "Choose the best replacement for the underlined part.\nThe principal as well as the teachers were present.",
+   "options": [
+    "have been present",
+    "are present",
+    "No improvement",
+    "was present"
+   ],
+   "answer": 3,
+   "explanation": "With 'as well as' the verb agrees with the first subject.",
+   "steps": [
+    "Spot what the question tests: As well as: first subject.",
+    "Option A (have been present) is out: Changes the tense and the number.",
+    "Option B (are present) is out: Wrong number.",
+    "Option C (No improvement) is out: The verb must agree with 'principal'.",
+    "Common slip to avoid: Agreeing with 'teachers'.",
+    "So the answer is option D: was present."
+   ],
+   "trap": "Agreeing with 'teachers'.",
+   "revise": "As well as: first subject",
+   "wrongReasons": [
+    "Changes the tense and the number",
+    "Wrong number",
+    "The verb must agree with 'principal'",
+    null
+   ]
+  },
+  {
+   "topic": "Fill in the Blank",
+   "subtopic": "Vocabulary",
+   "difficulty": "hard",
+   "text": "Select the most appropriate word to fill the blank.\nThe scientist's claim, though dramatic, was ______ by the evidence.",
+   "options": [
+    "corroded",
+    "collaborated",
+    "coordinated",
+    "corroborated"
+   ],
+   "answer": 3,
+   "explanation": "'Corroborated' means confirmed.",
+   "steps": [
+    "Spot what the question tests: Words beginning with co-.",
+    "Option A (corroded) is out: Means worn away.",
+    "Option B (collaborated) is out: Means worked together.",
+    "Option C (coordinated) is out: Means organised.",
+    "Common slip to avoid: Choosing a similar-sounding word.",
+    "So the answer is option D: corroborated."
+   ],
+   "trap": "Choosing a similar-sounding word.",
+   "revise": "Words beginning with co-",
+   "wrongReasons": [
+    "Means worn away",
+    "Means worked together",
+    "Means organised",
+    null
+   ]
+  },
+  {
+   "topic": "Fill in the Blank",
+   "subtopic": "Vocabulary",
+   "difficulty": "hard",
+   "text": "Select the most appropriate word to fill the blank.\nThe two sisters, once inseparable, grew ______ after the dispute over the property.",
+   "options": [
+    "entranced",
+    "estimated",
+    "estranged",
+    "enraged"
+   ],
+   "answer": 2,
+   "explanation": "'Estranged' means no longer close.",
+   "steps": [
+    "Spot what the question tests: Estranged.",
+    "Option A (entranced) is out: Means charmed.",
+    "Option B (estimated) is out: Means calculated.",
+    "Option D (enraged) is out: Means angry.",
+    "Common slip to avoid: Choosing 'enraged'.",
+    "So the answer is option C: estranged."
+   ],
+   "trap": "Choosing 'enraged'.",
+   "revise": "Estranged",
+   "wrongReasons": [
+    "Means charmed",
+    "Means calculated",
+    null,
+    "Means angry"
+   ]
+  },
+  {
+   "topic": "Idioms & Phrases",
+   "subtopic": "Meaning",
+   "difficulty": "easy",
+   "text": "Select the option that gives the meaning of the idiom.\nTo bury the hatchet",
+   "options": [
+    "To start a war",
+    "To hide a weapon",
+    "To dig a hole",
+    "To make peace after a quarrel"
+   ],
+   "answer": 3,
+   "explanation": "The idiom means to end a conflict.",
+   "steps": [
+    "Spot what the question tests: Idioms: peace.",
+    "Option A (To start a war) is out: Opposite.",
+    "Options B and C are out: Literal.",
+    "Common slip to avoid: Reading it literally.",
+    "So the answer is option D: To make peace after a quarrel."
+   ],
+   "trap": "Reading it literally.",
+   "revise": "Idioms: peace",
+   "wrongReasons": [
+    "Opposite",
+    "Literal",
+    "Literal",
+    null
+   ]
+  },
+  {
+   "topic": "Idioms & Phrases",
+   "subtopic": "Meaning",
+   "difficulty": "hard",
+   "text": "Select the option that gives the meaning of the idiom.\nTo let the cat out of the bag",
+   "options": [
+    "To reveal a secret accidentally",
+    "To free an animal",
+    "To lose one's temper",
+    "To start a quarrel"
+   ],
+   "answer": 0,
+   "explanation": "The idiom means revealing something that should have been kept secret.",
+   "steps": [
+    "Spot what the question tests: Idioms: secrets.",
+    "Option B (To free an animal) is out: Literal.",
+    "Options C and D are out: Not the sense.",
+    "Common slip to avoid: Reading it literally.",
+    "So the answer is option A: To reveal a secret accidentally."
+   ],
+   "trap": "Reading it literally.",
+   "revise": "Idioms: secrets",
+   "wrongReasons": [
+    null,
+    "Literal",
+    "Not the sense",
+    "Not the sense"
+   ]
+  },
+  {
+   "topic": "Spelling Error",
+   "subtopic": "Incorrect spelling",
+   "difficulty": "moderate",
+   "text": "Select the word that is spelt incorrectly.",
+   "options": [
+    "calendar",
+    "embarrass",
+    "accomodate",
+    "withhold"
+   ],
+   "answer": 2,
+   "explanation": "The correct spelling is 'accommodate'.",
+   "steps": [
+    "Spot what the question tests: Commonly misspelt words.",
+    "Options A, B and D are out: Correct spelling.",
+    "Common slip to avoid: Writing a single 'm'.",
+    "So the answer is option C: accomodate."
+   ],
+   "trap": "Writing a single 'm'.",
+   "revise": "Commonly misspelt words",
+   "wrongReasons": [
+    "Correct spelling",
+    "Correct spelling",
+    null,
+    "Correct spelling"
+   ]
+  },
+  {
+   "topic": "Spelling Error",
+   "subtopic": "Incorrect spelling",
+   "difficulty": "hard",
+   "text": "Choose the incorrectly spelt word.",
+   "options": [
+    "privelege",
+    "supersede",
+    "occurrence",
+    "recommend"
+   ],
+   "answer": 0,
+   "explanation": "The correct spelling is 'privilege'.",
+   "steps": [
+    "Spot what the question tests: Commonly misspelt words.",
+    "Options B, C and D are out: Correct spelling.",
+    "Common slip to avoid: Writing 'e' for 'i'.",
+    "So the answer is option A: privelege."
+   ],
+   "trap": "Writing 'e' for 'i'.",
+   "revise": "Commonly misspelt words",
+   "wrongReasons": [
+    null,
+    "Correct spelling",
+    "Correct spelling",
+    "Correct spelling"
+   ]
+  },
+  {
+   "topic": "Synonyms",
+   "subtopic": "Meaning",
+   "difficulty": "hard",
+   "text": "Select the most appropriate synonym of the given word.\nIntrepid",
+   "options": [
+    "Cautious",
+    "Careless",
+    "Cunning",
+    "Fearless"
+   ],
+   "answer": 3,
+   "explanation": "'Intrepid' means fearless and adventurous.",
+   "steps": [
+    "Spot what the question tests: Synonyms: intrepid.",
+    "Option A (Cautious) is out: Opposite.",
+    "Options B and C are out: Not the sense.",
+    "Common slip to avoid: Choosing 'careless'.",
+    "So the answer is option D: Fearless."
+   ],
+   "trap": "Choosing 'careless'.",
+   "revise": "Synonyms: intrepid",
+   "wrongReasons": [
+    "Opposite",
+    "Not the sense",
+    "Not the sense",
+    null
+   ]
+  },
+  {
+   "topic": "Antonyms",
+   "subtopic": "Meaning",
+   "difficulty": "hard",
+   "text": "Select the most appropriate antonym of the given word.\nCandid",
+   "options": [
+    "Frank",
+    "Honest",
+    "Open",
+    "Devious"
+   ],
+   "answer": 3,
+   "explanation": "'Candid' means honest and open; 'devious' is the opposite.",
+   "steps": [
+    "Spot what the question tests: Antonyms: candid.",
+    "Options A, B and C are out: Synonym.",
+    "Common slip to avoid: Choosing a synonym.",
+    "So the answer is option D: Devious."
+   ],
+   "trap": "Choosing a synonym.",
+   "revise": "Antonyms: candid",
+   "wrongReasons": [
+    "Synonym",
+    "Synonym",
+    "Synonym",
+    null
+   ]
+  },
+  {
+   "topic": "One Word Substitution",
+   "subtopic": "People",
+   "difficulty": "moderate",
+   "text": "Select the option that can be used as a one-word substitute.\nOne who leaves his own country to settle in another",
+   "options": [
+    "Immigrant",
+    "Refugee",
+    "Nomad",
+    "Emigrant"
+   ],
+   "answer": 3,
+   "explanation": "An emigrant leaves; an immigrant enters.",
+   "steps": [
+    "Spot what the question tests: Emigrant vs immigrant.",
+    "Option A (Immigrant) is out: One who comes into a country to settle.",
+    "Option B (Refugee) is out: One who flees danger.",
+    "Option C (Nomad) is out: One who wanders without a fixed home.",
+    "Common slip to avoid: Choosing 'immigrant'.",
+    "So the answer is option D: Emigrant."
+   ],
+   "trap": "Choosing 'immigrant'.",
+   "revise": "Emigrant vs immigrant",
+   "wrongReasons": [
+    "One who comes into a country to settle",
+    "One who flees danger",
+    "One who wanders without a fixed home",
+    null
+   ]
+  },
+  {
+   "topic": "Homonyms",
+   "subtopic": "Same word, two senses",
+   "difficulty": "hard",
+   "text": "Select the word that fits both blanks.\nHe paid a heavy ______ for parking illegally.\nThe weather today is ______.",
+   "options": [
+    "fine",
+    "penalty",
+    "pleasant",
+    "tax"
+   ],
+   "answer": 0,
+   "explanation": "'Fine' is a penalty and also means pleasant.",
+   "steps": [
+    "Spot what the question tests: Homonyms: fine.",
+    "Options B and D are out: Fits only the first sentence.",
+    "Option C (pleasant) is out: Fits only the second sentence.",
+    "Common slip to avoid: Choosing a word that fits one blank.",
+    "So the answer is option A: fine."
+   ],
+   "trap": "Choosing a word that fits one blank.",
+   "revise": "Homonyms: fine",
+   "wrongReasons": [
+    null,
+    "Fits only the first sentence",
+    "Fits only the second sentence",
+    "Fits only the first sentence"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,950 @@
+{
+ "section": "maths",
+ "questions": [
+  {
+   "topic": "Mensuration",
+   "subtopic": "Recasting cone to sphere",
+   "difficulty": "moderate",
+   "text": "A solid metallic cone of base radius 14 cm and height 7 cm is melted and recast into a solid sphere. Taking π = 22/7, what is the surface area of the sphere?",
+   "options": [
+    "154 cm²",
+    "616 cm²",
+    "1,232 cm²",
+    "2,464 cm²"
+   ],
+   "answer": 1,
+   "value": 616,
+   "check": "4*(22/7)*Math.pow(Math.cbrt((1/3*196*7)/(4/3)),2)",
+   "explanation": "Cone volume = ⅓π × 14² × 7 = 1,372π/3. Sphere: 4/3 πR³ = 1,372π/3, so R³ = 343 and R = 7 cm. Surface area = 4πR² = 4 × 22/7 × 49 = 616 cm².",
+   "steps": [
+    "⅓π(196)(7) = 1,372π/3",
+    "4/3 πR³ = 1,372π/3 → R³ = 343, R = 7",
+    "4πR² = 616"
+   ],
+   "trap": "Using the diameter in place of the radius.",
+   "revise": "Recasting: equate volumes, then find the new dimension",
+   "wrongReasons": [
+    "Used the sphere's radius as 3.5 cm",
+    null,
+    "Doubled the sphere's area",
+    "Used the diameter as the radius"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Cone from curved area",
+   "difficulty": "easy",
+   "text": "The slant height of a right circular cone is 25 cm and its curved surface area is 550 cm². Taking π = 22/7, what is its volume?",
+   "options": [
+    "1,850 cm³",
+    "1,232 cm³",
+    "3,696 cm³",
+    "616 cm³"
+   ],
+   "answer": 1,
+   "value": 1232,
+   "check": "(22/7)*49*24/3",
+   "explanation": "Curved area πrl = 550 gives r = 550 × 7 ÷ (22 × 25) = 7 cm. Height = √(25² − 7²) = 24 cm. Volume = ⅓ × 22/7 × 49 × 24 = 1,232 cm³.",
+   "steps": [
+    "πrl = 550 → r = 7",
+    "h = √(625 − 49) = 24",
+    "V = ⅓πr²h = 1,232"
+   ],
+   "trap": "Using the slant height as the height.",
+   "revise": "Cone: curved area to radius, then Pythagoras for height",
+   "wrongReasons": [
+    "Used the slant height in place of the vertical height",
+    null,
+    "Left out the ⅓ in the volume formula",
+    "Used half the radius in the volume"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Flow of water",
+   "difficulty": "hard",
+   "text": "Water flows through a circular pipe of internal diameter 14 cm at 10 km/h into a rectangular tank 11 m long and 7 m wide. Taking π = 22/7, how long will it take to raise the water level in the tank by 1.4 m?",
+   "options": [
+    "84 minutes",
+    "10.5 minutes",
+    "21 minutes",
+    "42 minutes"
+   ],
+   "answer": 3,
+   "value": 42,
+   "check": "107.8/154*60",
+   "explanation": "Flow per hour = π(0.07)² × 10,000 m = 154 m³. Volume needed = 11 × 7 × 1.4 = 107.8 m³. Time = 107.8 ÷ 154 = 0.7 hour = 42 minutes.",
+   "steps": [
+    "Pipe radius = 0.07 m, flow = 22/7 × 0.0049 × 10,000 = 154 m³/h",
+    "Tank volume = 107.8 m³",
+    "Time = 0.7 h = 42 min"
+   ],
+   "trap": "Mixing cm and m in the pipe's cross-section.",
+   "revise": "Flow rate = cross-section × speed",
+   "wrongReasons": [
+    "Used half of the actual speed",
+    "Used the diameter as the radius",
+    "Used half of the rise in level",
+    null
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Rhombus altitude",
+   "difficulty": "hard",
+   "text": "The diagonals of a rhombus are 24 cm and 32 cm. What is the distance between a pair of its opposite sides?",
+   "options": [
+    "20 cm",
+    "19.2 cm",
+    "16 cm",
+    "12 cm"
+   ],
+   "answer": 1,
+   "value": 19.2,
+   "check": "(0.5*24*32)/Math.sqrt(144+256)",
+   "explanation": "Area = ½ × 24 × 32 = 384 cm². Side = √(12² + 16²) = 20 cm. Distance between opposite sides = area ÷ side = 384 ÷ 20 = 19.2 cm.",
+   "steps": [
+    "Area = ½ d₁d₂ = 384",
+    "Side = 20",
+    "Altitude = 384/20 = 19.2"
+   ],
+   "trap": "Giving the side as the answer.",
+   "revise": "Rhombus: area = base × altitude",
+   "wrongReasons": [
+    "Gave the side length",
+    null,
+    "Gave half the longer diagonal",
+    "Gave half the shorter diagonal"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Isosceles trapezium",
+   "difficulty": "easy",
+   "text": "The parallel sides of an isosceles trapezium are 25 cm and 9 cm and each of its non-parallel sides is 17 cm. What is its area?",
+   "options": [
+    "272 cm²",
+    "255 cm²",
+    "340 cm²",
+    "510 cm²"
+   ],
+   "answer": 1,
+   "value": 255,
+   "check": "0.5*(25+9)*Math.sqrt(289-64)",
+   "explanation": "Half the difference of the parallel sides = (25 − 9)/2 = 8. Height = √(17² − 8²) = 15 cm. Area = ½ × (25 + 9) × 15 = 255 cm².",
+   "steps": [
+    "(25 − 9)/2 = 8",
+    "h = √(289 − 64) = 15",
+    "Area = ½ × 34 × 15 = 255"
+   ],
+   "trap": "Using the slanting side as the height.",
+   "revise": "Isosceles trapezium: drop perpendiculars",
+   "wrongReasons": [
+    "Used the slant side 17 as the height",
+    null,
+    "Used the longer parallel side as the average",
+    "Left out the ½ in the formula"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Area between four circles",
+   "difficulty": "hard",
+   "text": "Four circles, each of radius 7 cm, touch one another so that their centres form a square. Taking π = 22/7, what is the area of the region enclosed between the four circles?",
+   "options": [
+    "42 cm²",
+    "154 cm²",
+    "196 cm²",
+    "84 cm²"
+   ],
+   "answer": 0,
+   "value": 42,
+   "check": "14*14-(22/7)*49",
+   "explanation": "The centres form a square of side 14 cm, area 196 cm². Each corner has a quarter circle of radius 7 inside the square; the four together equal one circle = 154 cm². Region = 196 − 154 = 42 cm².",
+   "steps": [
+    "Square of centres: 14 × 14 = 196",
+    "Four quarters = one circle = 154",
+    "196 − 154 = 42"
+   ],
+   "trap": "Forgetting that four quarter-circles make one full circle.",
+   "revise": "Region between touching circles",
+   "wrongReasons": [
+    null,
+    "Gave the area of one circle",
+    "Gave the area of the square joining the centres",
+    "Subtracted only two quarter-circles"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Sector rolled into a cone",
+   "difficulty": "hard",
+   "text": "A sector of angle 120° is cut from a circle of radius 21 cm and its straight edges are joined to form a cone. Taking π = 22/7, what is the total surface area of the cone?",
+   "options": [
+    "616 cm²",
+    "462 cm²",
+    "154 cm²",
+    "1,386 cm²"
+   ],
+   "answer": 0,
+   "value": 616,
+   "check": "(1/3)*(22/7)*441+(22/7)*49",
+   "explanation": "The sector's area becomes the curved surface: ⅓ × π × 21² = 462 cm². Arc length = ⅓ × 2π × 21 = 2πr, so r = 7 cm. Base area = π × 49 = 154. Total = 462 + 154 = 616 cm².",
+   "steps": [
+    "Sector area = ⅓ × 22/7 × 441 = 462",
+    "Arc length = 2π(21)/3 = 2πr → r = 7",
+    "Total = 462 + 154 = 616"
+   ],
+   "trap": "Giving only the curved surface or forgetting the base.",
+   "revise": "Sector to cone: slant = sector radius, base circumference = arc",
+   "wrongReasons": [
+    null,
+    "Gave only the curved surface area",
+    "Gave only the base area",
+    "Gave the area of the full circle"
+   ]
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Median to find a frequency",
+   "difficulty": "hard",
+   "text": "The median of the following distribution is 28. Find the missing frequency x.",
+   "options": [
+    "8",
+    "12",
+    "10",
+    "14"
+   ],
+   "answer": 2,
+   "value": 10,
+   "check": "3/0.3",
+   "explanation": "N = 38 + x. The median class is 20–30 with cumulative frequency 16 before it. 28 = 20 + [(N/2 − 16)/x] × 10, so (N/2 − 16) = 0.8x, i.e. 19 + 0.5x − 16 = 0.8x, so 0.3x = 3 and x = 10.",
+   "steps": [
+    "N = 38 + x, cf before 20–30 = 6 + 10 = 16",
+    "28 = 20 + ((N/2 − 16)/x) × 10",
+    "3 = 0.3x → x = 10"
+   ],
+   "trap": "Using N instead of N/2.",
+   "revise": "Median formula with an unknown frequency",
+   "wrongReasons": [
+    "Used the wrong cumulative frequency before the median class",
+    "Used the frequency of the next class",
+    null,
+    "Took the frequency of the class after the median class"
+   ],
+   "table": {
+    "caption": "Frequency distribution",
+    "headers": [
+     "Class",
+     "0–10",
+     "10–20",
+     "20–30",
+     "30–40",
+     "40–50"
+    ],
+    "rows": [
+     [
+      "Frequency",
+      "6",
+      "10",
+      "x",
+      "14",
+      "8"
+     ]
+    ]
+   }
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Mean of grouped data",
+   "difficulty": "easy",
+   "text": "What is the mean of the distribution given in the table?",
+   "options": [
+    "35",
+    "36",
+    "36.4",
+    "41.4"
+   ],
+   "answer": 2,
+   "value": 36.4,
+   "check": "(6*15+9*25+15*35+12*45+8*55)/50",
+   "explanation": "Class marks: 15, 25, 35, 45, 55. Σfx = 6(15) + 9(25) + 15(35) + 12(45) + 8(55) = 90 + 225 + 525 + 540 + 440 = 1,820. Σf = 50. Mean = 1,820 ÷ 50 = 36.4.",
+   "steps": [
+    "Class marks 15, 25, 35, 45, 55",
+    "Σfx = 1,820, Σf = 50",
+    "Mean = 36.4"
+   ],
+   "trap": "Using upper limits or the unweighted mean.",
+   "revise": "Mean of grouped data",
+   "wrongReasons": [
+    "Took the mean of the class marks without weights",
+    "Rounded using the median class mark",
+    null,
+    "Used the upper class limits in place of class marks"
+   ],
+   "table": {
+    "caption": "Marks of 50 students",
+    "headers": [
+     "Class",
+     "10–20",
+     "20–30",
+     "30–40",
+     "40–50",
+     "50–60"
+    ],
+    "rows": [
+     [
+      "Frequency",
+      "6",
+      "9",
+      "15",
+      "12",
+      "8"
+     ]
+    ]
+   }
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Averages from a table",
+   "difficulty": "hard",
+   "text": "By what percent is the average marks of the four students in Mathematics more than their average marks in English?",
+   "options": [
+    "20%",
+    "15%",
+    "25%",
+    "30%"
+   ],
+   "answer": 2,
+   "value": 25,
+   "check": "(300/4-240/4)/(240/4)*100",
+   "explanation": "Mathematics total = 72 + 81 + 56 + 91 = 300, average 75. English total = 50 + 60 + 70 + 60 = 240, average 60. Percent more = (75 − 60)/60 × 100 = 25%.",
+   "steps": [
+    "Mathematics average = 300/4 = 75",
+    "English average = 240/4 = 60",
+    "(75 − 60)/60 = 25%"
+   ],
+   "trap": "Dividing by the wrong base.",
+   "revise": "Percent change uses the base of comparison",
+   "wrongReasons": [
+    "Divided the difference by the Mathematics average instead of the English average",
+    "Gave the difference of the averages",
+    null,
+    "Mixed up the base and the comparison"
+   ],
+   "table": {
+    "caption": "Marks obtained (out of 100)",
+    "headers": [
+     "Subject",
+     "P",
+     "Q",
+     "R",
+     "S"
+    ],
+    "rows": [
+     [
+      "Mathematics",
+      "72",
+      "81",
+      "56",
+      "91"
+     ],
+     [
+      "Science",
+      "64",
+      "65",
+      "51",
+      "80"
+     ],
+     [
+      "English",
+      "50",
+      "60",
+      "70",
+      "60"
+     ]
+    ]
+   }
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Replacement of a member",
+   "difficulty": "moderate",
+   "text": "The average weight of 8 persons increases by 2.5 kg when one person weighing 65 kg is replaced by a new person. What is the weight of the new person?",
+   "options": [
+    "85 kg",
+    "67.5 kg",
+    "90 kg",
+    "62.5 kg"
+   ],
+   "answer": 0,
+   "value": 85,
+   "check": "65+8*2.5",
+   "explanation": "Total weight rises by 8 × 2.5 = 20 kg, so the new person weighs 65 + 20 = 85 kg.",
+   "steps": [
+    "Increase in total = 8 × 2.5 = 20",
+    "New weight = 65 + 20 = 85"
+   ],
+   "trap": "Adding only the change in the average.",
+   "revise": "Replacement: change in total = n × change in mean",
+   "wrongReasons": [
+    null,
+    "Added 2.5 to the old weight only",
+    "Added 25 instead of 20",
+    "Subtracted the increase"
+   ]
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Standard deviation of consecutive terms",
+   "difficulty": "hard",
+   "text": "What is the standard deviation of the seven consecutive even numbers 12, 14, 16, 18, 20, 22 and 24?",
+   "options": [
+    "4",
+    "2",
+    "8",
+    "√8"
+   ],
+   "answer": 0,
+   "value": 4,
+   "check": "Math.sqrt(112/7)",
+   "explanation": "For 7 consecutive integers, variance = (7² − 1)/12 = 4, SD = 2. Consecutive even numbers are twice the integers, so the SD doubles to 4. Check: mean 18, deviations ±6, ±4, ±2, 0, variance = 2(36 + 16 + 4)/7 = 16, SD = 4.",
+   "steps": [
+    "Mean = 18",
+    "Squared deviations: 36, 16, 4, 0, 4, 16, 36 = 112",
+    "Variance = 112/7 = 16, SD = 4"
+   ],
+   "trap": "Giving the SD of consecutive integers.",
+   "revise": "SD scales with the common difference",
+   "wrongReasons": [
+    null,
+    "This is the SD of seven consecutive integers",
+    "Gave the range of the middle terms",
+    "Took the variance of integers as 8"
+   ]
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Correcting a mean",
+   "difficulty": "moderate",
+   "text": "The mean of 100 observations was calculated as 50. It was later found that 84 had been recorded as 48 and 55 as 76. What is the correct mean?",
+   "options": [
+    "49.85",
+    "50.5",
+    "50.15",
+    "50.01"
+   ],
+   "answer": 2,
+   "value": 50.15,
+   "check": "(5000-48-76+84+55)/100",
+   "explanation": "Wrong sum = 5,000. Correct sum = 5,000 − 48 − 76 + 84 + 55 = 5,015. Mean = 50.15.",
+   "steps": [
+    "Wrong sum = 100 × 50 = 5,000",
+    "Correction = −48 − 76 + 84 + 55 = +15",
+    "Correct mean = 5,015/100"
+   ],
+   "trap": "Reversing the sign of a correction.",
+   "revise": "Mean correction: adjust the total",
+   "wrongReasons": [
+    "Applied the corrections with the wrong sign",
+    "Added only the first correction",
+    null,
+    "Divided the net correction by 1,000"
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Compound interest, half-yearly",
+   "difficulty": "hard",
+   "text": "What is the compound interest on ₹8,000 for 1½ years at 20% per annum, compounded half-yearly?",
+   "options": [
+    "₹2,400",
+    "₹2,648",
+    "₹2,560",
+    "₹5,824"
+   ],
+   "answer": 1,
+   "value": 2648,
+   "check": "8000*Math.pow(1.1,3)-8000",
+   "explanation": "Rate per half-year = 10%, periods = 3. Amount = 8,000 × (1.1)³ = 10,648. CI = 10,648 − 8,000 = ₹2,648.",
+   "steps": [
+    "Half-yearly rate = 10%, n = 3",
+    "Amount = 8,000 × 1.331 = 10,648",
+    "CI = 2,648"
+   ],
+   "trap": "Using the annual rate with half-yearly periods.",
+   "revise": "CI: halve the rate, double the periods",
+   "wrongReasons": [
+    "Used simple interest for the period",
+    null,
+    "Compounded annually for one year, then took simple interest for the half-year",
+    "Applied 20% in every half-year period"
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Partnership with staggered entry",
+   "difficulty": "hard",
+   "text": "A starts a business with ₹36,000. After 4 months B joins with ₹45,000, and 3 months after that C joins with ₹60,000. At the end of the year the total profit is ₹91,000. What is C's share?",
+   "options": [
+    "₹30,000",
+    "₹36,000",
+    "₹25,000",
+    "₹20,000"
+   ],
+   "answer": 2,
+   "value": 25000,
+   "check": "91000*300/(432+360+300)",
+   "explanation": "Capital × months: A = 36 × 12 = 432; B = 45 × 8 = 360; C = 60 × 5 = 300. Ratio = 432 : 360 : 300 = 36 : 30 : 25 (total 91). C's share = 25/91 × 91,000 = ₹25,000.",
+   "steps": [
+    "A : B : C = 36×12 : 45×8 : 60×5",
+    "= 432 : 360 : 300 = 36 : 30 : 25",
+    "C = 25 × 1,000 = ₹25,000"
+   ],
+   "trap": "Using the wrong number of months for C.",
+   "revise": "Partnership: capital × time",
+   "wrongReasons": [
+    "Gave B's share",
+    "Gave A's share",
+    null,
+    "Counted C's capital for only 4 months"
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Train and platform",
+   "difficulty": "moderate",
+   "text": "A train crosses a pole in 12 seconds and a platform 300 m long in 27 seconds. What is the speed of the train?",
+   "options": [
+    "20 km/h",
+    "54 km/h",
+    "72 km/h",
+    "90 km/h"
+   ],
+   "answer": 2,
+   "value": 72,
+   "check": "240/12*18/5",
+   "explanation": "Let the length be L m. L/12 = (L + 300)/27, so 27L = 12L + 3,600 and L = 240 m. Speed = 240/12 = 20 m/s = 20 × 18/5 = 72 km/h.",
+   "steps": [
+    "L/12 = (L + 300)/27",
+    "L = 240 m",
+    "Speed = 20 m/s = 72 km/h"
+   ],
+   "trap": "Not converting m/s to km/h.",
+   "revise": "Trains: length and platform equations",
+   "wrongReasons": [
+    "Gave the speed in m/s as if it were km/h",
+    "Used 300 ÷ 20",
+    null,
+    "Used a platform crossing time of 24 seconds"
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Replacement ratio",
+   "difficulty": "hard",
+   "text": "A vessel contains milk and water in the ratio 7 : 3. When 20 litres of the mixture are removed and replaced by water, the ratio becomes 7 : 8. What was the quantity of the mixture initially?",
+   "options": [
+    "40 litres",
+    "80 litres",
+    "45 litres",
+    "60 litres"
+   ],
+   "answer": 3,
+   "value": 60,
+   "check": "14/(0.7-7/15)",
+   "explanation": "Let the mixture be T litres. Milk left = 7/10 × (T − 20). Final milk fraction = 7/15. So 0.7(T − 20) = 7T/15, i.e. 0.7T − 14 = 0.4667T, giving T = 60 litres. Check: milk 42 → 28; water 18 → 12 + 20 = 32; 28 : 32 = 7 : 8.",
+   "steps": [
+    "Milk after removal = 0.7(T − 20)",
+    "Final milk share = 7/15",
+    "0.7(T − 20) = 7T/15 → T = 60"
+   ],
+   "trap": "Treating the 20 litres removed as pure milk.",
+   "revise": "Replacement: removed mixture carries both components",
+   "wrongReasons": [
+    "Ignored that the removed mixture contains milk",
+    "Took the total after adding 20 litres",
+    "Used the ratio 7 : 3 as 7 : 8 for the final quantity",
+    null
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Gain and loss on two articles",
+   "difficulty": "easy",
+   "text": "A trader sells two articles at ₹1,980 each, gaining 10% on one and losing 10% on the other. What is the net loss in rupees?",
+   "options": [
+    "₹0",
+    "₹20",
+    "₹198",
+    "₹40"
+   ],
+   "answer": 3,
+   "value": 40,
+   "check": "1980/1.1+1980/0.9-3960",
+   "explanation": "Cost of the first = 1,980/1.1 = 1,800; cost of the second = 1,980/0.9 = 2,200. Total cost = 4,000, total selling price = 3,960. Loss = ₹40.",
+   "steps": [
+    "CP₁ = 1,980 ÷ 1.1 = 1,800",
+    "CP₂ = 1,980 ÷ 0.9 = 2,200",
+    "Loss = 4,000 − 3,960 = 40"
+   ],
+   "trap": "Assuming equal percentages cancel.",
+   "revise": "Equal gain % and loss % on equal SP always means a loss",
+   "wrongReasons": [
+    "Assumed the equal gain and loss cancel",
+    "Halved the real loss",
+    "Took 10% of one selling price",
+    null
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Right triangle altitude",
+   "difficulty": "moderate",
+   "text": "In triangle ABC, ∠A = 90° and AD is perpendicular to BC, with BD = 9 cm and DC = 16 cm. What is the area of triangle ABC?",
+   "options": [
+    "108 cm²",
+    "300 cm²",
+    "144 cm²",
+    "150 cm²"
+   ],
+   "answer": 3,
+   "value": 150,
+   "check": "0.5*25*Math.sqrt(9*16)",
+   "explanation": "AD² = BD × DC = 144, so AD = 12 cm. BC = 25 cm. Area = ½ × 25 × 12 = 150 cm².",
+   "steps": [
+    "AD² = 9 × 16 = 144, AD = 12",
+    "BC = 9 + 16 = 25",
+    "Area = ½ × 25 × 12 = 150"
+   ],
+   "trap": "Giving AD² instead of the area.",
+   "revise": "Right triangle: altitude² = product of the segments",
+   "wrongReasons": [
+    "Used 9 + 16 as base with altitude 7",
+    "Left out the ½ in the area formula",
+    "Gave the square of the altitude",
+    null
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Incentre and circumcentre",
+   "difficulty": "hard",
+   "text": "In triangle ABC, I is the incentre and O is the circumcentre. If ∠A = 52°, what is the difference between ∠BIC and ∠BOC?",
+   "options": [
+    "26°",
+    "12°",
+    "38°",
+    "64°"
+   ],
+   "answer": 1,
+   "value": 12,
+   "check": "(90+26)-104",
+   "explanation": "∠BIC = 90° + ∠A/2 = 90° + 26° = 116°. ∠BOC = 2∠A = 104°. Difference = 12°.",
+   "steps": [
+    "∠BIC = 90° + A/2 = 116°",
+    "∠BOC = 2A = 104°",
+    "116° − 104° = 12°"
+   ],
+   "trap": "Using the wrong formula for ∠BOC.",
+   "revise": "Angles at the incentre and circumcentre",
+   "wrongReasons": [
+    "Gave half of ∠A",
+    null,
+    "Used ∠BOC = 180° − ∠A",
+    "Gave ∠BIC − ∠A"
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Tangent and secant",
+   "difficulty": "moderate",
+   "text": "From an external point P, a tangent PT of length 12 cm and a secant PAB are drawn, with PA = 8 cm. What is the length of the chord AB?",
+   "options": [
+    "18 cm",
+    "4 cm",
+    "16 cm",
+    "10 cm"
+   ],
+   "answer": 3,
+   "value": 10,
+   "check": "144/8-8",
+   "explanation": "PT² = PA × PB, so 144 = 8 × PB and PB = 18 cm. AB = PB − PA = 18 − 8 = 10 cm.",
+   "steps": [
+    "PT² = PA × PB",
+    "PB = 144/8 = 18",
+    "AB = 18 − 8 = 10"
+   ],
+   "trap": "Giving PB instead of AB.",
+   "revise": "Tangent-secant theorem",
+   "wrongReasons": [
+    "Gave PB, the whole secant",
+    "Took PT − PA",
+    "Used PA × 2",
+    null
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Tangent-chord angle",
+   "difficulty": "moderate",
+   "text": "The tangent at a point T of a circle with centre O and a chord TQ make an angle of 62°. What is the angle subtended by the chord TQ at the centre O?",
+   "options": [
+    "62°",
+    "31°",
+    "124°",
+    "118°"
+   ],
+   "answer": 2,
+   "value": 124,
+   "check": "2*62",
+   "explanation": "The angle between a tangent and a chord equals the angle in the alternate segment, so the angle at the circumference is 62°. The angle at the centre is double: 124°.",
+   "steps": [
+    "Tangent-chord angle = angle in the alternate segment = 62°",
+    "Angle at the centre = 2 × 62°",
+    "= 124°"
+   ],
+   "trap": "Stopping at the angle at the circumference.",
+   "revise": "Tangent-chord and alternate segment theorem",
+   "wrongReasons": [
+    "Gave the tangent-chord angle itself",
+    "Gave half of the tangent-chord angle",
+    null,
+    "Subtracted 62° from 180°"
+   ]
+  },
+  {
+   "topic": "Trigonometry",
+   "subtopic": "Sum of cubes with sin and cos",
+   "difficulty": "hard",
+   "text": "If sin θ + cos θ = 7/5, what is the value of sin³θ + cos³θ?",
+   "options": [
+    "0.48",
+    "0.728",
+    "1.4",
+    "0.96"
+   ],
+   "answer": 1,
+   "value": 0.728,
+   "check": "(7/5)*(1-12/25)",
+   "explanation": "Squaring: 1 + 2 sin θ cos θ = 49/25, so sin θ cos θ = 12/25. sin³θ + cos³θ = (sin θ + cos θ)(1 − sin θ cos θ) = (7/5)(13/25) = 91/125 = 0.728.",
+   "steps": [
+    "2 sinθ cosθ = 49/25 − 1 = 24/25",
+    "sinθ cosθ = 12/25",
+    "(7/5)(1 − 12/25) = 91/125 = 0.728"
+   ],
+   "trap": "Using sin θ cos θ = 24/25.",
+   "revise": "a³ + b³ = (a + b)(a² − ab + b²)",
+   "wrongReasons": [
+    "Gave sin θ cos θ",
+    null,
+    "Gave sin θ + cos θ",
+    "Gave 2 sin θ cos θ"
+   ]
+  },
+  {
+   "topic": "Trigonometry",
+   "subtopic": "Tower and flagpole",
+   "difficulty": "hard",
+   "text": "A flagpole stands on top of a tower. From a point on the ground 40 m from the foot of the tower, the angle of elevation of the top of the pole is 45° and the tangent of the angle of elevation of the top of the tower is 3/4. What is the length of the flagpole?",
+   "options": [
+    "30 m",
+    "10 m",
+    "40 m",
+    "7 m"
+   ],
+   "answer": 1,
+   "value": 10,
+   "check": "40-40*0.75",
+   "explanation": "Total height = 40 × tan 45° = 40 m. Tower = 40 × 3/4 = 30 m. Flagpole = 40 − 30 = 10 m.",
+   "steps": [
+    "Top of pole: 40 × 1 = 40 m",
+    "Top of tower: 40 × 3/4 = 30 m",
+    "Pole = 10 m"
+   ],
+   "trap": "Giving the tower or total height.",
+   "revise": "Heights and distances with two angles",
+   "wrongReasons": [
+    "Gave the height of the tower",
+    null,
+    "Gave the total height of tower and pole",
+    "Used tan = 3/5 for the tower"
+   ]
+  },
+  {
+   "topic": "Trigonometry",
+   "subtopic": "Trigonometric identity",
+   "difficulty": "easy",
+   "text": "If sec θ = 5/4 and θ is acute, what is the value of cos θ/(1 − sin θ) + cos θ/(1 + sin θ)?",
+   "options": [
+    "2.5",
+    "2",
+    "1.6",
+    "3"
+   ],
+   "answer": 0,
+   "value": 2.5,
+   "check": "2*5/4",
+   "explanation": "The expression = cos θ[(1 + sin θ) + (1 − sin θ)]/(1 − sin²θ) = 2 cos θ/cos²θ = 2 sec θ = 2 × 5/4 = 2.5.",
+   "steps": [
+    "Combine over 1 − sin²θ = cos²θ",
+    "Expression = 2 cos θ / cos²θ = 2 sec θ",
+    "= 2 × 5/4 = 2.5"
+   ],
+   "trap": "Simplifying to 2 cos θ.",
+   "revise": "Rationalising sums with sin θ",
+   "wrongReasons": [
+    null,
+    "Took the value of 2 cos θ",
+    "Gave 2 cos θ",
+    "Used sec θ = 3/2"
+   ]
+  },
+  {
+   "topic": "Algebra",
+   "subtopic": "Cube difference",
+   "difficulty": "moderate",
+   "text": "If x − 1/x = 4, what is the value of x³ − 1/x³?",
+   "options": [
+    "76",
+    "64",
+    "52",
+    "19"
+   ],
+   "answer": 0,
+   "value": 76,
+   "check": "4*4*4+3*4",
+   "explanation": "x² + 1/x² = 16 + 2 = 18. x³ − 1/x³ = (x − 1/x)(x² + 1 + 1/x²) = 4 × 19 = 76. Check: 4³ + 3 × 4 = 64 + 12 = 76.",
+   "steps": [
+    "x² + 1/x² = 4² + 2 = 18",
+    "x³ − 1/x³ = 4 × (18 + 1)",
+    "= 76"
+   ],
+   "trap": "Using the wrong sign in the cube identity.",
+   "revise": "(a − b)³ = a³ − b³ − 3ab(a − b)",
+   "wrongReasons": [
+    null,
+    "Cubed 4 without the correction",
+    "Subtracted 3 × 4 instead of adding it",
+    "Gave x² + 1/x² + 1"
+   ]
+  },
+  {
+   "topic": "Algebra",
+   "subtopic": "Roots of a quadratic",
+   "difficulty": "hard",
+   "text": "If α and β are the roots of x² − 6x + 4 = 0, what is the value of α³ + β³?",
+   "options": [
+    "144",
+    "216",
+    "180",
+    "28"
+   ],
+   "answer": 0,
+   "value": 144,
+   "check": "216-3*4*6",
+   "explanation": "α + β = 6 and αβ = 4. α³ + β³ = (α + β)³ − 3αβ(α + β) = 216 − 72 = 144.",
+   "steps": [
+    "α + β = 6, αβ = 4",
+    "(α + β)³ = 216",
+    "216 − 3(4)(6) = 144"
+   ],
+   "trap": "Adding instead of subtracting the correction term.",
+   "revise": "Symmetric functions of roots",
+   "wrongReasons": [
+    null,
+    "Gave (α + β)³",
+    "Used + 3αβ(α + β)",
+    "Gave α² + β²"
+   ]
+  },
+  {
+   "topic": "Algebra",
+   "subtopic": "Age equation",
+   "difficulty": "moderate",
+   "text": "The sum of the present ages of a father and his son is 56 years. Eight years ago the father was seven times as old as the son. What will be the father's age after 5 years?",
+   "options": [
+    "43 years",
+    "53 years",
+    "13 years",
+    "48 years"
+   ],
+   "answer": 3,
+   "value": 48,
+   "check": "43+5",
+   "explanation": "Let the son be S. Father = 56 − S. 56 − S − 8 = 7(S − 8), so 48 − S = 7S − 56, 8S = 104 and S = 13. Father = 43. After 5 years = 48.",
+   "steps": [
+    "F + S = 56, F − 8 = 7(S − 8)",
+    "8S = 104 → S = 13, F = 43",
+    "After 5 years: 48"
+   ],
+   "trap": "Giving the present age.",
+   "revise": "Age problems: set up the earlier-year equation",
+   "wrongReasons": [
+    "Gave the father's present age",
+    "Added 10 years",
+    "Gave the son's present age",
+    null
+   ]
+  },
+  {
+   "topic": "Number System",
+   "subtopic": "Trailing zeros",
+   "difficulty": "easy",
+   "text": "How many trailing zeros are there in 125! (the factorial of 125)?",
+   "options": [
+    "25",
+    "30",
+    "32",
+    "31"
+   ],
+   "answer": 3,
+   "value": 31,
+   "check": "25+5+1",
+   "explanation": "Zeros = ⌊125/5⌋ + ⌊125/25⌋ + ⌊125/125⌋ = 25 + 5 + 1 = 31.",
+   "steps": [
+    "125/5 = 25",
+    "125/25 = 5",
+    "125/125 = 1",
+    "Total = 31"
+   ],
+   "trap": "Counting only the multiples of 5.",
+   "revise": "Legendre's formula for trailing zeros",
+   "wrongReasons": [
+    "Counted only the multiples of 5",
+    "Missed the power 5³ = 125",
+    "Counted 125/5 + 125/25 + 125/125 + 1",
+    null
+   ]
+  },
+  {
+   "topic": "Number System",
+   "subtopic": "Unit digit of a product",
+   "difficulty": "hard",
+   "text": "What is the unit digit of 13⁵⁷ × 17²³?",
+   "options": [
+    "9",
+    "1",
+    "3",
+    "7"
+   ],
+   "answer": 0,
+   "value": 9,
+   "check": "(3*3)%10",
+   "explanation": "13⁵⁷ ends like 3⁵⁷; the cycle of 3 is 3, 9, 7, 1 and 57 mod 4 = 1, so the digit is 3. 17²³ ends like 7²³; the cycle of 7 is 7, 9, 3, 1 and 23 mod 4 = 3, so the digit is 3. The product ends in 3 × 3 = 9.",
+   "steps": [
+    "3⁵⁷ → 57 mod 4 = 1 → 3",
+    "7²³ → 23 mod 4 = 3 → 3",
+    "3 × 3 = 9"
+   ],
+   "trap": "Using the wrong position in the cycle.",
+   "revise": "Cyclicity of unit digits",
+   "wrongReasons": [
+    null,
+    "Assumed the cycles cancel",
+    "Used only the first factor",
+    "Used only the second factor"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1370 @@
+{
+ "section": "english",
+ "passages": {
+  "p1": "For nearly a century, standardised examinations have served as the great equaliser of modern education. A single paper, set and marked by an impartial authority, promises that a student from a remote village and one from a metropolitan school are judged by the same yardstick. Defenders of the system argue that, whatever its flaws, it curbs favouritism and gives talent a chance to surface regardless of connections. Critics, however, contend that the yardstick itself is crooked. Because examinations reward the ability to recall and reproduce, they favour students who can afford coaching and rehearsal, while penalising those whose gifts lie in curiosity, judgement or collaboration. The result, they say, is not an equal contest but a well-disguised advantage for the already prepared.\nA third group takes a more pragmatic view: abolishing examinations would only replace a visible inequality with hidden ones, such as interviews, in which personal contacts count for even more. They propose reforming rather than discarding the system, by setting questions that test reasoning, by allowing multiple attempts, and by publishing the weightage of each topic in advance. Whether such reforms can be introduced without making papers either too easy or too unpredictable remains the central difficulty, and it is one on which neither side has yet offered a convincing answer.",
+  "p2": "Public libraries were once judged by a simple measure: how many books they lent. By that standard, many have been declining for years, as readers shift to screens and borrowing falls. Yet a growing number of librarians argue that the measure itself is outdated. A modern library, they say, is less a warehouse of books than a shared room in which people can study without paying, apply for jobs, learn to use unfamiliar software, or simply sit in the company of others. For a student without a quiet home, or a retiree living alone, such a space can matter more than any single title on the shelves.\nSome councils have nevertheless treated libraries as an easy saving, reasoning that anything available online no longer needs a building. This reasoning overlooks the fact that access to the internet is itself unequal, and that the people who most need a free, staffed and reliable space are often the very ones without good connections at home. Closing a branch may therefore save money on paper but cost the community far more in lost opportunity. The case for libraries, in other words, rests not on nostalgia for paper, but on a plain calculation of who would be left behind without them.",
+  "p3": "It is tempting to regard sleep as a pause in the working day, a period in which the mind simply switches off. Research over several decades has pointed to a very different picture. During sleep, the brain appears to replay the events of the waking hours, strengthening some memories and quietly discarding others. Experiments in which volunteers learn a task in the evening and are tested the next morning have repeatedly found that those who slept soundly perform better than those who stayed awake for the same period, even when the waking group was given time to rest. The benefit is not confined to simple facts; studies suggest that sleep may also help people notice patterns that had escaped them while awake, which is why a problem that seemed hopeless at midnight sometimes looks straightforward at dawn.\nNone of this, researchers caution, means that sleep can substitute for study. A student who has not learnt anything has nothing for the sleeping brain to consolidate. What the findings do suggest is that the common habit of sacrificing sleep to cram for an examination may be self-defeating, trading a few extra hours of exposure to the material for a weaker ability to retain it. The sensible approach, therefore, is to treat sleep as part of preparation rather than as a rival to it.",
+  "p4": "The first rains of the season (1) the town's market back to life. Vendors who had spent the dry months sitting idle now (2) their stalls with umbrellas, raincoats and plastic sheets, and the lane outside the old temple becomes a river of colourful canopies. Although the downpour often (3) traffic for hours, nobody seems to mind; shoppers simply wait under awnings, sipping hot tea and (4) the price of onions. By evening, when the clouds finally clear, the pavements are slick, the air smells of wet earth, and the sellers pack up with the quiet satisfaction of people who have (5) a good day's trade. Children, who were kept indoors for much of the afternoon, run out to splash through the puddles, and the lamps come on one by one along the lane."
+ },
+ "questions": [
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Cloze",
+   "difficulty": "easy",
+   "text": "Select the most appropriate option to fill in blank number (1) in the passage.",
+   "explanation": "'The first rains' is plural and the passage is in the present tense, so the plain form 'bring' is needed.",
+   "trap": "Choosing 'brings' because 'season' is singular.",
+   "revise": "Subject-verb agreement in cloze",
+   "options": [
+    "bring",
+    "brings",
+    "brought",
+    "bringing"
+   ],
+   "answer": 0,
+   "wrongReasons": [
+    null,
+    "Singular verb with the plural subject 'rains'",
+    "Past tense does not fit the present-tense passage",
+    "The participle leaves the clause without a main verb"
+   ],
+   "passageId": "p4",
+   "steps": [
+    "Spot what the question tests: Subject-verb agreement in cloze.",
+    "Option B (brings) is out: Singular verb with the plural subject 'rains'.",
+    "Option C (brought) is out: Past tense does not fit the present-tense passage.",
+    "Option D (bringing) is out: The participle leaves the clause without a main verb.",
+    "Common slip to avoid: Choosing 'brings' because 'season' is singular.",
+    "So the answer is option A: bring."
+   ]
+  },
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Cloze",
+   "difficulty": "moderate",
+   "text": "Select the most appropriate option to fill in blank number (2) in the passage.",
+   "explanation": "To 'stock' a stall is to fill it with goods for sale; the usual collocation is 'stock … with'.",
+   "trap": "Choosing 'store' because it sounds close in meaning.",
+   "revise": "Collocations: stock with",
+   "options": [
+    "stoke",
+    "stock",
+    "store",
+    "stack"
+   ],
+   "answer": 1,
+   "wrongReasons": [
+    "'Stoke' means to feed a fire",
+    null,
+    "'Store' would put the goods away, not display them on stalls",
+    "'Stack their stalls' is not an idiomatic phrase"
+   ],
+   "passageId": "p4",
+   "steps": [
+    "Spot what the question tests: Collocations: stock with.",
+    "Option A (stoke) is out: 'Stoke' means to feed a fire.",
+    "Option C (store) is out: 'Store' would put the goods away, not display them on stalls.",
+    "Option D (stack) is out: 'Stack their stalls' is not an idiomatic phrase.",
+    "Common slip to avoid: Choosing 'store' because it sounds close in meaning.",
+    "So the answer is option B: stock."
+   ]
+  },
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Cloze",
+   "difficulty": "moderate",
+   "text": "Select the most appropriate option to fill in blank number (3) in the passage.",
+   "explanation": "The downpour stops traffic for hours, so 'halts' fits. 'Hastens' contradicts the idea of waiting under awnings.",
+   "trap": "Picking 'hastens' without checking the sense.",
+   "revise": "Context clues in cloze",
+   "options": [
+    "hauls",
+    "halts",
+    "halves",
+    "hastens"
+   ],
+   "answer": 1,
+   "wrongReasons": [
+    "'Hauls' means to pull or carry",
+    null,
+    "'Halves' means to divide into two",
+    "'Hastens' means to speed up, the opposite of the meaning needed"
+   ],
+   "passageId": "p4",
+   "steps": [
+    "Spot what the question tests: Context clues in cloze.",
+    "Option A (hauls) is out: 'Hauls' means to pull or carry.",
+    "Option C (halves) is out: 'Halves' means to divide into two.",
+    "Option D (hastens) is out: 'Hastens' means to speed up, the opposite of the meaning needed.",
+    "Common slip to avoid: Picking 'hastens' without checking the sense.",
+    "So the answer is option B: halts."
+   ]
+  },
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Cloze",
+   "difficulty": "moderate",
+   "text": "Select the most appropriate option to fill in blank number (4) in the passage.",
+   "explanation": "Shoppers waiting in the rain would chat about the price of onions, so 'debating' fits the relaxed scene.",
+   "trap": "Choosing 'deciding', which sounds purposeful.",
+   "revise": "Verb choice by context",
+   "options": [
+    "deciding",
+    "defending",
+    "debating",
+    "deducting"
+   ],
+   "answer": 2,
+   "wrongReasons": [
+    "One cannot 'decide' a market price while waiting out the rain",
+    "Nobody is defending the price of onions",
+    null,
+    "'Deducting' a price makes no sense here"
+   ],
+   "passageId": "p4",
+   "steps": [
+    "Spot what the question tests: Verb choice by context.",
+    "Option A (deciding) is out: One cannot 'decide' a market price while waiting out the rain.",
+    "Option B (defending) is out: Nobody is defending the price of onions.",
+    "Option D (deducting) is out: 'Deducting' a price makes no sense here.",
+    "Common slip to avoid: Choosing 'deciding', which sounds purposeful.",
+    "So the answer is option C: debating."
+   ]
+  },
+  {
+   "topic": "Cloze Test",
+   "subtopic": "Cloze",
+   "difficulty": "hard",
+   "text": "Select the most appropriate option to fill in blank number (5) in the passage.",
+   "explanation": "'Quiet satisfaction' points to a positive experience, so 'enjoyed a good day's trade' is the natural fit.",
+   "trap": "Choosing 'endured' because it also begins with E.",
+   "revise": "Tone-consistent word choice",
+   "options": [
+    "endured",
+    "emptied",
+    "entered",
+    "enjoyed"
+   ],
+   "answer": 3,
+   "wrongReasons": [
+    "'Endured' suggests suffering, which clashes with 'quiet satisfaction'",
+    "'Emptied a good day's trade' is not meaningful",
+    "'Entered a trade' changes the sense completely",
+    null
+   ],
+   "passageId": "p4",
+   "steps": [
+    "Spot what the question tests: Tone-consistent word choice.",
+    "Option A (endured) is out: 'Endured' suggests suffering, which clashes with 'quiet satisfaction'.",
+    "Option B (emptied) is out: 'Emptied a good day's trade' is not meaningful.",
+    "Option C (entered) is out: 'Entered a trade' changes the sense completely.",
+    "Common slip to avoid: Choosing 'endured' because it also begins with E.",
+    "So the answer is option D: enjoyed."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Tone / attitude",
+   "difficulty": "hard",
+   "text": "Which of the following best describes the author's stance in the passage?",
+   "explanation": "The passage reports defenders, critics and a third reformist group, then closes by saying neither side has offered a convincing answer.",
+   "trap": "Taking the reporting of the critics' view as the author's own.",
+   "revise": "Tone: balanced reporting vs advocacy",
+   "options": [
+    "A balanced observer who finds neither side's case fully convincing",
+    "A supporter of reform who treats the critics' case as decisive",
+    "A defender of the present system who thinks the critics are mistaken",
+    "A sceptic who believes no reform can ever work"
+   ],
+   "answer": 0,
+   "wrongReasons": [
+    null,
+    "The author says reforms face a central difficulty",
+    "Critics' points are reported without rebuttal",
+    "The author questions whether reforms can be introduced well, not whether they can ever work"
+   ],
+   "passageId": "p1",
+   "steps": [
+    "Spot what the question tests: Tone: balanced reporting vs advocacy.",
+    "Option B (A supporter of reform who treats the critics' c…) is out: The author says reforms face a central difficulty.",
+    "Option C (A defender of the present system who thinks the…) is out: Critics' points are reported without rebuttal.",
+    "Option D (A sceptic who believes no reform can ever work) is out: The author questions whether reforms can be introduced well, not whether they can ever work.",
+    "Common slip to avoid: Taking the reporting of the critics' view as the author's own.",
+    "So the answer is option A: A balanced observer who finds neither side's case fully convincing."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "NOT / EXCEPT",
+   "difficulty": "moderate",
+   "text": "According to the passage, critics of examinations argue all of the following EXCEPT that:",
+   "explanation": "Favouritism by examiners is what defenders say examinations curb; critics are never reported as alleging it.",
+   "trap": "Picking a stated point when the question asks for the one NOT stated.",
+   "revise": "EXCEPT questions: verify each option against the text",
+   "options": [
+    "recall-based papers favour students who can afford coaching",
+    "gifts such as judgement and collaboration go unrewarded",
+    "examiners mark candidates they personally know more generously",
+    "the contest is unequal in a well-disguised way"
+   ],
+   "answer": 2,
+   "wrongReasons": [
+    "Stated: examinations reward recall and rehearsal",
+    "Stated: such gifts are penalised",
+    null,
+    "Stated: an advantage for the already prepared"
+   ],
+   "passageId": "p1",
+   "steps": [
+    "Spot what the question tests: EXCEPT questions: verify each option against the text.",
+    "Option A (recall-based papers favour students who can aff…) is out: Stated: examinations reward recall and rehearsal.",
+    "Option B (gifts such as judgement and collaboration go un…) is out: Stated: such gifts are penalised.",
+    "Option D (the contest is unequal in a well-disguised way) is out: Stated: an advantage for the already prepared.",
+    "Common slip to avoid: Picking a stated point when the question asks for the one NOT stated.",
+    "So the answer is option C: examiners mark candidates they personally know more generously."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Vocabulary in context",
+   "difficulty": "moderate",
+   "text": "The word 'pragmatic' as used in the passage most nearly means:",
+   "explanation": "The third group weighs what would actually happen if examinations were abolished, so 'pragmatic' means practical.",
+   "trap": "Reading 'pragmatic' as 'negative'.",
+   "revise": "Vocabulary in context: pragmatic",
+   "options": [
+    "concerned with practical results rather than ideals",
+    "pessimistic about any change",
+    "indifferent to fairness",
+    "guided by tradition"
+   ],
+   "answer": 0,
+   "wrongReasons": [
+    null,
+    "The third group favours reform, so it is not pessimistic",
+    "The group is worried about hidden unfairness",
+    "The group proposes reforms, not preservation"
+   ],
+   "passageId": "p1",
+   "steps": [
+    "Spot what the question tests: Vocabulary in context: pragmatic.",
+    "Option B (pessimistic about any change) is out: The third group favours reform, so it is not pessimistic.",
+    "Option C (indifferent to fairness) is out: The group is worried about hidden unfairness.",
+    "Option D (guided by tradition) is out: The group proposes reforms, not preservation.",
+    "Common slip to avoid: Reading 'pragmatic' as 'negative'.",
+    "So the answer is option A: concerned with practical results rather than ideals."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Inference",
+   "difficulty": "hard",
+   "text": "It can be inferred from the passage that the third group would be LEAST likely to support:",
+   "explanation": "They say interviews would bring hidden inequality, since personal contacts count for even more.",
+   "trap": "Choosing a reform they themselves propose.",
+   "revise": "Inference: what the group rejects",
+   "options": [
+    "publishing the weightage of each topic in advance",
+    "allowing students multiple attempts",
+    "setting questions that test reasoning",
+    "replacing examinations with interviews"
+   ],
+   "answer": 3,
+   "wrongReasons": [
+    "They propose this reform",
+    "They propose this reform",
+    "They propose this reform",
+    null
+   ],
+   "passageId": "p1",
+   "steps": [
+    "Spot what the question tests: Inference: what the group rejects.",
+    "Options A, B and C are out: They propose this reform.",
+    "Common slip to avoid: Choosing a reform they themselves propose.",
+    "So the answer is option D: replacing examinations with interviews."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Structure / purpose",
+   "difficulty": "moderate",
+   "text": "Why does the author mention interviews in the last paragraph?",
+   "explanation": "Interviews are given as the example of a hidden inequality that would replace the visible one.",
+   "trap": "Reversing the direction of the example.",
+   "revise": "Purpose of an example",
+   "options": [
+    "To argue that interviews measure ability better than examinations",
+    "To suggest that coaching cannot help in interviews",
+    "To show that scrapping examinations could replace a visible unfairness with a concealed one",
+    "To claim that personal contacts matter less than critics allege"
+   ],
+   "answer": 2,
+   "wrongReasons": [
+    "The author says personal contacts count more in interviews",
+    "Not discussed in the passage",
+    null,
+    "The passage says they matter even more"
+   ],
+   "passageId": "p1",
+   "steps": [
+    "Spot what the question tests: Purpose of an example.",
+    "Option A (To argue that interviews measure ability better…) is out: The author says personal contacts count more in interviews.",
+    "Option B (To suggest that coaching cannot help in intervi…) is out: Not discussed in the passage.",
+    "Option D (To claim that personal contacts matter less tha…) is out: The passage says they matter even more.",
+    "Common slip to avoid: Reversing the direction of the example.",
+    "So the answer is option C: To show that scrapping examinations could replace a visible unfairnes…."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Main idea",
+   "difficulty": "moderate",
+   "text": "Which of the following best expresses the main argument of the passage?",
+   "explanation": "The author argues that lending figures are an outdated measure and that libraries matter for who would be left behind without them.",
+   "trap": "Choosing a statement that is true of the passage's background but not its argument.",
+   "revise": "Main idea vs supporting detail",
+   "options": [
+    "Libraries are declining because readers prefer screens, so councils are right to cut them",
+    "Libraries deserve support for the space and services they offer to people who would otherwise be left out, not for the books they lend",
+    "Borrowing figures show that libraries remain as popular as ever",
+    "Online access has made library buildings unnecessary but books still matter"
+   ],
+   "answer": 1,
+   "wrongReasons": [
+    "The author rejects the reasoning of those councils",
+    null,
+    "The passage says borrowing has been falling",
+    "The author says online access is itself unequal"
+   ],
+   "passageId": "p2",
+   "steps": [
+    "Spot what the question tests: Main idea vs supporting detail.",
+    "Option A (Libraries are declining because readers prefer…) is out: The author rejects the reasoning of those councils.",
+    "Option C (Borrowing figures show that libraries remain as…) is out: The passage says borrowing has been falling.",
+    "Option D (Online access has made library buildings unnece…) is out: The author says online access is itself unequal.",
+    "Common slip to avoid: Choosing a statement that is true of the passage's background but not its argument.",
+    "So the answer is option B: Libraries deserve support for the space and services they offer to pe…."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Retrieval",
+   "difficulty": "moderate",
+   "text": "According to the passage, councils that cut library services have overlooked the fact that:",
+   "explanation": "The passage says internet access is itself unequal, so those who most need a library are often without good connections at home.",
+   "trap": "Choosing a plausible claim that the passage never makes.",
+   "revise": "Retrieval: stay with the text",
+   "options": [
+    "borrowing has risen in recent years",
+    "the people who most need a free, staffed space often lack good internet access at home",
+    "paper books are cheaper than online resources",
+    "librarians prefer a staffed space to a digital one"
+   ],
+   "answer": 1,
+   "wrongReasons": [
+    "The passage says borrowing has been falling",
+    null,
+    "Not stated",
+    "Not stated; the point is about users' needs"
+   ],
+   "passageId": "p2",
+   "steps": [
+    "Spot what the question tests: Retrieval: stay with the text.",
+    "Option A (borrowing has risen in recent years) is out: The passage says borrowing has been falling.",
+    "Option C (paper books are cheaper than online resources) is out: Not stated.",
+    "Option D (librarians prefer a staffed space to a digital…) is out: Not stated; the point is about users' needs.",
+    "Common slip to avoid: Choosing a plausible claim that the passage never makes.",
+    "So the answer is option B: the people who most need a free, staffed space often lack good intern…."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Vocabulary in context",
+   "difficulty": "hard",
+   "text": "The phrase 'a plain calculation' in the last sentence suggests that the author regards the case for libraries as:",
+   "explanation": "'Plain' means simple and clear, and the sentence contrasts it with nostalgia for paper.",
+   "trap": "Missing the contrast with nostalgia.",
+   "revise": "Contrast signals in a sentence",
+   "options": [
+    "a matter of straightforward reasoning about who would be disadvantaged",
+    "an emotional appeal to nostalgia",
+    "a complicated economic model",
+    "a legal argument based on council duties"
+   ],
+   "answer": 0,
+   "wrongReasons": [
+    null,
+    "The author explicitly says it is not nostalgia",
+    "'Plain' means simple, not complicated",
+    "Not mentioned"
+   ],
+   "passageId": "p2",
+   "steps": [
+    "Spot what the question tests: Contrast signals in a sentence.",
+    "Option B (an emotional appeal to nostalgia) is out: The author explicitly says it is not nostalgia.",
+    "Option C (a complicated economic model) is out: 'Plain' means simple, not complicated.",
+    "Option D (a legal argument based on council duties) is out: Not mentioned.",
+    "Common slip to avoid: Missing the contrast with nostalgia.",
+    "So the answer is option A: a matter of straightforward reasoning about who would be disadvantaged."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "NOT / EXCEPT",
+   "difficulty": "moderate",
+   "text": "All of the following are mentioned as things a modern library offers EXCEPT:",
+   "explanation": "The passage lists study space, job applications, software learning and company, but never e-book lending.",
+   "trap": "Not checking each option against the text.",
+   "revise": "EXCEPT questions",
+   "options": [
+    "a place to study without paying",
+    "access to e-books that can be borrowed from home",
+    "help with applying for jobs",
+    "the chance to learn unfamiliar software"
+   ],
+   "answer": 1,
+   "wrongReasons": [
+    "Stated",
+    null,
+    "Stated",
+    "Stated"
+   ],
+   "passageId": "p2",
+   "steps": [
+    "Spot what the question tests: EXCEPT questions.",
+    "Options A, C and D are out: Stated.",
+    "Common slip to avoid: Not checking each option against the text.",
+    "So the answer is option B: access to e-books that can be borrowed from home."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Inference",
+   "difficulty": "hard",
+   "text": "The author would most likely agree that closing a library branch to save money:",
+   "explanation": "The passage says a closure may save money on paper but cost the community far more in lost opportunity.",
+   "trap": "Picking an option that sounds sensible but is not the author's view.",
+   "revise": "Author's view vs general sense",
+   "options": [
+    "is justified whenever borrowing figures fall",
+    "may cost the community more than it saves",
+    "is acceptable if a free online alternative exists",
+    "should be combined with larger spending on paper books"
+   ],
+   "answer": 1,
+   "wrongReasons": [
+    "The author calls borrowing an outdated measure",
+    null,
+    "Online access is described as unequal",
+    "The author's case is not about paper"
+   ],
+   "passageId": "p2",
+   "steps": [
+    "Spot what the question tests: Author's view vs general sense.",
+    "Option A (is justified whenever borrowing figures fall) is out: The author calls borrowing an outdated measure.",
+    "Option C (is acceptable if a free online alternative exis…) is out: Online access is described as unequal.",
+    "Option D (should be combined with larger spending on pape…) is out: The author's case is not about paper.",
+    "Common slip to avoid: Picking an option that sounds sensible but is not the author's view.",
+    "So the answer is option B: may cost the community more than it saves."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Retrieval",
+   "difficulty": "moderate",
+   "text": "Which of the following is supported by the passage?",
+   "explanation": "The experiments reported found a sleep advantage even when waking volunteers were allowed to rest.",
+   "trap": "Choosing an option that reverses a detail.",
+   "revise": "Retrieval: reversed details",
+   "options": [
+    "Rest while awake improves memory as much as sleep does",
+    "Sleep helps only with remembering simple facts",
+    "Volunteers who slept after learning did better the next morning than those who stayed awake, even when the waking group rested",
+    "The sleeping brain can learn new material on its own"
+   ],
+   "answer": 2,
+   "wrongReasons": [
+    "The waking group had time to rest and still did worse",
+    "The passage says the benefit is not confined to simple facts",
+    null,
+    "The passage says a student who learnt nothing has nothing to consolidate"
+   ],
+   "passageId": "p3",
+   "steps": [
+    "Spot what the question tests: Retrieval: reversed details.",
+    "Option A (Rest while awake improves memory as much as sle…) is out: The waking group had time to rest and still did worse.",
+    "Option B (Sleep helps only with remembering simple facts) is out: The passage says the benefit is not confined to simple facts.",
+    "Option D (The sleeping brain can learn new material on it…) is out: The passage says a student who learnt nothing has nothing to consolidate.",
+    "Common slip to avoid: Choosing an option that reverses a detail.",
+    "So the answer is option C: Volunteers who slept after learning did better the next morning than…."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Purpose",
+   "difficulty": "moderate",
+   "text": "The author mentions a problem that 'seemed hopeless at midnight' in order to:",
+   "explanation": "The example is offered right after the claim that sleep helps people notice patterns.",
+   "trap": "Missing why an example appears where it does.",
+   "revise": "Purpose of an example",
+   "options": [
+    "illustrate that sleep may help people notice patterns they had missed",
+    "show that people should avoid working at night",
+    "prove that problems become easier with time alone",
+    "suggest that the brain switches off during sleep"
+   ],
+   "answer": 0,
+   "wrongReasons": [
+    null,
+    "Not claimed",
+    "The claim concerns sleep",
+    "The passage rejects this view"
+   ],
+   "passageId": "p3",
+   "steps": [
+    "Spot what the question tests: Purpose of an example.",
+    "Option B (show that people should avoid working at night) is out: Not claimed.",
+    "Option C (prove that problems become easier with time alo…) is out: The claim concerns sleep.",
+    "Option D (suggest that the brain switches off during sleep) is out: The passage rejects this view.",
+    "Common slip to avoid: Missing why an example appears where it does.",
+    "So the answer is option A: illustrate that sleep may help people notice patterns they had missed."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Vocabulary in context",
+   "difficulty": "moderate",
+   "text": "The word 'consolidate' as used in the passage most nearly means:",
+   "explanation": "The sleeping brain strengthens memories, so 'consolidate' means to make firmer.",
+   "trap": "Choosing the dictionary's commonest sense.",
+   "revise": "Vocabulary in context: consolidate",
+   "options": [
+    "combine into a single unit",
+    "make firmer and more secure",
+    "erase gradually",
+    "revise aloud"
+   ],
+   "answer": 1,
+   "wrongReasons": [
+    "A common meaning, but not the sense here",
+    null,
+    "The brain 'discards' some memories, but consolidation is about keeping",
+    "No speech is involved"
+   ],
+   "passageId": "p3",
+   "steps": [
+    "Spot what the question tests: Vocabulary in context: consolidate.",
+    "Option A (combine into a single unit) is out: A common meaning, but not the sense here.",
+    "Option C (erase gradually) is out: The brain 'discards' some memories, but consolidation is about keeping.",
+    "Option D (revise aloud) is out: No speech is involved.",
+    "Common slip to avoid: Choosing the dictionary's commonest sense.",
+    "So the answer is option B: make firmer and more secure."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Inference",
+   "difficulty": "hard",
+   "text": "When the author says sleep 'cannot substitute for study', the implication is that:",
+   "explanation": "A student who has learnt nothing has nothing for the sleeping brain to consolidate.",
+   "trap": "Over-reading 'cannot substitute' as 'is useless'.",
+   "revise": "Inference: scope of a claim",
+   "options": [
+    "sleep is of no help in learning",
+    "study and sleep are equally important",
+    "sleep strengthens only what has already been learned",
+    "studying late at night is harmful"
+   ],
+   "answer": 2,
+   "wrongReasons": [
+    "The passage says sleep helps learning",
+    "Not claimed; sleep consolidates what study provides",
+    null,
+    "Not stated; cramming is criticised for costing sleep"
+   ],
+   "passageId": "p3",
+   "steps": [
+    "Spot what the question tests: Inference: scope of a claim.",
+    "Option A (sleep is of no help in learning) is out: The passage says sleep helps learning.",
+    "Option B (study and sleep are equally important) is out: Not claimed; sleep consolidates what study provides.",
+    "Option D (studying late at night is harmful) is out: Not stated; cramming is criticised for costing sleep.",
+    "Common slip to avoid: Over-reading 'cannot substitute' as 'is useless'.",
+    "So the answer is option C: sleep strengthens only what has already been learned."
+   ]
+  },
+  {
+   "topic": "Reading Comprehension",
+   "subtopic": "Conclusion",
+   "difficulty": "moderate",
+   "text": "Which of the following best captures the author's recommendation?",
+   "explanation": "The last sentence says the sensible approach is to treat sleep as part of preparation.",
+   "trap": "Picking an extreme version of the advice.",
+   "revise": "Concluding recommendation",
+   "options": [
+    "Treat sleep as part of preparation rather than as a rival to it",
+    "Study less and sleep more",
+    "Cram only when well rested",
+    "Sleep immediately before an examination to improve recall"
+   ],
+   "answer": 0,
+   "wrongReasons": [
+    null,
+    "The passage does not suggest reducing study",
+    "Cramming is described as self-defeating",
+    "The point is about preparation, not the last hour"
+   ],
+   "passageId": "p3",
+   "steps": [
+    "Spot what the question tests: Concluding recommendation.",
+    "Option B (Study less and sleep more) is out: The passage does not suggest reducing study.",
+    "Option C (Cram only when well rested) is out: Cramming is described as self-defeating.",
+    "Option D (Sleep immediately before an examination to impr…) is out: The point is about preparation, not the last hour.",
+    "Common slip to avoid: Picking an extreme version of the advice.",
+    "So the answer is option A: Treat sleep as part of preparation rather than as a rival to it."
+   ]
+  },
+  {
+   "topic": "Error Spotting",
+   "subtopic": "Subject-verb agreement",
+   "difficulty": "moderate",
+   "text": "Find the part of the sentence that has an error.\nA number of students / is waiting / outside the office / for the results.",
+   "explanation": "'A number of' means 'several' and takes a plural verb: 'are waiting'. ('The number of' would take a singular verb.)",
+   "trap": "Matching the verb to the singular word 'number'.",
+   "revise": "'A number of' versus 'The number of'",
+   "options": [
+    "A number of students",
+    "outside the office",
+    "for the results",
+    "is waiting"
+   ],
+   "answer": 3,
+   "wrongReasons": [
+    "Subject phrase is correct",
+    "Prepositional phrase is correct",
+    "Phrase is correct",
+    null
+   ],
+   "steps": [
+    "Spot what the question tests: 'A number of' versus 'The number of'.",
+    "Option A (A number of students) is out: Subject phrase is correct.",
+    "Option B (outside the office) is out: Prepositional phrase is correct.",
+    "Option C (for the results) is out: Phrase is correct.",
+    "Common slip to avoid: Matching the verb to the singular word 'number'.",
+    "So the answer is option D: is waiting."
+   ]
+  },
+  {
+   "topic": "Error Spotting",
+   "subtopic": "Absolute adjectives",
+   "difficulty": "hard",
+   "text": "Find the part of the sentence that has an error.\nThis is the most unique / design that / the architect has / ever produced.",
+   "explanation": "'Unique' means one of a kind, so it cannot be compared with 'most'. The correct phrase is 'the most distinctive' or simply 'unique'.",
+   "trap": "Accepting 'most unique' because it is common in speech.",
+   "revise": "Absolute adjectives (unique, perfect, complete)",
+   "options": [
+    "design that",
+    "This is the most unique",
+    "the architect has",
+    "ever produced."
+   ],
+   "answer": 1,
+   "wrongReasons": [
+    "Phrase is correct",
+    null,
+    "Phrase is correct",
+    "Phrase is correct"
+   ],
+   "steps": [
+    "Spot what the question tests: Absolute adjectives (unique, perfect, complete).",
+    "Options A, C and D are out: Phrase is correct.",
+    "Common slip to avoid: Accepting 'most unique' because it is common in speech.",
+    "So the answer is option B: This is the most unique."
+   ]
+  },
+  {
+   "topic": "Sentence Improvement",
+   "subtopic": "Conditionals",
+   "difficulty": "hard",
+   "text": "Select the option that improves the underlined part of the sentence. If no improvement is needed, select 'No improvement'.\nHad I known about the traffic, I __will have left__ earlier.",
+   "explanation": "'Had I known' is an inverted third conditional, so the main clause takes 'would have + past participle'.",
+   "trap": "Choosing 'will have' because the sentence feels like future perfect.",
+   "revise": "Inverted third conditional",
+   "options": [
+    "No improvement",
+    "had left",
+    "would leave",
+    "would have left"
+   ],
+   "answer": 3,
+   "wrongReasons": [
+    "'Will have left' does not fit a past unreal condition",
+    "The main clause needs 'would have'",
+    "This expresses a present or future result",
+    null
+   ],
+   "steps": [
+    "Spot what the question tests: Inverted third conditional.",
+    "Option A (No improvement) is out: 'Will have left' does not fit a past unreal condition.",
+    "Option B (had left) is out: The main clause needs 'would have'.",
+    "Option C (would leave) is out: This expresses a present or future result.",
+    "Common slip to avoid: Choosing 'will have' because the sentence feels like future perfect.",
+    "So the answer is option D: would have left."
+   ]
+  },
+  {
+   "topic": "Sentence Improvement",
+   "subtopic": "Indirect questions",
+   "difficulty": "hard",
+   "text": "Select the option that improves the underlined part of the sentence. If no improvement is needed, select 'No improvement'.\nHe asked me where __was I going__.",
+   "explanation": "In an embedded question the word order is subject + verb: 'where I was going'.",
+   "trap": "Keeping the inverted order of a direct question.",
+   "revise": "Word order in indirect questions",
+   "options": [
+    "No improvement",
+    "was I going to",
+    "did I go",
+    "I was going"
+   ],
+   "answer": 3,
+   "wrongReasons": [
+    "An indirect question keeps statement word order",
+    "Retains question order and adds 'to'",
+    "Changes both order and tense",
+    null
+   ],
+   "steps": [
+    "Spot what the question tests: Word order in indirect questions.",
+    "Option A (No improvement) is out: An indirect question keeps statement word order.",
+    "Option B (was I going to) is out: Retains question order and adds 'to'.",
+    "Option C (did I go) is out: Changes both order and tense.",
+    "Common slip to avoid: Keeping the inverted order of a direct question.",
+    "So the answer is option D: I was going."
+   ]
+  },
+  {
+   "topic": "Fill in the Blank",
+   "subtopic": "Word form",
+   "difficulty": "easy",
+   "text": "Fill in the blank with the most appropriate word.\nShe was so ______ in her work that she did not notice the visitors arrive.",
+   "explanation": "'Absorbed in' means deeply engrossed. 'Absorbing' would describe the work, not the person.",
+   "trap": "Confusing -ed and -ing adjectives.",
+   "revise": "Participial adjectives: -ed versus -ing",
+   "options": [
+    "absorbed",
+    "absorbing",
+    "absorption",
+    "absorbent"
+   ],
+   "answer": 0,
+   "wrongReasons": [
+    null,
+    "The participle means 'interesting', not 'engrossed'",
+    "A noun does not fit after 'was so'",
+    "'Absorbent' describes materials that soak up liquid"
+   ],
+   "steps": [
+    "Spot what the question tests: Participial adjectives: -ed versus -ing.",
+    "Option B (absorbing) is out: The participle means 'interesting', not 'engrossed'.",
+    "Option C (absorption) is out: A noun does not fit after 'was so'.",
+    "Option D (absorbent) is out: 'Absorbent' describes materials that soak up liquid.",
+    "Common slip to avoid: Confusing -ed and -ing adjectives.",
+    "So the answer is option A: absorbed."
+   ]
+  },
+  {
+   "topic": "Fill in the Blank",
+   "subtopic": "Prepositions",
+   "difficulty": "moderate",
+   "text": "Fill in the blank with the most appropriate word.\nThe discovery of the manuscript has shed new light ______ the poet's early life.",
+   "explanation": "The fixed phrase is 'shed light on', meaning to clarify.",
+   "trap": "Choosing 'over' from the sense of covering.",
+   "revise": "Fixed prepositions with idioms",
+   "options": [
+    "on",
+    "at",
+    "over",
+    "with"
+   ],
+   "answer": 0,
+   "wrongReasons": [
+    null,
+    "'Shed light at' is not used",
+    "'Over' does not fit this idiom",
+    "'Shed light with' is not used"
+   ],
+   "steps": [
+    "Spot what the question tests: Fixed prepositions with idioms.",
+    "Option B (at) is out: 'Shed light at' is not used.",
+    "Option C (over) is out: 'Over' does not fit this idiom.",
+    "Option D (with) is out: 'Shed light with' is not used.",
+    "Common slip to avoid: Choosing 'over' from the sense of covering.",
+    "So the answer is option A: on."
+   ]
+  },
+  {
+   "topic": "Synonyms",
+   "subtopic": "Synonym",
+   "difficulty": "hard",
+   "text": "Choose the word closest in meaning to: ABSTRUSE",
+   "explanation": "'Abstruse' means difficult to understand; 'obscure' is the closest.",
+   "trap": "Picking 'absurd' because of the similar sound.",
+   "revise": "Look-alike words",
+   "options": [
+    "obvious",
+    "absurd",
+    "obscure",
+    "abrupt"
+   ],
+   "answer": 2,
+   "wrongReasons": [
+    "Opposite in sense",
+    "Sounds similar but means ridiculous",
+    null,
+    "Sounds similar but means sudden"
+   ],
+   "steps": [
+    "Spot what the question tests: Look-alike words.",
+    "Option A (obvious) is out: Opposite in sense.",
+    "Option B (absurd) is out: Sounds similar but means ridiculous.",
+    "Option D (abrupt) is out: Sounds similar but means sudden.",
+    "Common slip to avoid: Picking 'absurd' because of the similar sound.",
+    "So the answer is option C: obscure."
+   ]
+  },
+  {
+   "topic": "Antonyms",
+   "subtopic": "Antonym",
+   "difficulty": "hard",
+   "text": "Choose the word opposite in meaning to: EXPEDITE",
+   "explanation": "'Expedite' means to speed up a process; 'delay' is the opposite.",
+   "trap": "Choosing 'hasten', a synonym.",
+   "revise": "Words of speed and delay",
+   "options": [
+    "hasten",
+    "accelerate",
+    "delay",
+    "execute"
+   ],
+   "answer": 2,
+   "wrongReasons": [
+    "A synonym of 'expedite'",
+    "A synonym of 'expedite'",
+    null,
+    "Unrelated to speed"
+   ],
+   "steps": [
+    "Spot what the question tests: Words of speed and delay.",
+    "Options A and B are out: A synonym of 'expedite'.",
+    "Option D (execute) is out: Unrelated to speed.",
+    "Common slip to avoid: Choosing 'hasten', a synonym.",
+    "So the answer is option C: delay."
+   ]
+  },
+  {
+   "topic": "Idioms & Phrases",
+   "subtopic": "Idiom",
+   "difficulty": "moderate",
+   "text": "Choose the correct meaning of the idiom: To bite the bullet",
+   "explanation": "'Bite the bullet' means to endure a painful or difficult situation with courage.",
+   "trap": "Interpreting it literally.",
+   "revise": "Common idioms with 'bite'",
+   "options": [
+    "To eat hurriedly",
+    "To face an unpleasant situation bravely",
+    "To speak harshly",
+    "To avoid a quarrel"
+   ],
+   "answer": 1,
+   "wrongReasons": [
+    "Literal misreading",
+    null,
+    "Not the meaning",
+    "Opposite of confronting a problem"
+   ],
+   "steps": [
+    "Spot what the question tests: Common idioms with 'bite'.",
+    "Option A (To eat hurriedly) is out: Literal misreading.",
+    "Option C (To speak harshly) is out: Not the meaning.",
+    "Option D (To avoid a quarrel) is out: Opposite of confronting a problem.",
+    "Common slip to avoid: Interpreting it literally.",
+    "So the answer is option B: To face an unpleasant situation bravely."
+   ]
+  },
+  {
+   "topic": "Idioms & Phrases",
+   "subtopic": "Idiom",
+   "difficulty": "moderate",
+   "text": "Choose the correct meaning of the idiom: To add insult to injury",
+   "explanation": "The idiom means to worsen a bad situation by further offence.",
+   "trap": "Taking 'injury' literally.",
+   "revise": "Idioms about misfortune",
+   "options": [
+    "To apologise after a quarrel",
+    "To treat a wound",
+    "To complain loudly",
+    "To make a bad situation worse"
+   ],
+   "answer": 3,
+   "wrongReasons": [
+    "Opposite in effect",
+    "Literal misreading",
+    "Not the meaning",
+    null
+   ],
+   "steps": [
+    "Spot what the question tests: Idioms about misfortune.",
+    "Option A (To apologise after a quarrel) is out: Opposite in effect.",
+    "Option B (To treat a wound) is out: Literal misreading.",
+    "Option C (To complain loudly) is out: Not the meaning.",
+    "Common slip to avoid: Taking 'injury' literally.",
+    "So the answer is option D: To make a bad situation worse."
+   ]
+  },
+  {
+   "topic": "One Word Substitution",
+   "subtopic": "One word",
+   "difficulty": "moderate",
+   "text": "Choose the one word that can replace the given phrase.\nA speech made without any preparation",
+   "explanation": "'Extempore' describes something spoken or done without preparation.",
+   "trap": "Choosing 'monologue' because it also concerns a single speaker.",
+   "revise": "Speech-related one-word substitutes",
+   "options": [
+    "Soliloquy",
+    "Monologue",
+    "Oration",
+    "Extempore"
+   ],
+   "answer": 3,
+   "wrongReasons": [
+    "Speaking one's thoughts aloud when alone",
+    "A long speech by one person, not necessarily unprepared",
+    "A formal, prepared speech",
+    null
+   ],
+   "steps": [
+    "Spot what the question tests: Speech-related one-word substitutes.",
+    "Option A (Soliloquy) is out: Speaking one's thoughts aloud when alone.",
+    "Option B (Monologue) is out: A long speech by one person, not necessarily unprepared.",
+    "Option C (Oration) is out: A formal, prepared speech.",
+    "Common slip to avoid: Choosing 'monologue' because it also concerns a single speaker.",
+    "So the answer is option D: Extempore."
+   ]
+  },
+  {
+   "topic": "Spelling Error",
+   "subtopic": "Spelling",
+   "difficulty": "moderate",
+   "text": "Choose the incorrectly spelt word.",
+   "explanation": "The correct spelling is 'accommodation', with double c and double m.",
+   "trap": "Writing a single m.",
+   "revise": "Double letters in common words",
+   "options": [
+    "Accomodation",
+    "Acquaintance",
+    "Bureaucracy",
+    "Disappear"
+   ],
+   "answer": 0,
+   "wrongReasons": [
+    null,
+    "Correct spelling",
+    "Correct spelling",
+    "Correct spelling"
+   ],
+   "steps": [
+    "Spot what the question tests: Double letters in common words.",
+    "Options B, C and D are out: Correct spelling.",
+    "Common slip to avoid: Writing a single m.",
+    "So the answer is option A: Accomodation."
+   ]
+  },
+  {
+   "topic": "Spelling Error",
+   "subtopic": "Spelling",
+   "difficulty": "hard",
+   "text": "Select the word that is spelt incorrectly.",
+   "explanation": "The correct spelling is 'embarrassment', with double r and double s.",
+   "trap": "Dropping one r.",
+   "revise": "Words with double consonants",
+   "options": [
+    "Entrepreneur",
+    "Exhilarate",
+    "Eligible",
+    "Embarassment"
+   ],
+   "answer": 3,
+   "wrongReasons": [
+    "Correct spelling",
+    "Correct spelling",
+    "Correct spelling",
+    null
+   ],
+   "steps": [
+    "Spot what the question tests: Words with double consonants.",
+    "Options A, B and C are out: Correct spelling.",
+    "Common slip to avoid: Dropping one r.",
+    "So the answer is option D: Embarassment."
+   ]
+  },
+  {
+   "topic": "Para Jumbles",
+   "subtopic": "Para jumble",
+   "difficulty": "moderate",
+   "text": "Rearrange the parts to form a meaningful sentence or paragraph.\nP. However, it is rarely talent alone that decides the outcome.\nQ. Every field has its prodigies, people who seem to master a skill almost effortlessly.\nR. Steady practice, repeated over years, usually separates the accomplished from the merely gifted.\nS. Observers often attribute their success to natural ability.",
+   "explanation": "Q introduces prodigies; S ('their success') follows; P ('However') contrasts that view; R completes the argument.",
+   "trap": "Starting with S, which refers back to something unnamed.",
+   "revise": "Pronoun and connector clues in jumbles",
+   "options": [
+    "SQPR",
+    "QSPR",
+    "QPSR",
+    "PQRS"
+   ],
+   "answer": 1,
+   "wrongReasons": [
+    "'Their success' needs the prodigies of Q first",
+    null,
+    "'However' cannot come before the claim it contradicts",
+    "Opens with a connector that has nothing to contrast"
+   ],
+   "steps": [
+    "Spot what the question tests: Pronoun and connector clues in jumbles.",
+    "Option A (SQPR) is out: 'Their success' needs the prodigies of Q first.",
+    "Option C (QPSR) is out: 'However' cannot come before the claim it contradicts.",
+    "Option D (PQRS) is out: Opens with a connector that has nothing to contrast.",
+    "Common slip to avoid: Starting with S, which refers back to something unnamed.",
+    "So the answer is option B: QSPR."
+   ]
+  },
+  {
+   "topic": "Para Jumbles",
+   "subtopic": "Sentence parts",
+   "difficulty": "hard",
+   "text": "Rearrange the parts to form a meaningful sentence or paragraph.\nP. after engineers found cracks in its main support\nQ. was finally closed\nR. the old bridge\nS. which had stood for over a century,",
+   "explanation": "The sentence reads: The old bridge, which had stood for over a century, was finally closed after engineers found cracks in its main support.",
+   "trap": "Putting the main verb before the relative clause.",
+   "revise": "Building a sentence from parts",
+   "options": [
+    "RSQP",
+    "RQSP",
+    "SRQP",
+    "RSPQ"
+   ],
+   "answer": 0,
+   "wrongReasons": [
+    null,
+    "The relative clause must follow the noun directly",
+    "A relative clause cannot open the sentence",
+    "The reason clause cannot precede the verb"
+   ],
+   "steps": [
+    "Spot what the question tests: Building a sentence from parts.",
+    "Option B (RQSP) is out: The relative clause must follow the noun directly.",
+    "Option C (SRQP) is out: A relative clause cannot open the sentence.",
+    "Option D (RSPQ) is out: The reason clause cannot precede the verb.",
+    "Common slip to avoid: Putting the main verb before the relative clause.",
+    "So the answer is option A: RSQP."
+   ]
+  },
+  {
+   "topic": "Para Jumbles",
+   "subtopic": "Para jumble",
+   "difficulty": "moderate",
+   "text": "Rearrange the parts to form a meaningful sentence or paragraph.\nP. As a result, many farmers have begun to choose crops that need less water.\nQ. Groundwater levels in several districts have fallen steadily over the past two decades.\nR. Such a shift, though slow, may ease the strain on the aquifers.\nS. Pumping for irrigation is the main reason for this fall.",
+   "explanation": "Q states the fall; S gives the reason ('this fall'); P gives the consequence; R comments on 'such a shift'.",
+   "trap": "Placing P right after Q and skipping the cause.",
+   "revise": "Cause-effect order in jumbles",
+   "options": [
+    "QPSR",
+    "SQPR",
+    "QSRP",
+    "QSPR"
+   ],
+   "answer": 3,
+   "wrongReasons": [
+    "'As a result' needs the cause (S) before it",
+    "'This fall' in S needs Q to come first",
+    "'Such a shift' in R needs P before it",
+    null
+   ],
+   "steps": [
+    "Spot what the question tests: Cause-effect order in jumbles.",
+    "Option A (QPSR) is out: 'As a result' needs the cause (S) before it.",
+    "Option B (SQPR) is out: 'This fall' in S needs Q to come first.",
+    "Option C (QSRP) is out: 'Such a shift' in R needs P before it.",
+    "Common slip to avoid: Placing P right after Q and skipping the cause.",
+    "So the answer is option D: QSPR."
+   ]
+  },
+  {
+   "topic": "Voice",
+   "subtopic": "Active/Passive",
+   "difficulty": "moderate",
+   "text": "Select the option that expresses the given sentence in the passive voice.\nThe committee will announce the results tomorrow.",
+   "explanation": "For the simple future, passive = will be + past participle.",
+   "trap": "Dropping 'be' or changing the tense.",
+   "revise": "Passive voice of simple future",
+   "options": [
+    "The results will be announced by the committee tomorrow.",
+    "The results will announce by the committee tomorrow.",
+    "The results are announced by the committee tomorrow.",
+    "The results would be announced by the committee tomorrow."
+   ],
+   "answer": 0,
+   "wrongReasons": [
+    null,
+    "Missing 'be' and past participle",
+    "Wrong tense (future needed)",
+    "'Would' changes the sense from future to conditional"
+   ],
+   "steps": [
+    "Spot what the question tests: Passive voice of simple future.",
+    "Option B (The results will announce by the committee tomo…) is out: Missing 'be' and past participle.",
+    "Option C (The results are announced by the committee tomo…) is out: Wrong tense (future needed).",
+    "Option D (The results would be announced by the committee…) is out: 'Would' changes the sense from future to conditional.",
+    "Common slip to avoid: Dropping 'be' or changing the tense.",
+    "So the answer is option A: The results will be announced by the committee tomorrow.."
+   ]
+  },
+  {
+   "topic": "Narration",
+   "subtopic": "Direct/Indirect",
+   "difficulty": "moderate",
+   "text": "Select the option that expresses the given sentence in indirect speech.\nHe said to me, \"Where are you going?\"",
+   "explanation": "A question becomes 'asked' + statement order, with present continuous shifting to past continuous.",
+   "trap": "Keeping the word order of the question.",
+   "revise": "Reporting questions",
+   "options": [
+    "He asked me where was I going.",
+    "He told me where I was going.",
+    "He asked me where are you going.",
+    "He asked me where I was going."
+   ],
+   "answer": 3,
+   "wrongReasons": [
+    "Retains question word order",
+    "'Told' changes the question into a statement",
+    "Pronoun and tense are not changed",
+    null
+   ],
+   "steps": [
+    "Spot what the question tests: Reporting questions.",
+    "Option A (He asked me where was I going.) is out: Retains question word order.",
+    "Option B (He told me where I was going.) is out: 'Told' changes the question into a statement.",
+    "Option C (He asked me where are you going.) is out: Pronoun and tense are not changed.",
+    "Common slip to avoid: Keeping the word order of the question.",
+    "So the answer is option D: He asked me where I was going.."
+   ]
+  },
+  {
+   "topic": "Narration",
+   "subtopic": "Direct to indirect",
+   "difficulty": "hard",
+   "text": "Select the option that expresses the given sentence in indirect speech.\nHe said to her, \"Will you have finished the report by the time I return?\"",
+   "explanation": "A yes/no question takes 'whether/if'; 'will have finished' becomes 'would have finished' and 'return' becomes 'returned'.",
+   "trap": "Keeping 'will' and the present tense after a past reporting verb.",
+   "revise": "Narration: future perfect in a question",
+   "options": [
+    "He asked her if she will have finished the report by the time he returns.",
+    "He asked her whether she would have finished the report by the time he returned.",
+    "He asked her whether she had finished the report by the time he returned.",
+    "He told her that she would finish the report by the time he returned."
+   ],
+   "answer": 1,
+   "wrongReasons": [
+    "No backshift of 'will' and 'return'",
+    null,
+    "Changes the future perfect to a simple past perfect",
+    "A question becomes a statement"
+   ],
+   "steps": [
+    "Spot what the question tests: Narration: future perfect in a question.",
+    "Option A (He asked her if she will have finished the repo…) is out: No backshift of 'will' and 'return'.",
+    "Option C (He asked her whether she had finished the repor…) is out: Changes the future perfect to a simple past perfect.",
+    "Option D (He told her that she would finish the report by…) is out: A question becomes a statement.",
+    "Common slip to avoid: Keeping 'will' and the present tense after a past reporting verb.",
+    "So the answer is option B: He asked her whether she would have finished the report by the time h…."
+   ]
+  },
+  {
+   "topic": "Narration",
+   "subtopic": "Imperative with request",
+   "difficulty": "moderate",
+   "text": "Select the option that expresses the given sentence in indirect speech.\nShe said, \"Please don't leave the lights on when you go out, Rahul.\"",
+   "explanation": "'Please' signals a request; a negative request becomes 'requested ... not to' and 'you go' shifts to 'he went'.",
+   "trap": "Changing the verb but leaving the second pronoun or tense unchanged.",
+   "revise": "Narration: requests and negative imperatives",
+   "options": [
+    "She told Rahul that he should not leave the lights on when you went out.",
+    "She requested Rahul to not leave the lights on when he goes out.",
+    "She requested Rahul not to leave the lights on when he went out.",
+    "She said to Rahul not leaving the lights on when he went out."
+   ],
+   "answer": 2,
+   "wrongReasons": [
+    "Pronoun 'you' is not changed",
+    "Tense of 'goes' is not backshifted",
+    null,
+    "Ungrammatical use of the gerund"
+   ],
+   "steps": [
+    "Spot what the question tests: Narration: requests and negative imperatives.",
+    "Option A (She told Rahul that he should not leave the lig…) is out: Pronoun 'you' is not changed.",
+    "Option B (She requested Rahul to not leave the lights on…) is out: Tense of 'goes' is not backshifted.",
+    "Option D (She said to Rahul not leaving the lights on whe…) is out: Ungrammatical use of the gerund.",
+    "Common slip to avoid: Changing the verb but leaving the second pronoun or tense unchanged.",
+    "So the answer is option C: She requested Rahul not to leave the lights on when he went out.."
+   ]
+  },
+  {
+   "topic": "Narration",
+   "subtopic": "Indirect to direct",
+   "difficulty": "hard",
+   "text": "Select the option that expresses the given sentence in direct speech.\nThe teacher asked the students why they had not submitted their assignments that week.",
+   "explanation": "Past perfect becomes present perfect, 'they' becomes 'you' and 'that week' becomes 'this week'.",
+   "trap": "Leaving the backshifted tense in the direct speech.",
+   "revise": "Narration: indirect to direct",
+   "options": [
+    "The teacher said to the students, \"Why had you not submitted your assignments that week?\"",
+    "The teacher said to the students, \"Why do you not submit your assignments this week?\"",
+    "The teacher said to the students, \"Why have you not submitted your assignments this week?\"",
+    "The teacher said to the students, \"Why you have not submitted your assignments this week?\""
+   ],
+   "answer": 2,
+   "wrongReasons": [
+    "Tense and 'that week' left unchanged",
+    "Changes a past action to a habit",
+    null,
+    "Question word order is wrong"
+   ],
+   "steps": [
+    "Spot what the question tests: Narration: indirect to direct.",
+    "Option A (The teacher said to the students, \"Why had you…) is out: Tense and 'that week' left unchanged.",
+    "Option B (The teacher said to the students, \"Why do you n…) is out: Changes a past action to a habit.",
+    "Option D (The teacher said to the students, \"Why you have…) is out: Question word order is wrong.",
+    "Common slip to avoid: Leaving the backshifted tense in the direct speech.",
+    "So the answer is option C: The teacher said to the students, \"Why have you not submitted your as…."
+   ]
+  },
+  {
+   "topic": "Voice",
+   "subtopic": "Past continuous passive",
+   "difficulty": "hard",
+   "text": "Select the option that expresses the given sentence in the active voice.\nThe report was being reviewed by the auditors when the power failed.",
+   "explanation": "'Was being reviewed' (past continuous passive) becomes 'were reviewing' in the active voice.",
+   "trap": "Dropping the continuous aspect.",
+   "revise": "Voice: past continuous",
+   "options": [
+    "The auditors were reviewing the report when the power failed.",
+    "The auditors reviewed the report when the power failed.",
+    "The auditors had been reviewing the report when the power failed.",
+    "The auditors are reviewing the report when the power failed."
+   ],
+   "answer": 0,
+   "wrongReasons": [
+    null,
+    "Loses the continuous aspect",
+    "Changes to the past perfect continuous",
+    "Wrong tense"
+   ],
+   "steps": [
+    "Spot what the question tests: Voice: past continuous.",
+    "Option B (The auditors reviewed the report when the power…) is out: Loses the continuous aspect.",
+    "Option C (The auditors had been reviewing the report when…) is out: Changes to the past perfect continuous.",
+    "Option D (The auditors are reviewing the report when the…) is out: Wrong tense.",
+    "Common slip to avoid: Dropping the continuous aspect.",
+    "So the answer is option A: The auditors were reviewing the report when the power failed.."
+   ]
+  },
+  {
+   "topic": "Voice",
+   "subtopic": "Present perfect question",
+   "difficulty": "hard",
+   "text": "Select the option that expresses the given sentence in the passive voice.\nHas anyone told the manager about the delay?",
+   "explanation": "The present perfect passive is 'has/have been + past participle', and the question inversion is kept.",
+   "trap": "Changing the tense when building the passive.",
+   "revise": "Voice: present perfect in questions",
+   "options": [
+    "Had the manager been told about the delay by anyone?",
+    "Was the manager told about the delay by anyone?",
+    "Has the manager told anyone about the delay?",
+    "Has the manager been told about the delay by anyone?"
+   ],
+   "answer": 3,
+   "wrongReasons": [
+    "Changes to the past perfect",
+    "Changes to the simple past",
+    "Reverses the roles; this is still active",
+    null
+   ],
+   "steps": [
+    "Spot what the question tests: Voice: present perfect in questions.",
+    "Option A (Had the manager been told about the delay by an…) is out: Changes to the past perfect.",
+    "Option B (Was the manager told about the delay by anyone?) is out: Changes to the simple past.",
+    "Option C (Has the manager told anyone about the delay?) is out: Reverses the roles; this is still active.",
+    "Common slip to avoid: Changing the tense when building the passive.",
+    "So the answer is option D: Has the manager been told about the delay by anyone?."
+   ]
+  },
+  {
+   "topic": "Para Jumbles",
+   "subtopic": "Sentence parts",
+   "difficulty": "hard",
+   "text": "Rearrange the parts P, Q, R and S to form a meaningful sentence.\nP. that the committee had overlooked for years\nQ. The report revealed\nR. in the funding formula\nS. a crucial flaw",
+   "explanation": "'The report revealed a crucial flaw in the funding formula that the committee had overlooked for years.'",
+   "trap": "Joining parts that fit loosely rather than strictly.",
+   "revise": "Para jumble: sentence-parts",
+   "options": [
+    "QRSP",
+    "SQRP",
+    "QSRP",
+    "QSPR"
+   ],
+   "answer": 2,
+   "wrongReasons": [
+    "'revealed in the funding formula a crucial flaw' is a broken order",
+    "The sentence cannot begin with the object 'a crucial flaw'",
+    null,
+    "'that the committee had overlooked for years in the funding formula' puts the phrase out of place"
+   ],
+   "steps": [
+    "Spot what the question tests: Para jumble: sentence-parts.",
+    "Option A (QRSP) is out: 'revealed in the funding formula a crucial flaw' is a broken order.",
+    "Option B (SQRP) is out: The sentence cannot begin with the object 'a crucial flaw'.",
+    "Option D (QSPR) is out: 'that the committee had overlooked for years in the funding formula' puts the phrase out of place.",
+    "Common slip to avoid: Joining parts that fit loosely rather than strictly.",
+    "So the answer is option C: QSRP."
+   ]
+  },
+  {
+   "topic": "Homonyms",
+   "subtopic": "Same word, two senses",
+   "difficulty": "moderate",
+   "text": "Select the word that fits both blanks.\nThe author's latest ______ is set in Lucknow.\nThe architect proposed a ______ method of building roofs.",
+   "explanation": "'Novel' is a noun (a long work of fiction) and an adjective (new and original).",
+   "trap": "Choosing a synonym that fits only one blank.",
+   "revise": "Homonyms: novel (noun / adjective)",
+   "options": [
+    "fresh",
+    "tale",
+    "novel",
+    "plot"
+   ],
+   "answer": 2,
+   "wrongReasons": [
+    "Fits only the second sentence",
+    "Fits only the first sentence",
+    null,
+    "Fits only the first sentence in a different sense"
+   ],
+   "steps": [
+    "Spot what the question tests: Homonyms: novel (noun / adjective).",
+    "Option A (fresh) is out: Fits only the second sentence.",
+    "Option B (tale) is out: Fits only the first sentence.",
+    "Option D (plot) is out: Fits only the first sentence in a different sense.",
+    "Common slip to avoid: Choosing a synonym that fits only one blank.",
+    "So the answer is option C: novel."
+   ]
+  }
+ ]
+}

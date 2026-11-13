@@ -1,0 +1,75 @@
+---
+# Zero-risk update: the new code goes into its own folder, is built there, and only then
+# does "current" point to it. The database in {{ data_dir }} is never touched.
+- name: Check that Jenkins sent the code
+  ansible.builtin.assert:
+    that: app_archive | length > 0
+    fail_msg: "Pass the code archive: -e app_archive=/path/app.tgz"
+
+- name: Create the release folder
+  ansible.builtin.file:
+    path: "{{ base_dir }}/releases/{{ release_id }}"
+    state: directory
+    owner: "{{ app_user }}"
+    group: "{{ app_user }}"
+    mode: "0755"
+
+- name: Unpack the code
+  ansible.builtin.unarchive:
+    src: "{{ app_archive }}"
+    dest: "{{ base_dir }}/releases/{{ release_id }}"
+    owner: "{{ app_user }}"
+    group: "{{ app_user }}"
+
+- name: Install dependencies (npm ci)
+  ansible.builtin.command: npm ci --no-audit --no-fund
+  args:
+    chdir: "{{ base_dir }}/releases/{{ release_id }}"
+  become_user: "{{ app_user }}"
+  environment:
+    HOME: "{{ base_dir }}"
+    npm_config_cache: "{{ base_dir }}/.npm"
+
+- name: Build the website (vite build)
+  ansible.builtin.command: npm run build
+  args:
+    chdir: "{{ base_dir }}/releases/{{ release_id }}"
+  become_user: "{{ app_user }}"
+  environment:
+    HOME: "{{ base_dir }}"
+    npm_config_cache: "{{ base_dir }}/.npm"
+
+- name: Remove build-only dependencies
+  ansible.builtin.command: npm prune --omit=dev --no-audit --no-fund
+  args:
+    chdir: "{{ base_dir }}/releases/{{ release_id }}"
+  become_user: "{{ app_user }}"
+  environment:
+    HOME: "{{ base_dir }}"
+    npm_config_cache: "{{ base_dir }}/.npm"
+
+- name: Point "current" at the new release
+  ansible.builtin.file:
+    src: "{{ base_dir }}/releases/{{ release_id }}"
+    dest: "{{ base_dir }}/current"
+    state: link
+    force: true
+    owner: "{{ app_user }}"
+    group: "{{ app_user }}"
+
+- name: Restart the site on the new release
+  ansible.builtin.systemd:
+    name: mockdesk
+    state: restarted
+    daemon_reload: true
+
+- name: List old releases
+  ansible.builtin.shell: ls -1dt {{ base_dir }}/releases/* | tail -n +{{ keep_releases | int + 1 }}
+  register: old_releases
+  changed_when: false
+
+- name: Delete old releases (keep the latest {{ keep_releases }})
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  loop: "{{ old_releases.stdout_lines }}"

@@ -1,0 +1,10 @@
+keys/
+terraform/.terraform/
+terraform/*.tfstate*
+terraform/.terraform.lock.hcl
+ansible/inventory.ini
+backups/
+*.pem
+app/node_modules/
+app/dist/
+app/data/

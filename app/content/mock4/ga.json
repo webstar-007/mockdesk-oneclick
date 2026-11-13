@@ -1,0 +1,760 @@
+{
+ "section": "ga",
+ "questions": [
+  {
+   "topic": "History",
+   "subtopic": "Mughal and Sur period",
+   "difficulty": "hard",
+   "text": "How many of the following statements are correct?\n1. Babur defeated Ibrahim Lodi at the First Battle of Panipat in 1526.\n2. Humayun was defeated by Sher Shah at Chausa and Kannauj.\n3. Akbar defeated Rana Sanga at the Battle of Khanwa.",
+   "options": [
+    "Only one",
+    "All three",
+    "Only two",
+    "None"
+   ],
+   "answer": 2,
+   "explanation": "Rana Sanga was defeated by Babur at Khanwa in 1527.",
+   "steps": [
+    "Spot what the question tests: Battles of the Mughal period.",
+    "Options A, B and D are out: 2 statement(s) are correct, not this number.",
+    "Common slip to avoid: Giving Akbar credit for Babur's victories.",
+    "So the answer is option C: Only two."
+   ],
+   "trap": "Giving Akbar credit for Babur's victories.",
+   "revise": "Battles of the Mughal period",
+   "wrongReasons": [
+    "2 statement(s) are correct, not this number",
+    "2 statement(s) are correct, not this number",
+    null,
+    "2 statement(s) are correct, not this number"
+   ]
+  },
+  {
+   "topic": "History",
+   "subtopic": "Reform movements",
+   "difficulty": "moderate",
+   "text": "Match List I (Reformer) with List II (Organisation or movement).\nA. Raja Ram Mohan Roy  B. Dayanand Saraswati  C. Jyotiba Phule  D. Sir Syed Ahmad Khan.\n1. Arya Samaj  2. Satyashodhak Samaj  3. Brahmo Samaj  4. Aligarh Movement",
+   "options": [
+    "A-1, B-3, C-2, D-4",
+    "A-3, B-1, C-2, D-4",
+    "A-3, B-1, C-4, D-2",
+    "A-3, B-2, C-1, D-4"
+   ],
+   "answer": 1,
+   "explanation": "Roy founded the Brahmo Samaj, Dayanand the Arya Samaj, Phule the Satyashodhak Samaj, and Sir Syed led the Aligarh Movement.",
+   "steps": [
+    "Spot what the question tests: Reformers and organisations.",
+    "Option A (A-1, B-3, C-2, D-4) is out: Roy and Dayanand are swapped.",
+    "Option C (A-3, B-1, C-4, D-2) is out: Phule and Sir Syed are swapped.",
+    "Option D (A-3, B-2, C-1, D-4) is out: Dayanand and Phule are swapped.",
+    "Common slip to avoid: Mixing the two Samajs.",
+    "So the answer is option B: A-3, B-1, C-2, D-4."
+   ],
+   "trap": "Mixing the two Samajs.",
+   "revise": "Reformers and organisations",
+   "wrongReasons": [
+    "Roy and Dayanand are swapped",
+    null,
+    "Phule and Sir Syed are swapped",
+    "Dayanand and Phule are swapped"
+   ]
+  },
+  {
+   "topic": "History",
+   "subtopic": "Viceroys",
+   "difficulty": "hard",
+   "text": "Which Viceroy of India was assassinated in office in 1872 at the Andaman Islands?",
+   "options": [
+    "Lord Elgin",
+    "Lord Mayo",
+    "Lord Lytton",
+    "Lord Ripon"
+   ],
+   "answer": 1,
+   "explanation": "Lord Mayo was stabbed by a convict at Port Blair in 1872.",
+   "steps": [
+    "Spot what the question tests: Viceroys: events and dates.",
+    "Option A (Lord Elgin) is out: He died in office in 1863 of illness.",
+    "Option C (Lord Lytton) is out: He served from 1876 to 1880.",
+    "Option D (Lord Ripon) is out: He served from 1880 to 1884.",
+    "Common slip to avoid: Confusing Mayo with other Viceroys who died in office.",
+    "So the answer is option B: Lord Mayo."
+   ],
+   "trap": "Confusing Mayo with other Viceroys who died in office.",
+   "revise": "Viceroys: events and dates",
+   "wrongReasons": [
+    "He died in office in 1863 of illness",
+    null,
+    "He served from 1876 to 1880",
+    "He served from 1880 to 1884"
+   ]
+  },
+  {
+   "topic": "History",
+   "subtopic": "Gupta period",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the Gupta period.\n1. Nalanda University was founded by Harsha.\n2. The Chinese pilgrim Fa-Hien visited India during the reign of Chandragupta II.\n3. Aryabhata wrote the Aryabhatiya.",
+   "options": [
+    "1 and 2 only",
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 1,
+   "explanation": "Nalanda was founded by Kumaragupta I; Harsha was a later patron.",
+   "steps": [
+    "Spot what the question tests: Gupta achievements.",
+    "Options A and C are out: Includes statement 1, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 1 is incorrect.",
+    "Common slip to avoid: Linking Nalanda with Harsha.",
+    "So the answer is option B: 2 and 3 only."
+   ],
+   "trap": "Linking Nalanda with Harsha.",
+   "revise": "Gupta achievements",
+   "wrongReasons": [
+    "Includes statement 1, which is incorrect",
+    null,
+    "Includes statement 1, which is incorrect",
+    "Statement 1 is incorrect"
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Writs",
+   "difficulty": "hard",
+   "text": "Assertion (A): The Supreme Court can issue writs under Article 32 only for the enforcement of Fundamental Rights.\nReason (R): Article 32 is itself a Fundamental Right, the right to constitutional remedies.",
+   "options": [
+    "Both A and R are true but R is not the correct explanation of A",
+    "A is true but R is false",
+    "A is false but R is true",
+    "Both A and R are true and R is the correct explanation of A"
+   ],
+   "answer": 3,
+   "explanation": "The Supreme Court's writ jurisdiction under Article 32 is limited to Fundamental Rights, and the Article is part of Part III, which gives that remedy a constitutional guarantee.",
+   "steps": [
+    "Spot what the question tests: Articles 32 and 226.",
+    "Options A, B and C are out: Does not match the truth of A and R.",
+    "Common slip to avoid: Mixing the Supreme Court with the High Courts, which can issue writs for other purposes too.",
+    "So the answer is option D: Both A and R are true and R is the correct explanation of A."
+   ],
+   "trap": "Mixing the Supreme Court with the High Courts, which can issue writs for other purposes too.",
+   "revise": "Articles 32 and 226",
+   "wrongReasons": [
+    "Does not match the truth of A and R",
+    "Does not match the truth of A and R",
+    "Does not match the truth of A and R",
+    null
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Speaker of the Lok Sabha",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the Speaker of the Lok Sabha.\n1. The Speaker is elected by the members of the Lok Sabha from among themselves.\n2. The Speaker presides over a joint sitting of the two Houses.\n3. The Speaker can vote in the first instance on every Bill.",
+   "options": [
+    "1 and 2 only",
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 0,
+   "explanation": "The Speaker votes only in the case of a tie, using a casting vote.",
+   "steps": [
+    "Spot what the question tests: Speaker's powers.",
+    "Options B and C are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Giving the Speaker a normal vote.",
+    "So the answer is option A: 1 and 2 only."
+   ],
+   "trap": "Giving the Speaker a normal vote.",
+   "revise": "Speaker's powers",
+   "wrongReasons": [
+    null,
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect"
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Constitutional bodies",
+   "difficulty": "moderate",
+   "text": "Under which Article of the Constitution is the Comptroller and Auditor General of India appointed?",
+   "options": [
+    "Article 76",
+    "Article 124",
+    "Article 315",
+    "Article 148"
+   ],
+   "answer": 3,
+   "explanation": "Article 148 provides for the CAG, appointed by the President.",
+   "steps": [
+    "Spot what the question tests: Constitutional posts and their Articles.",
+    "Option A (Article 76) is out: Deals with the Attorney General.",
+    "Option B (Article 124) is out: Deals with the Supreme Court.",
+    "Option C (Article 315) is out: Deals with the Public Service Commissions.",
+    "Common slip to avoid: Choosing Article 315.",
+    "So the answer is option D: Article 148."
+   ],
+   "trap": "Choosing Article 315.",
+   "revise": "Constitutional posts and their Articles",
+   "wrongReasons": [
+    "Deals with the Attorney General",
+    "Deals with the Supreme Court",
+    "Deals with the Public Service Commissions",
+    null
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Panchayati Raj",
+   "difficulty": "hard",
+   "text": "How many of the following statements are correct?\n1. The Panchayati Raj system was given constitutional status by the 73rd Amendment, 1992.\n2. The Eleventh Schedule lists 29 subjects for Panchayats.\n3. The minimum age to contest a Panchayat election is 25 years.",
+   "options": [
+    "Only two",
+    "Only one",
+    "All three",
+    "None"
+   ],
+   "answer": 0,
+   "explanation": "The minimum age to contest a Panchayat election is 21 years.",
+   "steps": [
+    "Spot what the question tests: 73rd Amendment.",
+    "Options B, C and D are out: 2 statement(s) are correct, not this number.",
+    "Common slip to avoid: Applying the age for Assembly elections.",
+    "So the answer is option A: Only two."
+   ],
+   "trap": "Applying the age for Assembly elections.",
+   "revise": "73rd Amendment",
+   "wrongReasons": [
+    null,
+    "2 statement(s) are correct, not this number",
+    "2 statement(s) are correct, not this number",
+    "2 statement(s) are correct, not this number"
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "Inflation indices",
+   "difficulty": "hard",
+   "text": "Consider the following statements about inflation indices in India.\n1. The Wholesale Price Index excludes services.\n2. The RBI uses CPI inflation as the anchor for its inflation target.\n3. The Wholesale Price Index measures price changes at the retail level.",
+   "options": [
+    "2 and 3 only",
+    "1 and 2 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 1,
+   "explanation": "WPI measures changes in wholesale prices; retail prices are tracked by the CPI.",
+   "steps": [
+    "Spot what the question tests: WPI vs CPI.",
+    "Options A and C are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Mixing the wholesale and retail indices.",
+    "So the answer is option B: 1 and 2 only."
+   ],
+   "trap": "Mixing the wholesale and retail indices.",
+   "revise": "WPI vs CPI",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    null,
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect"
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "Union-State taxation",
+   "difficulty": "hard",
+   "text": "Which one of the following taxes is levied by the Union but collected and wholly retained by the States under Article 268?",
+   "options": [
+    "Corporation tax",
+    "Customs duty",
+    "Stamp duties on bills of exchange and receipts",
+    "Income tax on non-agricultural income"
+   ],
+   "answer": 2,
+   "explanation": "Article 268 covers duties levied by the Union but collected and appropriated by the States, such as certain stamp duties.",
+   "steps": [
+    "Spot what the question tests: Articles 268 to 270.",
+    "Options A and B are out: Collected and retained by the Union.",
+    "Option D (Income tax on non-agricultural income) is out: Shared with the States under Article 270.",
+    "Common slip to avoid: Choosing a shared tax.",
+    "So the answer is option C: Stamp duties on bills of exchange and receipts."
+   ],
+   "trap": "Choosing a shared tax.",
+   "revise": "Articles 268 to 270",
+   "wrongReasons": [
+    "Collected and retained by the Union",
+    "Collected and retained by the Union",
+    null,
+    "Shared with the States under Article 270"
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "Devaluation",
+   "difficulty": "moderate",
+   "text": "Assertion (A): Devaluation of a currency can improve a country's trade balance.\nReason (R): It makes exports cheaper and imports costlier in foreign-currency terms.",
+   "options": [
+    "Both A and R are true but R is not the correct explanation of A",
+    "Both A and R are true and R is the correct explanation of A",
+    "A is true but R is false",
+    "A is false but R is true"
+   ],
+   "answer": 1,
+   "explanation": "A cheaper currency makes exports more competitive abroad and imports dearer at home, so the trade deficit can narrow.",
+   "steps": [
+    "Spot what the question tests: Exchange rates and trade.",
+    "Options A, C and D are out: Does not match the truth of A and R.",
+    "Common slip to avoid: Treating devaluation as always harmful.",
+    "So the answer is option B: Both A and R are true and R is the correct explanation of A."
+   ],
+   "trap": "Treating devaluation as always harmful.",
+   "revise": "Exchange rates and trade",
+   "wrongReasons": [
+    "Does not match the truth of A and R",
+    null,
+    "Does not match the truth of A and R",
+    "Does not match the truth of A and R"
+   ]
+  },
+  {
+   "topic": "Geography",
+   "subtopic": "Rivers",
+   "difficulty": "hard",
+   "text": "How many of the following statements are correct?\n1. The Luni is an inland-drainage river of Rajasthan.\n2. The Narmada flows through a rift valley.\n3. The Kosi is known as the 'Sorrow of Odisha'.",
+   "options": [
+    "Only one",
+    "All three",
+    "Only two",
+    "None"
+   ],
+   "answer": 2,
+   "explanation": "The Kosi is known as the 'Sorrow of Bihar'; the Damodar was the old 'Sorrow of Bengal'.",
+   "steps": [
+    "Spot what the question tests: Rivers and their nicknames.",
+    "Options A, B and D are out: 2 statement(s) are correct, not this number.",
+    "Common slip to avoid: Placing the Kosi in Odisha.",
+    "So the answer is option C: Only two."
+   ],
+   "trap": "Placing the Kosi in Odisha.",
+   "revise": "Rivers and their nicknames",
+   "wrongReasons": [
+    "2 statement(s) are correct, not this number",
+    "2 statement(s) are correct, not this number",
+    null,
+    "2 statement(s) are correct, not this number"
+   ]
+  },
+  {
+   "topic": "Geography",
+   "subtopic": "Mountains",
+   "difficulty": "moderate",
+   "text": "What is the highest peak of the Western Ghats?",
+   "options": [
+    "Anamudi",
+    "Doddabetta",
+    "Mahendragiri",
+    "Dhupgarh"
+   ],
+   "answer": 0,
+   "explanation": "Anamudi (about 2,695 m) in the Anaimalai Hills is the highest peak of the Western Ghats.",
+   "steps": [
+    "Spot what the question tests: Peaks of the Ghats.",
+    "Option B (Doddabetta) is out: The highest peak of the Nilgiris.",
+    "Option C (Mahendragiri) is out: A peak in the Eastern Ghats.",
+    "Option D (Dhupgarh) is out: The highest peak of the Satpura Range.",
+    "Common slip to avoid: Choosing Doddabetta.",
+    "So the answer is option A: Anamudi."
+   ],
+   "trap": "Choosing Doddabetta.",
+   "revise": "Peaks of the Ghats",
+   "wrongReasons": [
+    null,
+    "The highest peak of the Nilgiris",
+    "A peak in the Eastern Ghats",
+    "The highest peak of the Satpura Range"
+   ]
+  },
+  {
+   "topic": "Geography",
+   "subtopic": "Mangroves",
+   "difficulty": "moderate",
+   "text": "The Sundarbans, the largest mangrove forest in the world, lie in the delta of which rivers?",
+   "options": [
+    "Godavari and Krishna",
+    "Mahanadi and Brahmani",
+    "Narmada and Tapi",
+    "Ganga and Brahmaputra"
+   ],
+   "answer": 3,
+   "explanation": "The Sundarbans lie in the Ganga-Brahmaputra delta shared by India and Bangladesh.",
+   "steps": [
+    "Spot what the question tests: Deltas and mangroves.",
+    "Option A (Godavari and Krishna) is out: They form a delta on the eastern coast but not the Sundarbans.",
+    "Option B (Mahanadi and Brahmani) is out: They form a delta in Odisha.",
+    "Option C (Narmada and Tapi) is out: They flow into the Arabian Sea.",
+    "Common slip to avoid: Choosing another east-coast delta.",
+    "So the answer is option D: Ganga and Brahmaputra."
+   ],
+   "trap": "Choosing another east-coast delta.",
+   "revise": "Deltas and mangroves",
+   "wrongReasons": [
+    "They form a delta on the eastern coast but not the Sundarbans",
+    "They form a delta in Odisha",
+    "They flow into the Arabian Sea",
+    null
+   ]
+  },
+  {
+   "topic": "Science",
+   "subtopic": "Waves",
+   "difficulty": "hard",
+   "text": "Consider the following statements.\n1. Sound travels faster in solids than in gases.\n2. Light travels faster in water than in a vacuum.\n3. The frequency of light does not change when it passes from air into glass.",
+   "options": [
+    "1 and 2 only",
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 2,
+   "explanation": "Light travels fastest in a vacuum; its speed is lower in water.",
+   "steps": [
+    "Spot what the question tests: Speed and frequency of waves.",
+    "Options A and B are out: Includes statement 2, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 2 is incorrect.",
+    "Common slip to avoid: Believing light speeds up in denser media.",
+    "So the answer is option C: 1 and 3 only."
+   ],
+   "trap": "Believing light speeds up in denser media.",
+   "revise": "Speed and frequency of waves",
+   "wrongReasons": [
+    "Includes statement 2, which is incorrect",
+    "Includes statement 2, which is incorrect",
+    null,
+    "Statement 2 is incorrect"
+   ]
+  },
+  {
+   "topic": "Science",
+   "subtopic": "Periodic table",
+   "difficulty": "moderate",
+   "text": "Which element has the highest electronegativity?",
+   "options": [
+    "Oxygen",
+    "Chlorine",
+    "Fluorine",
+    "Nitrogen"
+   ],
+   "answer": 2,
+   "explanation": "Fluorine is the most electronegative element on the Pauling scale.",
+   "steps": [
+    "Spot what the question tests: Electronegativity trend.",
+    "Option A (Oxygen) is out: Second only to fluorine among common elements.",
+    "Option B (Chlorine) is out: Less electronegative than fluorine.",
+    "Option D (Nitrogen) is out: Less electronegative than oxygen.",
+    "Common slip to avoid: Choosing oxygen.",
+    "So the answer is option C: Fluorine."
+   ],
+   "trap": "Choosing oxygen.",
+   "revise": "Electronegativity trend",
+   "wrongReasons": [
+    "Second only to fluorine among common elements",
+    "Less electronegative than fluorine",
+    null,
+    "Less electronegative than oxygen"
+   ]
+  },
+  {
+   "topic": "Science",
+   "subtopic": "Vitamins",
+   "difficulty": "easy",
+   "text": "Which vitamin is synthesised in the human skin on exposure to sunlight?",
+   "options": [
+    "Vitamin A",
+    "Vitamin C",
+    "Vitamin K",
+    "Vitamin D"
+   ],
+   "answer": 3,
+   "explanation": "Sunlight converts a skin precursor into vitamin D.",
+   "steps": [
+    "Spot what the question tests: Vitamins and sources.",
+    "Option A (Vitamin A) is out: Obtained from the diet.",
+    "Option B (Vitamin C) is out: Obtained from fruits.",
+    "Option C (Vitamin K) is out: Made by gut bacteria and from food.",
+    "Common slip to avoid: Choosing vitamin A.",
+    "So the answer is option D: Vitamin D."
+   ],
+   "trap": "Choosing vitamin A.",
+   "revise": "Vitamins and sources",
+   "wrongReasons": [
+    "Obtained from the diet",
+    "Obtained from fruits",
+    "Made by gut bacteria and from food",
+    null
+   ]
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "International",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the BRICS summit of 2026.\n1. India holds the BRICS chairship in 2026.\n2. The 18th BRICS summit was scheduled in New Delhi on 12-13 September 2026.\n3. It is the first BRICS summit ever hosted by India.",
+   "options": [
+    "2 and 3 only",
+    "1 and 3 only",
+    "1 and 2 only",
+    "1, 2 and 3"
+   ],
+   "answer": 2,
+   "explanation": "India earlier hosted the 8th BRICS summit at Goa in 2016.",
+   "steps": [
+    "Spot what the question tests: BRICS summits.",
+    "Options A and B are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Missing the Goa summit.",
+    "So the answer is option C: 1 and 2 only."
+   ],
+   "trap": "Missing the Goa summit.",
+   "revise": "BRICS summits",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    null,
+    "Statement 3 is incorrect"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-09",
+   "source": "MEA"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Economy",
+   "difficulty": "moderate",
+   "text": "In February 2026, India and the United States agreed on an interim trade framework under which the reciprocal tariff on Indian goods was lowered to:",
+   "options": [
+    "18%",
+    "25%",
+    "50%",
+    "10%"
+   ],
+   "answer": 0,
+   "explanation": "The framework reduced the US tariff on Indian goods to 18%.",
+   "steps": [
+    "Spot what the question tests: India-US trade framework 2026.",
+    "Option B (25%) is out: A higher figure.",
+    "Option C (50%) is out: The combined earlier level.",
+    "Option D (10%) is out: A lower figure.",
+    "Common slip to avoid: Choosing the older higher rates.",
+    "So the answer is option A: 18%."
+   ],
+   "trap": "Choosing the older higher rates.",
+   "revise": "India-US trade framework 2026",
+   "wrongReasons": [
+    null,
+    "A higher figure",
+    "The combined earlier level",
+    "A lower figure"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-02",
+   "source": "USTR, MEA"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Sports",
+   "difficulty": "moderate",
+   "text": "In June 2026 who became the first Indian to win the Norway Chess title?",
+   "options": [
+    "D. Gukesh",
+    "R. Praggnanandhaa",
+    "Arjun Erigaisi",
+    "Viswanathan Anand"
+   ],
+   "answer": 1,
+   "explanation": "Praggnanandhaa beat Vincent Keymer in the final round to win Norway Chess 2026, a first for an Indian.",
+   "steps": [
+    "Spot what the question tests: Norway Chess 2026.",
+    "Option A (D. Gukesh) is out: He did not win the 2026 title.",
+    "Option C (Arjun Erigaisi) is out: He did not win the 2026 title.",
+    "Option D (Viswanathan Anand) is out: He did not win the 2026 title.",
+    "Common slip to avoid: Naming the world champion instead of the tournament winner.",
+    "So the answer is option B: R. Praggnanandhaa."
+   ],
+   "trap": "Naming the world champion instead of the tournament winner.",
+   "revise": "Norway Chess 2026",
+   "wrongReasons": [
+    "He did not win the 2026 title",
+    null,
+    "He did not win the 2026 title",
+    "He did not win the 2026 title"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-06",
+   "source": "Norway Chess"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Awards",
+   "difficulty": "easy",
+   "text": "Which book won the International Booker Prize 2026?",
+   "options": [
+    "Taiwan Travelogue",
+    "Heart Lamp",
+    "Kairos",
+    "Tomb of Sand"
+   ],
+   "answer": 0,
+   "explanation": "Taiwan Travelogue by Yang Shuang-zi, translated from Mandarin by Lin King, won on 19 May 2026. It is the first win for a Taiwanese writer and translator; the 50,000 pound prize is split equally.",
+   "steps": [
+    "Spot what the question tests: International Booker 2026.",
+    "Option B (Heart Lamp) is out: It won in 2025.",
+    "Option C (Kairos) is out: It won in 2024.",
+    "Option D (Tomb of Sand) is out: It won in 2022.",
+    "Common slip to avoid: Choosing an earlier winner, such as the Indian-language winners of 2022 or 2025.",
+    "So the answer is option A: Taiwan Travelogue."
+   ],
+   "trap": "Choosing an earlier winner, such as the Indian-language winners of 2022 or 2025.",
+   "revise": "International Booker 2026",
+   "wrongReasons": [
+    null,
+    "It won in 2025",
+    "It won in 2024",
+    "It won in 2022"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-05",
+   "source": "Booker Prize Foundation"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Awards",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the Padma Awards 2026. 1. 131 Padma Awards were announced for 2026.\n2. Dharmendra was honoured posthumously with the Padma Vibhushan.\n3. V. S. Achuthanandan, former Chief Minister of Kerala, was honoured with the Padma Shri.",
+   "options": [
+    "1 and 2 only",
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 0,
+   "explanation": "V. S. Achuthanandan was honoured posthumously with the Padma Vibhushan, not the Padma Shri.",
+   "steps": [
+    "Spot what the question tests: Padma Awards 2026.",
+    "Options B and C are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Placing the award in the lowest category.",
+    "So the answer is option A: 1 and 2 only."
+   ],
+   "trap": "Placing the award in the lowest category.",
+   "revise": "Padma Awards 2026",
+   "wrongReasons": [
+    null,
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-01",
+   "source": "Ministry of Home Affairs"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Environment",
+   "difficulty": "moderate",
+   "text": "India's 100th Ramsar site, designated in June 2026, is the Jai Prakash Narayan Bird Sanctuary (Surha Tal). In which state is it?",
+   "options": [
+    "Bihar",
+    "Odisha",
+    "Assam",
+    "Uttar Pradesh"
+   ],
+   "answer": 3,
+   "explanation": "Surha Tal lies in Ballia district, Uttar Pradesh. PM Modi hailed its designation around World Environment Day, 5 June 2026.",
+   "steps": [
+    "Spot what the question tests: Ramsar sites.",
+    "Option A (Bihar) is out: It is named after JP, associated with Bihar, but lies in Ballia, UP.",
+    "Option B (Odisha) is out: Not the location.",
+    "Option C (Assam) is out: Not the location.",
+    "Common slip to avoid: Linking Jayaprakash Narayan to Bihar.",
+    "So the answer is option D: Uttar Pradesh."
+   ],
+   "trap": "Linking Jayaprakash Narayan to Bihar.",
+   "revise": "Ramsar sites",
+   "wrongReasons": [
+    "It is named after JP, associated with Bihar, but lies in Ballia, UP",
+    "Not the location",
+    "Not the location",
+    null
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-06",
+   "source": "PIB, Ramsar"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Appointments",
+   "difficulty": "hard",
+   "text": "Which Indian officer was elected Vice-President of the Financial Action Task Force in June 2026, the first Indian to hold the post?",
+   "options": [
+    "Parameswaran Iyer",
+    "Sanjay Malhotra",
+    "Tuhin Kanta Pandey",
+    "Vivek Aggarwal"
+   ],
+   "answer": 3,
+   "explanation": "Vivek Aggarwal, a 1994-batch IAS officer, serves as FATF Vice-President from July 2026 to June 2027.",
+   "steps": [
+    "Spot what the question tests: FATF.",
+    "Option A (Parameswaran Iyer) is out: He was India's previous World Bank Executive Director.",
+    "Option B (Sanjay Malhotra) is out: He is the RBI Governor.",
+    "Option C (Tuhin Kanta Pandey) is out: He is the SEBI Chairman.",
+    "Common slip to avoid: Naming a well-known finance official.",
+    "So the answer is option D: Vivek Aggarwal."
+   ],
+   "trap": "Naming a well-known finance official.",
+   "revise": "FATF",
+   "wrongReasons": [
+    "He was India's previous World Bank Executive Director",
+    "He is the RBI Governor",
+    "He is the SEBI Chairman",
+    null
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-06",
+   "source": "MoF, FATF"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Sports",
+   "difficulty": "moderate",
+   "text": "The 2026 ICC Men's T20 World Cup was co-hosted by India and which other country?",
+   "options": [
+    "Sri Lanka",
+    "Bangladesh",
+    "United Arab Emirates",
+    "Pakistan"
+   ],
+   "answer": 0,
+   "explanation": "India and Sri Lanka co-hosted the 2026 T20 World Cup.",
+   "steps": [
+    "Spot what the question tests: T20 World Cup 2026.",
+    "Options B, C and D are out: Not a co-host.",
+    "Common slip to avoid: Choosing a neighbouring cricket nation.",
+    "So the answer is option A: Sri Lanka."
+   ],
+   "trap": "Choosing a neighbouring cricket nation.",
+   "revise": "T20 World Cup 2026",
+   "wrongReasons": [
+    null,
+    "Not a co-host",
+    "Not a co-host",
+    "Not a co-host"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-02",
+   "source": "ICC"
+  }
+ ]
+}

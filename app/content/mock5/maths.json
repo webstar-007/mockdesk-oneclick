@@ -1,0 +1,942 @@
+{
+ "section": "maths",
+ "questions": [
+  {
+   "topic": "Mensuration",
+   "subtopic": "Capsule surface area",
+   "difficulty": "hard",
+   "text": "A capsule-shaped vessel is a cylinder with a hemisphere attached at each end. The common radius is 7 cm and the total length of the vessel is 48 cm. Taking π = 22/7, what is its total surface area?",
+   "options": [
+    "2,112 cm²",
+    "1,496 cm²",
+    "2,728 cm²",
+    "2,420 cm²"
+   ],
+   "answer": 0,
+   "value": 2112,
+   "check": "2*(22/7)*7*34+4*(22/7)*49",
+   "explanation": "The cylindrical part is 48 − 2 × 7 = 34 cm long. Curved surface of the cylinder = 2πrh = 2 × 22/7 × 7 × 34 = 1,496. The two hemispheres make a sphere: 4πr² = 616. Total = 1,496 + 616 = 2,112 cm².",
+   "steps": [
+    "Cylinder length = 48 − 14 = 34",
+    "2πrh = 1,496",
+    "Two hemispheres = 4πr² = 616",
+    "Total = 2,112"
+   ],
+   "trap": "Including the flat bases that are covered by the hemispheres.",
+   "revise": "Capsule: cylinder curved surface + sphere",
+   "wrongReasons": [
+    null,
+    "Gave only the curved surface of the cylindrical part",
+    "Used the full 48 cm as the height of the cylindrical part",
+    "Added the two flat circular bases, 2 × 154"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Hollow pipe",
+   "difficulty": "hard",
+   "text": "A metallic pipe 14 m long has an external radius of 5 cm and a thickness of 1 cm. If the metal weighs 8 g per cm³, what is the mass of the pipe? (Take π = 22/7.)",
+   "options": [
+    "39.6 kg",
+    "880 kg",
+    "563.2 kg",
+    "316.8 kg"
+   ],
+   "answer": 3,
+   "value": 316.8,
+   "check": "(22/7)*9*1400*8/1000",
+   "explanation": "The internal radius is 4 cm. Volume of the metal = π(5² − 4²) × 1,400 = 22/7 × 9 × 1,400 = 39,600 cm³. Mass = 39,600 × 8 = 316,800 g = 316.8 kg.",
+   "steps": [
+    "Inner radius = 4 cm",
+    "V = π(25 − 16)(1,400) = 39,600 cm³",
+    "Mass = 316,800 g = 316.8 kg"
+   ],
+   "trap": "Forgetting that thickness reduces the inner radius.",
+   "revise": "Hollow cylinder: π(R² − r²)h",
+   "wrongReasons": [
+    "Used 1 g per cm³ instead of 8 g per cm³",
+    "Used the external radius only for the volume",
+    "Took the inner radius as 3 cm",
+    null
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Cube from diagonal",
+   "difficulty": "easy",
+   "text": "The diagonal of a cube is 12√3 cm. What is the total surface area of the cube?",
+   "options": [
+    "144 cm²",
+    "1,728 cm²",
+    "432 cm²",
+    "864 cm²"
+   ],
+   "answer": 3,
+   "value": 864,
+   "check": "6*144",
+   "explanation": "The diagonal of a cube of edge a is a√3, so a = 12 cm. Total surface area = 6a² = 6 × 144 = 864 cm².",
+   "steps": [
+    "a√3 = 12√3 → a = 12",
+    "6a² = 6 × 144",
+    "= 864"
+   ],
+   "trap": "Giving the volume or a single face.",
+   "revise": "Cube: diagonal = a√3",
+   "wrongReasons": [
+    "Gave the area of one face",
+    "Gave the volume",
+    "Gave three faces only",
+    null
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Cone cut by two planes",
+   "difficulty": "hard",
+   "text": "The height of a cone is divided into three equal parts by two planes parallel to the base. In what ratio, from the top, do the volumes of the three parts stand?",
+   "options": [
+    "1 : 2 : 3",
+    "1 : 4 : 9",
+    "1 : 7 : 19",
+    "1 : 8 : 27"
+   ],
+   "answer": 2,
+   "explanation": "Cones from the apex have volumes in the ratio 1³ : 2³ : 3³ = 1 : 8 : 27. The three parts are 1, 8 − 1 and 27 − 8, that is 1 : 7 : 19.",
+   "steps": [
+    "Cumulative cones: 1 : 8 : 27",
+    "Parts: 1, 7, 19"
+   ],
+   "trap": "Using the cumulative ratio as the ratio of the parts.",
+   "revise": "Similar cones: volumes ∝ cube of height",
+   "wrongReasons": [
+    "Used the ratio of the heights",
+    "Used the ratio of the squares",
+    null,
+    "Used the cumulative cones, not the parts"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Solids of revolution",
+   "difficulty": "hard",
+   "text": "A right-angled triangle has perpendicular sides 6 cm and 8 cm. It is revolved once about the side of 8 cm and once about the side of 6 cm. What is the ratio of the volumes of the two cones formed?",
+   "options": [
+    "4 : 3",
+    "9 : 16",
+    "3 : 4",
+    "1 : 1"
+   ],
+   "answer": 2,
+   "explanation": "About the 8 cm side: r = 6, h = 8, V = ⅓π × 36 × 8 = 96π. About the 6 cm side: r = 8, h = 6, V = ⅓π × 64 × 6 = 128π. Ratio = 96 : 128 = 3 : 4.",
+   "steps": [
+    "V₁ = ⅓π(36)(8) = 96π",
+    "V₂ = ⅓π(64)(6) = 128π",
+    "Ratio = 3 : 4"
+   ],
+   "trap": "Mixing the radius and the height.",
+   "revise": "Revolution about a leg gives a cone",
+   "wrongReasons": [
+    "Inverted the ratio",
+    "Squared the ratio",
+    null,
+    "Assumed equal volumes"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Path around a field",
+   "difficulty": "easy",
+   "text": "A rectangular field is 40 m long and 30 m wide. A path 2.5 m wide runs around it inside the field. What is the cost of paving the path at ₹12 per m²?",
+   "options": [
+    "₹1,200",
+    "₹3,900",
+    "₹10,500",
+    "₹4,680"
+   ],
+   "answer": 1,
+   "value": 3900,
+   "check": "(40*30-35*25)*12",
+   "explanation": "The inner rectangle is (40 − 5) × (30 − 5) = 35 × 25 = 875 m². Path area = 1,200 − 875 = 325 m². Cost = 325 × 12 = ₹3,900.",
+   "steps": [
+    "Inner = 35 × 25 = 875",
+    "Path = 1,200 − 875 = 325",
+    "Cost = 325 × 12 = 3,900"
+   ],
+   "trap": "Subtracting 2.5 instead of 5 from each side.",
+   "revise": "Path inside a rectangle: reduce each side by twice the width",
+   "wrongReasons": [
+    "Used the width as 1 m",
+    null,
+    "Computed the area of the field",
+    "Took the path as 3 m wide"
+   ]
+  },
+  {
+   "topic": "Mensuration",
+   "subtopic": "Minor segment",
+   "difficulty": "hard",
+   "text": "A chord of a circle of radius 21 cm subtends a right angle at the centre. Taking π = 22/7, what is the area of the minor segment?",
+   "options": [
+    "346.5 cm²",
+    "126 cm²",
+    "220.5 cm²",
+    "1,039.5 cm²"
+   ],
+   "answer": 1,
+   "value": 126,
+   "check": "346.5-220.5",
+   "explanation": "Sector of 90° = ¼ × 22/7 × 441 = 346.5 cm². Triangle with two radii as legs = ½ × 21 × 21 = 220.5 cm². Segment = 346.5 − 220.5 = 126 cm².",
+   "steps": [
+    "Sector = 346.5",
+    "Triangle = 220.5",
+    "Segment = 126"
+   ],
+   "trap": "Giving the sector instead of the segment.",
+   "revise": "Segment = sector − triangle",
+   "wrongReasons": [
+    "Gave the area of the sector",
+    null,
+    "Gave the area of the triangle",
+    "Gave three quarters of the circle"
+   ]
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Two missing frequencies",
+   "difficulty": "hard",
+   "text": "The total frequency of the distribution is 60 and its median is 34. Find the missing frequency y.",
+   "options": [
+    "11",
+    "17",
+    "28",
+    "15"
+   ],
+   "answer": 1,
+   "value": 17,
+   "check": "28-11",
+   "explanation": "x + y = 60 − (5 + 8 + 15 + 4) = 28. The median class is 30–40 (N/2 = 30). Median = 30 + (30 − (13 + x))/15 × 10 = 34, so (17 − x) = 6 and x = 11. Then y = 28 − 11 = 17.",
+   "steps": [
+    "x + y = 28",
+    "34 = 30 + (30 − 13 − x)/15 × 10",
+    "17 − x = 6 → x = 11, y = 17"
+   ],
+   "trap": "Giving x or x + y.",
+   "revise": "Median with two unknowns: use N first",
+   "wrongReasons": [
+    "Gave the value of x",
+    null,
+    "Gave x + y",
+    "Took the frequency of the median class"
+   ],
+   "table": {
+    "caption": "Frequency distribution",
+    "headers": [
+     "Class",
+     "0–10",
+     "10–20",
+     "20–30",
+     "30–40",
+     "40–50",
+     "50–60"
+    ],
+    "rows": [
+     [
+      "Frequency",
+      "5",
+      "8",
+      "x",
+      "15",
+      "y",
+      "4"
+     ]
+    ]
+   }
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Growth from a table",
+   "difficulty": "moderate",
+   "text": "By what percent is the total production of the three plants in 2024 more than in 2022?",
+   "options": [
+    "25%",
+    "20%",
+    "32%",
+    "30%"
+   ],
+   "answer": 0,
+   "value": 25,
+   "check": "(1350-1080)/1080*100",
+   "explanation": "Total 2022 = 420 + 360 + 300 = 1,080. Total 2024 = 504 + 450 + 396 = 1,350. Increase = 270/1,080 × 100 = 25%.",
+   "steps": [
+    "2022: 1,080",
+    "2024: 1,350",
+    "(1,350 − 1,080)/1,080 = 25%"
+   ],
+   "trap": "Dividing by the later total.",
+   "revise": "Percent change: divide by the earlier value",
+   "wrongReasons": [
+    null,
+    "Divided by the 2024 total",
+    "Used Plant C alone",
+    "Averaged the three plants' growth rates"
+   ],
+   "table": {
+    "caption": "Production (thousand units)",
+    "headers": [
+     "Plant",
+     "2022",
+     "2023",
+     "2024"
+    ],
+    "rows": [
+     [
+      "A",
+      "420",
+      "462",
+      "504"
+     ],
+     [
+      "B",
+      "360",
+      "396",
+      "450"
+     ],
+     [
+      "C",
+      "300",
+      "345",
+      "396"
+     ]
+    ]
+   }
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Mean of grouped data",
+   "difficulty": "moderate",
+   "text": "What is the mean of the distribution in the table?",
+   "options": [
+    "50",
+    "55",
+    "48",
+    "52"
+   ],
+   "answer": 3,
+   "value": 52,
+   "check": "1560/30",
+   "explanation": "Class marks: 10, 30, 50, 70, 90. Σfx = 2(10) + 7(30) + 11(50) + 6(70) + 4(90) = 20 + 210 + 550 + 420 + 360 = 1,560. Σf = 30. Mean = 52.",
+   "steps": [
+    "Class marks 10 to 90",
+    "Σfx = 1,560, Σf = 30",
+    "Mean = 52"
+   ],
+   "trap": "Using the unweighted mean.",
+   "revise": "Grouped mean",
+   "wrongReasons": [
+    "Took the mean of the class marks without weights",
+    "Took the mean of the two largest classes",
+    "Used lower class limits",
+    null
+   ],
+   "table": {
+    "caption": "Marks of 30 students",
+    "headers": [
+     "Class",
+     "0–20",
+     "20–40",
+     "40–60",
+     "60–80",
+     "80–100"
+    ],
+    "rows": [
+     [
+      "Frequency",
+      "2",
+      "7",
+      "11",
+      "6",
+      "4"
+     ]
+    ]
+   }
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Excluded observation",
+   "difficulty": "moderate",
+   "text": "The mean of 5 numbers is 28. When one of the numbers is removed, the mean of the remaining four becomes 25. What is the number that was removed?",
+   "options": [
+    "40",
+    "28",
+    "25",
+    "3"
+   ],
+   "answer": 0,
+   "value": 40,
+   "check": "140-100",
+   "explanation": "Sum of the five = 140. Sum of the four = 100. Removed number = 140 − 100 = 40.",
+   "steps": [
+    "Sum = 5 × 28 = 140",
+    "Sum of four = 4 × 25 = 100",
+    "Difference = 40"
+   ],
+   "trap": "Giving the difference of the means.",
+   "revise": "Remove one observation: compare totals",
+   "wrongReasons": [
+    null,
+    "Gave the original mean",
+    "Gave the new mean",
+    "Gave the difference of the means"
+   ]
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Coefficient of variation",
+   "difficulty": "hard",
+   "text": "A set of observations has mean 40 and standard deviation 8. If 10 is added to every observation, what is the new coefficient of variation?",
+   "options": [
+    "20%",
+    "25%",
+    "16%",
+    "18%"
+   ],
+   "answer": 2,
+   "value": 16,
+   "check": "8/50*100",
+   "explanation": "Adding a constant shifts the mean to 50 but leaves the SD at 8. New CV = 8/50 × 100 = 16%.",
+   "steps": [
+    "New mean = 50",
+    "SD unchanged = 8",
+    "CV = 8/50 = 16%"
+   ],
+   "trap": "Changing the SD when a constant is added.",
+   "revise": "SD is unaffected by a shift",
+   "wrongReasons": [
+    "Gave the old coefficient of variation",
+    "Used a wrong mean of 32",
+    null,
+    "Added 10 to the SD as well"
+   ]
+  },
+  {
+   "topic": "Statistics",
+   "subtopic": "Middle observation",
+   "difficulty": "hard",
+   "text": "The mean of 25 observations is 36. The mean of the first 13 is 30 and of the last 13 is 44. What is the value of the 13th observation?",
+   "options": [
+    "36",
+    "62",
+    "37",
+    "74"
+   ],
+   "answer": 1,
+   "value": 62,
+   "check": "13*30+13*44-25*36",
+   "explanation": "The 13th observation belongs to both groups. Sum of first 13 = 390; sum of last 13 = 572; total sum = 900. 13th = 390 + 572 − 900 = 62.",
+   "steps": [
+    "390 + 572 = 962",
+    "Total = 25 × 36 = 900",
+    "13th = 62"
+   ],
+   "trap": "Missing that the 13th value is counted twice.",
+   "revise": "Overlapping averages",
+   "wrongReasons": [
+    "Took it equal to the overall mean",
+    null,
+    "Took the mean of 30 and 44",
+    "Added the two means"
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Average speed over three parts",
+   "difficulty": "hard",
+   "text": "A car covers three equal parts of a journey at average speeds of 30 km/h, 40 km/h and 60 km/h respectively. What is its average speed for the whole journey?",
+   "options": [
+    "43.33 km/h",
+    "45 km/h",
+    "36 km/h",
+    "40 km/h"
+   ],
+   "answer": 3,
+   "value": 40,
+   "check": "360/9",
+   "explanation": "Let each part be 120 km. Times = 4 + 3 + 2 = 9 hours for 360 km. Average speed = 360/9 = 40 km/h.",
+   "steps": [
+    "Take each part as 120 km",
+    "Times: 4, 3, 2 hours",
+    "360 ÷ 9 = 40"
+   ],
+   "trap": "Using the simple mean of the speeds.",
+   "revise": "Equal distances: harmonic mean",
+   "wrongReasons": [
+    "Took the simple mean of the three speeds",
+    "Took the mean of the extremes",
+    "Took the mean of 30 and 40 only",
+    null
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Successive changes",
+   "difficulty": "hard",
+   "text": "The population of a town increases by 20% in the first year, decreases by 10% in the second year and increases by 25% in the third year. If its population after three years is 1,35,000, what was the population at the start?",
+   "options": [
+    "1,15,000",
+    "1,00,000",
+    "1,12,500",
+    "1,20,000"
+   ],
+   "answer": 1,
+   "value": 100000,
+   "check": "135000/1.35",
+   "explanation": "Net factor = 1.20 × 0.90 × 1.25 = 1.35. Initial = 1,35,000 ÷ 1.35 = 1,00,000.",
+   "steps": [
+    "1.2 × 0.9 × 1.25 = 1.35",
+    "Initial = 135,000/1.35 = 100,000"
+   ],
+   "trap": "Adding percentages instead of multiplying factors.",
+   "revise": "Successive changes multiply",
+   "wrongReasons": [
+    "Added the net percentage changes",
+    null,
+    "Used a net 20% rise",
+    "Ignored the second-year fall"
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Efficiency and time",
+   "difficulty": "hard",
+   "text": "A is 25% more efficient than B. Working together they complete a job in 20 days. In how many days can A alone complete it?",
+   "options": [
+    "45",
+    "32",
+    "36",
+    "40"
+   ],
+   "answer": 2,
+   "value": 36,
+   "check": "4*9",
+   "explanation": "Efficiency A : B = 5 : 4, so the times are in the ratio 4 : 5. Let A take 4k days and B take 5k days. 1/(4k) + 1/(5k) = 9/(20k) = 1/20, so k = 9. A takes 36 days (B takes 45).",
+   "steps": [
+    "Time ratio A : B = 4 : 5",
+    "9/(20k) = 1/20 → k = 9",
+    "A = 4k = 36"
+   ],
+   "trap": "Keeping efficiency and time in the same ratio.",
+   "revise": "Efficiency and time are inversely proportional",
+   "wrongReasons": [
+    "Gave the time taken by B",
+    "Used the ratio of efficiencies as 4 : 3",
+    null,
+    "Took the joint time doubled"
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Ratio of ages",
+   "difficulty": "moderate",
+   "text": "The present ages of P and Q are in the ratio 5 : 7. Six years from now their ages will be in the ratio 7 : 9. What is the present age of Q?",
+   "options": [
+    "15 years",
+    "27 years",
+    "18 years",
+    "21 years"
+   ],
+   "answer": 3,
+   "value": 21,
+   "check": "7*3",
+   "explanation": "Let the ages be 5x and 7x. (5x + 6)/(7x + 6) = 7/9, so 45x + 54 = 49x + 42, giving x = 3. Q = 21 years.",
+   "steps": [
+    "(5x + 6)/(7x + 6) = 7/9",
+    "45x + 54 = 49x + 42",
+    "x = 3, Q = 21"
+   ],
+   "trap": "Giving P's age or the future age.",
+   "revise": "Age ratios: form the equation with the added years",
+   "wrongReasons": [
+    "Gave the age of P",
+    "Gave the age of Q after 6 years",
+    "Took the ratio as 5 : 6",
+    null
+   ]
+  },
+  {
+   "topic": "Arithmetic",
+   "subtopic": "Marked price",
+   "difficulty": "easy",
+   "text": "A shopkeeper wants to earn a profit of 12.5% on an article costing ₹800 after allowing a discount of 20% on the marked price. What should the marked price be?",
+   "options": [
+    "₹900",
+    "₹1,000",
+    "₹1,080",
+    "₹1,125"
+   ],
+   "answer": 3,
+   "value": 1125,
+   "check": "800*1.125/0.8",
+   "explanation": "Selling price = 800 × 1.125 = ₹900. This is 80% of the marked price, so the marked price = 900 ÷ 0.8 = ₹1,125.",
+   "steps": [
+    "SP = 800 × 1.125 = 900",
+    "SP = 0.8 × MP",
+    "MP = 1,125"
+   ],
+   "trap": "Adding the discount to the selling price.",
+   "revise": "Marked price = SP ÷ (1 − discount)",
+   "wrongReasons": [
+    "Gave the selling price",
+    "Added 25% to the cost",
+    "Added 20% to the selling price",
+    null
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Angle bisector and area",
+   "difficulty": "moderate",
+   "text": "In triangle ABC, AB = 15 cm, AC = 20 cm and BC = 14 cm. The bisector of ∠A meets BC at D. If the area of triangle ABC is 84 cm², what is the area of triangle ABD?",
+   "options": [
+    "48 cm²",
+    "42 cm²",
+    "36 cm²",
+    "28 cm²"
+   ],
+   "answer": 2,
+   "value": 36,
+   "check": "3/7*84",
+   "explanation": "BD : DC = AB : AC = 15 : 20 = 3 : 4. Triangles ABD and ACD share the same height from A, so their areas are in the ratio 3 : 4. Area ABD = 3/7 × 84 = 36 cm².",
+   "steps": [
+    "BD : DC = 3 : 4",
+    "Same height → area ratio 3 : 4",
+    "3/7 × 84 = 36"
+   ],
+   "trap": "Giving the area of the other part.",
+   "revise": "Angle bisector divides the base in the ratio of the sides",
+   "wrongReasons": [
+    "Gave the area of triangle ACD",
+    "Took half of the whole area",
+    null,
+    "Took one-third of the area"
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Transverse common tangent",
+   "difficulty": "hard",
+   "text": "The centres of two circles of radii 8 cm and 7 cm are 17 cm apart. What is the length of a transverse common tangent?",
+   "options": [
+    "15 cm",
+    "16 cm",
+    "8 cm",
+    "9.4 cm"
+   ],
+   "answer": 2,
+   "value": 8,
+   "check": "Math.sqrt(289-225)",
+   "explanation": "Transverse common tangent = √(d² − (R + r)²) = √(289 − 225) = √64 = 8 cm.",
+   "steps": [
+    "d² = 289, (R + r)² = 225",
+    "√64 = 8"
+   ],
+   "trap": "Using R − r, which gives the direct tangent.",
+   "revise": "Transverse tangent uses R + r",
+   "wrongReasons": [
+    "Gave the sum of the radii",
+    "Gave twice the answer",
+    null,
+    "Used the formula for a direct common tangent"
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Isosceles trapezium diagonal",
+   "difficulty": "hard",
+   "text": "The parallel sides of an isosceles trapezium are 14 cm and 4 cm and each of its slanting sides is 13 cm. What is the length of a diagonal?",
+   "options": [
+    "15 cm",
+    "13 cm",
+    "12 cm",
+    "18 cm"
+   ],
+   "answer": 0,
+   "value": 15,
+   "check": "Math.sqrt(169+14*4)",
+   "explanation": "Half the difference of the parallel sides is 5 cm, so the height = √(169 − 25) = 12 cm. The horizontal distance from a base vertex to the far top vertex is 5 + 4 = 9 cm. Diagonal = √(9² + 12²) = 15 cm. By Ptolemy: d² = 13² + 14 × 4 = 225.",
+   "steps": [
+    "Height = √(169 − 25) = 12",
+    "Horizontal offset = 5 + 4 = 9",
+    "Diagonal = √(81 + 144) = 15"
+   ],
+   "trap": "Giving the height or the slant.",
+   "revise": "Isosceles trapezium: diagonal by Pythagoras or Ptolemy",
+   "wrongReasons": [
+    null,
+    "Gave the slanting side",
+    "Gave the height",
+    "Gave the sum of the parallel sides"
+   ]
+  },
+  {
+   "topic": "Geometry",
+   "subtopic": "Orthocentre and incentre",
+   "difficulty": "hard",
+   "text": "In triangle ABC, ∠A = 68°. H is the orthocentre and I is the incentre. What is the value of ∠BHC + ∠BIC?",
+   "options": [
+    "236°",
+    "112°",
+    "124°",
+    "248°"
+   ],
+   "answer": 0,
+   "value": 236,
+   "check": "112+124",
+   "explanation": "∠BHC = 180° − 68° = 112°. ∠BIC = 90° + 34° = 124°. Sum = 236°.",
+   "steps": [
+    "∠BHC = 180° − A = 112°",
+    "∠BIC = 90° + A/2 = 124°",
+    "Sum = 236°"
+   ],
+   "trap": "Giving one of the angles only.",
+   "revise": "Angles at H and I",
+   "wrongReasons": [
+    null,
+    "Gave ∠BHC only",
+    "Gave ∠BIC only",
+    "Used ∠BIC = 90° + A/2 twice"
+   ]
+  },
+  {
+   "topic": "Trigonometry",
+   "subtopic": "sin + sin² = 1",
+   "difficulty": "hard",
+   "text": "If sin θ + sin²θ = 1, what is the value of cos²θ + cos⁴θ?",
+   "options": [
+    "1",
+    "0",
+    "2",
+    "0.5"
+   ],
+   "answer": 0,
+   "value": 1,
+   "check": "1",
+   "explanation": "sin θ = 1 − sin²θ = cos²θ. Then cos⁴θ = sin²θ. So cos²θ + cos⁴θ = sin θ + sin²θ = 1.",
+   "steps": [
+    "sinθ = cos²θ",
+    "cos⁴θ = sin²θ",
+    "Sum = sinθ + sin²θ = 1"
+   ],
+   "trap": "Not noticing cos²θ = sin θ.",
+   "revise": "Substitution using sin θ = cos²θ",
+   "wrongReasons": [
+    null,
+    "Took sin θ = cos²θ as zero",
+    "Doubled the answer",
+    "Took half of the answer"
+   ]
+  },
+  {
+   "topic": "Trigonometry",
+   "subtopic": "Tower and two elevations",
+   "difficulty": "hard",
+   "text": "The top of a 15 m tower is seen from a point on level ground with the tangent of the angle of elevation equal to 5/12. After the observer walks towards the tower, the tangent of the angle of elevation becomes 3/4. How far did the observer walk?",
+   "options": [
+    "16 m",
+    "20 m",
+    "36 m",
+    "12 m"
+   ],
+   "answer": 0,
+   "value": 16,
+   "check": "36-20",
+   "explanation": "Initial distance = 15 ÷ (5/12) = 36 m. Final distance = 15 ÷ (3/4) = 20 m. Distance walked = 36 − 20 = 16 m.",
+   "steps": [
+    "d₁ = 15 × 12/5 = 36",
+    "d₂ = 15 × 4/3 = 20",
+    "Walked = 16"
+   ],
+   "trap": "Giving a position instead of the displacement.",
+   "revise": "Two-angle tower problems",
+   "wrongReasons": [
+    null,
+    "Gave the final distance from the tower",
+    "Gave the initial distance from the tower",
+    "Gave the denominator of the first tangent"
+   ]
+  },
+  {
+   "topic": "Trigonometry",
+   "subtopic": "sec and tan ratio",
+   "difficulty": "easy",
+   "text": "If sin θ = 3/5 and θ is acute, what is the value of (sec θ + tan θ)/(sec θ − tan θ)?",
+   "options": [
+    "2",
+    "4",
+    "1.6",
+    "16"
+   ],
+   "answer": 1,
+   "value": 4,
+   "check": "(5/4+3/4)/(5/4-3/4)",
+   "explanation": "cos θ = 4/5, so sec θ = 5/4 and tan θ = 3/4. The ratio = (5/4 + 3/4)/(5/4 − 3/4) = 2 ÷ 0.5 = 4.",
+   "steps": [
+    "cos = 4/5, sec = 5/4, tan = 3/4",
+    "(8/4)/(2/4) = 4"
+   ],
+   "trap": "Using sec θ = 4/5.",
+   "revise": "Ratio from a single trigonometric value",
+   "wrongReasons": [
+    "Gave sec θ + tan θ only",
+    null,
+    "Gave 8/5",
+    "Squared the answer"
+   ]
+  },
+  {
+   "topic": "Algebra",
+   "subtopic": "a + b + c = 0",
+   "difficulty": "hard",
+   "text": "If a + b + c = 0 and abc ≠ 0, what is the value of a²/(bc) + b²/(ca) + c²/(ab)?",
+   "options": [
+    "0",
+    "3",
+    "1",
+    "6"
+   ],
+   "answer": 1,
+   "value": 3,
+   "check": "3",
+   "explanation": "The expression = (a³ + b³ + c³)/(abc). When a + b + c = 0, a³ + b³ + c³ = 3abc. So the value is 3abc/abc = 3.",
+   "steps": [
+    "Common denominator abc",
+    "a³ + b³ + c³ = 3abc when a + b + c = 0",
+    "Value = 3"
+   ],
+   "trap": "Assuming the sum 0 makes the expression 0.",
+   "revise": "a + b + c = 0 → a³ + b³ + c³ = 3abc",
+   "wrongReasons": [
+    "Assumed the terms cancel",
+    null,
+    "Took each term as 1/3",
+    "Doubled the correct value"
+   ]
+  },
+  {
+   "topic": "Algebra",
+   "subtopic": "Surd identity",
+   "difficulty": "hard",
+   "text": "If x = 3 + 2√2, what is the value of x² + 1/x²?",
+   "options": [
+    "36",
+    "34",
+    "32",
+    "6"
+   ],
+   "answer": 1,
+   "value": 34,
+   "check": "36-2",
+   "explanation": "1/x = 3 − 2√2, so x + 1/x = 6. x² + 1/x² = 36 − 2 = 34.",
+   "steps": [
+    "1/x = 3 − 2√2",
+    "x + 1/x = 6",
+    "x² + 1/x² = 36 − 2 = 34"
+   ],
+   "trap": "Stopping at (x + 1/x)².",
+   "revise": "Rationalising 1/x and using the square identity",
+   "wrongReasons": [
+    "Gave (x + 1/x)²",
+    null,
+    "Subtracted 4 instead of 2",
+    "Gave x + 1/x"
+   ]
+  },
+  {
+   "topic": "Algebra",
+   "subtopic": "Consecutive numbers",
+   "difficulty": "moderate",
+   "text": "The sum of the squares of three consecutive natural numbers is 365. What is the largest of the three?",
+   "options": [
+    "12",
+    "10",
+    "11",
+    "13"
+   ],
+   "answer": 0,
+   "value": 12,
+   "check": "12",
+   "explanation": "Let the numbers be n − 1, n, n + 1. Sum of squares = 3n² + 2 = 365, so n² = 121 and n = 11. The largest is 12.",
+   "steps": [
+    "(n − 1)² + n² + (n + 1)² = 3n² + 2",
+    "3n² = 363 → n = 11",
+    "Largest = 12"
+   ],
+   "trap": "Giving the middle number.",
+   "revise": "Symmetric choice of consecutive numbers",
+   "wrongReasons": [
+    null,
+    "Gave the smallest",
+    "Gave the middle number",
+    "Gave the next number"
+   ]
+  },
+  {
+   "topic": "Number System",
+   "subtopic": "Perfect-square factors",
+   "difficulty": "hard",
+   "text": "How many factors of 2⁵ × 3³ × 5² are perfect squares?",
+   "options": [
+    "36",
+    "6",
+    "12",
+    "8"
+   ],
+   "answer": 2,
+   "value": 12,
+   "check": "3*2*2",
+   "explanation": "A factor is a perfect square if every exponent is even. For 2: 0, 2, 4 (3 choices); for 3: 0, 2 (2 choices); for 5: 0, 2 (2 choices). Total = 3 × 2 × 2 = 12.",
+   "steps": [
+    "2: exponents 0, 2, 4 → 3",
+    "3: exponents 0, 2 → 2",
+    "5: exponents 0, 2 → 2",
+    "3 × 2 × 2 = 12"
+   ],
+   "trap": "Counting all factors instead of squares.",
+   "revise": "Perfect-square factors: even exponents",
+   "wrongReasons": [
+    "Counted all the factors",
+    "Counted only the squares of 2 and 3",
+    null,
+    "Missed the powers of 5"
+   ]
+  },
+  {
+   "topic": "Number System",
+   "subtopic": "Remainder by cyclicity",
+   "difficulty": "hard",
+   "text": "What is the remainder when 2²⁰²⁵ is divided by 9?",
+   "options": [
+    "2",
+    "1",
+    "5",
+    "8"
+   ],
+   "answer": 3,
+   "value": 8,
+   "check": "8",
+   "explanation": "2⁶ = 64 ≡ 1 (mod 9). 2025 = 6 × 337 + 3, so 2²⁰²⁵ ≡ 2³ = 8 (mod 9).",
+   "steps": [
+    "2⁶ ≡ 1 (mod 9)",
+    "2025 mod 6 = 3",
+    "2³ = 8"
+   ],
+   "trap": "Not reducing the exponent modulo the cycle.",
+   "revise": "Cyclicity of remainders",
+   "wrongReasons": [
+    "Used the remainder of the first power",
+    "Assumed 2⁶ ≡ 1 divides the exponent exactly",
+    "Used 2⁵ instead of 2³",
+    null
+   ]
+  }
+ ]
+}

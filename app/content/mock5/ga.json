@@ -1,0 +1,760 @@
+{
+ "section": "ga",
+ "questions": [
+  {
+   "topic": "History",
+   "subtopic": "Revolt of 1857",
+   "difficulty": "hard",
+   "text": "How many of the following statements are correct?\n1. The Revolt of 1857 began at Meerut on 10 May 1857.\n2. Rani Lakshmibai of Jhansi was one of its leaders.\n3. It was led at Kanpur by Kunwar Singh.",
+   "options": [
+    "Only one",
+    "All three",
+    "Only two",
+    "None"
+   ],
+   "answer": 2,
+   "explanation": "At Kanpur the revolt was led by Nana Sahib; Kunwar Singh led it in Bihar.",
+   "steps": [
+    "Spot what the question tests: Leaders of 1857.",
+    "Options A, B and D are out: 2 statement(s) are correct, not this number.",
+    "Common slip to avoid: Linking Kunwar Singh with Kanpur.",
+    "So the answer is option C: Only two."
+   ],
+   "trap": "Linking Kunwar Singh with Kanpur.",
+   "revise": "Leaders of 1857",
+   "wrongReasons": [
+    "2 statement(s) are correct, not this number",
+    "2 statement(s) are correct, not this number",
+    null,
+    "2 statement(s) are correct, not this number"
+   ]
+  },
+  {
+   "topic": "History",
+   "subtopic": "Annexations",
+   "difficulty": "hard",
+   "text": "Which was the first Indian state annexed by Lord Dalhousie under the Doctrine of Lapse?",
+   "options": [
+    "Jhansi",
+    "Satara",
+    "Nagpur",
+    "Awadh"
+   ],
+   "answer": 1,
+   "explanation": "Satara was annexed in 1848, the first state taken under the Doctrine of Lapse.",
+   "steps": [
+    "Spot what the question tests: Doctrine of Lapse.",
+    "Options A and C are out: Annexed in 1854.",
+    "Option D (Awadh) is out: Annexed in 1856 on the charge of misgovernment.",
+    "Common slip to avoid: Choosing the better-known Jhansi.",
+    "So the answer is option B: Satara."
+   ],
+   "trap": "Choosing the better-known Jhansi.",
+   "revise": "Doctrine of Lapse",
+   "wrongReasons": [
+    "Annexed in 1854",
+    null,
+    "Annexed in 1854",
+    "Annexed in 1856 on the charge of misgovernment"
+   ]
+  },
+  {
+   "topic": "History",
+   "subtopic": "Mauryan period",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the inscriptions of Ashoka.\n1. They were first deciphered by James Prinsep.\n2. Major Rock Edict XIII describes the Kalinga war.\n3. They are written only in the Brahmi script.",
+   "options": [
+    "2 and 3 only",
+    "1 and 2 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 1,
+   "explanation": "Some edicts are in Kharosthi, Greek and Aramaic as well.",
+   "steps": [
+    "Spot what the question tests: Ashokan inscriptions.",
+    "Options A and C are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Assuming one script for all edicts.",
+    "So the answer is option B: 1 and 2 only."
+   ],
+   "trap": "Assuming one script for all edicts.",
+   "revise": "Ashokan inscriptions",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    null,
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect"
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Money Bills",
+   "difficulty": "hard",
+   "text": "Assertion (A): The Rajya Sabha cannot reject a Money Bill.\nReason (R): It can only recommend amendments to a Money Bill, which the Lok Sabha may accept or reject.",
+   "options": [
+    "Both A and R are true but R is not the correct explanation of A",
+    "Both A and R are true and R is the correct explanation of A",
+    "A is true but R is false",
+    "A is false but R is true"
+   ],
+   "answer": 1,
+   "explanation": "Under Article 109 the Rajya Sabha must return a Money Bill within 14 days; its recommendations are not binding, so it cannot block the Bill.",
+   "steps": [
+    "Spot what the question tests: Article 109.",
+    "Options A, C and D are out: Does not match the truth of A and R.",
+    "Common slip to avoid: Treating the Rajya Sabha as equal to the Lok Sabha on money matters.",
+    "So the answer is option B: Both A and R are true and R is the correct explanation of A."
+   ],
+   "trap": "Treating the Rajya Sabha as equal to the Lok Sabha on money matters.",
+   "revise": "Article 109",
+   "wrongReasons": [
+    "Does not match the truth of A and R",
+    null,
+    "Does not match the truth of A and R",
+    "Does not match the truth of A and R"
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Fundamental Duties",
+   "difficulty": "hard",
+   "text": "Consider the following statements about Fundamental Duties.\n1. They were added by the 42nd Amendment, 1976.\n2. They were added on the recommendation of the Swaran Singh Committee.\n3. They can be enforced by courts through writs.",
+   "options": [
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3",
+    "1 and 2 only"
+   ],
+   "answer": 3,
+   "explanation": "Fundamental Duties are not justiciable and cannot be enforced through writs.",
+   "steps": [
+    "Spot what the question tests: Part IVA.",
+    "Options A and B are out: Includes statement 3, which is incorrect.",
+    "Option C (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Treating them like Fundamental Rights.",
+    "So the answer is option D: 1 and 2 only."
+   ],
+   "trap": "Treating them like Fundamental Rights.",
+   "revise": "Part IVA",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect",
+    null
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Right to education",
+   "difficulty": "moderate",
+   "text": "The Right to Education was made a Fundamental Right for children aged 6 to 14 years by which Amendment?",
+   "options": [
+    "86th Amendment, 2002",
+    "42nd Amendment, 1976",
+    "44th Amendment, 1978",
+    "73rd Amendment, 1992"
+   ],
+   "answer": 0,
+   "explanation": "The 86th Amendment inserted Article 21A.",
+   "steps": [
+    "Spot what the question tests: Article 21A.",
+    "Option B (42nd Amendment, 1976) is out: Added Fundamental Duties.",
+    "Option C (44th Amendment, 1978) is out: Removed the right to property from Part III.",
+    "Option D (73rd Amendment, 1992) is out: Gave constitutional status to Panchayats.",
+    "Common slip to avoid: Choosing the 42nd.",
+    "So the answer is option A: 86th Amendment, 2002."
+   ],
+   "trap": "Choosing the 42nd.",
+   "revise": "Article 21A",
+   "wrongReasons": [
+    null,
+    "Added Fundamental Duties",
+    "Removed the right to property from Part III",
+    "Gave constitutional status to Panchayats"
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "Monetary policy",
+   "difficulty": "hard",
+   "text": "How many of the following statements are correct?\n1. The repo rate is the rate at which the RBI lends short-term funds to commercial banks.\n2. The Cash Reserve Ratio is the share of deposits that banks must keep with the RBI.\n3. The Statutory Liquidity Ratio must be maintained entirely as cash with the RBI.",
+   "options": [
+    "Only one",
+    "All three",
+    "None",
+    "Only two"
+   ],
+   "answer": 3,
+   "explanation": "SLR is held by banks themselves in cash, gold or approved securities, not with the RBI.",
+   "steps": [
+    "Spot what the question tests: CRR vs SLR.",
+    "Options A, B and C are out: 2 statement(s) are correct, not this number.",
+    "Common slip to avoid: Mixing up CRR and SLR.",
+    "So the answer is option D: Only two."
+   ],
+   "trap": "Mixing up CRR and SLR.",
+   "revise": "CRR vs SLR",
+   "wrongReasons": [
+    "2 statement(s) are correct, not this number",
+    "2 statement(s) are correct, not this number",
+    "2 statement(s) are correct, not this number",
+    null
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "Planning",
+   "difficulty": "moderate",
+   "text": "Which Five-Year Plan was based on the Mahalanobis model, which stressed rapid growth of heavy industries?",
+   "options": [
+    "Second Plan",
+    "First Plan",
+    "Third Plan",
+    "Fifth Plan"
+   ],
+   "answer": 0,
+   "explanation": "The Second Plan (1956-61) followed the Mahalanobis model.",
+   "steps": [
+    "Spot what the question tests: Planning models.",
+    "Option B (First Plan) is out: Based on the Harrod-Domar model.",
+    "Option C (Third Plan) is out: Called a 'take-off' plan for self-reliance.",
+    "Option D (Fifth Plan) is out: Stressed 'Garibi Hatao'.",
+    "Common slip to avoid: Choosing the First Plan.",
+    "So the answer is option A: Second Plan."
+   ],
+   "trap": "Choosing the First Plan.",
+   "revise": "Planning models",
+   "wrongReasons": [
+    null,
+    "Based on the Harrod-Domar model",
+    "Called a 'take-off' plan for self-reliance",
+    "Stressed 'Garibi Hatao'"
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "Public finance",
+   "difficulty": "hard",
+   "text": "Which of the following is a capital receipt of the Government of India?",
+   "options": [
+    "Corporation tax",
+    "Recovery of loans granted to States",
+    "Interest received on loans",
+    "Dividends from public sector units"
+   ],
+   "answer": 1,
+   "explanation": "Recovery of loans reduces an asset of the government and is a capital receipt.",
+   "steps": [
+    "Spot what the question tests: Revenue and capital receipts.",
+    "Option A (Corporation tax) is out: A tax revenue.",
+    "Options C and D are out: A non-tax revenue.",
+    "Common slip to avoid: Treating interest as a capital receipt.",
+    "So the answer is option B: Recovery of loans granted to States."
+   ],
+   "trap": "Treating interest as a capital receipt.",
+   "revise": "Revenue and capital receipts",
+   "wrongReasons": [
+    "A tax revenue",
+    null,
+    "A non-tax revenue",
+    "A non-tax revenue"
+   ]
+  },
+  {
+   "topic": "Geography",
+   "subtopic": "Latitudes",
+   "difficulty": "hard",
+   "text": "Through how many Indian States does the Tropic of Cancer pass?",
+   "options": [
+    "7",
+    "9",
+    "8",
+    "6"
+   ],
+   "answer": 2,
+   "explanation": "It passes through Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura and Mizoram.",
+   "steps": [
+    "Spot what the question tests: Tropic of Cancer.",
+    "Option A (7) is out: One fewer.",
+    "Option B (9) is out: One more.",
+    "Option D (6) is out: Two fewer.",
+    "Common slip to avoid: Forgetting Tripura or Mizoram.",
+    "So the answer is option C: 8."
+   ],
+   "trap": "Forgetting Tripura or Mizoram.",
+   "revise": "Tropic of Cancer",
+   "wrongReasons": [
+    "One fewer",
+    "One more",
+    null,
+    "Two fewer"
+   ]
+  },
+  {
+   "topic": "Geography",
+   "subtopic": "Climate",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the climate of India.\n1. Western Disturbances bring winter rainfall to north-western India.\n2. El Nino years are generally associated with a weaker south-west monsoon.\n3. The leeward side of the Western Ghats receives more rainfall than the windward side.",
+   "options": [
+    "2 and 3 only",
+    "1 and 2 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 1,
+   "explanation": "The windward side receives heavy rainfall; the leeward side lies in the rain shadow.",
+   "steps": [
+    "Spot what the question tests: Monsoon and rain shadow.",
+    "Options A and C are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Reversing windward and leeward.",
+    "So the answer is option B: 1 and 2 only."
+   ],
+   "trap": "Reversing windward and leeward.",
+   "revise": "Monsoon and rain shadow",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    null,
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect"
+   ]
+  },
+  {
+   "topic": "Geography",
+   "subtopic": "Straits",
+   "difficulty": "moderate",
+   "text": "Which channel separates the Andaman Islands from the Nicobar Islands?",
+   "options": [
+    "Palk Strait",
+    "Eight Degree Channel",
+    "Ten Degree Channel",
+    "Duncan Passage"
+   ],
+   "answer": 2,
+   "explanation": "The Ten Degree Channel lies along 10 degrees north between the two groups.",
+   "steps": [
+    "Spot what the question tests: Channels and passages.",
+    "Option A (Palk Strait) is out: Separates India from Sri Lanka.",
+    "Option B (Eight Degree Channel) is out: Separates Minicoy from the Maldives.",
+    "Option D (Duncan Passage) is out: Separates South Andaman from Little Andaman.",
+    "Common slip to avoid: Choosing Duncan Passage.",
+    "So the answer is option C: Ten Degree Channel."
+   ],
+   "trap": "Choosing Duncan Passage.",
+   "revise": "Channels and passages",
+   "wrongReasons": [
+    "Separates India from Sri Lanka",
+    "Separates Minicoy from the Maldives",
+    null,
+    "Separates South Andaman from Little Andaman"
+   ]
+  },
+  {
+   "topic": "Science",
+   "subtopic": "Human body",
+   "difficulty": "easy",
+   "text": "Which blood group is called the universal recipient?",
+   "options": [
+    "AB positive",
+    "O negative",
+    "A positive",
+    "B negative"
+   ],
+   "answer": 0,
+   "explanation": "AB positive blood has no anti-A or anti-B antibodies and has the Rh factor.",
+   "steps": [
+    "Spot what the question tests: Blood groups.",
+    "Option B (O negative) is out: The universal donor.",
+    "Option C (A positive) is out: Lacks the B antigen.",
+    "Option D (B negative) is out: Lacks the A antigen.",
+    "Common slip to avoid: Choosing the universal donor.",
+    "So the answer is option A: AB positive."
+   ],
+   "trap": "Choosing the universal donor.",
+   "revise": "Blood groups",
+   "wrongReasons": [
+    null,
+    "The universal donor",
+    "Lacks the B antigen",
+    "Lacks the A antigen"
+   ]
+  },
+  {
+   "topic": "Science",
+   "subtopic": "Optics",
+   "difficulty": "hard",
+   "text": "Consider the following statements about lenses.\n1. A concave lens always forms a virtual image of a real object.\n2. The power of a lens in dioptres is the reciprocal of its focal length in metres.\n3. Myopia is corrected by a convex lens.",
+   "options": [
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3",
+    "1 and 2 only"
+   ],
+   "answer": 3,
+   "explanation": "Myopia is corrected by a concave lens; hypermetropia by a convex lens.",
+   "steps": [
+    "Spot what the question tests: Lenses and defects of vision.",
+    "Options A and B are out: Includes statement 3, which is incorrect.",
+    "Option C (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Swapping the lenses.",
+    "So the answer is option D: 1 and 2 only."
+   ],
+   "trap": "Swapping the lenses.",
+   "revise": "Lenses and defects of vision",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect",
+    null
+   ]
+  },
+  {
+   "topic": "Science",
+   "subtopic": "Alloys",
+   "difficulty": "moderate",
+   "text": "How many of the following statements are correct?\n1. Brass is an alloy of copper and zinc.\n2. Bronze is an alloy of copper and tin.\n3. Solder is an alloy of lead and tin.",
+   "options": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "answer": 2,
+   "explanation": "All three alloys are made of the metals stated.",
+   "steps": [
+    "Spot what the question tests: Common alloys.",
+    "Options A, B and D are out: 3 statement(s) are correct, not this number.",
+    "Common slip to avoid: Doubting an easy statement.",
+    "So the answer is option C: All three."
+   ],
+   "trap": "Doubting an easy statement.",
+   "revise": "Common alloys",
+   "wrongReasons": [
+    "3 statement(s) are correct, not this number",
+    "3 statement(s) are correct, not this number",
+    null,
+    "3 statement(s) are correct, not this number"
+   ]
+  },
+  {
+   "topic": "Art and Culture",
+   "subtopic": "Classical dances",
+   "difficulty": "moderate",
+   "text": "Match List I (Dance) with List II (State of origin).\nA. Kuchipudi  B. Mohiniyattam  C. Sattriya  D. Bharatanatyam.\n1. Assam  2. Kerala  3. Andhra Pradesh  4. Tamil Nadu",
+   "options": [
+    "A-2, B-3, C-1, D-4",
+    "A-3, B-1, C-2, D-4",
+    "A-3, B-2, C-1, D-4",
+    "A-3, B-2, C-4, D-1"
+   ],
+   "answer": 2,
+   "explanation": "Kuchipudi is from Andhra Pradesh, Mohiniyattam from Kerala, Sattriya from Assam and Bharatanatyam from Tamil Nadu.",
+   "steps": [
+    "Spot what the question tests: Classical dances.",
+    "Option A (A-2, B-3, C-1, D-4) is out: Kuchipudi and Mohiniyattam are swapped.",
+    "Option B (A-3, B-1, C-2, D-4) is out: Mohiniyattam and Sattriya are swapped.",
+    "Option D (A-3, B-2, C-4, D-1) is out: Sattriya and Bharatanatyam are swapped.",
+    "Common slip to avoid: Mixing southern dances.",
+    "So the answer is option C: A-3, B-2, C-1, D-4."
+   ],
+   "trap": "Mixing southern dances.",
+   "revise": "Classical dances",
+   "wrongReasons": [
+    "Kuchipudi and Mohiniyattam are swapped",
+    "Mohiniyattam and Sattriya are swapped",
+    null,
+    "Sattriya and Bharatanatyam are swapped"
+   ]
+  },
+  {
+   "topic": "Sports",
+   "subtopic": "Awards",
+   "difficulty": "easy",
+   "text": "In 2021 the Rajiv Gandhi Khel Ratna was renamed in honour of which hockey legend?",
+   "options": [
+    "Balbir Singh Senior",
+    "Dhanraj Pillay",
+    "Milkha Singh",
+    "Major Dhyan Chand"
+   ],
+   "answer": 3,
+   "explanation": "The award is now the Major Dhyan Chand Khel Ratna.",
+   "steps": [
+    "Spot what the question tests: Sports awards.",
+    "Options A and B are out: Not the namesake.",
+    "Option C (Milkha Singh) is out: A sprinter, not a hockey player.",
+    "Common slip to avoid: Choosing another hockey name.",
+    "So the answer is option D: Major Dhyan Chand."
+   ],
+   "trap": "Choosing another hockey name.",
+   "revise": "Sports awards",
+   "wrongReasons": [
+    "Not the namesake",
+    "Not the namesake",
+    "A sprinter, not a hockey player",
+    null
+   ]
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Polity and governance",
+   "difficulty": "hard",
+   "text": "How many of the following statements about the Assembly elections of May 2026 are correct?\n1. The BJP won an outright majority in West Bengal, winning 206 of the 294 seats.\n2. The TVK emerged as the single largest party in Tamil Nadu.\n3. The LDF returned to power in Kerala.",
+   "options": [
+    "Only one",
+    "All three",
+    "Only two",
+    "None"
+   ],
+   "answer": 2,
+   "explanation": "In Kerala the UDF won 102 of the 140 seats and formed the government.",
+   "steps": [
+    "Spot what the question tests: Assembly elections 2026.",
+    "Options A, B and D are out: 2 statement(s) are correct, not this number.",
+    "Common slip to avoid: Assuming the incumbent front was returned.",
+    "So the answer is option C: Only two."
+   ],
+   "trap": "Assuming the incumbent front was returned.",
+   "revise": "Assembly elections 2026",
+   "wrongReasons": [
+    "2 statement(s) are correct, not this number",
+    "2 statement(s) are correct, not this number",
+    null,
+    "2 statement(s) are correct, not this number"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-05",
+   "source": "Election Commission of India"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Environment",
+   "difficulty": "moderate",
+   "text": "The 30th UN Climate Change Conference (COP30), held in November 2025 at Belem, was hosted by which country?",
+   "options": [
+    "Brazil",
+    "Colombia",
+    "Peru",
+    "Azerbaijan"
+   ],
+   "answer": 0,
+   "explanation": "COP30 was held at Belem, on the edge of the Amazon, in Brazil.",
+   "steps": [
+    "Spot what the question tests: COP summits.",
+    "Options B and C are out: Not the host.",
+    "Option D (Azerbaijan) is out: Hosted COP29 in 2024.",
+    "Common slip to avoid: Choosing the previous host.",
+    "So the answer is option A: Brazil."
+   ],
+   "trap": "Choosing the previous host.",
+   "revise": "COP summits",
+   "wrongReasons": [
+    null,
+    "Not the host",
+    "Not the host",
+    "Hosted COP29 in 2024"
+   ],
+   "currentAffairs": true,
+   "asOf": "2025-11",
+   "source": "UNFCCC"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Defence",
+   "difficulty": "hard",
+   "text": "Consider the following statements about Operation Sindoor.\n1. It followed the terror attack at Pahalgam on 22 April 2025.\n2. It was launched on 7 May 2025.\n3. It was carried out by the Indian Army alone.",
+   "options": [
+    "2 and 3 only",
+    "1 and 2 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 1,
+   "explanation": "The operation involved all three services: the Army, the Navy and the Air Force.",
+   "steps": [
+    "Spot what the question tests: Operation Sindoor.",
+    "Options A and C are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Assuming a single service.",
+    "So the answer is option B: 1 and 2 only."
+   ],
+   "trap": "Assuming a single service.",
+   "revise": "Operation Sindoor",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    null,
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect"
+   ],
+   "currentAffairs": true,
+   "asOf": "2025-05",
+   "source": "Ministry of Defence"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "International",
+   "difficulty": "moderate",
+   "text": "The 26th SCO summit was held in Bishkek, Kyrgyzstan, in 2026. Which country took over the rotating SCO chairmanship?",
+   "options": [
+    "Pakistan",
+    "India",
+    "Kazakhstan",
+    "China"
+   ],
+   "answer": 0,
+   "explanation": "The summit was held on 31 August to 1 September 2026, marking SCO's 25th anniversary. Pakistan took over the chair; Modi called for action against terrorism.",
+   "steps": [
+    "Spot what the question tests: SCO summit 2026.",
+    "Option B (India) is out: It chaired in 2022-23.",
+    "Option C (Kazakhstan) is out: It chaired in 2023-24.",
+    "Option D (China) is out: It chaired in 2024-25.",
+    "Common slip to avoid: Picking a recent former chair.",
+    "So the answer is option A: Pakistan."
+   ],
+   "trap": "Picking a recent former chair.",
+   "revise": "SCO summit 2026",
+   "wrongReasons": [
+    null,
+    "It chaired in 2022-23",
+    "It chaired in 2023-24",
+    "It chaired in 2024-25"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-09",
+   "source": "MEA"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Sports",
+   "difficulty": "hard",
+   "text": "In September 2026 Dhiraj Bommadevara became the first Indian man to win the recurve gold at which competition?",
+   "options": [
+    "Archery World Cup Final",
+    "Olympic Games",
+    "World Archery Championships",
+    "Asian Games"
+   ],
+   "answer": 0,
+   "explanation": "He won the Archery World Cup Final in Saltillo, Mexico, beating Japan's Nakanishi Junya in a shoot-off.",
+   "steps": [
+    "Spot what the question tests: Archery 2026.",
+    "Option B (Olympic Games) is out: Not the event of his September 2026 win.",
+    "Option C (World Archery Championships) is out: Not the event of his September 2026 win.",
+    "Option D (Asian Games) is out: Not the event of his September 2026 win.",
+    "Common slip to avoid: Choosing a bigger-sounding event.",
+    "So the answer is option A: Archery World Cup Final."
+   ],
+   "trap": "Choosing a bigger-sounding event.",
+   "revise": "Archery 2026",
+   "wrongReasons": [
+    null,
+    "Not the event of his September 2026 win",
+    "Not the event of his September 2026 win",
+    "Not the event of his September 2026 win"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-09",
+   "source": "World Archery"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "International",
+   "difficulty": "easy",
+   "text": "The 2026 G7 summit, attended by PM Modi in June as an outreach guest, was held at Evian in which country?",
+   "options": [
+    "Italy",
+    "Canada",
+    "Germany",
+    "France"
+   ],
+   "answer": 3,
+   "explanation": "France hosted the 2026 G7 summit at Evian, mid-June. India is not a G7 member but is a regular outreach invitee.",
+   "steps": [
+    "Spot what the question tests: G7 2026.",
+    "Option A (Italy) is out: Hosted the 2024 summit.",
+    "Option B (Canada) is out: Hosted the 2025 summit.",
+    "Option C (Germany) is out: Not the 2026 host.",
+    "Common slip to avoid: Confusing recent hosts.",
+    "So the answer is option D: France."
+   ],
+   "trap": "Confusing recent hosts.",
+   "revise": "G7 2026",
+   "wrongReasons": [
+    "Hosted the 2024 summit",
+    "Hosted the 2025 summit",
+    "Not the 2026 host",
+    null
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-06",
+   "source": "MEA"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Awards",
+   "difficulty": "moderate",
+   "text": "At the 71st National Film Awards in September 2025, the Dadasaheb Phalke Award was conferred on which actor?",
+   "options": [
+    "Mammootty",
+    "Rajinikanth",
+    "Amitabh Bachchan",
+    "Mohanlal"
+   ],
+   "answer": 3,
+   "explanation": "President Droupadi Murmu presented the award to Mohanlal.",
+   "steps": [
+    "Spot what the question tests: Dadasaheb Phalke Award.",
+    "Option A (Mammootty) is out: Not the recipient.",
+    "Option B (Rajinikanth) is out: Received it for 2019.",
+    "Option C (Amitabh Bachchan) is out: Received it for 2018.",
+    "Common slip to avoid: Choosing an earlier recipient.",
+    "So the answer is option D: Mohanlal."
+   ],
+   "trap": "Choosing an earlier recipient.",
+   "revise": "Dadasaheb Phalke Award",
+   "wrongReasons": [
+    "Not the recipient",
+    "Received it for 2019",
+    "Received it for 2018",
+    null
+   ],
+   "currentAffairs": true,
+   "asOf": "2025-09",
+   "source": "Ministry of Information and Broadcasting"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Appointments",
+   "difficulty": "moderate",
+   "text": "In June 2026 economist Neelkanth Mishra was appointed India's Executive Director at which institution?",
+   "options": [
+    "World Bank",
+    "International Monetary Fund",
+    "Asian Development Bank",
+    "New Development Bank"
+   ],
+   "answer": 0,
+   "explanation": "Mishra was appointed India's Executive Director at the World Bank for three years, succeeding Parameswaran Iyer.",
+   "steps": [
+    "Spot what the question tests: World Bank.",
+    "Option B (International Monetary Fund) is out: India has a separate post there.",
+    "Option C (Asian Development Bank) is out: Not this appointment.",
+    "Option D (New Development Bank) is out: Not this appointment.",
+    "Common slip to avoid: Confusing the Bretton Woods institutions.",
+    "So the answer is option A: World Bank."
+   ],
+   "trap": "Confusing the Bretton Woods institutions.",
+   "revise": "World Bank",
+   "wrongReasons": [
+    null,
+    "India has a separate post there",
+    "Not this appointment",
+    "Not this appointment"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-06",
+   "source": "DoPT, PIB"
+  }
+ ]
+}

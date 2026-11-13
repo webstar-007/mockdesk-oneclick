@@ -1,0 +1,769 @@
+{
+ "section": "ga",
+ "questions": [
+  {
+   "topic": "History",
+   "subtopic": "Indian National Congress",
+   "difficulty": "moderate",
+   "text": "Consider the following statements about sessions of the Indian National Congress.\n1. The first session in 1885 at Bombay was presided over by W. C. Bonnerjee.\n2. The Lahore session of 1929 under Jawaharlal Nehru adopted the resolution for Purna Swaraj.\n3. Mahatma Gandhi presided over the Nagpur session of 1920 that approved Non-Cooperation.",
+   "options": [
+    "2 and 3 only",
+    "1 and 3 only",
+    "1 and 2 only",
+    "1, 2 and 3"
+   ],
+   "answer": 2,
+   "explanation": "Gandhi presided over only one session, at Belgaum in 1924. The Nagpur session of 1920 was presided over by C. Vijayaraghavachariar.",
+   "steps": [
+    "Spot what the question tests: INC sessions and presidents.",
+    "Options A and B are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Linking Non-Cooperation with Gandhi's presidency.",
+    "So the answer is option C: 1 and 2 only."
+   ],
+   "trap": "Linking Non-Cooperation with Gandhi's presidency.",
+   "revise": "INC sessions and presidents",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    null,
+    "Statement 3 is incorrect"
+   ]
+  },
+  {
+   "topic": "History",
+   "subtopic": "Battles",
+   "difficulty": "hard",
+   "text": "Match List I (Battle) with List II (Outcome).\nA. Wandiwash (1760)  B. Third Panipat (1761)  C. Buxar (1764)  D. Plassey (1757).\n1. British victory over the French in south India  2. Afghan victory over the Marathas  3. Company victory over a coalition that included the Mughal Emperor  4. Victory helped by the defection of a Nawab's commander",
+   "options": [
+    "A-2, B-1, C-3, D-4",
+    "A-1, B-2, C-4, D-3",
+    "A-1, B-2, C-3, D-4",
+    "A-1, B-3, C-2, D-4"
+   ],
+   "answer": 2,
+   "explanation": "Wandiwash decided the Anglo-French struggle; Panipat was won by Abdali; Buxar by Hector Munro against Mir Qasim, Shuja-ud-Daulah and Shah Alam II; Plassey with Mir Jafar's help.",
+   "steps": [
+    "Spot what the question tests: Battles of the 1750s-1760s.",
+    "Option A (A-2, B-1, C-3, D-4) is out: Wandiwash and Panipat are swapped.",
+    "Option B (A-1, B-2, C-4, D-3) is out: Buxar and Plassey are swapped.",
+    "Option D (A-1, B-3, C-2, D-4) is out: Panipat and Buxar are swapped.",
+    "Common slip to avoid: Mixing the dates of the mid-eighteenth-century battles.",
+    "So the answer is option C: A-1, B-2, C-3, D-4."
+   ],
+   "trap": "Mixing the dates of the mid-eighteenth-century battles.",
+   "revise": "Battles of the 1750s-1760s",
+   "wrongReasons": [
+    "Wandiwash and Panipat are swapped",
+    "Buxar and Plassey are swapped",
+    null,
+    "Panipat and Buxar are swapped"
+   ]
+  },
+  {
+   "topic": "History",
+   "subtopic": "Delhi Sultanate",
+   "difficulty": "hard",
+   "text": "Which Delhi Sultan set up the Diwan-i-Mustakhraj to recover arrears of revenue?",
+   "options": [
+    "Alauddin Khalji",
+    "Firoz Shah Tughlaq",
+    "Balban",
+    "Muhammad bin Tughlaq"
+   ],
+   "answer": 0,
+   "explanation": "Alauddin Khalji created the Diwan-i-Mustakhraj as part of his revenue reforms.",
+   "steps": [
+    "Spot what the question tests: Departments of the Delhi Sultanate.",
+    "Option B (Firoz Shah Tughlaq) is out: He founded the Diwan-i-Khairat for charity.",
+    "Option C (Balban) is out: He reorganised the army department, not arrears.",
+    "Option D (Muhammad bin Tughlaq) is out: He set up the Diwan-i-Kohi for agriculture.",
+    "Common slip to avoid: Choosing a Tughlaq ruler known for another Diwan.",
+    "So the answer is option A: Alauddin Khalji."
+   ],
+   "trap": "Choosing a Tughlaq ruler known for another Diwan.",
+   "revise": "Departments of the Delhi Sultanate",
+   "wrongReasons": [
+    null,
+    "He founded the Diwan-i-Khairat for charity",
+    "He reorganised the army department, not arrears",
+    "He set up the Diwan-i-Kohi for agriculture"
+   ]
+  },
+  {
+   "topic": "History",
+   "subtopic": "Viceroys",
+   "difficulty": "easy",
+   "text": "Who was the first Viceroy of India after the Government of India Act, 1858?",
+   "options": [
+    "Lord Dalhousie",
+    "Lord Ripon",
+    "Lord Curzon",
+    "Lord Canning"
+   ],
+   "answer": 3,
+   "explanation": "Lord Canning was the last Governor-General and the first Viceroy of India.",
+   "steps": [
+    "Spot what the question tests: First and last of each office.",
+    "Option A (Lord Dalhousie) is out: He was Governor-General before the Revolt.",
+    "Option B (Lord Ripon) is out: He served in 1880-84.",
+    "Option C (Lord Curzon) is out: He served in 1899-1905.",
+    "Common slip to avoid: Choosing the Governor-General of the annexation era.",
+    "So the answer is option D: Lord Canning."
+   ],
+   "trap": "Choosing the Governor-General of the annexation era.",
+   "revise": "First and last of each office",
+   "wrongReasons": [
+    "He was Governor-General before the Revolt",
+    "He served in 1880-84",
+    "He served in 1899-1905",
+    null
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Fundamental Duties",
+   "difficulty": "hard",
+   "text": "Consider the following statements about Fundamental Duties.\n1. They were added by the 42nd Amendment on the recommendation of the Swaran Singh Committee.\n2. The eleventh duty, relating to education of children, was added by the 86th Amendment.\n3. They are enforceable by courts as the Fundamental Rights are.",
+   "options": [
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3",
+    "1 and 2 only"
+   ],
+   "answer": 3,
+   "explanation": "Fundamental Duties are non-justiciable; no court can enforce them directly.",
+   "steps": [
+    "Spot what the question tests: Fundamental Duties: Article 51A.",
+    "Options A and B are out: Includes statement 3, which is incorrect.",
+    "Option C (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Assuming that anything in Part IV-A is enforceable.",
+    "So the answer is option D: 1 and 2 only."
+   ],
+   "trap": "Assuming that anything in Part IV-A is enforceable.",
+   "revise": "Fundamental Duties: Article 51A",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect",
+    null
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Constitutional amendments",
+   "difficulty": "moderate",
+   "text": "The right to free and compulsory education for children aged 6 to 14 years was inserted as Article 21A by which Constitutional Amendment?",
+   "options": [
+    "42nd Amendment",
+    "44th Amendment",
+    "86th Amendment",
+    "73rd Amendment"
+   ],
+   "answer": 2,
+   "explanation": "The 86th Amendment, 2002 inserted Article 21A.",
+   "steps": [
+    "Spot what the question tests: Key amendments.",
+    "Option A (42nd Amendment) is out: Added the Fundamental Duties and the Preamble words.",
+    "Option B (44th Amendment) is out: Restored rights after the Emergency.",
+    "Option D (73rd Amendment) is out: Added Panchayati Raj.",
+    "Common slip to avoid: Confusing it with the Directive Principle for early education.",
+    "So the answer is option C: 86th Amendment."
+   ],
+   "trap": "Confusing it with the Directive Principle for early education.",
+   "revise": "Key amendments",
+   "wrongReasons": [
+    "Added the Fundamental Duties and the Preamble words",
+    "Restored rights after the Emergency",
+    null,
+    "Added Panchayati Raj"
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Governor",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the Governor of a State.\n1. The Governor holds office during the pleasure of the President.\n2. The Governor can promulgate an ordinance while the State Legislature is in session.\n3. The Governor can reserve a Bill for the consideration of the President.",
+   "options": [
+    "1 and 2 only",
+    "1 and 3 only",
+    "2 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 1,
+   "explanation": "Under Article 213 the Governor can issue ordinances only when the Legislature is not in session.",
+   "steps": [
+    "Spot what the question tests: Governor's legislative powers: Arts 200, 213.",
+    "Options A and C are out: Includes statement 2, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 2 is incorrect.",
+    "Common slip to avoid: Ignoring the 'not in session' condition.",
+    "So the answer is option B: 1 and 3 only."
+   ],
+   "trap": "Ignoring the 'not in session' condition.",
+   "revise": "Governor's legislative powers: Arts 200, 213",
+   "wrongReasons": [
+    "Includes statement 2, which is incorrect",
+    null,
+    "Includes statement 2, which is incorrect",
+    "Statement 2 is incorrect"
+   ]
+  },
+  {
+   "topic": "Polity",
+   "subtopic": "Election Commission",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the Election Commission of India.\n1. It derives its authority from Article 324.\n2. The Chief Election Commissioner holds office for six years or until the age of 65, whichever is earlier.\n3. It conducts elections to Panchayats and Municipalities.",
+   "options": [
+    "1 and 2 only",
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 0,
+   "explanation": "Local-body elections are conducted by State Election Commissions under Articles 243K and 243ZA.",
+   "steps": [
+    "Spot what the question tests: Election Commission vs State Election Commission.",
+    "Options B and C are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Merging the Union and State election bodies.",
+    "So the answer is option A: 1 and 2 only."
+   ],
+   "trap": "Merging the Union and State election bodies.",
+   "revise": "Election Commission vs State Election Commission",
+   "wrongReasons": [
+    null,
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect"
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "Balance of payments",
+   "difficulty": "moderate",
+   "text": "Which of the following is NOT recorded in the current account of the balance of payments?",
+   "options": [
+    "Exports and imports of goods",
+    "Remittances sent by workers abroad",
+    "Receipts from services such as software exports",
+    "Foreign direct investment"
+   ],
+   "answer": 3,
+   "explanation": "Foreign direct investment is a capital/financial account item.",
+   "steps": [
+    "Spot what the question tests: Current vs capital account.",
+    "Options A and C are out: Part of the current account.",
+    "Option B (Remittances sent by workers abroad) is out: Part of the current account (secondary income).",
+    "Common slip to avoid: Counting investment flows as current account items.",
+    "So the answer is option D: Foreign direct investment."
+   ],
+   "trap": "Counting investment flows as current account items.",
+   "revise": "Current vs capital account",
+   "wrongReasons": [
+    "Part of the current account",
+    "Part of the current account (secondary income)",
+    "Part of the current account",
+    null
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "Monetary policy corridor",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the RBI's policy rates.\n1. The Marginal Standing Facility rate is 25 basis points below the repo rate.\n2. The Standing Deposit Facility rate is the floor of the policy corridor.\n3. The Bank Rate is aligned with the MSF rate.",
+   "options": [
+    "1 and 2 only",
+    "1 and 3 only",
+    "2 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 2,
+   "explanation": "The MSF rate is 25 bps above the repo rate and forms the upper end of the corridor.",
+   "steps": [
+    "Spot what the question tests: Policy corridor: SDF < repo < MSF.",
+    "Options A and B are out: Includes statement 1, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 1 is incorrect.",
+    "Common slip to avoid: Putting MSF below repo.",
+    "So the answer is option C: 2 and 3 only."
+   ],
+   "trap": "Putting MSF below repo.",
+   "revise": "Policy corridor: SDF < repo < MSF",
+   "wrongReasons": [
+    "Includes statement 1, which is incorrect",
+    "Includes statement 1, which is incorrect",
+    null,
+    "Statement 1 is incorrect"
+   ]
+  },
+  {
+   "topic": "Economy",
+   "subtopic": "Unemployment",
+   "difficulty": "easy",
+   "text": "In which type of unemployment is the marginal productivity of some workers zero, so that their removal does not reduce output?",
+   "options": [
+    "Disguised unemployment",
+    "Seasonal unemployment",
+    "Frictional unemployment",
+    "Cyclical unemployment"
+   ],
+   "answer": 0,
+   "explanation": "In disguised unemployment, extra workers add nothing to output, as on small farms.",
+   "steps": [
+    "Spot what the question tests: Types of unemployment.",
+    "Option B (Seasonal unemployment) is out: Workers are idle only in the off season.",
+    "Option C (Frictional unemployment) is out: Arises while changing jobs.",
+    "Option D (Cyclical unemployment) is out: Arises from downturns in the business cycle.",
+    "Common slip to avoid: Choosing seasonal unemployment.",
+    "So the answer is option A: Disguised unemployment."
+   ],
+   "trap": "Choosing seasonal unemployment.",
+   "revise": "Types of unemployment",
+   "wrongReasons": [
+    null,
+    "Workers are idle only in the off season",
+    "Arises while changing jobs",
+    "Arises from downturns in the business cycle"
+   ]
+  },
+  {
+   "topic": "Geography",
+   "subtopic": "Indian climate",
+   "difficulty": "moderate",
+   "text": "Consider the following statements about Indian weather phenomena.\n1. Loo is a hot, dry wind that blows over the northern plains in summer.\n2. Mango showers occur in the south-west before the monsoon.\n3. Kalbaisakhi is a thunderstorm of Punjab and Haryana.",
+   "options": [
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3",
+    "1 and 2 only"
+   ],
+   "answer": 3,
+   "explanation": "Kalbaisakhi (Nor'westers) affects West Bengal, Odisha and Assam.",
+   "steps": [
+    "Spot what the question tests: Local storms and winds.",
+    "Options A and B are out: Includes statement 3, which is incorrect.",
+    "Option C (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Placing Nor'westers in north-west India.",
+    "So the answer is option D: 1 and 2 only."
+   ],
+   "trap": "Placing Nor'westers in north-west India.",
+   "revise": "Local storms and winds",
+   "wrongReasons": [
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect",
+    null
+   ]
+  },
+  {
+   "topic": "Geography",
+   "subtopic": "Soils",
+   "difficulty": "moderate",
+   "text": "Which soil is formed by the weathering of basalt, is rich in lime, iron and magnesia but poor in nitrogen and phosphorus, and suits cotton?",
+   "options": [
+    "Alluvial soil",
+    "Black soil",
+    "Red soil",
+    "Laterite soil"
+   ],
+   "answer": 1,
+   "explanation": "Regur or black soil is formed from the Deccan basalt and holds moisture.",
+   "steps": [
+    "Spot what the question tests: Soil types and crops.",
+    "Option A (Alluvial soil) is out: Formed by river deposits.",
+    "Option C (Red soil) is out: Formed from crystalline rocks.",
+    "Option D (Laterite soil) is out: Formed by leaching in heavy rain.",
+    "Common slip to avoid: Choosing alluvial soil because it is fertile.",
+    "So the answer is option B: Black soil."
+   ],
+   "trap": "Choosing alluvial soil because it is fertile.",
+   "revise": "Soil types and crops",
+   "wrongReasons": [
+    "Formed by river deposits",
+    null,
+    "Formed from crystalline rocks",
+    "Formed by leaching in heavy rain"
+   ]
+  },
+  {
+   "topic": "Geography",
+   "subtopic": "Dams and rivers",
+   "difficulty": "hard",
+   "text": "Which one of the following pairs of a dam and its river is NOT correctly matched?",
+   "options": [
+    "Hirakud - Mahanadi",
+    "Nagarjuna Sagar - Krishna",
+    "Bhakra - Beas",
+    "Mettur - Kaveri"
+   ],
+   "answer": 2,
+   "explanation": "The Bhakra Dam is on the Sutlej; the Pong Dam is on the Beas.",
+   "steps": [
+    "Spot what the question tests: Major dams.",
+    "Options A, B and D are out: Correctly matched.",
+    "Common slip to avoid: Mixing the Sutlej and Beas dams.",
+    "So the answer is option C: Bhakra - Beas."
+   ],
+   "trap": "Mixing the Sutlej and Beas dams.",
+   "revise": "Major dams",
+   "wrongReasons": [
+    "Correctly matched",
+    "Correctly matched",
+    null,
+    "Correctly matched"
+   ]
+  },
+  {
+   "topic": "Art and Culture",
+   "subtopic": "Folk theatre",
+   "difficulty": "moderate",
+   "text": "Bhavai, a traditional folk theatre form, is associated with which State?",
+   "options": [
+    "Gujarat",
+    "Karnataka",
+    "Maharashtra",
+    "Uttar Pradesh"
+   ],
+   "answer": 0,
+   "explanation": "Bhavai is a Gujarati folk theatre form.",
+   "steps": [
+    "Spot what the question tests: Folk theatre by State.",
+    "Option B (Karnataka) is out: Associated with Yakshagana.",
+    "Option C (Maharashtra) is out: Associated with Tamasha.",
+    "Option D (Uttar Pradesh) is out: Associated with Nautanki.",
+    "Common slip to avoid: Choosing the better-known State of Yakshagana or Tamasha.",
+    "So the answer is option A: Gujarat."
+   ],
+   "trap": "Choosing the better-known State of Yakshagana or Tamasha.",
+   "revise": "Folk theatre by State",
+   "wrongReasons": [
+    null,
+    "Associated with Yakshagana",
+    "Associated with Tamasha",
+    "Associated with Nautanki"
+   ]
+  },
+  {
+   "topic": "Science",
+   "subtopic": "Human biology",
+   "difficulty": "easy",
+   "text": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+   "options": [
+    "Pulmonary vein",
+    "Pulmonary artery",
+    "Vena cava",
+    "Aorta"
+   ],
+   "answer": 0,
+   "explanation": "The pulmonary veins are the exception where a vein carries oxygenated blood.",
+   "steps": [
+    "Spot what the question tests: Circulatory system.",
+    "Option B (Pulmonary artery) is out: Carries deoxygenated blood to the lungs.",
+    "Option C (Vena cava) is out: Brings deoxygenated blood to the right atrium.",
+    "Option D (Aorta) is out: Carries oxygenated blood out of the heart.",
+    "Common slip to avoid: Assuming veins always carry deoxygenated blood.",
+    "So the answer is option A: Pulmonary vein."
+   ],
+   "trap": "Assuming veins always carry deoxygenated blood.",
+   "revise": "Circulatory system",
+   "wrongReasons": [
+    null,
+    "Carries deoxygenated blood to the lungs",
+    "Brings deoxygenated blood to the right atrium",
+    "Carries oxygenated blood out of the heart"
+   ]
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Sports",
+   "difficulty": "moderate",
+   "text": "Elena Rybakina won two Grand Slam singles titles in 2026. Which two?",
+   "options": [
+    "French Open and Wimbledon",
+    "Australian Open and Wimbledon",
+    "Wimbledon and US Open",
+    "Australian Open and US Open"
+   ],
+   "answer": 3,
+   "explanation": "Rybakina beat Aryna Sabalenka in both the Australian Open and US Open finals of 2026. Mirra Andreeva won the French Open and Linda Noskova won Wimbledon.",
+   "steps": [
+    "Spot what the question tests: Grand Slams 2026.",
+    "Option A (French Open and Wimbledon) is out: Andreeva won the French Open and Noskova won Wimbledon.",
+    "Option B (Australian Open and Wimbledon) is out: Wimbledon went to Linda Noskova.",
+    "Option C (Wimbledon and US Open) is out: Wimbledon went to Linda Noskova.",
+    "Common slip to avoid: Assigning her the Wimbledon title she won in 2022.",
+    "So the answer is option D: Australian Open and US Open."
+   ],
+   "trap": "Assigning her the Wimbledon title she won in 2022.",
+   "revise": "Grand Slams 2026",
+   "wrongReasons": [
+    "Andreeva won the French Open and Noskova won Wimbledon",
+    "Wimbledon went to Linda Noskova",
+    "Wimbledon went to Linda Noskova",
+    null
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-09",
+   "source": "WTA, USTA"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Sports",
+   "difficulty": "hard",
+   "text": "Consider the following statements about the Commonwealth Games.\n1. The 2026 Commonwealth Games were held in Glasgow.\n2. India finished fourth with 39 medals at Glasgow 2026.\n3. Ahmedabad will host the Commonwealth Games in 2034.",
+   "options": [
+    "1 and 2 only",
+    "2 and 3 only",
+    "1 and 3 only",
+    "1, 2 and 3"
+   ],
+   "answer": 0,
+   "explanation": "Ahmedabad was awarded the 2030 Games, the centenary edition of the first Games held at Hamilton in 1930.",
+   "steps": [
+    "Spot what the question tests: Commonwealth Games 2026 and 2030.",
+    "Options B and C are out: Includes statement 3, which is incorrect.",
+    "Option D (1, 2 and 3) is out: Statement 3 is incorrect.",
+    "Common slip to avoid: Misplacing the year of the Ahmedabad Games.",
+    "So the answer is option A: 1 and 2 only."
+   ],
+   "trap": "Misplacing the year of the Ahmedabad Games.",
+   "revise": "Commonwealth Games 2026 and 2030",
+   "wrongReasons": [
+    null,
+    "Includes statement 3, which is incorrect",
+    "Includes statement 3, which is incorrect",
+    "Statement 3 is incorrect"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-08",
+   "source": "Commonwealth Sport, SAI"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Sports",
+   "difficulty": "moderate",
+   "text": "Which country topped the medal table at the 2026 Winter Olympics held in Milan-Cortina, Italy?",
+   "options": [
+    "United States",
+    "Norway",
+    "Germany",
+    "Netherlands"
+   ],
+   "answer": 1,
+   "explanation": "Norway finished at the top of the medal table at Milan-Cortina 2026.",
+   "steps": [
+    "Spot what the question tests: Winter Olympics 2026.",
+    "Options A and C are out: A major medal winner, but not the top of the table.",
+    "Option D (Netherlands) is out: Strong in speed skating, but not at the top.",
+    "Common slip to avoid: Choosing the host nation or a traditional rival.",
+    "So the answer is option B: Norway."
+   ],
+   "trap": "Choosing the host nation or a traditional rival.",
+   "revise": "Winter Olympics 2026",
+   "wrongReasons": [
+    "A major medal winner, but not the top of the table",
+    null,
+    "A major medal winner, but not the top of the table",
+    "Strong in speed skating, but not at the top"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-02",
+   "source": "IOC"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Awards",
+   "difficulty": "hard",
+   "text": "The 2026 Nobel Prize in Chemistry honoured Henri Kagan and Kenso Soai. Their work concerned which problem?",
+   "options": [
+    "Metal-organic frameworks that store gases",
+    "How mirror-image (chiral) molecules come to favour one form",
+    "Click chemistry and bioorthogonal reactions",
+    "Development of lithium-ion batteries"
+   ],
+   "answer": 1,
+   "explanation": "The 2026 Chemistry prize went to Kagan (France) and Soai (Japan) for work on chirality: why molecules that exist as mirror images end up favouring one form, which matters in drug development.",
+   "steps": [
+    "Spot what the question tests: Nobel Chemistry 2026.",
+    "Option A (Metal-organic frameworks that store gases) is out: That was the 2025 Chemistry prize.",
+    "Option C (Click chemistry and bioorthogonal reactions) is out: That was the 2022 prize.",
+    "Option D (Development of lithium-ion batteries) is out: That was the 2019 prize.",
+    "Common slip to avoid: Choosing a topic from an earlier Chemistry prize.",
+    "So the answer is option B: How mirror-image (chiral) molecules come to favour one form."
+   ],
+   "trap": "Choosing a topic from an earlier Chemistry prize.",
+   "revise": "Nobel Chemistry 2026",
+   "wrongReasons": [
+    "That was the 2025 Chemistry prize",
+    null,
+    "That was the 2022 prize",
+    "That was the 2019 prize"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-10",
+   "source": "Nobel Committee"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Sports",
+   "difficulty": "moderate",
+   "text": "Jannik Sinner won the men's singles at Wimbledon 2026. Whom did he beat in the final?",
+   "options": [
+    "Carlos Alcaraz",
+    "Novak Djokovic",
+    "Alexander Zverev",
+    "Flavio Cobolli"
+   ],
+   "answer": 2,
+   "explanation": "Sinner beat Alexander Zverev 6-7(7), 7-6(2), 6-3, 6-4. Linda Noskova won the women's title, beating Karolina Muchova.",
+   "steps": [
+    "Spot what the question tests: Wimbledon 2026.",
+    "Option A (Carlos Alcaraz) is out: He won the 2026 Australian Open, not this final.",
+    "Option B (Novak Djokovic) is out: He was the 2026 Australian Open finalist.",
+    "Option D (Flavio Cobolli) is out: He was the 2026 French Open finalist.",
+    "Common slip to avoid: Mixing up the finalists of different 2026 Grand Slams.",
+    "So the answer is option C: Alexander Zverev."
+   ],
+   "trap": "Mixing up the finalists of different 2026 Grand Slams.",
+   "revise": "Wimbledon 2026",
+   "wrongReasons": [
+    "He won the 2026 Australian Open, not this final",
+    "He was the 2026 Australian Open finalist",
+    null,
+    "He was the 2026 French Open finalist"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-07",
+   "source": "ATP, Wimbledon"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Awards",
+   "difficulty": "hard",
+   "text": "The 2026 Nobel Prize in Physiology or Medicine, shared by Karl Deisseroth, Peter Hegemann and Georg Nagel, was for discoveries behind which technique?",
+   "options": [
+    "Peripheral immune tolerance",
+    "Modified-nucleoside mRNA vaccines",
+    "CRISPR gene editing",
+    "Optogenetics, which uses light to switch brain cells on and off"
+   ],
+   "answer": 3,
+   "explanation": "Optogenetics uses light-sensitive proteins to control neurons in living brains. It earned the 2026 Medicine prize for Deisseroth, Hegemann and Nagel.",
+   "steps": [
+    "Spot what the question tests: Nobel Medicine 2026.",
+    "Option A (Peripheral immune tolerance) is out: That was the 2025 Medicine prize.",
+    "Option B (Modified-nucleoside mRNA vaccines) is out: That was the 2023 prize.",
+    "Option C (CRISPR gene editing) is out: That won the 2020 Chemistry prize.",
+    "Common slip to avoid: Choosing a famous biology topic from an earlier prize year.",
+    "So the answer is option D: Optogenetics, which uses light to switch brain cells on and off."
+   ],
+   "trap": "Choosing a famous biology topic from an earlier prize year.",
+   "revise": "Nobel Medicine 2026",
+   "wrongReasons": [
+    "That was the 2025 Medicine prize",
+    "That was the 2023 prize",
+    "That won the 2020 Chemistry prize",
+    null
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-10",
+   "source": "Nobel Committee"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Science and Technology",
+   "difficulty": "moderate",
+   "text": "Group Captain Shubhanshu Shukla became the first Indian to visit the International Space Station in 2025 as part of which mission?",
+   "options": [
+    "Axiom Mission 3",
+    "Axiom Mission 4",
+    "Gaganyaan G1",
+    "Crew-9"
+   ],
+   "answer": 1,
+   "explanation": "Shukla flew on Axiom Mission 4 in June 2025.",
+   "steps": [
+    "Spot what the question tests: Ax-4 and Indian human spaceflight.",
+    "Option A (Axiom Mission 3) is out: It flew in early 2024.",
+    "Option C (Gaganyaan G1) is out: It is an uncrewed test of the Indian programme.",
+    "Option D (Crew-9) is out: A NASA mission with no Indian astronaut.",
+    "Common slip to avoid: Choosing the Indian mission name.",
+    "So the answer is option B: Axiom Mission 4."
+   ],
+   "trap": "Choosing the Indian mission name.",
+   "revise": "Ax-4 and Indian human spaceflight",
+   "wrongReasons": [
+    "It flew in early 2024",
+    null,
+    "It is an uncrewed test of the Indian programme",
+    "A NASA mission with no Indian astronaut"
+   ],
+   "currentAffairs": true,
+   "asOf": "2025-06",
+   "source": "ISRO, NASA"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Economy",
+   "difficulty": "moderate",
+   "text": "In December 2025 the RBI cut the policy repo rate by 25 basis points. To which level was it reduced?",
+   "options": [
+    "5.50%",
+    "5.25%",
+    "5.00%",
+    "5.75%"
+   ],
+   "answer": 1,
+   "explanation": "The MPC reduced the repo rate from 5.50% to 5.25% in December 2025.",
+   "steps": [
+    "Spot what the question tests: RBI MPC December 2025.",
+    "Option A (5.50%) is out: This was the rate before the cut.",
+    "Option C (5.00%) is out: A 50 bps cut was not made.",
+    "Option D (5.75%) is out: This is higher than the previous rate.",
+    "Common slip to avoid: Choosing the pre-cut level.",
+    "So the answer is option B: 5.25%."
+   ],
+   "trap": "Choosing the pre-cut level.",
+   "revise": "RBI MPC December 2025",
+   "wrongReasons": [
+    "This was the rate before the cut",
+    null,
+    "A 50 bps cut was not made",
+    "This is higher than the previous rate"
+   ],
+   "currentAffairs": true,
+   "asOf": "2025-12",
+   "source": "RBI press release"
+  },
+  {
+   "topic": "Current Affairs",
+   "subtopic": "Sports",
+   "difficulty": "moderate",
+   "text": "India won the 2026 ICC Men's T20 World Cup in March 2026 by defeating which team in the final?",
+   "options": [
+    "New Zealand",
+    "South Africa",
+    "Australia",
+    "England"
+   ],
+   "answer": 0,
+   "explanation": "India beat New Zealand in the final.",
+   "steps": [
+    "Spot what the question tests: T20 World Cup 2026.",
+    "Options B, C and D are out: Not the finalist.",
+    "Common slip to avoid: Choosing a regular finalist.",
+    "So the answer is option A: New Zealand."
+   ],
+   "trap": "Choosing a regular finalist.",
+   "revise": "T20 World Cup 2026",
+   "wrongReasons": [
+    null,
+    "Not the finalist",
+    "Not the finalist",
+    "Not the finalist"
+   ],
+   "currentAffairs": true,
+   "asOf": "2026-03",
+   "source": "ICC"
+  }
+ ]
+}
