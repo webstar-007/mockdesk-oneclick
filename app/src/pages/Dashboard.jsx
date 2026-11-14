@@ -7,6 +7,7 @@ import { EXAMS } from '../lib/exams.js';
 import { tip } from '../components/Tip.jsx';
 import PdfMenu from '../components/PdfMenu.jsx';
 import Blueprint from '../components/Blueprint.jsx';
+import PracticeCard from '../components/PracticeCard.jsx';
 import { ActivityMap, LockedInsights, ToolTiles, ReadinessGauge, SkillRadar, StudyPlanner, Trajectory, readinessOf } from '../components/Insights.jsx';
 
 const STATUS = { not_attempted: ['Not attempted', 'st-none'], in_progress: ['In progress', 'st-prog'], completed: ['Completed', 'st-done'] };
@@ -20,6 +21,7 @@ export default function Dashboard() {
       .catch((e) => setErr(e.message));
   }, []);
   const start = async (m) => {
+    if (m.locked) return nav('/profile#invite');
     if (m.status === 'in_progress') return nav(`/exam/${m.inProgressAttemptId}`);
     nav(`/mock/${m.id}`);
   };
@@ -32,7 +34,8 @@ export default function Dashboard() {
   const greet = hour < 5 ? 'Burning the midnight oil' : hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
   const done = mocks.filter((m) => m.status === 'completed').length;
   const inProg = mocks.find((m) => m.status === 'in_progress');
-  const nextMock = inProg || mocks.find((m) => m.status === 'not_attempted') || mocks.slice().sort((x, y) => (x.best?.percentage ?? 0) - (y.best?.percentage ?? 0))[0];
+  const open_ = mocks.filter((m) => !m.locked);
+  const nextMock = inProg || open_.find((m) => m.status === 'not_attempted') || open_.slice().sort((x, y) => (x.best?.percentage ?? 0) - (y.best?.percentage ?? 0))[0];
   const lastDone = hist[0];
   const totalQs = mocks.reduce((a, m) => a + m.totalQuestions + (m.qualifying || []).reduce((b, x) => b + x.questions, 0), 0);
   const counts = { all: mocks.length, not_attempted: mocks.filter((m) => m.status === 'not_attempted').length, in_progress: mocks.filter((m) => m.status === 'in_progress').length, completed: done };
@@ -104,6 +107,8 @@ export default function Dashboard() {
 
       <Blueprint config={config} examName={examName} />
 
+      <PracticeCard />
+
       <div className="hm-head"><h2>Full-length mocks</h2><span className="muted small">Take them in order for a steady difficulty ramp.</span></div>
       <div className="hm-filters" role="group" aria-label="Filter mocks">
         {[['all', 'All'], ['not_attempted', 'Not attempted'], ['in_progress', 'In progress'], ['completed', 'Completed']].map(([k, l]) => <button key={k} className={`hm-filter ${filter === k ? 'on' : ''}`} aria-pressed={filter === k} onClick={() => setFilter(k)}>{l} <b>{counts[k]}</b></button>)}
@@ -115,7 +120,7 @@ export default function Dashboard() {
           const [label, cls] = STATUS[m.status];
           const lvl = { easy: 1, moderate: 2, hard: 3 }[m.difficulty] || 2;
           return (
-            <article key={m.id} className={`hm-mock ${m.status === 'in_progress' ? 'is-prog' : ''} ${m.id === nextMock?.id ? 'is-next' : ''}`}>
+            <article key={m.id} className={`hm-mock ${m.locked ? 'is-locked' : ''} ${m.status === 'in_progress' ? 'is-prog' : ''} ${m.id === nextMock?.id ? 'is-next' : ''}`}>
               <div className="hm-mock-top">
                 <span className="hm-num" aria-hidden="true">{i + 1}</span>
                 <div className="hm-meter" role="img" aria-label={`Difficulty: ${m.difficulty}`}><i className={lvl >= 1 ? 'on' : ''} /><i className={lvl >= 2 ? 'on' : ''} /><i className={lvl >= 3 ? 'on' : ''} /><span className={`diff d-${m.difficulty}`}>{m.difficulty}</span></div>
@@ -129,7 +134,7 @@ export default function Dashboard() {
               )}
               {!m.complete && <p className="small warn-txt">Question bank still being completed.</p>}
               <footer>
-                <button className="hm-btn hm-btn-solid" disabled={busy === m.id} onClick={() => start(m)}>{m.status === 'in_progress' ? 'Resume test' : m.status === 'completed' ? 'Retake' : 'Start test'}</button>
+                <button className="hm-btn hm-btn-solid" disabled={busy === m.id} onClick={() => start(m)}>{m.locked ? 'Invite a friend to unlock' : m.status === 'in_progress' ? 'Resume test' : m.status === 'completed' ? 'Retake' : 'Start test'}</button>
                 {m.last && <Link className="hm-btn hm-btn-ghost" to={`/results/${m.last.attemptId}`}>Last result</Link>}
               </footer>
             </article>

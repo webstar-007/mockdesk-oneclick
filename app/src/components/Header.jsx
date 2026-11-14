@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../lib/auth.jsx';
 import ThemeToggle from './ThemeToggle.jsx';
+import InboxBell from './InboxBell.jsx';
 export default function Header() {
   const { user, logout } = useAuth();
   return (
@@ -13,7 +14,7 @@ export default function Header() {
           <NavLink to="/profile">Profile</NavLink>
         </nav>
         <div className="topbar-user">
-          <ThemeToggle /><span className="who" title={user?.email}>{user?.name}</span>
+          <ThemeToggle /><InboxBell /><span className="who" title={user?.email}>{user?.name}</span>
           <button className="btn btn-ghost btn-sm" onClick={logout}>Sign out</button>
         </div>
       </div>

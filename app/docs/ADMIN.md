@@ -24,7 +24,8 @@ The easiest way: open `admins.txt` in the MockDesk folder and paste emails or mo
 | Question bank | Every question across mocks with real % correct and average time; filter by too hard, too easy or slow |
 | Analytics | Score distribution, signup funnel, daily trends, weakest and strongest topics, hardest, easiest and slowest questions, completion per mock |
 | Reports | Questions students flagged from the review screen; open the question to fix it, then resolve |
-| Settings | Announcement banner for students, the exam pattern, the audit log of every admin action |
+| Settings | Administrators, the exam pattern, backups, the audit log of every admin action |
+| Announcements, Notifications, Referrals, Batches, Question quality | See "Growth and coaching tools" below |
 
 ## Newer tools
 - **Preview as student** (mock builder): the home card, the instructions and the real exam screen with palette and timers. Nothing is saved or counted. Tick "Show correct answers" to check your keys.
@@ -56,6 +57,22 @@ The easiest way: open `admins.txt` in the MockDesk folder and paste emails or mo
 Better explanations make better answers, so keep the explanation, steps and shortcut fields filled in. An AI model can be added later behind the same screen.
 
 **Plain-language summary.** Every result page starts with "Your result in plain words": the score against the student's target, strongest and weakest section, topics to fix, time habits, change since the last attempt and up to three next steps.
+
+## Growth and coaching tools
+
+**Announcements.** Admin > Announcements replaces the old single banner. Each message has an optional title, a style (information, good news, warning, urgent), an audience (everyone, new students, students who never started a mock, students inactive for 7 days, or one batch), an optional button link, a start and end time, pin-to-top and "students can close it". It shows as a banner and in the student's bell. Each message shows how many students saw it, clicked it and closed it. You can also send it once as a push or email when it goes live. Drafts, scheduling, duplicate and end-now are built in.
+
+**Notifications and reminders.** Admin > Notifications. The server checks every 10 minutes and sends three kinds of reminder: "you haven't practised in N days", a nudge for new students who have not started a mock, and "Mock X opens tomorrow at 10:00 AM" (uses each mock's "Available from" time). Nobody gets the same reminder twice, a weekly limit and quiet hours apply, and students can turn email or push off in their profile (emails carry an unsubscribe link). Push is free but only works when the site is opened over https. Email needs the same SMTP settings as email sign-in codes plus `MOCKDESK_PUBLIC_URL` (your site address); it costs about $0.10 per 1,000 emails, and the page shows a running estimate. `MOCKDESK_EMAIL_DAILY_CAP` (default 2000) stops a runaway send. `MOCKDESK_TZ` (default Asia/Kolkata) sets the clock for quiet hours. `MOCKDESK_SCHEDULER=off` turns the background sender off. Optional: `MOCKDESK_VAPID_PUBLIC` and `MOCKDESK_VAPID_PRIVATE` fix the push keys; otherwise they are generated once and stored.
+
+**Referrals.** Admin > Referrals. Every student has an invite code and link in their profile. A friend who signs up with it and finishes a first mock (at least 5 questions answered) gets a reward, and so does the inviter (for every N friends, set on the page). The reward is a locked mock: open any mock > Settings > tick "Referral reward". It stays locked until its release date, or forever if it has none, and students open it early by inviting a friend.
+
+**Practice sets.** Students tap "Build my practice set" on the dashboard (10, 20 or 30 questions). It uses their weak topics, prefers unseen questions, and draws from the question bank and mocks they have already finished, never from a mock they have not taken. Practice attempts are labelled practice and never count in averages, leaderboards, rank, "previous attempt" comparisons or admin statistics. Default limit is 5 per student per day (`MOCKDESK_PRACTICE_PER_DAY`).
+
+**Question quality.** Admin > Question quality (editors can use it too). For each question with enough attempts: percentage right, wrong and skipped, average time against the section average, and how students split across options A to D. It flags: answer key may be wrong (a wrong option beat the key), ambiguous (two options each drew 30% or more), reported by students, harder or easier than its tag, often skipped, slow, and no explanation. "Open to fix" jumps to the question.
+
+**Batches.** Admin > Batches. Create a batch (for example a coaching centre's class), add a teacher by email or mobile number (this makes the account a teacher), and add students by pasting emails or numbers, or share the join code or link (`/?batch=CODE`). Students can also enter the code in their profile, and can leave at any time. A teacher signs in and sees only the Teacher view: for each of their own batches, the students, averages, weakest topics, inactive students, each student's results and a CSV download. Teachers cannot take mocks or reach other batches or the admin console. Use a separate email for a teacher.
+
+**Share cards.** After a result, "Share score" draws a picture in the student's browser ("I scored 212/390 on Mock 2") with the site link and their invite code, ready for WhatsApp or an Instagram story. It costs the server nothing.
 
 ## Rules worth knowing
 - Students only see **published** mocks. Publishing is blocked until validation passes (sections full, one correct answer, no duplicates).

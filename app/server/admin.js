@@ -10,6 +10,7 @@ import { svgProblem, validateDbMock } from './lib/bank.js';
 import { adminsFile, readAdmins } from './lib/admins.js';
 import { recentErrors, clearErrors, startedAt, recordError } from './lib/health.js';
 import { answerAsk, EXAMPLES } from './lib/ask.js';
+import { mountAdminExtras } from './adminExtras.js';
 import { Q_FIELDS, newId, loadQuestions, mockRow, parseMock, seedFromFiles } from './lib/catalog.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -60,10 +61,10 @@ export function cleanQuestion(body, { partial = false, strictOptions = false } =
   return { section, q, errors };
 }
 
-export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }) {
+export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, settings, notifier, features, runReminders }) {
   const r = express.Router();
   // Editors may only work on content: mocks, questions, images, reports and the coverage map. No student data, no settings.
-  const EDITOR_OK = [/^\/meta$/, /^\/mocks(\/|$)/, /^\/questions(\/|$)/, /^\/upload$/, /^\/reports(\/|$)/, /^\/search$/, /^\/coverage$/];
+  const EDITOR_OK = [/^\/meta$/, /^\/mocks(\/|$)/, /^\/questions(\/|$)/, /^\/upload$/, /^\/reports(\/|$)/, /^\/search$/, /^\/coverage$/, /^\/quality$/];
   r.use((req, res, next) => {
     if (req.user.role !== 'editor') return next();
     if (EDITOR_OK.some((re) => re.test(req.path)) && !/\/leaderboard$/.test(req.path)) return next();
@@ -81,7 +82,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
   const bad = (res, msg, code = 400, extra = {}) => res.status(code).json({ error: msg, ...extra });
 
   // ---------- shared aggregates (cached briefly; results are JSON blobs) ----------
-  const submittedRows = () => cached('rows', 15000, () => db.prepare("SELECT a.id, a.user_id, a.mock_id, a.started_at, a.submitted_at, a.auto_submitted, a.result FROM attempts a WHERE a.status='submitted' AND a.result IS NOT NULL").all());
+  const submittedRows = () => cached('rows', 15000, () => db.prepare("SELECT a.id, a.user_id, a.mock_id, a.started_at, a.submitted_at, a.auto_submitted, a.result FROM attempts a WHERE a.status='submitted' AND a.mock_id!='practice' AND a.result IS NOT NULL").all());
   const results = () => cached('results', 15000, () => submittedRows().map((row) => { try { return { row, res: readResult(row) }; } catch { return null; } }).filter(Boolean));
   const briefs = () => results().map(({ row, res }) => ({ id: row.id, userId: row.user_id, mockId: row.mock_id, score: res.summary.score, max: res.summary.maxMarks, pct: res.summary.percentage, accuracy: res.summary.accuracy, timeSec: res.summary.timeTakenSec, submittedAt: row.submitted_at, startedAt: row.started_at, auto: !!row.auto_submitted, qualified: res.summary.qualified }));
   const questionStats = () => cached('qstats', 15000, () => {
@@ -98,9 +99,9 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
   r.get('/overview', (req, res) => {
     const t = now();
     const users = db.prepare("SELECT id, created_at, last_seen FROM users WHERE COALESCE(role,'student')='student'").all();
-    const att = db.prepare('SELECT user_id, mock_id, status, started_at FROM attempts').all();
+    const att = db.prepare("SELECT user_id, mock_id, status, started_at FROM attempts WHERE mock_id!='practice'").all();
     const b = briefs();
-    const mockRows = db.prepare("SELECT id, name, status FROM mocks WHERE id!='pool'").all();
+    const mockRows = db.prepare("SELECT id, name, status FROM mocks WHERE id NOT IN ('pool','practice')").all();
     const popular = mockRows.map((m) => { const mine = b.filter((x) => x.mockId === m.id); return { id: m.id, name: m.name, status: m.status, attempts: att.filter((a) => a.mock_id === m.id).length, completed: mine.length, avgPct: avg(mine.map((x) => x.pct)) }; }).sort((a, c) => c.attempts - a.attempts);
     const qs = questionStats(); const flagged = [];
     for (const [id, s] of qs) if (s.n >= 5 && s.correct / s.n < 0.2) flagged.push({ id, attempts: s.n, pctCorrect: Math.round((s.correct / s.n) * 100) });
@@ -121,13 +122,13 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
     const neverStarted = users.filter((u) => !att.some((a) => a.user_id === u.id)).length;
     const autoSub = db.prepare('SELECT COUNT(*) c FROM attempts WHERE auto_submitted=1').get().c;
     res.json({
-      compare, topStudents, hours, health: { inactive7, neverStarted, autoSubmitted: autoSub, suspended: db.prepare("SELECT COUNT(*) c FROM users WHERE status='suspended'").get().c, questions: db.prepare("SELECT COUNT(*) c FROM questions WHERE mock_id!='pool'").get().c, bank: db.prepare("SELECT COUNT(*) c FROM questions").get().c },
+      compare, topStudents, hours, health: { inactive7, neverStarted, autoSubmitted: autoSub, suspended: db.prepare("SELECT COUNT(*) c FROM users WHERE status='suspended'").get().c, questions: db.prepare("SELECT COUNT(*) c FROM questions WHERE mock_id NOT IN ('pool','practice')").get().c, bank: db.prepare("SELECT COUNT(*) c FROM questions").get().c },
       totals: { users: users.length, newToday: users.filter((u) => t - Date.parse(u.created_at) < DAY).length, newWeek: users.filter((u) => t - Date.parse(u.created_at) < 7 * DAY).length, active24h: users.filter((u) => u.last_seen && t - u.last_seen < DAY).length,
         attempts: att.length, completed: b.length, today: att.filter((a) => t - a.started_at < DAY).length, liveNow: att.filter((a) => a.status === 'in_progress' && t - a.started_at < 4 * 3600000).length,
         avgPct: avg(b.map((x) => x.pct)), avgAccuracy: avg(b.map((x) => x.accuracy)), openReports: db.prepare("SELECT COUNT(*) c FROM reports WHERE status='open'").get().c,
         suspended: db.prepare("SELECT COUNT(*) c FROM users WHERE status='suspended'").get().c, mocksPublished: mockRows.filter((m) => m.status === 'published').length, mocksDraft: mockRows.filter((m) => m.status === 'draft').length },
       signups: series(users.map((u) => Date.parse(u.created_at)), 30), attempts: series(att.map((a) => a.started_at), 30), popular, flagged: flaggedRows,
-      recent: db.prepare("SELECT a.id, a.status, a.started_at, a.mock_id, u.name, u.email FROM attempts a JOIN users u ON u.id=a.user_id ORDER BY a.started_at DESC LIMIT 8").all().map((x) => ({ ...x, mockName: mockRows.find((m) => m.id === x.mock_id)?.name || x.mock_id })),
+      recent: db.prepare("SELECT a.id, a.status, a.started_at, a.mock_id, u.name, u.email FROM attempts a JOIN users u ON u.id=a.user_id WHERE a.mock_id!='practice' ORDER BY a.started_at DESC LIMIT 8").all().map((x) => ({ ...x, mockName: mockRows.find((m) => m.id === x.mock_id)?.name || x.mock_id })),
     });
   });
 
@@ -135,7 +136,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
   function listUsers(req) {
     const q = String(req.query.q || '').trim().toLowerCase();
     const bm = new Map(); for (const x of briefs()) { const o = bm.get(x.userId) || { n: 0, sum: 0, best: 0 }; o.n++; o.sum += x.pct; o.best = Math.max(o.best, x.score); bm.set(x.userId, o); }
-    const started = new Map(db.prepare('SELECT user_id, COUNT(*) n, MAX(started_at) last FROM attempts GROUP BY user_id').all().map((x) => [x.user_id, x]));
+    const started = new Map(db.prepare("SELECT user_id, COUNT(*) n, MAX(started_at) last FROM attempts WHERE mock_id!='practice' GROUP BY user_id").all().map((x) => [x.user_id, x]));
     let rows = db.prepare('SELECT * FROM users').all().map((u) => ({ ...userRow(u), started: started.get(u.id)?.n || 0, lastAttempt: started.get(u.id)?.last || null, completed: bm.get(u.id)?.n || 0, avgPct: bm.get(u.id) ? round1(bm.get(u.id).sum / bm.get(u.id).n) : null, best: bm.get(u.id)?.best ?? null }));
     if (q) rows = rows.filter((u) => [u.name, u.email, u.phone].some((x) => x && String(x).toLowerCase().includes(q)));
     if (req.query.role) rows = rows.filter((u) => u.role === req.query.role);
@@ -189,7 +190,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
     const self = u.id === req.user.id;
     if (name !== undefined) { const n = String(name).trim().slice(0, 80); if (!n) return bad(res, 'Name cannot be empty'); db.prepare('UPDATE users SET name=? WHERE id=?').run(n, u.id); audit(req, 'user_rename', u.email || u.phone, `${u.name} → ${n}`); }
     if (role !== undefined && role !== (u.role || 'student')) {
-      if (!['admin', 'editor', 'student'].includes(role)) return bad(res, 'Invalid role');
+      if (!['admin', 'editor', 'student', 'teacher'].includes(role)) return bad(res, 'Invalid role');
       if (self) return bad(res, 'You cannot change your own role');
       if (confirm !== (u.email || u.phone)) return bad(res, 'Type the user’s email to confirm a role change', 400, { code: 'CONFIRM' });
       db.prepare('UPDATE users SET role=? WHERE id=?').run(role, u.id); audit(req, 'user_role', u.email || u.phone, role);
@@ -223,7 +224,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
     const q = String(req.query.q || '').trim().toLowerCase();
     const bm = new Map(briefs().map((b) => [b.id, b]));
     const names = new Map(db.prepare('SELECT id, name FROM mocks').all().map((m) => [m.id, m.name]));
-    let rows = db.prepare('SELECT a.id, a.user_id, a.mock_id, a.status, a.started_at, a.submitted_at, a.auto_submitted, u.name uname, u.email, u.phone FROM attempts a JOIN users u ON u.id=a.user_id').all().map((a) => { const b = bm.get(a.id); return { id: a.id, userId: a.user_id, user: a.uname, email: a.email || a.phone, mockId: a.mock_id, mockName: names.get(a.mock_id) || a.mock_id, status: a.status, startedAt: a.started_at, submittedAt: a.submitted_at, auto: !!a.auto_submitted, score: b?.score ?? null, max: b?.max ?? null, pct: b?.pct ?? null, accuracy: b?.accuracy ?? null, timeSec: b?.timeSec ?? null, qualified: b?.qualified ?? null }; });
+    let rows = db.prepare('SELECT a.id, a.user_id, a.mock_id, a.status, a.started_at, a.submitted_at, a.auto_submitted, u.name uname, u.email, u.phone FROM attempts a JOIN users u ON u.id=a.user_id WHERE a.mock_id!=\'practice\'').all().map((a) => { const b = bm.get(a.id); return { id: a.id, userId: a.user_id, user: a.uname, email: a.email || a.phone, mockId: a.mock_id, mockName: names.get(a.mock_id) || a.mock_id, status: a.status, startedAt: a.started_at, submittedAt: a.submitted_at, auto: !!a.auto_submitted, score: b?.score ?? null, max: b?.max ?? null, pct: b?.pct ?? null, accuracy: b?.accuracy ?? null, timeSec: b?.timeSec ?? null, qualified: b?.qualified ?? null }; });
     if (req.query.mock) rows = rows.filter((x) => x.mockId === req.query.mock);
     if (req.query.status) rows = rows.filter((x) => x.status === req.query.status);
     if (q) rows = rows.filter((x) => [x.user, x.email].some((s) => s && String(s).toLowerCase().includes(q)));
@@ -255,11 +256,11 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
     const qs = loadQuestions(db, m.id); const v = validateDbMock(m, qs); const b = briefs().filter((x) => x.mockId === m.id);
     const per = Object.fromEntries(SECTIONS.map((k) => [k, qs.filter((q) => q.section === k).length]));
     const diff = { easy: 0, moderate: 0, hard: 0 }; qs.forEach((q) => { diff[q.difficulty] = (diff[q.difficulty] || 0) + 1; });
-    return { id: m.id, number: m.number, name: m.name, difficulty: m.difficulty, description: m.description, status: m.status, tags: m.tags, source: m.source, availableFrom: m.available_from, doubtChat: m.doubt_chat !== 0, updatedAt: m.updated_at, createdAt: m.created_at, questions: qs.length, perSection: per, diff, errors: v.errors.length, warnings: v.warnings.length, attempts: db.prepare('SELECT COUNT(*) c FROM attempts WHERE mock_id=?').get(m.id).c, completed: b.length, avgPct: avg(b.map((x) => x.pct)) };
+    return { id: m.id, number: m.number, name: m.name, difficulty: m.difficulty, description: m.description, status: m.status, tags: m.tags, source: m.source, availableFrom: m.available_from, doubtChat: m.doubt_chat !== 0, refLocked: m.ref_locked === 1, updatedAt: m.updated_at, createdAt: m.created_at, questions: qs.length, perSection: per, diff, errors: v.errors.length, warnings: v.warnings.length, attempts: db.prepare('SELECT COUNT(*) c FROM attempts WHERE mock_id=?').get(m.id).c, completed: b.length, avgPct: avg(b.map((x) => x.pct)) };
   };
   const cleanTags = (t) => (Array.isArray(t) ? [...new Set(t.map((x) => String(x).trim().toLowerCase().slice(0, 30)).filter(Boolean))].slice(0, 10) : []);
   r.get('/meta', (req, res) => res.json({ sections: examConfig.sections, difficulties: examConfig.difficulties, optionsPerQuestion: examConfig.optionsPerQuestion, topics: [...new Set(db.prepare('SELECT data FROM questions').all().map((x) => JSON.parse(x.data).topic))].sort(), tags: [...new Set(db.prepare('SELECT tags FROM mocks').all().flatMap((x) => JSON.parse(x.tags || '[]')))].sort() }));
-  r.get('/mocks', (req, res) => res.json({ mocks: db.prepare("SELECT * FROM mocks WHERE id!='pool' ORDER BY number, created_at").all().map(parseMock).map(mockSummary) }));
+  r.get('/mocks', (req, res) => res.json({ mocks: db.prepare("SELECT * FROM mocks WHERE id NOT IN ('pool','practice') ORDER BY number, created_at").all().map(parseMock).map(mockSummary) }));
   r.post('/mocks', (req, res) => {
     const { name, difficulty, description, tags, cloneFrom } = req.body || {};
     const n = String(name || '').trim().slice(0, 80); if (!n) return bad(res, 'Give the mock a name');
@@ -287,13 +288,14 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
     if (b.tags !== undefined) next.tags = cleanTags(b.tags);
     if (b.number !== undefined) { const n = Number(b.number); if (!Number.isInteger(n) || n < 1) return bad(res, 'Order number must be a positive whole number'); next.number = n; }
     if (b.doubtChat !== undefined) next.doubt_chat = b.doubtChat ? 1 : 0;
+    next.ref_locked = b.refLocked !== undefined ? (b.refLocked ? 1 : 0) : m.ref_locked === 1 ? 1 : 0;
     if (b.availableFrom !== undefined) next.available_from = b.availableFrom ? Date.parse(b.availableFrom) || null : null;
     if (b.status !== undefined && b.status !== m.status) {
       if (!['draft', 'published', 'archived'].includes(b.status)) return bad(res, 'Invalid status');
       if (b.status === 'published') { const v = validateDbMock(next, loadQuestions(db, m.id)); if (v.errors.length) return bad(res, 'Fix these problems before publishing', 422, { errors: v.errors }); }
       next.status = b.status;
     }
-    db.prepare('UPDATE mocks SET name=?, difficulty=?, description=?, tags=?, number=?, available_from=?, status=?, doubt_chat=?, updated_at=? WHERE id=?').run(next.name, next.difficulty, next.description, JSON.stringify(next.tags), next.number, next.available_from ?? null, next.status, next.doubt_chat === 0 ? 0 : 1, now(), m.id);
+    db.prepare('UPDATE mocks SET name=?, difficulty=?, description=?, tags=?, number=?, available_from=?, status=?, doubt_chat=?, ref_locked=?, updated_at=? WHERE id=?').run(next.name, next.difficulty, next.description, JSON.stringify(next.tags), next.number, next.available_from ?? null, next.status, next.doubt_chat === 0 ? 0 : 1, next.ref_locked, now(), m.id);
     if ((next.doubt_chat === 0 ? 0 : 1) !== (m.doubt_chat === 0 ? 0 : 1)) audit(req, next.doubt_chat === 0 ? 'doubt_chat_off' : 'doubt_chat_on', next.name, m.id);
     if (next.status !== m.status) audit(req, `mock_${next.status}`, next.name, m.id); else audit(req, 'mock_edit', next.name, m.id);
     bust(); res.json({ mock: mockSummary(parseMock(mockRow(db, m.id))) });
@@ -430,8 +432,8 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
       weakestTopics: topicList.slice(0, 10), strongestTopics: topicList.slice(-10).reverse(), sections: Object.values(secs).map((s) => ({ key: s.key, short: s.short, avgPct: avg(s.pct), avgAccuracy: avg(s.acc), avgTimeSec: Math.round(avg(s.time)) })),
       hardest: qs.sort((a, c) => a.pctCorrect - c.pctCorrect).slice(0, 8).map(decorate), easiest: [...qs].sort((a, c) => c.pctCorrect - a.pctCorrect).slice(0, 8).map(decorate), slowest: [...qs].sort((a, c) => c.avgTimeSec - a.avgTimeSec).slice(0, 8).map(decorate),
       funnel: [{ label: 'Signed up', n: users.length }, { label: 'Started a test', n: users.filter((u) => first.has(u.id)).length }, { label: 'Finished a test', n: users.filter((u) => done.get(u.id) >= 1).length }, { label: 'Finished 3+ tests', n: users.filter((u) => done.get(u.id) >= 3).length }],
-      perMock: db.prepare("SELECT id, name FROM mocks WHERE id!='pool' ORDER BY number").all().map((m) => { const started = db.prepare('SELECT COUNT(*) c FROM attempts WHERE mock_id=?').get(m.id).c; const fin = briefs().filter((x) => x.mockId === m.id); return { id: m.id, name: m.name, started, finished: fin.length, completion: started ? Math.round((fin.length / started) * 100) : 0 }; }),
-      signups: series(users.map((u) => Date.parse(u.created_at)), 60), attemptsDaily: series(db.prepare('SELECT started_at FROM attempts').all().map((x) => x.started_at), 60),
+      perMock: db.prepare("SELECT id, name FROM mocks WHERE id NOT IN ('pool','practice') ORDER BY number").all().map((m) => { const started = db.prepare('SELECT COUNT(*) c FROM attempts WHERE mock_id=?').get(m.id).c; const fin = briefs().filter((x) => x.mockId === m.id); return { id: m.id, name: m.name, started, finished: fin.length, completion: started ? Math.round((fin.length / started) * 100) : 0 }; }),
+      signups: series(users.map((u) => Date.parse(u.created_at)), 60), attemptsDaily: series(db.prepare("SELECT started_at FROM attempts WHERE mock_id!='practice'").all().map((x) => x.started_at), 60),
     });
   });
 
@@ -449,17 +451,13 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
   });
 
   // ---------- announcements ----------
-  r.get('/announcements', (req, res) => res.json({ announcements: db.prepare('SELECT * FROM announcements ORDER BY id DESC LIMIT 50').all().map((a) => ({ id: a.id, text: a.text, level: a.level, active: !!a.active, createdAt: a.created_at })) }));
-  r.post('/announcements', (req, res) => { const text = String(req.body?.text || '').trim().slice(0, 300); if (!text) return bad(res, 'Write the message'); const level = ['info', 'warn', 'good'].includes(req.body?.level) ? req.body.level : 'info'; db.prepare('INSERT INTO announcements(text,level,active,created_at) VALUES (?,?,1,?)').run(text, level, now()); audit(req, 'announcement_add', text.slice(0, 60)); res.status(201).json({ ok: true }); });
-  r.patch('/announcements/:id', (req, res) => { const a = db.prepare('SELECT * FROM announcements WHERE id=?').get(req.params.id); if (!a) return bad(res, 'Not found', 404); db.prepare('UPDATE announcements SET text=?, level=?, active=? WHERE id=?').run(req.body?.text !== undefined ? String(req.body.text).trim().slice(0, 300) : a.text, ['info', 'warn', 'good'].includes(req.body?.level) ? req.body.level : a.level, req.body?.active === undefined ? a.active : req.body.active ? 1 : 0, a.id); audit(req, 'announcement_edit', String(a.id)); res.json({ ok: true }); });
-  r.delete('/announcements/:id', (req, res) => { db.prepare('DELETE FROM announcements WHERE id=?').run(req.params.id); audit(req, 'announcement_delete', req.params.id); res.json({ ok: true }); });
 
   // ---------- global search, live tests, backup ----------
   r.get('/search', (req, res) => {
     const q = String(req.query.q || '').trim().toLowerCase(); if (q.length < 2) return res.json({ users: [], mocks: [], questions: [] });
     const has = (...xs) => xs.some((x) => x && String(x).toLowerCase().includes(q));
     const users = req.user.role === 'editor' ? [] : db.prepare('SELECT id, name, email, phone, role FROM users').all().filter((u) => has(u.name, u.email, u.phone)).slice(0, 5);
-    const mocks = db.prepare("SELECT id, name, status, difficulty FROM mocks WHERE id!='pool'").all().filter((m) => has(m.name, m.id)).slice(0, 5);
+    const mocks = db.prepare("SELECT id, name, status, difficulty FROM mocks WHERE id NOT IN ('pool','practice')").all().filter((m) => has(m.name, m.id)).slice(0, 5);
     const questions = []; for (const x of db.prepare('SELECT id, mock_id, section, data FROM questions').all()) { const d = JSON.parse(x.data); if (has(d.text, d.topic, (d.tags || []).join(' '))) { questions.push({ id: x.id, mockId: x.mock_id, section: x.section, text: d.text.slice(0, 110), topic: d.topic }); if (questions.length >= 6) break; } }
     res.json({ users, mocks, questions });
   });
@@ -639,6 +637,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
     try { res.json({ q, ...answerAsk(q, { db, now, briefs, results }) }); } catch (e) { recordError('ask', e?.message || String(e)); bad(res, 'Could not answer that. Try rephrasing it.', 500); }
   });
 
+  mountAdminExtras({ r, db, now, audit, bad, results, settings, notifier, features, runReminders, page });
   r.use((req, res) => res.status(404).json({ error: 'Not found' }));
   return r;
 }

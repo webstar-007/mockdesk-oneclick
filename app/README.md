@@ -7,6 +7,9 @@ solutions, review mode with filters, and a progress dashboard. It works on deskt
 ## Doubt help, summaries and Ask your data
 Students get a free doubt helper on each reviewed question (rate limited, off during tests and switchable per mock), a plain-language summary on every result, and admins get an "Ask your data" page. Details in `docs/ADMIN.md`.
 
+## Share cards, referrals, practice sets, reminders, quality report and batches
+Share cards, invite codes (with a locked-mock reward), one-tap practice sets from weak topics, a richer announcement tool, push and email reminders, a question quality report and coaching-centre batches with a teacher view. See "Growth and coaching tools" in `docs/ADMIN.md`. Optional settings in `.env.example`.
+
 ## Public home page
 Visitors who are not signed in see a landing page at `/` (mocks, exam pattern, features, FAQ). Starting a mock sends them to Log in / Sign up and then back to that mock. Signed-in students still see their dashboard at `/`. The page reads `GET /api/public/overview` (published mocks and the exam pattern only, cached for a minute). Text lives in `src/pages/Landing.jsx`, styles in `src/styles/landing.css`.
 

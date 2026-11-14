@@ -10,6 +10,10 @@ import examConfig from '../config/exam.config.js';
 import { validateDbMock } from './lib/bank.js';
 import { seedFromFiles, loadQuestions, mockRow, parseMock, sectionsFor, segmentsFor } from './lib/catalog.js';
 import { adminRouter, UPLOAD_DIR } from './admin.js';
+import { makeSettings } from './lib/settings.js';
+import { makeMailer, makePusher, createNotifier } from './lib/notify.js';
+import { runReminders } from './lib/reminders.js';
+import { makeFeatures } from './features.js';
 import { promoteAdmins } from './lib/admins.js';
 import { buildResult, upgradeResult } from './lib/scoring.js';
 import { makeSender, normEmail, normPhone, maskId, newCode, hashCode, codeMatches, OTP_TTL_MS, OTP_COOLDOWN_MS, OTP_MAX_PER_HOUR, OTP_MAX_WRONG } from './lib/otp.js';
@@ -41,6 +45,9 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
   seedFromFiles(db);
   const promote = () => promoteAdmins(db);
   promote();
+  db.prepare("INSERT OR IGNORE INTO mocks(id,number,name,difficulty,description,status,tags,source,created_at,updated_at) VALUES ('practice',0,'Practice set','moderate','Personalised practice (hidden)','archived','[]','practice',?,?)").run(now(), now());
+  const settings = makeSettings(db);
+  const notifier = createNotifier({ db, now, settings, mailer: makeMailer(), pusher: makePusher(settings) });
   const cache = new Map();
   const invalidate = () => { cache.clear(); snaps.clear(); };
   const hydrate = ({ meta, questions, segments, sectionsCfg, complete }) => ({ meta, questions, segments, sectionsCfg, complete, byId: new Map(questions.map((q) => [q.id, q])) });
@@ -75,6 +82,9 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
     min: m.segments.reduce((a, s) => a + s.minutes, 0),
   });
   const readResult = (r) => upgradeResult(JSON.parse(r.result), examConfig.sections);
+  const features = makeFeatures({ db, now, settings, notifier, getMock, readResult, iso });
+  app.runReminders = (opts = {}) => runReminders({ db, notifier, settings, now, ...opts });
+  app.notifier = notifier; app.db = db;
 
   // ---------- auth ----------
   const cookieOf = (req) => Object.fromEntries((req.headers.cookie || '').split(';').map((c) => c.trim().split('=')).filter((p) => p[0]).map(([k, ...v]) => [k, decodeURIComponent(v.join('='))]));
@@ -112,6 +122,7 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
     if (db.prepare('SELECT 1 FROM users WHERE email=?').get(mail)) return res.status(409).json({ error: 'An account with this email already exists' });
     const salt = crypto.randomBytes(16).toString('hex');
     const r = db.prepare('INSERT INTO users(name,email,salt,hash,created_at) VALUES (?,?,?,?,?)').run(String(name).trim().slice(0, 80), mail, salt, hashPw(password, salt), iso(now()));
+    features.applyReferral(Number(r.lastInsertRowid), req.body?.ref);
     promote(); startSession(res, Number(r.lastInsertRowid));
     res.status(201).json({ user: publicUser(db.prepare('SELECT * FROM users WHERE id=?').get(r.lastInsertRowid)) });
   });
@@ -166,7 +177,7 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
     if (!u) {
       const name = given;
       const r = db.prepare(`INSERT INTO users(name,${col},created_at) VALUES (?,?,?)`).run(name || 'Student', id, iso(now()));
-      u = db.prepare('SELECT * FROM users WHERE id=?').get(r.lastInsertRowid); isNew = true;
+      u = db.prepare('SELECT * FROM users WHERE id=?').get(r.lastInsertRowid); isNew = true; features.applyReferral(u.id, req.body?.ref);
     }
     if (u.status === 'suspended') return res.status(403).json({ error: 'This account has been suspended. Contact the administrator.', code: 'SUSPENDED' });
     promote(); u = db.prepare('SELECT * FROM users WHERE id=?').get(u.id);
@@ -208,6 +219,13 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
     res.json(pubCache.body);
   });
 
+  api.get('/unsubscribe', (req, res) => {
+    const uid = Number(req.query.u);
+    if (!uid || !notifier.tokenOk(uid, req.query.t)) return res.status(400).type('html').send('<p>This link is not valid.</p>');
+    const u = db.prepare('SELECT notify_prefs FROM users WHERE id=?').get(uid); let p = {}; try { p = JSON.parse(u?.notify_prefs || '{}'); } catch { /* defaults */ }
+    p.email = false; db.prepare('UPDATE users SET notify_prefs=? WHERE id=?').run(JSON.stringify(p), uid);
+    res.type('html').send('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><body style="font-family:system-ui;max-width:32rem;margin:4rem auto;padding:0 1rem"><h1>You are unsubscribed</h1><p>We will not email you reminders any more. You can switch them back on in your profile.</p><p><a href="/">Back to MockDesk</a></p>');
+  });
   api.use(auth);
   api.get('/me', (req, res) => res.json({ user: publicUser(req.user) }));
   api.patch('/me', (req, res) => {
@@ -252,6 +270,7 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
     });
     db.prepare("UPDATE attempts SET status='submitted', submitted_at=?, auto_submitted=?, result=? WHERE id=?").run(submittedAt, auto ? 1 : 0, JSON.stringify(result), a.id);
     a.status = 'submitted'; a.submitted_at = submittedAt;
+    try { features.onSubmitted(a, result); } catch (e) { recordError('referral', e.message); }
   }
   const cleanResp = (r) => ({
     selected: Number.isInteger(r?.selected) && r.selected >= 0 && r.selected < examConfig.optionsPerQuestion ? r.selected : null,
@@ -290,14 +309,18 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
   }
 
   // Admin accounts are separate from student accounts: they only use /api/admin.
-  api.use(['/mocks', '/attempts', '/stats', '/questions'], (req, res, next) => (['admin', 'editor'].includes(req.user?.role) ? res.status(403).json({ error: 'Admin accounts use the admin console only', code: 'ADMIN_ONLY' }) : next()));
+  api.use(['/mocks', '/attempts', '/stats', '/questions', '/practice', '/referral', '/batches', '/my', '/inbox', '/push', '/announcements', '/notifications'], (req, res, next) => (['admin', 'editor', 'teacher'].includes(req.user?.role) ? res.status(403).json({ error: 'This account uses its own console, not the student area', code: 'ADMIN_ONLY' }) : next()));
+  features.mount(api); features.mountTeacher(api);
   api.get('/mocks', (req, res) => {
     const rows = db.prepare('SELECT * FROM attempts WHERE user_id=? ORDER BY started_at DESC').all(req.user.id);
     for (const r of rows) if (r.status === 'in_progress' && mockOf(r)) expire(r);
     const out = [];
     const now_ = now();
-    for (const row of db.prepare("SELECT * FROM mocks WHERE (status='published' AND (available_from IS NULL OR available_from<=?)) OR id IN (SELECT mock_id FROM attempts WHERE user_id=? AND status='in_progress') ORDER BY number, created_at").all(now_, req.user.id)) {
+    for (const row of db.prepare("SELECT * FROM mocks WHERE id!='practice' AND ((status='published' AND (available_from IS NULL OR available_from<=? OR ref_locked=1)) OR id IN (SELECT mock_id FROM attempts WHERE user_id=? AND status='in_progress')) ORDER BY number, created_at").all(now_, req.user.id)) {
       const m = getMock(row.id); if (!m) continue; const meta = m.meta;
+      const access = features.accessOf(row, req.user.id, now_);
+      const hasProg = rows.some((r) => r.mock_id === row.id && r.status === 'in_progress');
+      if (access === 'hidden' && !hasProg) continue;
       const mine = rows.filter((r) => r.mock_id === meta.id);
       const prog = mine.find((r) => r.status === 'in_progress');
       const done = mine.filter((r) => r.status === 'submitted').map((r) => ({ r, res: readResult(r).summary }));
@@ -312,7 +335,7 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
         status: prog ? 'in_progress' : done.length ? 'completed' : 'not_attempted',
         inProgressAttemptId: prog?.id || null, attempts: done.length, best,
         last: lastD ? { attemptId: lastD.r.id, score: lastD.res.score, percentage: lastD.res.percentage, submittedAt: iso(lastD.r.submitted_at) } : null,
-        complete: m.complete,
+        complete: m.complete, locked: access === 'locked' && !hasProg,
       });
     }
     res.json({ mocks: out });
@@ -320,8 +343,13 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
 
   api.post('/mocks/:mockId/start', (req, res) => {
     const m = getMock(req.params.mockId);
-    const avail = m && (m.meta.status === 'published');
+    const row = db.prepare('SELECT * FROM mocks WHERE id=?').get(req.params.mockId);
+    const avail = m && row && row.id !== 'practice' && (m.meta.status === 'published');
     if (!m || !avail) return res.status(404).json({ error: 'Mock not found or not available yet' });
+    const acc = features.accessOf(row, req.user.id, now());
+    const resuming = db.prepare("SELECT 1 FROM attempts WHERE user_id=? AND mock_id=? AND status='in_progress'").get(req.user.id, row.id);
+    if (acc === 'hidden' && !resuming) return res.status(404).json({ error: 'Mock not found or not available yet' });
+    if (acc === 'locked' && !resuming) return res.status(403).json({ error: 'Invite a friend to unlock this mock early, or wait for its release date.', code: 'LOCKED' });
     let a = db.prepare("SELECT * FROM attempts WHERE user_id=? AND mock_id=? AND status='in_progress'").get(req.user.id, m.meta.id);
     if (a) { expire(a); if (a.status === 'in_progress') return res.json({ attemptId: a.id, resumed: true }); }
     const id = crypto.randomUUID(); const t = now();
@@ -395,20 +423,21 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
     if (a.status !== 'submitted') return res.status(409).json({ error: 'Attempt not submitted yet' });
     const result = readResult(a);
     // How this attempt compares with the user's earlier work and with other MockDesk users (aggregate only, no names).
-    const mine = db.prepare("SELECT id, mock_id, submitted_at, result FROM attempts WHERE user_id=? AND status='submitted' AND submitted_at<? ORDER BY submitted_at DESC").all(req.user.id, a.submitted_at ?? Infinity);
+    const mine = db.prepare("SELECT id, mock_id, submitted_at, result FROM attempts WHERE user_id=? AND status='submitted' AND mock_id!='practice' AND submitted_at<? ORDER BY submitted_at DESC").all(req.user.id, a.submitted_at ?? Infinity);
     const brief = (r) => { const x = readResult(r).summary; return { attemptId: r.id, score: x.score, percentage: x.percentage, accuracy: x.accuracy, timeTakenSec: x.timeTakenSec }; };
-    const prev = mine[0] ? { ...brief(mine[0]), mockName: mockName(mine[0].mock_id) } : null;
-    const prevSame = mine.find((r) => r.mock_id === a.mock_id);
+    const isPractice = a.mock_id === 'practice';
+    const prev = !isPractice && mine[0] ? { ...brief(mine[0]), mockName: mockName(mine[0].mock_id) } : null;
+    const prevSame = isPractice ? null : mine.find((r) => r.mock_id === a.mock_id);
     const best = new Map();
     for (const r of db.prepare("SELECT user_id, result FROM attempts WHERE mock_id=? AND status='submitted'").all(a.mock_id)) { const sc = readResult(r).summary.score; if (!(best.get(r.user_id) >= sc)) best.set(r.user_id, sc); }
-    const MIN_USERS = 10, scores = [...best.values()], my = best.get(req.user.id) ?? result.summary.score;
-    const community = scores.length >= MIN_USERS ? {
+    const MIN_USERS = 10, scores = isPractice ? [] : [...best.values()], my = best.get(req.user.id) ?? result.summary.score;
+    const community = isPractice ? { unlocked: false, practice: true, users: 0, needed: MIN_USERS } : scores.length >= MIN_USERS ? {
       unlocked: true, users: scores.length, rank: 1 + scores.filter((x) => x > my).length,
       percentile: Math.round((scores.filter((x) => x < my).length / scores.length) * 1000) / 10,
       avgScore: Math.round((scores.reduce((p, c) => p + c, 0) / scores.length) * 10) / 10, topScore: Math.max(...scores), yourBest: my,
     } : { unlocked: false, users: scores.length, needed: MIN_USERS };
     const plain = plainSummary(result, { prevSame: prevSame ? brief(prevSame) : null, prev, community, target: req.user.target_score });
-    res.json({ ...result, compare: { previous: prev, previousSameMock: prevSame ? brief(prevSame) : null }, community, plain, doubt: doubtGate(req.user.id, a.mock_id) });
+    res.json({ ...result, compare: { previous: prev, previousSameMock: prevSame ? brief(prevSame) : null }, community, plain, kind: isPractice ? 'practice' : 'mock', doubt: doubtGate(req.user.id, a.mock_id) });
   });
   // ---------- free doubt helper (one question at a time) ----------
   const DOUBT_HOUR = Number(process.env.MOCKDESK_DOUBT_PER_HOUR) || 20; const DOUBT_DAY = Number(process.env.MOCKDESK_DOUBT_PER_DAY) || 80;
@@ -461,8 +490,8 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
     res.json({
       attempts: rows.map((r) => {
         if (r.status === 'in_progress' && mockOf(r)) expire(r);
-        const meta = db.prepare('SELECT name, difficulty FROM mocks WHERE id=?').get(r.mock_id);
-        const base = { id: r.id, mockId: r.mock_id, mockName: meta?.name || r.mock_id, difficulty: meta?.difficulty, status: r.status, startedAt: iso(r.started_at), submittedAt: r.submitted_at ? iso(r.submitted_at) : null };
+        const meta = r.mock_id === 'practice' ? { name: (() => { try { return JSON.parse(r.snapshot).meta.name; } catch { return 'Practice set'; } })(), difficulty: 'moderate' } : db.prepare('SELECT name, difficulty FROM mocks WHERE id=?').get(r.mock_id);
+        const base = { kind: r.mock_id === 'practice' ? 'practice' : 'mock', id: r.id, mockId: r.mock_id, mockName: meta?.name || r.mock_id, difficulty: meta?.difficulty, status: r.status, startedAt: iso(r.started_at), submittedAt: r.submitted_at ? iso(r.submitted_at) : null };
         if (r.status !== 'submitted') return { ...base, score: null, maxMarks: null, percentage: null, accuracy: null, timeTakenSec: null, sections: [] };
         const s = readResult(r);
         return { ...base, score: s.summary.score, maxMarks: s.summary.maxMarks, percentage: s.summary.percentage, accuracy: s.summary.accuracy, qualified: s.summary.qualified, timeTakenSec: s.summary.timeTakenSec, sections: s.sections.map((x) => ({ key: x.key, score: x.score, maxMarks: x.maxMarks, accuracy: x.accuracy, attempted: x.attempted })) };
@@ -470,7 +499,7 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
     });
   });
   api.get('/stats', (req, res) => {
-    const rows = db.prepare("SELECT * FROM attempts WHERE user_id=? AND status='submitted' ORDER BY submitted_at ASC").all(req.user.id);
+    const rows = db.prepare("SELECT * FROM attempts WHERE user_id=? AND status='submitted' AND mock_id!='practice' ORDER BY submitted_at ASC").all(req.user.id);
     const results = rows.map((r) => ({ r, res: readResult(r) }));
     const avg = (arr) => (arr.length ? Math.round((arr.reduce((a, b) => a + b, 0) / arr.length) * 10) / 10 : 0);
     const secAgg = {}; const topicAgg = {};
@@ -489,7 +518,7 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
     const ranked = [...sections].sort((a, b) => b.avgPercentage - a.avgPercentage);
     const weakTopics = Object.values(topicAgg).filter((t) => t.total >= 2).map((t) => ({ ...t, accuracy: Math.round((t.correct / t.total) * 1000) / 10 })).sort((a, b) => a.accuracy - b.accuracy).slice(0, 8);
     res.json({
-      attempted: db.prepare('SELECT COUNT(*) c FROM attempts WHERE user_id=?').get(req.user.id).c, completed: results.length,
+      attempted: db.prepare("SELECT COUNT(*) c FROM attempts WHERE user_id=? AND mock_id!='practice'").get(req.user.id).c, completed: results.length,
       bestScore: results.length ? Math.max(...results.map((x) => x.res.summary.score)) : null,
       avgPercentage: avg(results.map((x) => x.res.summary.percentage)), avgAccuracy: avg(results.map((x) => x.res.summary.accuracy)),
       trend: results.map(({ r, res: x }) => ({ attemptId: r.id, mockName: x.attempt.mockName, submittedAt: x.attempt.submittedAt, score: x.summary.score, maxMarks: x.summary.maxMarks, percentage: x.summary.percentage, accuracy: x.summary.accuracy })),
@@ -499,7 +528,6 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
   });
 
   // ---------- student-facing extras: announcements and "report a question" ----------
-  api.get('/announcements', (req, res) => res.json({ announcements: db.prepare('SELECT id, text, level FROM announcements WHERE active=1 ORDER BY id DESC LIMIT 3').all() }));
   api.post('/questions/:id/report', (req, res) => {
     const q = db.prepare('SELECT id, mock_id FROM questions WHERE id=?').get(req.params.id);
     const own = db.prepare('SELECT 1 FROM attempts WHERE user_id=? AND status=? AND mock_id=?').get(req.user.id, 'submitted', q?.mock_id);
@@ -512,7 +540,7 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
   });
 
   // ---------- admin ----------
-  api.use('/admin', (req, res, next) => (['admin', 'editor'].includes(req.user.role) ? next() : res.status(403).json({ error: 'Admin access only' })), adminRouter({ db, now, invalidate, getMock, readResult, hashPw, iso }));
+  api.use('/admin', (req, res, next) => (['admin', 'editor'].includes(req.user.role) ? next() : res.status(403).json({ error: 'Admin access only' })), adminRouter({ db, now, invalidate, getMock, readResult, hashPw, iso, settings, notifier, features, runReminders: (o = {}) => runReminders({ db, notifier, settings, now, ...o }) }));
 
   api.use((req, res) => res.status(404).json({ error: 'Not found' }));
   app.use('/api', api);

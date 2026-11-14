@@ -7,9 +7,10 @@ import { tip } from '../components/Tip.jsx';
 import { duration, fmtDateTime, num } from '../lib/format.js';
 import { useAuth } from '../lib/auth.jsx';
 import { analyse } from '../lib/analysis.js';
+import ShareCard from '../components/ShareCard.jsx';
 
 export default function ResultPage() {
-  const { attemptId } = useParams(); const { config } = useAuth();
+  const { attemptId } = useParams(); const { config, user } = useAuth(); const [share, setShare] = useState(false);
   const [allTopics, setAllTopics] = useState(false);
   const [d, setD] = useState(null); const [err, setErr] = useState('');
   useEffect(() => { api.get(`/attempts/${attemptId}/result`).then(setD).catch((e) => setErr(e.message)); }, [attemptId]);
@@ -32,8 +33,10 @@ export default function ResultPage() {
     <div className="result">
       <Link to="/" className="back">← Dashboard</Link>
       <div className="pagehead"><div><h1>{d.attempt.mockName}: your analysis</h1><p className="muted">Submitted {fmtDateTime(d.attempt.submittedAt)}{d.attempt.autoSubmitted ? ' · auto-submitted when time ran out' : ''}</p></div>
-        <div className="head-actions"><Link className="btn btn-primary" to={`/review/${attemptId}`}>Review all questions</Link><Link className="btn btn-ghost" to={`/review/${attemptId}?filter=incorrect`}>Review mistakes</Link><PdfMenu id={attemptId} /></div></div>
+        <div className="head-actions"><button type="button" className="btn btn-share" onClick={() => setShare(true)}>Share score</button><Link className="btn btn-primary" to={`/review/${attemptId}`}>Review all questions</Link><Link className="btn btn-ghost" to={`/review/${attemptId}?filter=incorrect`}>Review mistakes</Link><PdfMenu id={attemptId} /></div></div>
 
+      {d.kind === 'practice' && <p className="pr-banner" role="note"><b>Practice set.</b> Built from your weak topics. It does not count towards any leaderboard, rank or your mock history.</p>}
+      {share && <ShareCard d={d} firstName={(user?.name || '').split(' ')[0]} onClose={() => setShare(false)} />}
       <section className="score-hero card">
         <div className="big-score"><span>Total score{qual.length ? ' (excl. Computer)' : ''}</span><strong>{s.score}<small> / {s.maxMarks}</small></strong><em>{s.percentage}%</em></div>
         <dl className="mini">
@@ -53,7 +56,7 @@ export default function ResultPage() {
         </section>
       )}
 
-      <section className="an-side" aria-label="How you compare">
+      {d.kind !== 'practice' && <section className="an-side" aria-label="How you compare">
         <div className="an-card">
           <h3>Against other aspirants</h3>
           {com?.unlocked ? (<><p className="an-big">Top {Math.max(1, Math.round(100 - com.percentile))}%<small> · rank {com.rank} of {com.users}</small></p><p className="small muted">You beat {com.percentile}% of MockDesk students on this mock. Average {com.avgScore}, top score {com.topScore} (your best {com.yourBest}).</p></>)
@@ -63,7 +66,7 @@ export default function ResultPage() {
           <h3>Versus {cmpLabel || 'your last attempt'}</h3>
           {cmp ? (<ul className="an-deltas"><li><span>Score</span><b className={cmp.score <= s.score ? 'c-good' : 'c-bad'}>{delta(s.score - cmp.score, ' marks')}</b></li><li><span>Accuracy</span><b className={cmp.accuracy <= s.accuracy ? 'c-good' : 'c-bad'}>{delta(s.accuracy - cmp.accuracy, ' pts')}</b></li><li><span>Time</span><b>{delta(Math.round((s.timeTakenSec - cmp.timeTakenSec) / 60), ' min')}</b></li></ul>) : <p className="small muted">This is your first completed mock. Next time you will see how you moved.</p>}
         </div>
-      </section>
+      </section>}
 
       <section className="an-card an-wide" aria-label="Where your marks went">
         <h3>Where your {s.maxMarks} marks went</h3>

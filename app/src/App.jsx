@@ -15,12 +15,14 @@ const ReviewPage = lazy(() => import('./pages/ReviewPage.jsx'));
 const Profile = lazy(() => import('./pages/Profile.jsx'));
 const Toolkit = lazy(() => import('./pages/Toolkit.jsx'));
 const AdminApp = lazy(() => import('./admin/AdminApp.jsx'));
+const TeacherApp = lazy(() => import('./teacher/TeacherApp.jsx'));
 
 function Guard() {
   const { user } = useAuth(); const loc = useLocation();
   if (user === undefined) return <div className="center-page" role="status">Loading…</div>;
   if (!user) return <Navigate to="/login" replace state={{ from: loc.pathname }} />;
   if ((user.role === 'admin' || user.role === 'editor') && !loc.pathname.startsWith('/admin')) return <Navigate to="/admin" replace />;
+  if (user.role === 'teacher' && !loc.pathname.startsWith('/teacher')) return <Navigate to="/teacher" replace />;
   return <Outlet />;
 }
 const Shell = ({ children }) => (<><a className="skip" href="#main">Skip to content</a><Header /><AnnouncementBar /><div className="shell" id="main">{children ?? <Outlet />}<footer className="site-foot"><span><b>MockDesk</b> · Online mock tests for government exams</span><span><Link to="/">Dashboard</Link><Link to="/profile">Profile</Link></span></footer></div></>);
@@ -31,6 +33,7 @@ function Root() {
   if (user === undefined) return <div className="center-page" role="status">Loading…</div>;
   if (!user) return <Landing />;
   if (user.role === 'admin' || user.role === 'editor') return <Navigate to="/admin" replace />;
+  if (user.role === 'teacher') return <Navigate to="/teacher" replace />;
   return <Shell><Dashboard /></Shell>;
 }
 
@@ -46,6 +49,7 @@ export default function App() {
           <Route element={<Guard />}>
             <Route path="/exam/:attemptId" element={<ExamPage />} />
             <Route path="/admin/*" element={<AdminApp />} />
+            <Route path="/teacher/*" element={<TeacherApp />} />
             <Route element={<Shell />}>
               <Route path="/profile" element={<Profile />} />
               <Route path="/toolkit" element={<Toolkit />} />

@@ -2,28 +2,13 @@ import { useState } from 'react';
 import { api } from '../lib/api.js';
 import { Badge, Empty, Err, Loading, PageHead, Pager, dt, toast, useLoad } from './ui.jsx';
 
-const LV = { info: 'Information', warn: 'Warning', good: 'Good news' };
 export default function Settings() {
-  const [tab, setTab] = useState('ann');
+  const [tab, setTab] = useState('adm');
   return (<>
-    <PageHead title="Settings" sub="Announcements, the exam pattern and the activity log." />
-    <div className="ad-tabs" role="tablist">{[['ann', 'Announcements'], ['adm', 'Administrators'], ['pat', 'Exam pattern'], ['dat', 'Data & backup'], ['aud', 'Audit log']].map(([k, n]) => <button key={k} role="tab" aria-selected={tab === k} className={tab === k ? 'on' : ''} onClick={() => setTab(k)}>{n}</button>)}</div>
-    {tab === 'ann' && <Ann />}{tab === 'adm' && <Admins />}{tab === 'dat' && <DataTab />}{tab === 'pat' && <Pattern />}{tab === 'aud' && <Audit />}
+    <PageHead title="Settings" sub="Administrators, the exam pattern, backups and the activity log." />
+    <div className="ad-tabs" role="tablist">{[['adm', 'Administrators'], ['pat', 'Exam pattern'], ['dat', 'Data & backup'], ['aud', 'Audit log']].map(([k, n]) => <button key={k} role="tab" aria-selected={tab === k} className={tab === k ? 'on' : ''} onClick={() => setTab(k)}>{n}</button>)}</div>
+    {tab === 'adm' && <Admins />}{tab === 'dat' && <DataTab />}{tab === 'pat' && <Pattern />}{tab === 'aud' && <Audit />}
   </>);
-}
-function Ann() {
-  const { data, err, loading, reload } = useLoad('/admin/announcements'); const [text, setText] = useState(''); const [level, setLevel] = useState('info');
-  const post = async () => { try { await api.post('/admin/announcements', { text, level }); setText(''); toast('Announcement is live'); reload(); } catch (e) { toast(e.message, 'bad'); } };
-  const patch = async (a, b, ok) => { try { await api.patch(`/admin/announcements/${a.id}`, b); toast(ok); reload(); } catch (e) { toast(e.message, 'bad'); } };
-  return (
-    <div className="ad-grid g-main">
-      <section className="card"><h3>Past and current announcements</h3><Err>{err}</Err>{loading && !data ? <Loading /> : !data?.announcements.length ? <Empty>No announcements yet.</Empty> : <div className="ad-qlist">{data.announcements.map((a) => <div key={a.id} className={`ad-q ${a.active ? '' : 'ad-dim'}`} style={{ gridTemplateColumns: 'minmax(0,1fr) auto' }}><div><p>{a.text}</p><small><Badge tone={a.level === 'warn' ? 'warn' : a.level === 'good' ? 'good' : 'brand'}>{LV[a.level]}</Badge> {dt(a.createdAt)} · {a.active ? 'shown to students' : 'hidden'}</small></div><div className="ad-q-act"><button className="btn btn-ghost btn-sm" onClick={() => patch(a, { active: !a.active }, a.active ? 'Hidden' : 'Shown')}>{a.active ? 'Hide' : 'Show'}</button><button className="btn btn-ghost btn-sm dng" onClick={async () => { await api.del(`/admin/announcements/${a.id}`); toast('Deleted'); reload(); }}>Delete</button></div></div>)}</div>}</section>
-      <section className="card"><h3>New announcement</h3><p className="small muted">Appears as a banner on every student page. Students can dismiss it.</p>
-        <label className="ad-field">Message<textarea rows={3} maxLength={300} value={text} onChange={(e) => setText(e.target.value)} placeholder="e.g. Mock 6 is live. Good luck!" /><small>{text.length}/300</small></label>
-        <div className="ad-pill-row" style={{ marginBottom: 12 }}>{Object.entries(LV).map(([k, n]) => <button key={k} className={`ad-pill ${level === k ? 'on' : ''}`} onClick={() => setLevel(k)}>{n}</button>)}</div>
-        <button className="btn btn-primary" disabled={!text.trim()} onClick={post}>Publish announcement</button></section>
-    </div>
-  );
 }
 function Pattern() {
   const { data: d, err, loading } = useLoad('/admin/pattern'); if (loading) return <Loading />; if (err) return <Err>{err}</Err>;

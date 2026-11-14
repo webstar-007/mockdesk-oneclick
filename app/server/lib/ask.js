@@ -33,7 +33,7 @@ export function answerAsk(raw, h) {
   const text = String(raw || '').trim().slice(0, 300);
   const q = ` ${text.toLowerCase().replace(/[^a-z0-9@.' ?]/g, ' ').replace(/\s+/g, ' ')} `;
   const t = h.now(); const rg = parseRange(q, t); const db = h.db;
-  const mocks = db.prepare("SELECT id, number, name, status FROM mocks WHERE id!='pool' ORDER BY number").all();
+  const mocks = db.prepare("SELECT id, number, name, status FROM mocks WHERE id NOT IN ('pool','practice') ORDER BY number").all();
   const mockNo = q.match(/mock\s*(?:no\.?\s*)?(\d+)/); const mock = mockNo ? mocks.find((m) => m.number === Number(mockNo[1])) : null;
   const sec = Object.entries(SECTION_WORDS).find(([, w]) => w.some((x) => q.includes(x)))?.[0] || null;
   const n = Math.min(20, Math.max(1, Number((q.match(/\btop\s*(\d+)|\b(\d+)\s*(?:students|users)/) || []).slice(1).find(Boolean)) || 5));

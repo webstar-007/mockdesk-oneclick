@@ -16,7 +16,7 @@ export default function Users() {
       <PageHead title="Users" sub="Every student and admin on the platform."><a className="btn btn-ghost" href={`/api/admin/users.csv`} download>⬇ Export CSV</a></PageHead>
       <div className="ad-toolbar">
         <input className="grow" type="search" placeholder="Search name, email or mobile…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search users" />
-        <select value={role} onChange={(e) => { setRole(e.target.value); setPage(1); }} aria-label="Role"><option value="">All roles</option><option value="student">Students</option><option value="editor">Editors</option><option value="admin">Admins</option></select>
+        <select value={role} onChange={(e) => { setRole(e.target.value); setPage(1); }} aria-label="Role"><option value="">All roles</option><option value="student">Students</option><option value="teacher">Teachers</option><option value="editor">Editors</option><option value="admin">Admins</option></select>
         <select value={status} onChange={(e) => { setStatus(e.target.value); setPage(1); }} aria-label="Status"><option value="">Any status</option><option value="active">Active</option><option value="suspended">Suspended</option></select>
       </div>
       <div className="ad-pill-row" style={{ marginBottom: 12 }} role="group" aria-label="Student segments">{[['', 'Everyone'], ['new', 'New this week'], ['never', 'Never took a test'], ['inactive', 'Inactive 7+ days'], ['top', 'Top performers (70%+)'], ['struggling', 'Struggling (under 35%)']].map(([k, n]) => <button key={k} className={`ad-pill ${seg === k ? 'on' : ''}`} onClick={() => { setSeg(k); setPage(1); }}>{n}</button>)}</div>

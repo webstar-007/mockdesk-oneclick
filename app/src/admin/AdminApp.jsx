@@ -22,14 +22,20 @@ const Integrity = lazy(() => import('./Integrity.jsx'));
 const Coverage = lazy(() => import('./Coverage.jsx'));
 const System = lazy(() => import('./System.jsx'));
 const Preview = lazy(() => import('./Preview.jsx'));
+const Announcements = lazy(() => import('./Announcements.jsx'));
+const Notifications = lazy(() => import('./Notifications.jsx'));
+const Quality = lazy(() => import('./Quality.jsx'));
+const Referrals = lazy(() => import('./Referrals.jsx'));
+const BatchList = lazy(() => import('./Batches.jsx').then((m) => ({ default: m.BatchList })));
+const BatchDetail = lazy(() => import('./Batches.jsx').then((m) => ({ default: m.BatchDetail })));
 import Search from './Search.jsx';
 
 const NAV = [
   ['', 'Overview', '▦', true], ['ask', 'Ask your data', '💬'], ['live', 'Live tests', '🟢'], ['users', 'Users', '👥'], ['attempts', 'Attempts', '✎'], ['integrity', 'Integrity', '🛡'],
-  ['mocks', 'Mocks', '🗂'], ['bank', 'Question bank', '❓'], ['coverage', 'Coverage', '🧭'], ['analytics', 'Analytics', '📈'], ['reports', 'Reports', '🚩'], ['system', 'System', '🩺'], ['settings', 'Settings', '⚙'],
+  ['mocks', 'Mocks', '🗂'], ['bank', 'Question bank', '❓'], ['quality', 'Question quality', '✅'], ['coverage', 'Coverage', '🧭'], ['batches', 'Batches', '🏫'], ['announcements', 'Announcements', '📢'], ['notifications', 'Notifications', '🔔'], ['referrals', 'Referrals', '🎁'], ['analytics', 'Analytics', '📈'], ['reports', 'Reports', '🚩'], ['system', 'System', '🩺'], ['settings', 'Settings', '⚙'],
 ];
 // Editors only get the content tools.
-const EDITOR_NAV = ['mocks', 'bank', 'coverage', 'reports'];
+const EDITOR_NAV = ['mocks', 'bank', 'quality', 'coverage', 'reports'];
 
 export default function AdminApp() {
   const { user, logout } = useAuth(); const [open, setOpen] = useState(0); const [find, setFind] = useState(false);
@@ -67,6 +73,12 @@ export default function AdminApp() {
             <Route path="bank" element={<Bank />} />
             <Route path="analytics" element={<Analytics />} />
             <Route path="reports" element={<Reports />} />
+            <Route path="quality" element={<Quality />} />
+            <Route path="batches" element={<BatchList />} />
+            <Route path="batches/:id" element={<BatchDetail />} />
+            <Route path="announcements" element={<Announcements />} />
+            <Route path="notifications" element={<Notifications />} />
+            <Route path="referrals" element={<Referrals />} />
             <Route path="settings" element={<Settings />} />
             <Route path="*" element={<Navigate to="/admin" replace />} />
           </Routes>

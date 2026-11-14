@@ -4,6 +4,7 @@ import { useAuth } from '../lib/auth.jsx';
 import { api } from '../lib/api.js';
 import { useTheme, savedChoice } from '../lib/theme.js';
 import { ActivityMap } from '../components/Insights.jsx';
+import { InviteCard, NotificationPrefs, MyBatches } from '../components/ProfileExtras.jsx';
 
 const dayKey = (d) => { const x = new Date(d); return `${x.getFullYear()}-${x.getMonth()}-${x.getDate()}`; };
 const initials = (n) => (n || '?').trim().split(/\s+/).slice(0, 2).map((w) => w[0]?.toUpperCase()).join('') || '?';
@@ -136,6 +137,9 @@ export default function Profile() {
           {cleared && <p className="okmsg" role="status">Cleared from this device.</p>}
         </section>
 
+        <InviteCard />
+        <NotificationPrefs />
+        <MyBatches />
         <section className="card pf-wide pf-out">
           <div><h2>Sign out</h2><p className="muted pf-note">You’ll need your password or a one-time code to come back. Mocks in progress are kept.</p></div>
           <button type="button" className="btn btn-ghost" onClick={logout}>Sign out</button>
