@@ -43,6 +43,16 @@ export default function ResultPage() {
         </dl>
       </section>
 
+      {d.plain && (
+        <section className="plainsum card" aria-label="Your result in plain words">
+          <h2>Your result in plain words</h2>
+          <p className="ps-head">{d.plain.headline}</p>
+          <ul>{d.plain.points.map((p, i) => <li key={i}>{p}</li>)}</ul>
+          <h3>What to do next</h3>
+          <ul className="ps-next">{d.plain.next.map((p, i) => <li key={i}>{p}</li>)}</ul>
+        </section>
+      )}
+
       <section className="an-side" aria-label="How you compare">
         <div className="an-card">
           <h3>Against other aspirants</h3>

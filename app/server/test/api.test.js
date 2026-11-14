@@ -153,3 +153,14 @@ test('OTP sign-in by email and mobile', async () => {
   // phone-only users cannot use password login
   assert.equal((await call('POST', '/auth/login', { email: 'x@y.co', password: 'password123' })).status, 404);
 });
+
+test('public overview works without signing in and exposes no personal data', async () => {
+  const saved = cookie; cookie = '';
+  const r = await call('GET', '/public/overview');
+  cookie = saved;
+  assert.equal(r.status, 200);
+  assert.ok(Array.isArray(r.body.mocks) && Array.isArray(r.body.sections) && r.body.totals);
+  assert.ok(r.body.mocks.every((m) => m.id && m.questions > 0));
+  const text = JSON.stringify(r.body);
+  assert.ok(!/@|password|email|phone/i.test(text));
+});

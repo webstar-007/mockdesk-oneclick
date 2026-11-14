@@ -4,6 +4,12 @@ A realistic computer-based-test simulator for government exams. Live exam today:
 mocks. It has sectional timers, the question palette with the five SSC statuses, server-side clock and scoring, per-question
 solutions, review mode with filters, and a progress dashboard. It works on desktop, tablet and phone, in light and dark mode.
 
+## Doubt help, summaries and Ask your data
+Students get a free doubt helper on each reviewed question (rate limited, off during tests and switchable per mock), a plain-language summary on every result, and admins get an "Ask your data" page. Details in `docs/ADMIN.md`.
+
+## Public home page
+Visitors who are not signed in see a landing page at `/` (mocks, exam pattern, features, FAQ). Starting a mock sends them to Log in / Sign up and then back to that mock. Signed-in students still see their dashboard at `/`. The page reads `GET /api/public/overview` (published mocks and the exam pattern only, cached for a minute). Text lives in `src/pages/Landing.jsx`, styles in `src/styles/landing.css`.
+
 ## Quick start (3 steps)
 1. Install **Node.js 22.13 or newer** from https://nodejs.org (the app uses Node's built-in SQLite, nothing else to install).
 2. Unzip `mockdesk.zip`. You get one folder, `mockdesk`, with every file directly inside it (open a terminal in that folder for the commands below).

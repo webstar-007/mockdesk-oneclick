@@ -1,0 +1,22 @@
+/* Doubt helper, plain-language summary, admin "Ask your data" */
+.plainsum{margin:14px 0} .plainsum h2{margin:0 0 6px;font-size:1.15rem} .plainsum h3{margin:14px 0 4px;font-size:1rem}
+.plainsum ul{margin:6px 0 0;padding-left:20px} .plainsum li{margin:5px 0;max-width:62em} .ps-head{font-size:1.1rem;font-weight:650;margin:0}
+.ps-next li::marker{color:var(--good)}
+
+.dbt-open{margin:14px 0 0}
+.dbt{margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.dbt header{display:flex;justify-content:space-between;gap:10px;align-items:flex-start} .dbt h3{margin:0 0 2px}
+.dbt-log{max-height:340px;overflow:auto;display:flex;flex-direction:column;gap:10px;padding:10px 0}
+.dbt-you{align-self:flex-end;background:var(--brand);color:#fff;margin:0;padding:8px 12px;border-radius:14px 14px 4px 14px;max-width:85%}
+html[data-theme="dark"] .dbt-you{color:#0b1220}
+.dbt-bot{align-self:flex-start;background:var(--brand-soft);border-radius:14px 14px 14px 4px;padding:10px 14px;max-width:94%;display:flex;flex-direction:column;gap:8px}
+.dbt-bot p{margin:2px 0 0} .dbt-bot .steps{margin:6px 0 0;padding-left:20px}
+.dbt-chips{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+.dbt-form{display:flex;gap:8px} .dbt-form input{flex:1;min-width:0}
+.dbt-lock{background:var(--warn-soft);color:var(--warn);border-radius:8px;padding:10px 12px;margin:8px 0 0}
+
+.ask-form{display:flex;gap:10px;margin:0 0 12px} .ask-form input{flex:1;min-width:0}
+.ask-ex{display:flex;gap:8px;flex-wrap:wrap}
+.ask-log{display:flex;flex-direction:column;gap:14px;margin-top:18px}
+.ask-a h3{margin:0 0 8px;font-size:1rem;color:var(--brand)} .ask-a p{margin:6px 0;max-width:64em}
+@media (max-width:600px){.ask-form{flex-direction:column}.dbt-bot,.dbt-you{max-width:100%}}

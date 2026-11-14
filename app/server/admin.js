@@ -8,7 +8,8 @@ import { fileURLToPath } from 'node:url';
 import examConfig from '../config/exam.config.js';
 import { svgProblem, validateDbMock } from './lib/bank.js';
 import { adminsFile, readAdmins } from './lib/admins.js';
-import { recentErrors, clearErrors, startedAt } from './lib/health.js';
+import { recentErrors, clearErrors, startedAt, recordError } from './lib/health.js';
+import { answerAsk, EXAMPLES } from './lib/ask.js';
 import { Q_FIELDS, newId, loadQuestions, mockRow, parseMock, seedFromFiles } from './lib/catalog.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -254,7 +255,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
     const qs = loadQuestions(db, m.id); const v = validateDbMock(m, qs); const b = briefs().filter((x) => x.mockId === m.id);
     const per = Object.fromEntries(SECTIONS.map((k) => [k, qs.filter((q) => q.section === k).length]));
     const diff = { easy: 0, moderate: 0, hard: 0 }; qs.forEach((q) => { diff[q.difficulty] = (diff[q.difficulty] || 0) + 1; });
-    return { id: m.id, number: m.number, name: m.name, difficulty: m.difficulty, description: m.description, status: m.status, tags: m.tags, source: m.source, availableFrom: m.available_from, updatedAt: m.updated_at, createdAt: m.created_at, questions: qs.length, perSection: per, diff, errors: v.errors.length, warnings: v.warnings.length, attempts: db.prepare('SELECT COUNT(*) c FROM attempts WHERE mock_id=?').get(m.id).c, completed: b.length, avgPct: avg(b.map((x) => x.pct)) };
+    return { id: m.id, number: m.number, name: m.name, difficulty: m.difficulty, description: m.description, status: m.status, tags: m.tags, source: m.source, availableFrom: m.available_from, doubtChat: m.doubt_chat !== 0, updatedAt: m.updated_at, createdAt: m.created_at, questions: qs.length, perSection: per, diff, errors: v.errors.length, warnings: v.warnings.length, attempts: db.prepare('SELECT COUNT(*) c FROM attempts WHERE mock_id=?').get(m.id).c, completed: b.length, avgPct: avg(b.map((x) => x.pct)) };
   };
   const cleanTags = (t) => (Array.isArray(t) ? [...new Set(t.map((x) => String(x).trim().toLowerCase().slice(0, 30)).filter(Boolean))].slice(0, 10) : []);
   r.get('/meta', (req, res) => res.json({ sections: examConfig.sections, difficulties: examConfig.difficulties, optionsPerQuestion: examConfig.optionsPerQuestion, topics: [...new Set(db.prepare('SELECT data FROM questions').all().map((x) => JSON.parse(x.data).topic))].sort(), tags: [...new Set(db.prepare('SELECT tags FROM mocks').all().flatMap((x) => JSON.parse(x.tags || '[]')))].sort() }));
@@ -285,13 +286,15 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
     if (b.description !== undefined) next.description = String(b.description).slice(0, 400);
     if (b.tags !== undefined) next.tags = cleanTags(b.tags);
     if (b.number !== undefined) { const n = Number(b.number); if (!Number.isInteger(n) || n < 1) return bad(res, 'Order number must be a positive whole number'); next.number = n; }
+    if (b.doubtChat !== undefined) next.doubt_chat = b.doubtChat ? 1 : 0;
     if (b.availableFrom !== undefined) next.available_from = b.availableFrom ? Date.parse(b.availableFrom) || null : null;
     if (b.status !== undefined && b.status !== m.status) {
       if (!['draft', 'published', 'archived'].includes(b.status)) return bad(res, 'Invalid status');
       if (b.status === 'published') { const v = validateDbMock(next, loadQuestions(db, m.id)); if (v.errors.length) return bad(res, 'Fix these problems before publishing', 422, { errors: v.errors }); }
       next.status = b.status;
     }
-    db.prepare('UPDATE mocks SET name=?, difficulty=?, description=?, tags=?, number=?, available_from=?, status=?, updated_at=? WHERE id=?').run(next.name, next.difficulty, next.description, JSON.stringify(next.tags), next.number, next.available_from ?? null, next.status, now(), m.id);
+    db.prepare('UPDATE mocks SET name=?, difficulty=?, description=?, tags=?, number=?, available_from=?, status=?, doubt_chat=?, updated_at=? WHERE id=?').run(next.name, next.difficulty, next.description, JSON.stringify(next.tags), next.number, next.available_from ?? null, next.status, next.doubt_chat === 0 ? 0 : 1, now(), m.id);
+    if ((next.doubt_chat === 0 ? 0 : 1) !== (m.doubt_chat === 0 ? 0 : 1)) audit(req, next.doubt_chat === 0 ? 'doubt_chat_off' : 'doubt_chat_on', next.name, m.id);
     if (next.status !== m.status) audit(req, `mock_${next.status}`, next.name, m.id); else audit(req, 'mock_edit', next.name, m.id);
     bust(); res.json({ mock: mockSummary(parseMock(mockRow(db, m.id))) });
   });
@@ -628,6 +631,13 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw }
   });
   r.post('/system/check-db', (req, res) => { const rows = db.prepare('PRAGMA quick_check').all(); const msg = rows.map((x) => Object.values(x)[0]).join('; '); audit(req, 'db_check', '', msg.slice(0, 120)); res.json({ ok: msg === 'ok', message: msg }); });
   r.post('/system/clear-errors', (req, res) => { clearErrors(); audit(req, 'errors_cleared'); res.json({ ok: true }); });
+  // ---------- ask your data (free, rule based) ----------
+  r.get('/ask/examples', (req, res) => res.json({ examples: EXAMPLES }));
+  r.post('/ask', (req, res) => {
+    const q = String(req.body?.q || '').trim();
+    if (q.length < 3) return bad(res, 'Type a question, for example "How did Mock 3 go?"');
+    try { res.json({ q, ...answerAsk(q, { db, now, briefs, results }) }); } catch (e) { recordError('ask', e?.message || String(e)); bad(res, 'Could not answer that. Try rephrasing it.', 500); }
+  });
 
   r.use((req, res) => res.status(404).json({ error: 'Not found' }));
   return r;

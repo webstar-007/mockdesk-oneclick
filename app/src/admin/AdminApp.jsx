@@ -17,6 +17,7 @@ const Analytics = lazy(() => import('./Analytics.jsx'));
 const Reports = lazy(() => import('./Reports.jsx'));
 const Settings = lazy(() => import('./Settings.jsx'));
 const Live = lazy(() => import('./Live.jsx'));
+const Ask = lazy(() => import('./Ask.jsx'));
 const Integrity = lazy(() => import('./Integrity.jsx'));
 const Coverage = lazy(() => import('./Coverage.jsx'));
 const System = lazy(() => import('./System.jsx'));
@@ -24,7 +25,7 @@ const Preview = lazy(() => import('./Preview.jsx'));
 import Search from './Search.jsx';
 
 const NAV = [
-  ['', 'Overview', '▦', true], ['live', 'Live tests', '🟢'], ['users', 'Users', '👥'], ['attempts', 'Attempts', '✎'], ['integrity', 'Integrity', '🛡'],
+  ['', 'Overview', '▦', true], ['ask', 'Ask your data', '💬'], ['live', 'Live tests', '🟢'], ['users', 'Users', '👥'], ['attempts', 'Attempts', '✎'], ['integrity', 'Integrity', '🛡'],
   ['mocks', 'Mocks', '🗂'], ['bank', 'Question bank', '❓'], ['coverage', 'Coverage', '🧭'], ['analytics', 'Analytics', '📈'], ['reports', 'Reports', '🚩'], ['system', 'System', '🩺'], ['settings', 'Settings', '⚙'],
 ];
 // Editors only get the content tools.
@@ -59,6 +60,7 @@ export default function AdminApp() {
             <Route path="mocks/:id" element={<MockEditor />} />
             <Route path="mocks/:id/preview" element={<Preview />} />
             <Route path="live" element={<Live />} />
+            <Route path="ask" element={<Ask />} />
             <Route path="integrity" element={<Integrity />} />
             <Route path="coverage" element={<Coverage />} />
             <Route path="system" element={<System />} />

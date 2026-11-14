@@ -44,6 +44,19 @@ The easiest way: open `admins.txt` in the MockDesk folder and paste emails or mo
 
 **System.** Uptime, database and disk size, memory, last backup, sign-in code setup, HTTPS, recent server errors and a database check. Orange items need attention before real students use the site.
 
+## Ask your data, doubt help and plain summaries
+
+**Ask your data.** Admin > Ask your data. Type a question in plain English, such as "How did Mock 3 go?", "Which mock is the hardest?", "Top 5 students this week", "How is Priya Sharma doing?", "What are the weakest topics in maths?", "How many new students today?", "Who is taking a test right now?" or "Which questions are students getting wrong most?". It understands mock numbers, student names or emails, sections and times like today, this week and this month. Answers are calculated from your database, so nothing is guessed. If it does not understand, it says so and shows examples. Editors cannot use it.
+
+**Doubt help for students.** After finishing a test, each question in Review has "Ask about this question". It is free and rule based: it answers from the question's own explanation, steps, shortcut, common mistake and notes, and it only talks about that question. Limits and locks:
+- Off for any student who has a test running, and never available before submitting.
+- 20 questions per hour and 80 per day per student (change with `MOCKDESK_DOUBT_PER_HOUR` and `MOCKDESK_DOUBT_PER_DAY`).
+- Switch it off per mock: Mocks > open a mock > Settings > "Let students use doubt help". Turn it off while the mock is a live test, then back on.
+- `MOCKDESK_DOUBT_CHAT=off` switches it off for everyone.
+Better explanations make better answers, so keep the explanation, steps and shortcut fields filled in. An AI model can be added later behind the same screen.
+
+**Plain-language summary.** Every result page starts with "Your result in plain words": the score against the student's target, strongest and weakest section, topics to fix, time habits, change since the last attempt and up to three next steps.
+
 ## Rules worth knowing
 - Students only see **published** mocks. Publishing is blocked until validation passes (sections full, one correct answer, no duplicates).
 - Attempts keep a snapshot of their questions, so editing a mock never changes past results.

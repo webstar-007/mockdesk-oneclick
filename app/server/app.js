@@ -1,4 +1,6 @@
 import { recordError } from './lib/health.js';
+import { answerDoubt } from './lib/doubts.js';
+import { plainSummary } from './lib/summary.js';
 import express from 'express';
 import crypto from 'node:crypto';
 import path from 'node:path';
@@ -187,6 +189,24 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
   }));
 
   api.get('/health', (req, res) => res.json({ ok: true, exam: examConfig.exam.id, mocks: db.prepare("SELECT id FROM mocks WHERE status='published'").all().filter((r) => getMock(r.id)).length }));
+
+  // Public: what the landing page shows to visitors who have not signed in. Nothing personal; cached for a minute.
+  let pubCache = { at: 0, body: null };
+  api.get('/public/overview', (req, res) => {
+    if (!pubCache.body || Date.now() - pubCache.at > 60000) {
+      const mocks = [];
+      for (const row of db.prepare("SELECT id FROM mocks WHERE status='published' AND (available_from IS NULL OR available_from<=?) ORDER BY number, created_at").all(now())) {
+        const m = getMock(row.id); if (!m) continue;
+        const t = totals(m);
+        mocks.push({ id: m.meta.id, number: m.meta.number, name: m.meta.name, difficulty: m.meta.difficulty, description: m.meta.description, questions: t.q, marks: t.marks, minutes: t.min });
+      }
+      const sections = Object.entries(examConfig.sections).map(([key, s]) => ({ key, name: s.name, short: s.short, questions: s.questions, qualifying: !!s.qualifying, qualifyingMarks: s.qualifyingMarks || null, marks: s.marksPerQuestion, negative: s.negativeMarks }));
+      const segments = examConfig.segments.map((s) => ({ sections: s.sections, minutes: s.minutes }));
+      pubCache = { at: Date.now(), body: { exam: examConfig.exam.name, mocks, sections, segments, totals: { mocks: mocks.length, questions: mocks.reduce((a, x) => a + x.questions, 0) } } };
+    }
+    res.setHeader('Cache-Control', 'public, max-age=60');
+    res.json(pubCache.body);
+  });
 
   api.use(auth);
   api.get('/me', (req, res) => res.json({ user: publicUser(req.user) }));
@@ -387,7 +407,36 @@ export function createApp(db, { allowIncomplete = process.env.MOCKDESK_ALLOW_INC
       percentile: Math.round((scores.filter((x) => x < my).length / scores.length) * 1000) / 10,
       avgScore: Math.round((scores.reduce((p, c) => p + c, 0) / scores.length) * 10) / 10, topScore: Math.max(...scores), yourBest: my,
     } : { unlocked: false, users: scores.length, needed: MIN_USERS };
-    res.json({ ...result, compare: { previous: prev, previousSameMock: prevSame ? brief(prevSame) : null }, community });
+    const plain = plainSummary(result, { prevSame: prevSame ? brief(prevSame) : null, prev, community, target: req.user.target_score });
+    res.json({ ...result, compare: { previous: prev, previousSameMock: prevSame ? brief(prevSame) : null }, community, plain, doubt: doubtGate(req.user.id, a.mock_id) });
+  });
+  // ---------- free doubt helper (one question at a time) ----------
+  const DOUBT_HOUR = Number(process.env.MOCKDESK_DOUBT_PER_HOUR) || 20; const DOUBT_DAY = Number(process.env.MOCKDESK_DOUBT_PER_DAY) || 80;
+  /** Whether this student may use the helper right now, and why not. */
+  function doubtGate(userId, mockId) {
+    if (process.env.MOCKDESK_DOUBT_CHAT === 'off') return { available: false, reason: 'Doubt help is switched off.' };
+    const m = db.prepare('SELECT doubt_chat FROM mocks WHERE id=?').get(mockId);
+    if (m && m.doubt_chat === 0) return { available: false, reason: 'Doubt help is switched off for this mock while it is live.' };
+    if (db.prepare("SELECT 1 FROM attempts WHERE user_id=? AND status='in_progress' AND started_at>?").get(userId, now() - 6 * 3600000)) return { available: false, reason: 'Doubt help is off while a test is running. Finish your test first.' };
+    const t = now(); const h = db.prepare('SELECT COUNT(*) c, MIN(at) o FROM doubts WHERE user_id=? AND at>?').get(userId, t - 3600000); const d = db.prepare('SELECT COUNT(*) c FROM doubts WHERE user_id=? AND at>?').get(userId, t - 86400000).c;
+    if (h.c >= DOUBT_HOUR) return { available: false, limited: true, reason: `You have used your ${DOUBT_HOUR} questions for this hour. Try again in ${Math.max(1, Math.ceil((h.o + 3600000 - t) / 60000))} minutes.` };
+    if (d >= DOUBT_DAY) return { available: false, limited: true, reason: `You have reached today's limit of ${DOUBT_DAY} questions. Come back tomorrow.` };
+    return { available: true, left: Math.min(DOUBT_HOUR - h.c, DOUBT_DAY - d) };
+  }
+  api.post('/attempts/:id/doubt', (req, res) => {
+    const a = loadAttempt(req.params.id, req.user.id);
+    if (!a) return res.status(404).json({ error: 'Attempt not found' });
+    expire(a);
+    if (a.status !== 'submitted') return res.status(409).json({ error: 'Doubt help opens after you submit this test.', code: 'CHAT_LOCKED' });
+    const gate = doubtGate(req.user.id, a.mock_id);
+    if (!gate.available) return res.status(gate.limited ? 429 : 423).json({ error: gate.reason, code: gate.limited ? 'CHAT_LIMIT' : 'CHAT_LOCKED' });
+    const message = String(req.body?.message || '').trim().slice(0, 300);
+    if (!message) return res.status(400).json({ error: 'Type a question first' });
+    const q = readResult(a).questions.find((x) => x.id === req.body?.questionId);
+    if (!q) return res.status(404).json({ error: 'Question not found in this attempt' });
+    const out = answerDoubt(q, message);
+    db.prepare('INSERT INTO doubts(user_id, attempt_id, question_id, intent, at) VALUES (?,?,?,?,?)').run(req.user.id, a.id, q.id, out.intent, now());
+    res.json({ ...out, left: Math.max(0, (gate.left || 1) - 1) });
   });
   // Downloadable PDF of the result, analysis and solutions. ?scope=all includes every question (default: mistakes only).
   api.get('/attempts/:id/report.pdf', async (req, res) => {

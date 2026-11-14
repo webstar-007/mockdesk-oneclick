@@ -7,6 +7,7 @@ import QuestionView from '../components/QuestionView.jsx';
 import OptionList from '../components/OptionList.jsx';
 import ReportQuestion from '../components/ReportQuestion.jsx';
 import SolutionViewer from '../components/SolutionViewer.jsx';
+import DoubtChat from '../components/DoubtChat.jsx';
 
 const FILTERS = [['all', 'All'], ['correct', 'Correct'], ['incorrect', 'Incorrect'], ['unattempted', 'Unattempted'], ['marked', 'Marked for review'], ['slow', 'Took long'], ['saved', 'Bookmarked']];
 // Bookmarks and notes live in this browser only (a convenience, not shared data).
@@ -81,6 +82,7 @@ export default function ReviewPage() {
               <OptionList mode="review" options={q.options} figures={q.optionFigures} images={q.optionImages} selected={q.selected} correct={q.correct} />
             </QuestionView>
             <SolutionViewer q={q} />
+            {d.doubt && <DoubtChat key={q.id} attemptId={attemptId} q={q} gate={d.doubt} />}
             <div className="rv-note"><label htmlFor="rv-note">Your note for this question</label><textarea id="rv-note" rows={2} placeholder="Write the rule, formula or trick you want to remember" value={notes[q.id] || ''} onChange={(e) => setNotes({ ...notes, [q.id]: e.target.value })} /></div>
             <div className="rv-nav"><button className="btn btn-ghost" disabled={idx === 0} onClick={() => setPos(idx - 1)}>← Previous</button><button className="btn btn-primary" disabled={idx >= list.length - 1} onClick={() => setPos(idx + 1)}>Next →</button></div>
           </main>

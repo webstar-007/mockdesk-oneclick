@@ -5,6 +5,7 @@ import Header from './components/Header.jsx';
 import TipLayer from './components/Tip.jsx';
 import AnnouncementBar from './components/AnnouncementBar.jsx';
 
+const Landing = lazy(() => import('./pages/Landing.jsx'));
 const AuthPage = lazy(() => import('./pages/AuthPage.jsx'));
 const Dashboard = lazy(() => import('./pages/Dashboard.jsx'));
 const Instructions = lazy(() => import('./pages/Instructions.jsx'));
@@ -22,7 +23,16 @@ function Guard() {
   if ((user.role === 'admin' || user.role === 'editor') && !loc.pathname.startsWith('/admin')) return <Navigate to="/admin" replace />;
   return <Outlet />;
 }
-const Shell = () => (<><a className="skip" href="#main">Skip to content</a><Header /><AnnouncementBar /><div className="shell" id="main"><Outlet /><footer className="site-foot"><span><b>MockDesk</b> · Online mock tests for government exams</span><span><Link to="/">Dashboard</Link><Link to="/profile">Profile</Link></span></footer></div></>);
+const Shell = ({ children }) => (<><a className="skip" href="#main">Skip to content</a><Header /><AnnouncementBar /><div className="shell" id="main">{children ?? <Outlet />}<footer className="site-foot"><span><b>MockDesk</b> · Online mock tests for government exams</span><span><Link to="/">Dashboard</Link><Link to="/profile">Profile</Link></span></footer></div></>);
+
+// "/" is public: visitors see the landing page, signed-in students see their dashboard.
+function Root() {
+  const { user } = useAuth();
+  if (user === undefined) return <div className="center-page" role="status">Loading…</div>;
+  if (!user) return <Landing />;
+  if (user.role === 'admin' || user.role === 'editor') return <Navigate to="/admin" replace />;
+  return <Shell><Dashboard /></Shell>;
+}
 
 export default function App() {
   return (
@@ -30,13 +40,13 @@ export default function App() {
       <TipLayer />
       <Suspense fallback={<div className="center-page" role="status">Loading…</div>}>
         <Routes>
+          <Route path="/" element={<Root />} />
           <Route path="/login" element={<AuthPage mode="login" />} />
           <Route path="/register" element={<AuthPage mode="register" />} />
           <Route element={<Guard />}>
             <Route path="/exam/:attemptId" element={<ExamPage />} />
             <Route path="/admin/*" element={<AdminApp />} />
             <Route element={<Shell />}>
-              <Route path="/" element={<Dashboard />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/toolkit" element={<Toolkit />} />
               <Route path="/mock/:mockId" element={<Instructions />} />

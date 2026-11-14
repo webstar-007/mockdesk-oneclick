@@ -11,4 +11,5 @@ import './styles/profile.css';
 import './styles/toolkit.css';
 import './styles/instr.css';
 import './styles/admin.css';
+import './styles/assist.css';
 createRoot(document.getElementById('root')).render(<BrowserRouter><App /></BrowserRouter>);
