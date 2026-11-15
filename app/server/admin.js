@@ -11,11 +11,12 @@ import { adminsFile, readAdmins } from './lib/admins.js';
 import { recentErrors, clearErrors, startedAt, recordError } from './lib/health.js';
 import { answerAsk, EXAMPLES } from './lib/ask.js';
 import { mountAdminExtras } from './adminExtras.js';
+import { sectionDef, allSectionKeys, allSections } from './lib/sections.js';
+import { TEMPLATES, cleanExam, BUILTIN_ID } from './lib/exams.js';
 import { Q_FIELDS, newId, loadQuestions, mockRow, parseMock, seedFromFiles } from './lib/catalog.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const UPLOAD_DIR = process.env.MOCKDESK_UPLOADS || path.join(ROOT, 'data', 'uploads');
-const SECTIONS = Object.keys(examConfig.sections);
 const IMG_RE = /^\/uploads\/[\w.-]+\.(png|jpe?g|webp|gif)$/i;
 const DAY = 86400000;
 const round1 = (n) => Math.round(n * 10) / 10;
@@ -29,7 +30,7 @@ export function cleanQuestion(body, { partial = false, strictOptions = false } =
   const str = (v, max = 4000) => (v == null ? '' : String(v).trim().slice(0, max));
   const q = {};
   const section = str(body.section);
-  if (!examConfig.sections[section]) errors.push('Choose a section');
+  if (!sectionDef(section)) errors.push('Choose a section');
   q.text = str(body.text); if (!q.text) errors.push('Question text is required');
   const opts = Array.isArray(body.options) ? body.options.slice(0, examConfig.optionsPerQuestion).map((o) => str(o, 600)) : [];
   while (opts.length < examConfig.optionsPerQuestion) opts.push('');
@@ -61,7 +62,7 @@ export function cleanQuestion(body, { partial = false, strictOptions = false } =
   return { section, q, errors };
 }
 
-export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, settings, notifier, features, runReminders }) {
+export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, settings, notifier, features, runReminders, exams }) {
   const r = express.Router();
   // Editors may only work on content: mocks, questions, images, reports and the coverage map. No student data, no settings.
   const EDITOR_OK = [/^\/meta$/, /^\/mocks(\/|$)/, /^\/questions(\/|$)/, /^\/upload$/, /^\/reports(\/|$)/, /^\/search$/, /^\/coverage$/, /^\/quality$/];
@@ -251,22 +252,46 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, 
   });
   r.delete('/attempts/:id', (req, res) => { const a = db.prepare('SELECT id FROM attempts WHERE id=?').get(req.params.id); if (!a) return bad(res, 'Attempt not found', 404); db.prepare('DELETE FROM attempts WHERE id=?').run(a.id); audit(req, 'attempt_delete', a.id); bust(); res.json({ ok: true }); });
 
+  // ---------- exams (patterns) ----------
+  const examOut = (d) => ({ ...d, mocks: db.prepare("SELECT COUNT(*) c FROM mocks WHERE exam_id=? AND id NOT IN ('pool','practice')").get(d.id).c, published: db.prepare("SELECT COUNT(*) c FROM mocks WHERE exam_id=? AND status='published'").get(d.id).c, total: d.sections.filter((s) => !s.qualifying).reduce((a, s) => a + s.questions * s.marks, 0), questions: d.sections.reduce((a, s) => a + s.questions, 0), minutes: d.timing === 'overall' ? d.minutes : d.sections.reduce((a, s) => a + (s.minutes || 0), 0) });
+  r.get('/exams', (req, res) => res.json({ exams: exams.list().map(examOut), templates: TEMPLATES, subjects: Object.entries(allSections()).map(([key, x]) => ({ key, name: x.name, short: x.short })) }));
+  r.post('/exams', (req, res) => {
+    const b = req.body || {}; const id = exams.newId(b.name); const c = cleanExam(b, id); if (c.error) return bad(res, c.error);
+    exams.put(c.def, 1); audit(req, 'exam_create', c.def.name, id); bust(); res.status(201).json({ id });
+  });
+  r.put('/exams/:id', (req, res) => {
+    const d = exams.get(req.params.id); if (!d) return bad(res, 'Exam not found', 404); if (d.builtin) return bad(res, 'The built-in exam is edited in config/exam.config.js');
+    const c = cleanExam(req.body || {}, d.id); if (c.error) return bad(res, c.error);
+    const inUse = db.prepare("SELECT COUNT(*) c FROM attempts a JOIN mocks m ON m.id=a.mock_id WHERE m.exam_id=?").get(d.id).c;
+    if (inUse) { const same = (x, y) => JSON.stringify(x.sections.map((s) => [s.key, s.questions, s.marks, s.negative, s.minutes, !!s.qualifying])) === JSON.stringify(y.sections.map((s) => [s.key, s.questions, s.marks, s.negative, s.minutes, !!s.qualifying])) && x.timing === y.timing && x.minutes === y.minutes; if (!same(d, c.def)) return bad(res, 'Students have already taken mocks of this exam, so its marks and timings are locked. You can still rename it. To change the pattern, create a new exam.'); }
+    exams.put({ ...c.def }, req.body.active === false ? 0 : d.active === 0 && req.body.active === undefined ? 0 : 1); audit(req, 'exam_edit', c.def.name, d.id); bust(); res.json({ ok: true });
+  });
+  r.patch('/exams/:id', (req, res) => {
+    const d = exams.get(req.params.id); if (!d || d.builtin) return bad(res, 'Exam not found', 404);
+    const { id, builtin, active, mocks, published, total, questions, minutes, ...def } = d; exams.put({ id, ...def }, req.body?.active === false ? 0 : 1); audit(req, req.body?.active === false ? 'exam_hide' : 'exam_show', d.name, d.id); bust(); res.json({ ok: true });
+  });
+  r.delete('/exams/:id', (req, res) => {
+    const d = exams.get(req.params.id); if (!d || d.builtin) return bad(res, 'Exam not found', 404);
+    if (db.prepare("SELECT 1 FROM mocks WHERE exam_id=? AND id NOT IN ('pool','practice')").get(d.id)) return bad(res, 'This exam still has mocks. Move or delete them first, or hide the exam instead.');
+    exams.remove(d.id); audit(req, 'exam_delete', d.name, d.id); bust(); res.json({ ok: true });
+  });
+
   // ---------- mocks ----------
   const mockSummary = (m) => {
-    const qs = loadQuestions(db, m.id); const v = validateDbMock(m, qs); const b = briefs().filter((x) => x.mockId === m.id);
-    const per = Object.fromEntries(SECTIONS.map((k) => [k, qs.filter((q) => q.section === k).length]));
+    const pat = exams.patternFor(m.exam_id); const qs = loadQuestions(db, m.id, pat); const v = validateDbMock(m, qs, pat); const b = briefs().filter((x) => x.mockId === m.id);
+    const per = Object.fromEntries(allSectionKeys().map((k) => [k, qs.filter((q) => q.section === k).length]));
     const diff = { easy: 0, moderate: 0, hard: 0 }; qs.forEach((q) => { diff[q.difficulty] = (diff[q.difficulty] || 0) + 1; });
-    return { id: m.id, number: m.number, name: m.name, difficulty: m.difficulty, description: m.description, status: m.status, tags: m.tags, source: m.source, availableFrom: m.available_from, doubtChat: m.doubt_chat !== 0, refLocked: m.ref_locked === 1, updatedAt: m.updated_at, createdAt: m.created_at, questions: qs.length, perSection: per, diff, errors: v.errors.length, warnings: v.warnings.length, attempts: db.prepare('SELECT COUNT(*) c FROM attempts WHERE mock_id=?').get(m.id).c, completed: b.length, avgPct: avg(b.map((x) => x.pct)) };
+    return { id: m.id, number: m.number, name: m.name, difficulty: m.difficulty, description: m.description, status: m.status, tags: m.tags, source: m.source, availableFrom: m.available_from, examId: m.exam_id || BUILTIN_ID, kind: m.kind || 'mock', paperYear: m.paper_year || null, paperLabel: m.paper_label || '', liveUntil: m.live_until || null, doubtChat: m.doubt_chat !== 0, refLocked: m.ref_locked === 1, updatedAt: m.updated_at, createdAt: m.created_at, questions: qs.length, perSection: per, diff, errors: v.errors.length, warnings: v.warnings.length, attempts: db.prepare('SELECT COUNT(*) c FROM attempts WHERE mock_id=?').get(m.id).c, completed: b.length, avgPct: avg(b.map((x) => x.pct)) };
   };
   const cleanTags = (t) => (Array.isArray(t) ? [...new Set(t.map((x) => String(x).trim().toLowerCase().slice(0, 30)).filter(Boolean))].slice(0, 10) : []);
-  r.get('/meta', (req, res) => res.json({ sections: examConfig.sections, difficulties: examConfig.difficulties, optionsPerQuestion: examConfig.optionsPerQuestion, topics: [...new Set(db.prepare('SELECT data FROM questions').all().map((x) => JSON.parse(x.data).topic))].sort(), tags: [...new Set(db.prepare('SELECT tags FROM mocks').all().flatMap((x) => JSON.parse(x.tags || '[]')))].sort() }));
+  r.get('/meta', (req, res) => res.json({ sections: allSections(), exams: exams.list().map((d) => ({ id: d.id, name: d.name, short: d.short, active: d.active !== 0, sections: d.sections.map((x) => x.key) })), difficulties: examConfig.difficulties, optionsPerQuestion: examConfig.optionsPerQuestion, topics: [...new Set(db.prepare('SELECT data FROM questions').all().map((x) => JSON.parse(x.data).topic))].sort(), tags: [...new Set(db.prepare('SELECT tags FROM mocks').all().flatMap((x) => JSON.parse(x.tags || '[]')))].sort() }));
   r.get('/mocks', (req, res) => res.json({ mocks: db.prepare("SELECT * FROM mocks WHERE id NOT IN ('pool','practice') ORDER BY number, created_at").all().map(parseMock).map(mockSummary) }));
   r.post('/mocks', (req, res) => {
-    const { name, difficulty, description, tags, cloneFrom } = req.body || {};
+    const { name, difficulty, description, tags, cloneFrom, examId } = req.body || {}; const exId = examId && exams.get(examId) ? examId : (cloneFrom && mockRow(db, cloneFrom)?.exam_id) || BUILTIN_ID;
     const n = String(name || '').trim().slice(0, 80); if (!n) return bad(res, 'Give the mock a name');
     if (!examConfig.difficulties.includes(difficulty)) return bad(res, 'Choose easy, moderate or hard');
     const id = newId('m'); const t = now(); const number = (db.prepare('SELECT MAX(number) n FROM mocks').get().n || 0) + 1;
-    db.prepare("INSERT INTO mocks(id,number,name,difficulty,description,status,tags,source,created_at,updated_at) VALUES (?,?,?,?,?,'draft',?,'admin',?,?)").run(id, number, n, difficulty, String(description || '').slice(0, 400), JSON.stringify(cleanTags(tags ?? [difficulty])), t, t);
+    db.prepare("INSERT INTO mocks(id,number,name,difficulty,description,status,tags,source,created_at,updated_at,exam_id) VALUES (?,?,?,?,?,'draft',?,'admin',?,?,?)").run(id, number, n, difficulty, String(description || '').slice(0, 400), JSON.stringify(cleanTags(tags ?? [difficulty])), t, t, exId);
     if (cloneFrom && mockRow(db, cloneFrom)) copyQuestions(cloneFrom, id, req.user.name);
     audit(req, cloneFrom ? 'mock_clone' : 'mock_create', n, id); bust(); res.status(201).json({ mock: mockSummary(parseMock(mockRow(db, id))) });
   });
@@ -276,7 +301,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, 
   }
   r.get('/mocks/:id', (req, res) => {
     const m = parseMock(mockRow(db, req.params.id)); if (!m) return bad(res, 'Mock not found', 404);
-    const qs = loadQuestions(db, m.id); const v = validateDbMock(m, qs);
+    const pat = exams.patternFor(m.exam_id); const qs = loadQuestions(db, m.id, pat); const v = validateDbMock(m, qs, pat);
     res.json({ mock: mockSummary(m), questions: qs.map((q) => ({ ...q, ...addedOf(q.id), stat: qStat(q.id) })), validation: { errors: v.errors, warnings: v.warnings } });
   });
   r.patch('/mocks/:id', (req, res) => {
@@ -290,12 +315,23 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, 
     if (b.doubtChat !== undefined) next.doubt_chat = b.doubtChat ? 1 : 0;
     next.ref_locked = b.refLocked !== undefined ? (b.refLocked ? 1 : 0) : m.ref_locked === 1 ? 1 : 0;
     if (b.availableFrom !== undefined) next.available_from = b.availableFrom ? Date.parse(b.availableFrom) || null : null;
+    if (b.examId !== undefined && b.examId !== m.exam_id) {
+      if (!exams.get(b.examId)) return bad(res, 'Unknown exam');
+      if (db.prepare('SELECT 1 FROM attempts WHERE mock_id=?').get(m.id)) return bad(res, 'Students have already attempted this mock, so its exam cannot change. Copy the mock instead.');
+      next.exam_id = b.examId;
+    }
+    if (b.kind !== undefined) { if (!['mock', 'pyq'].includes(b.kind)) return bad(res, 'Invalid type'); next.kind = b.kind; }
+    if (b.paperYear !== undefined) { const y = b.paperYear === null || b.paperYear === '' ? null : Number(b.paperYear); if (y !== null && (!Number.isInteger(y) || y < 1990 || y > 2100)) return bad(res, 'Enter a valid year'); next.paper_year = y; }
+    if (b.paperLabel !== undefined) next.paper_label = String(b.paperLabel).trim().slice(0, 120);
+    if (b.liveUntil !== undefined) { next.live_until = b.liveUntil ? Date.parse(b.liveUntil) || null : null; if (b.liveUntil && !next.live_until) return bad(res, 'Check the live window end'); }
+    if (next.live_until && !next.available_from) return bad(res, 'A live window needs an opening time. Set “Available from” too.');
+    if (next.live_until && next.available_from && next.live_until <= next.available_from) return bad(res, 'The live window must end after it opens');
     if (b.status !== undefined && b.status !== m.status) {
       if (!['draft', 'published', 'archived'].includes(b.status)) return bad(res, 'Invalid status');
-      if (b.status === 'published') { const v = validateDbMock(next, loadQuestions(db, m.id)); if (v.errors.length) return bad(res, 'Fix these problems before publishing', 422, { errors: v.errors }); }
+      if (b.status === 'published') { const pat = exams.patternFor(next.exam_id); const v = validateDbMock(next, loadQuestions(db, m.id, pat), pat); if (v.errors.length) return bad(res, 'Fix these problems before publishing', 422, { errors: v.errors }); }
       next.status = b.status;
     }
-    db.prepare('UPDATE mocks SET name=?, difficulty=?, description=?, tags=?, number=?, available_from=?, status=?, doubt_chat=?, ref_locked=?, updated_at=? WHERE id=?').run(next.name, next.difficulty, next.description, JSON.stringify(next.tags), next.number, next.available_from ?? null, next.status, next.doubt_chat === 0 ? 0 : 1, next.ref_locked, now(), m.id);
+    db.prepare('UPDATE mocks SET name=?, difficulty=?, description=?, tags=?, number=?, available_from=?, status=?, doubt_chat=?, ref_locked=?, exam_id=?, kind=?, paper_year=?, paper_label=?, live_until=?, updated_at=? WHERE id=?').run(next.name, next.difficulty, next.description, JSON.stringify(next.tags), next.number, next.available_from ?? null, next.status, next.doubt_chat === 0 ? 0 : 1, next.ref_locked, next.exam_id || BUILTIN_ID, next.kind || 'mock', next.paper_year ?? null, next.paper_label || '', next.live_until ?? null, now(), m.id);
     if ((next.doubt_chat === 0 ? 0 : 1) !== (m.doubt_chat === 0 ? 0 : 1)) audit(req, next.doubt_chat === 0 ? 'doubt_chat_off' : 'doubt_chat_on', next.name, m.id);
     if (next.status !== m.status) audit(req, `mock_${next.status}`, next.name, m.id); else audit(req, 'mock_edit', next.name, m.id);
     bust(); res.json({ mock: mockSummary(parseMock(mockRow(db, m.id))) });
@@ -343,7 +379,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, 
     db.prepare('UPDATE mocks SET updated_at=? WHERE id=?').run(now(), row.mock_id); audit(req, 'question_delete', row.mock_id, row.id); bust(); res.json({ ok: true });
   });
   r.post('/mocks/:id/reorder', (req, res) => {
-    const { section, ids } = req.body || {}; if (!examConfig.sections[section] || !Array.isArray(ids)) return bad(res, 'Invalid order');
+    const { section, ids } = req.body || {}; if (!sectionDef(section) || !Array.isArray(ids)) return bad(res, 'Invalid order');
     const have = db.prepare('SELECT id FROM questions WHERE mock_id=? AND section=?').all(req.params.id, section).map((x) => x.id);
     if (have.length !== ids.length || !have.every((x) => ids.includes(x))) return bad(res, 'The list changed, reload and try again', 409);
     ids.forEach((id, i) => db.prepare('UPDATE questions SET position=? WHERE id=?').run(i, id));
@@ -464,10 +500,10 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, 
   r.get('/live', (req, res) => {
     const t = now(); const names = new Map(db.prepare('SELECT id, name FROM mocks').all().map((m) => [m.id, m.name]));
     const rows = db.prepare("SELECT a.id, a.user_id, a.mock_id, a.started_at, a.segment_index, a.segment_started_at, a.responses, u.name, u.email, u.phone FROM attempts a JOIN users u ON u.id=a.user_id WHERE a.status='in_progress' AND a.started_at > ? ORDER BY a.started_at DESC").all(t - 4 * 3600000);
-    const total = examConfig.segments.length; const totalQ = Object.values(examConfig.sections).reduce((a, x) => a + (x.questions || 0), 0);
+    const total = examConfig.segments.length; const totalQ = Object.values(examConfig.sections).reduce((a, x) => a + (x.questions || 0), 0); const examOf = new Map(db.prepare('SELECT id, exam_id FROM mocks').all().map((m) => [m.id, m.exam_id]));
     const live = rows.map((a) => {
       let answered = 0; try { answered = Object.values(JSON.parse(a.responses || '{}')).filter((x) => x && x.selected != null).length; } catch { /* ignore */ }
-      const seg = examConfig.segments[a.segment_index]; const left = seg ? Math.max(0, seg.minutes * 60 - (t - a.segment_started_at) / 1000) : null;
+      const pat = exams.patternFor(examOf.get(a.mock_id)); const seg = pat.segments[a.segment_index]; const left = seg ? Math.max(0, seg.minutes * 60 - (t - a.segment_started_at) / 1000) : null;
       return { id: a.id, userId: a.user_id, user: a.name, contact: a.email || a.phone, mockId: a.mock_id, mockName: names.get(a.mock_id) || a.mock_id, startedAt: a.started_at, segment: Math.min(a.segment_index + 1, total), segments: total, segmentLabel: seg ? seg.sections.map((x) => examConfig.sections[x].short).join(' + ') : 'Finishing', segmentStartedAt: a.segment_started_at, minutes: seg?.minutes ?? null, answeredSoFar: answered, overtime: seg ? left === 0 : false };
     });
     const dayStart = new Date(t); dayStart.setHours(0, 0, 0, 0); const d0 = dayStart.getTime();
@@ -543,7 +579,8 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, 
     const b = req.body || {}; const dry = !!b.dryRun; const includeMocks = b.include === 'all';
     const n = String(b.name || '').trim().slice(0, 80); if (!dry && !n) return bad(res, 'Give the mock a name');
     const difficulty = b.difficulty || 'moderate'; if (!examConfig.difficulties.includes(difficulty)) return bad(res, 'Choose easy, moderate or hard');
-    const plan = (Array.isArray(b.plan) ? b.plan : []).filter((p) => SECTIONS.includes(p.section));
+    const exId = b.examId && exams.get(b.examId) ? b.examId : BUILTIN_ID; const exKeys = Object.keys(exams.patternFor(exId).sections);
+    const plan = (Array.isArray(b.plan) ? b.plan : []).filter((p) => exKeys.includes(p.section));
     const cnt = (v) => Math.max(0, Math.min(150, Math.floor(Number(v) || 0)));
     const wants = []; for (const p of plan) for (const d of examConfig.difficulties) if (cnt(p[d])) wants.push({ section: p.section, difficulty: d, count: cnt(p[d]) });
     if (!wants.length) return bad(res, 'Say how many questions you want from at least one section');
@@ -574,7 +611,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, 
     if (!picked.length) return bad(res, 'No questions matched the plan');
     const id = newId('m'); const t = now(); const number = (db.prepare('SELECT MAX(number) n FROM mocks').get().n || 0) + 1;
     db.exec('BEGIN'); try {
-      db.prepare("INSERT INTO mocks(id,number,name,difficulty,description,status,tags,source,created_at,updated_at) VALUES (?,?,?,?,?,'draft',?,'admin',?,?)").run(id, number, n, difficulty, String(b.description || '').slice(0, 400), JSON.stringify(cleanTags([difficulty, 'built'])), t, t);
+      db.prepare("INSERT INTO mocks(id,number,name,difficulty,description,status,tags,source,created_at,updated_at,exam_id) VALUES (?,?,?,?,?,'draft',?,'admin',?,?,?)").run(id, number, n, difficulty, String(b.description || '').slice(0, 400), JSON.stringify(cleanTags([difficulty, 'built'])), t, t, exId);
       const to = mockRow(db, id); for (const x of picked) moveInto(to, db.prepare('SELECT * FROM questions WHERE id=?').get(x.id), req.user.name);
       db.exec('COMMIT');
     } catch (e) { db.exec('ROLLBACK'); throw e; }
@@ -585,7 +622,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, 
   r.get('/coverage', (req, res) => {
     const mocks = new Map(db.prepare("SELECT id, name, status FROM mocks").all().map((m) => [m.id, m]));
     const live = [...mocks.values()].filter((m) => m.id !== 'pool' && m.status !== 'archived');
-    const secs = {}; for (const k of SECTIONS) secs[k] = new Map();
+    const secs = {}; for (const k of allSectionKeys()) secs[k] = new Map();
     for (const x of db.prepare('SELECT mock_id, section, data FROM questions').all()) {
       if (!secs[x.section]) continue; const d = JSON.parse(x.data); const topic = d.topic || 'General'; const diff = d.difficulty || 'moderate';
       const t = secs[x.section].get(topic) || { topic, bank: 0, mocks: 0, published: 0, easy: 0, moderate: 0, hard: 0, mockIds: new Set() };
@@ -593,10 +630,10 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, 
       else continue;
       if (t[diff] !== undefined) t[diff]++; secs[x.section].set(topic, t);
     }
-    const sections = SECTIONS.map((k) => {
+    const sections = allSectionKeys().map((k) => {
       const topics = [...secs[k].values()].map((t) => { const total = t.bank + t.mocks; return { topic: t.topic, bank: t.bank, mocks: t.mocks, published: t.published, usedIn: t.mockIds.size, easy: t.easy, moderate: t.moderate, hard: t.hard, total, gap: t.mockIds.size <= 1 && t.bank === 0 ? 'thin' : t.bank === 0 && t.mocks < live.length ? 'low' : null }; }).sort((a, b) => a.total - b.total || a.topic.localeCompare(b.topic));
       const sum = (f) => topics.reduce((a, t) => a + t[f], 0);
-      return { key: k, name: examConfig.sections[k].name, short: examConfig.sections[k].short, perMock: examConfig.sections[k].questions, bank: sum('bank'), inMocks: sum('mocks'), easy: sum('easy'), moderate: sum('moderate'), hard: sum('hard'), topics };
+      return { key: k, name: sectionDef(k).name, short: sectionDef(k).short, perMock: sectionDef(k).questions, bank: sum('bank'), inMocks: sum('mocks'), easy: sum('easy'), moderate: sum('moderate'), hard: sum('hard'), topics };
     });
     res.json({ mockCount: live.length, sections });
   });

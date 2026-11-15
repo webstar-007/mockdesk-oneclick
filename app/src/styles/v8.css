@@ -1,0 +1,25 @@
+/* Notebook, live mocks, previous-year papers, exams admin */
+.badge{display:inline-block;border-radius:99px;padding:2px 10px;font-size:.76rem;font-weight:700;line-height:1.5;margin-right:6px;background:var(--brand-soft);color:var(--brand)}
+.badge.b-pyq{background:var(--warn-soft);color:var(--warn)}
+.badge.b-live.l-open{background:var(--good-soft);color:var(--good)}
+.badge.b-live.l-upcoming{background:var(--brand-soft);color:var(--brand)}
+.badge.b-live.l-closed{background:var(--surface-2,var(--line));color:var(--muted)}
+.hm-badges{margin:6px 0 0;display:flex;flex-wrap:wrap;gap:4px}
+.hm-live{margin:8px 0 0;padding:8px 10px;border-radius:10px;background:var(--brand-soft);color:var(--text)}
+.live-note{margin:6px 0 0;color:var(--good);font-weight:600}
+.live-banner{border-color:var(--good)}.live-banner.off{border-color:var(--warn)}
+.nb-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.nb-bar .grow{flex:1}.nb-redo{display:flex;gap:8px;align-items:center}
+.nb-list{list-style:none;margin:12px 0;padding:0;display:grid;gap:14px}
+.nb-item{padding:16px}.nb-meta{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;margin-bottom:8px}
+.nb-sol{margin:12px 0}.nb-sol summary{cursor:pointer;font-weight:600;color:var(--brand)}
+.nb-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.rv-note-hint{margin:10px 0}
+.lv{display:grid;gap:14px;max-width:760px}
+.lv-big{font-size:2.4rem;font-weight:800;margin:0}.lv-big small{font-size:1rem;color:var(--muted);font-weight:500}
+.lv .me th,.lv .me td{background:var(--brand-soft);font-weight:700}
+.ex-tpl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.ex-secs input,.ex-secs select{width:100%;min-width:64px}.ex-secs td{vertical-align:top}.ex-secs td input+input{margin-top:4px}
+.ex-card{display:grid;gap:8px;align-content:start}.ex-facts{display:flex;gap:14px;list-style:none;margin:0;padding:0}.ex-act{display:flex;gap:6px;flex-wrap:wrap}
+@media (max-width:640px){.nb-redo{width:100%}.nb-redo .btn{flex:1}.ex-secs{min-width:640px}}
+.ex-secs input[type=checkbox]{width:auto;min-width:0;height:auto}

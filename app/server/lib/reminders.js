@@ -2,7 +2,7 @@
 import { DEFAULTS } from './settings.js';
 const DAY = 86400000; const HOUR = 3600000;
 const tzOf = () => process.env.MOCKDESK_TZ || 'Asia/Kolkata';
-export const reminderConfig = (settings) => { const s = settings.get('reminders', {}); const d = DEFAULTS.reminders; return { ...d, ...s, inactive: { ...d.inactive, ...s.inactive }, welcome: { ...d.welcome, ...s.welcome }, mockSoon: { ...d.mockSoon, ...s.mockSoon }, channels: { ...d.channels, ...s.channels } }; };
+export const reminderConfig = (settings) => { const s = settings.get('reminders', {}); const d = DEFAULTS.reminders; return { ...d, ...s, inactive: { ...d.inactive, ...s.inactive }, welcome: { ...d.welcome, ...s.welcome }, mockSoon: { ...d.mockSoon, ...s.mockSoon }, liveClosing: { ...d.liveClosing, ...s.liveClosing }, channels: { ...d.channels, ...s.channels } }; };
 const localHour = (t) => Number(new Intl.DateTimeFormat('en-GB', { timeZone: tzOf(), hour: '2-digit', hour12: false }).format(t)) % 24;
 const dayKey = (t) => new Intl.DateTimeFormat('en-CA', { timeZone: tzOf() }).format(t);
 const clock = (t) => new Intl.DateTimeFormat('en-IN', { timeZone: tzOf(), hour: 'numeric', minute: '2-digit', hour12: true }).format(t).replace(/\s/g, ' ').toUpperCase();
@@ -40,6 +40,15 @@ export async function runReminders({ db, notifier, settings, now, dryRun = false
       if (!mocks.length) continue;
       const rows = db.prepare(`SELECT u.id FROM users u WHERE ${activeStudents} LIMIT 50000`).all();
       for (const m of mocks) await send('mockSoon', 'reminder', rows, `mock_soon:${m.id}:${h}`, () => ({ title: `${m.name} opens ${dateLabel(m.available_from, t)} at ${clock(m.available_from)}`, body: 'Be ready ten minutes early with a charged phone and a steady connection.', link: '/' }));
+    }
+  }
+  if (cfg.liveClosing?.enabled) {
+    for (const h of cfg.liveClosing.hours || []) {
+      const mocks = db.prepare("SELECT id, name, live_until FROM mocks WHERE status='published' AND live_until>? AND live_until<=? AND (available_from IS NULL OR available_from<=?)").all(t, t + h * HOUR, t);
+      for (const m of mocks) {
+        const rows = db.prepare(`SELECT u.id FROM users u WHERE ${activeStudents} AND NOT EXISTS (SELECT 1 FROM attempts a WHERE a.user_id=u.id AND a.mock_id=?) LIMIT 50000`).all(m.id);
+        await send('liveClosing', 'reminder', rows, `live_closing:${m.id}:${h}`, () => ({ title: `${m.name} closes ${dateLabel(m.live_until, t)} at ${clock(m.live_until)}`, body: 'Take it any time before then. Ranks come out when the window closes.', link: `/mock/${m.id}` }));
+      }
     }
   }
   return out;

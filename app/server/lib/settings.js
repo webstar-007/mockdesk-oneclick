@@ -12,6 +12,7 @@ export const DEFAULTS = {
     inactive: { enabled: true, days: 4, repeatDays: 7 },
     welcome: { enabled: true, days: 2 },
     mockSoon: { enabled: true, hours: [24, 1] },
+    liveClosing: { enabled: true, hours: [6] },
     weeklyCap: 4, quietFrom: 22, quietTo: 7, channels: { push: true, email: true },
   },
 };

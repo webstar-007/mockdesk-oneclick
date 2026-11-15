@@ -91,6 +91,7 @@ export function mountAdminExtras({ r, db, now, audit, bad, results, settings, no
       inactive: { enabled: b.inactive?.enabled ?? cur.inactive.enabled, days: num(b.inactive?.days, 2, 60, cur.inactive.days), repeatDays: num(b.inactive?.repeatDays, 2, 60, cur.inactive.repeatDays) },
       welcome: { enabled: b.welcome?.enabled ?? cur.welcome.enabled, days: num(b.welcome?.days, 1, 14, cur.welcome.days) },
       mockSoon: { enabled: b.mockSoon?.enabled ?? cur.mockSoon.enabled, hours: (Array.isArray(b.mockSoon?.hours) ? b.mockSoon.hours : cur.mockSoon.hours).map((h) => num(h, 1, 168, 24)).filter((h, i, a) => a.indexOf(h) === i).slice(0, 3) },
+      liveClosing: { enabled: b.liveClosing?.enabled ?? cur.liveClosing.enabled, hours: (Array.isArray(b.liveClosing?.hours) ? b.liveClosing.hours : cur.liveClosing.hours).map((h) => num(h, 1, 168, 6)).filter((h, i, a) => a.indexOf(h) === i).slice(0, 3) },
       weeklyCap: num(b.weeklyCap, 1, 20, cur.weeklyCap), quietFrom: num(b.quietFrom, 0, 23, cur.quietFrom), quietTo: num(b.quietTo, 0, 23, cur.quietTo),
       channels: { push: b.channels?.push ?? cur.channels.push, email: b.channels?.email ?? cur.channels.email } };
     settings.set('reminders', next); audit(req, 'reminders_config', 'reminders'); res.json({ config: next });

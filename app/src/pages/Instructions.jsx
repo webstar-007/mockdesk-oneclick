@@ -12,15 +12,16 @@ export default function Instructions() {
   if (mock === null || !config) return <p role="status" className="muted">Loading…</p>;
   if (mock === false) return <div className="card"><p>This mock is not available yet.</p><Link to="/">Back</Link></div>;
   const begin = async () => { setBusy(true); try { const r = await api.post(`/mocks/${mockId}/start`); nav(`/exam/${r.attemptId}`); } catch (e) { setErr(e.message); setBusy(false); } };
-  const segs = config.segments.filter((s) => s.sections.some((k) => mock.sections.find((x) => x.key === k)));
+  const segs = mock.segments || config.segments.filter((s) => s.sections.some((k) => mock.sections.find((x) => x.key === k))); const cfgOf = (k) => mock.cfg?.[k] || config.sections[k];
   return (
     <div className="instr">
       <Link to="/" className="back">← Dashboard</Link>
       <header className="in-hero">
         <div>
-          <span className={`diff d-${mock.difficulty}`}>{mock.difficulty}</span>
+          <span className={`diff d-${mock.difficulty}`}>{mock.difficulty}</span>{mock.kind === 'pyq' && <span className="badge b-pyq">Previous-year paper{mock.paperYear ? ` · ${mock.paperYear}` : ''}</span>}{mock.live && <span className={`badge b-live l-${mock.live.state}`}>Live mock</span>}
           <h1>{mock.name}</h1>
           <p>Read the instructions once, then begin. The timers start the moment you do.</p>
+          {mock.live?.state === 'open' && <p className="small live-note">Live mock: start any time before {new Date(mock.live.closesAt).toLocaleString(undefined, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })}. Only your first finished attempt counts for rank.</p>}
         </div>
         <ul className="in-facts" aria-label="Paper at a glance">
           <li><b>{mock.totalQuestions + (mock.qualifying || []).reduce((x, q) => x + q.questions, 0)}</b><span>questions</span></li>
@@ -33,7 +34,7 @@ export default function Instructions() {
         <div className="in-main">
           <section className="card"><h2>Sections and timing</h2>
             <ol className="in-secs">
-              {segs.map((s) => s.sections.map((k) => { const n = mock.sections.find((x) => x.key === k)?.questions; const c = config.sections[k]; return (
+              {segs.map((s) => s.sections.map((k) => { const n = mock.sections.find((x) => x.key === k)?.questions; const c = cfgOf(k); return (
                 <li key={k} className={`s-${k}`}>
                   <span className="in-dot" aria-hidden="true" />
                   <div><b>{c.name}</b>{c.qualifying && <span className="qual-tag inline">Qualifying</span>}<small>{n} questions · {n * c.marksPerQuestion} marks{c.qualifying ? ` (pass ${c.qualifyingMarks})` : ''}</small></div>

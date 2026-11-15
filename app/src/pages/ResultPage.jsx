@@ -35,6 +35,12 @@ export default function ResultPage() {
       <div className="pagehead"><div><h1>{d.attempt.mockName}: your analysis</h1><p className="muted">Submitted {fmtDateTime(d.attempt.submittedAt)}{d.attempt.autoSubmitted ? ' · auto-submitted when time ran out' : ''}</p></div>
         <div className="head-actions"><button type="button" className="btn btn-share" onClick={() => setShare(true)}>Share score</button><Link className="btn btn-primary" to={`/review/${attemptId}`}>Review all questions</Link><Link className="btn btn-ghost" to={`/review/${attemptId}?filter=incorrect`}>Review mistakes</Link><PdfMenu id={attemptId} /></div></div>
 
+      {d.live && (
+        <p className={`pr-banner live-banner ${d.live.official ? '' : 'off'}`} role="note">
+          {d.live.official
+            ? (d.live.state === 'closed' ? (d.live.rank ? <><b>Live mock rank #{d.live.rank} of {d.live.of}.</b> You were ahead of {d.live.percentile}% of students. <Link to={`/live/${d.mockId || d.attempt.mockId}`}>See the top 10</Link></> : <><b>Live mock.</b> The board is being prepared.</>) : <><b>This attempt counts for the live mock.</b> Ranks appear when the window closes ({fmtDateTime(d.live.closesAt)}).</>)
+            : <><b>Not counted for rank.</b> Only your first finished attempt inside the live window counts. This one is for practice.</>}
+        </p>)}
       {d.kind === 'practice' && <p className="pr-banner" role="note"><b>Practice set.</b> Built from your weak topics. It does not count towards any leaderboard, rank or your mock history.</p>}
       {share && <ShareCard d={d} firstName={(user?.name || '').split(' ')[0]} onClose={() => setShare(false)} />}
       <section className="score-hero card">

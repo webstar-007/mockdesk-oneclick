@@ -11,6 +11,7 @@ export default function Blueprint({ config, examName }) {
   const scored = secs.filter(([, c]) => !c.qualifying);
   const scoredMarks = scored.reduce((a, [, c]) => a + c.questions * c.marksPerQuestion, 0);
   const first = scored[0]?.[1];
+  const shared = config.segments.length === 1 && secs.length > 1;
   const minsOf = (k) => config.segments.find((g) => g.sections.includes(k))?.minutes || 0;
   let acc = 0; const stops = [0, ...config.segments.map((g) => (acc += g.minutes))];
   const qual = secs.find(([, c]) => c.qualifying)?.[1];
@@ -38,7 +39,7 @@ export default function Blueprint({ config, examName }) {
         })}
       </div>
       <div className="bp-axis" aria-hidden="true">{config.segments.map((g, i) => <span key={g.id} style={{ flex: g.minutes }}>{i === 0 ? '0' : ''}<em>{stops[i + 1]}′</em></span>)}</div>
-      <p className="bp-lock"><span aria-hidden="true">🔒</span> Each section has its own timer and locks when it ends. You cannot go back or carry time forward.</p>
+      <p className="bp-lock"><span aria-hidden="true">🔒</span> {shared ? `One ${totalMin}-minute timer runs for the whole paper. Move between sections freely until time is up.` : 'Each section has its own timer and locks when it ends. You cannot go back or carry time forward.'}</p>
 
       <div className="bp-cards">
         {secs.map(([k, c]) => {
@@ -50,8 +51,8 @@ export default function Blueprint({ config, examName }) {
               <p className="bp-big"><b>{c.questions}</b> questions</p>
               <dl>
                 <div><dt>Marks</dt><dd>{marks}{c.qualifying ? ' (not counted)' : ''}</dd></div>
-                <div><dt>Time</dt><dd>{mins} min</dd></div>
-                <div><dt>Per question</dt><dd>{Math.round((mins * 60) / c.questions)} s</dd></div>
+                {shared ? <div><dt>Time</dt><dd>shared</dd></div> : <div><dt>Time</dt><dd>{mins} min</dd></div>}
+                <div><dt>Per question</dt><dd>{Math.round(((shared ? totalMin / totalQ * c.questions : mins) * 60) / c.questions)} s</dd></div>
               </dl>
               {c.qualifying ? <span className="bp-tag">Qualifying · {c.qualifyingMarks} of {marks} needed</span> : <div className="bp-share" tabIndex={0} {...tip({ t: c.name, v: `${share}% of scored marks`, rows: [['Marks', `${marks} of ${scoredMarks}`]] })}><i style={{ width: `${share}%` }} /><span>{share}% of marks</span></div>}
             </article>

@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import examConfig from '../../config/exam.config.js';
+import { sectionDef, allSectionKeys } from './sections.js';
 import mocks from '../../config/mocks.config.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -40,11 +41,12 @@ export function validateSectionFile(data, sectionKey, file = '', opts = {}) {
   const { lenient = false, partial = false } = opts;
   const errors = [];
   const warnings = [];
-  const sec = examConfig.sections[sectionKey];
+  const sec0 = sectionDef(sectionKey);
   const tag = (i) => `${file || sectionKey}#${i + 1}`;
-  if (!sec) { errors.push(`${file}: unknown section "${sectionKey}"`); return { errors, warnings }; }
+  if (!sec0) { errors.push(`${file}: unknown section "${sectionKey}"`); return { errors, warnings }; }
   if (data.section !== sectionKey) errors.push(`${file}: "section" must be "${sectionKey}"`);
   const qs = data.questions || [];
+  const sec = { ...sec0, questions: opts.limit ?? sec0.questions };
   if (partial) { if (qs.length > sec.questions) errors.push(`${file}: at most ${sec.questions} questions allowed, found ${qs.length}`); else if (qs.length < sec.questions) warnings.push(`${file}: ${qs.length} of ${sec.questions} standard questions (partial section, timer is scaled)`); }
   else if (qs.length !== sec.questions) errors.push(`${file}: expected ${sec.questions} questions, found ${qs.length}`);
   const passages = data.passages || {};
@@ -145,14 +147,14 @@ export function buildMock(mockId) {
 }
 
 /** Validate a mock held in the database. questions: [{section, ...fields}] in order. */
-export function validateDbMock(meta, questions) {
+export function validateDbMock(meta, questions, pattern = examConfig) {
   const errors = [], warnings = [], diff = { easy: 0, moderate: 0, hard: 0 }; let total = 0;
   const lenient = meta.source !== 'file', partial = lenient;
-  for (const key of Object.keys(examConfig.sections)) {
+  for (const key of allSectionKeys()) {
     const qs = questions.filter((q) => q.section === key);
     if (!qs.length) { if (!lenient) errors.push(`${meta.id}: missing ${key} questions`); continue; }
     const passages = {}; for (const q of qs) if (q.passageId && q.passage) passages[q.passageId] = q.passage;
-    const r = validateSectionFile({ section: key, questions: qs, passages }, key, `${meta.name} · ${examConfig.sections[key].short}`, { lenient, partial });
+    const r = validateSectionFile({ section: key, questions: qs, passages }, key, `${meta.name} · ${sectionDef(key).short}`, { lenient, partial, limit: pattern.sections[key]?.questions });
     errors.push(...r.errors); warnings.push(...r.warnings);
     if (r.stats) for (const d in r.stats.diffCount) { diff[d] += r.stats.diffCount[d]; total += r.stats.diffCount[d]; }
   }

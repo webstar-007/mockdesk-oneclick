@@ -4,17 +4,21 @@ import { api } from '../lib/api.js';
 import { Badge, Dialog, Err, diffTone, toast } from './ui.jsx';
 
 // Build a draft mock automatically from the question bank: pick how many questions per section and difficulty.
-export default function Builder({ sections, difficulties, onClose }) {
+export default function Builder({ sections: allSecs, difficulties, exams = [], onClose }) {
   const nav = useNavigate();
+  const [examId, setExamId] = useState('ssc-cgl-t2');
+  const examDef = exams.find((x) => x.id === examId);
+  const sections = examDef ? Object.fromEntries(examDef.sections.map((x) => [x.key, { ...allSecs[x.key], ...x }])) : allSecs;
   const keys = Object.keys(sections);
   const [name, setName] = useState(''); const [difficulty, setDifficulty] = useState('moderate'); const [include, setInclude] = useState('pool');
-  const [plan, setPlan] = useState(() => Object.fromEntries(keys.map((k) => [k, { easy: 0, moderate: 0, hard: 0 }])));
+  const [plan, setPlan] = useState({});
+  const pl = (k) => plan[k] || { easy: 0, moderate: 0, hard: 0 };
   const [prev, setPrev] = useState(null); const [err, setErr] = useState(''); const [busy, setBusy] = useState(false); const [partial, setPartial] = useState(false); const [show, setShow] = useState(false);
-  const set = (k, d, v) => { setPlan((p) => ({ ...p, [k]: { ...p[k], [d]: Math.max(0, Math.min(150, Number(v) || 0)) } })); setPrev(null); };
-  const total = keys.reduce((a, k) => a + difficulties.reduce((b, d) => b + (plan[k][d] || 0), 0), 0);
+  const set = (k, d, v) => { setPlan((p) => ({ ...p, [k]: { ...(p[k] || { easy: 0, moderate: 0, hard: 0 }), [d]: Math.max(0, Math.min(150, Number(v) || 0)) } })); setPrev(null); };
+  const total = keys.reduce((a, k) => a + difficulties.reduce((b, d) => b + (pl(k)[d] || 0), 0), 0);
   // Fill the exam pattern: each section's question count split 40 / 40 / 20.
   const preset = () => { setPlan(Object.fromEntries(keys.map((k) => { const n = sections[k].questions; const e = Math.round(n * 0.4), h = Math.round(n * 0.2); return [k, { easy: e, moderate: n - e - h, hard: h }]; }))); setPrev(null); };
-  const body = (dryRun) => ({ name, difficulty, include, dryRun, allowPartial: partial, plan: keys.map((k) => ({ section: k, ...plan[k] })) });
+  const body = (dryRun) => ({ examId, name, difficulty, include, dryRun, allowPartial: partial, plan: keys.map((k) => ({ section: k, ...pl(k) })) });
   const preview = async () => { setBusy(true); setErr(''); try { setPrev(await api.post('/admin/mocks/build', body(true))); } catch (e) { setErr(e.message); } finally { setBusy(false); } };
   const create = async () => {
     if (!name.trim()) { setErr('Give the mock a name'); return; }
@@ -25,6 +29,7 @@ export default function Builder({ sections, difficulties, onClose }) {
   return (
     <Dialog title="Build a mock from the question bank" onClose={onClose} wide>
       <p className="small muted" style={{ marginTop: 0 }}>Say how many questions you want. MockDesk picks them at random, spreads them over topics, and puts them in a new <b>draft</b> you can edit before publishing. Questions taken from the bank move into the new mock.</p>
+      {exams.length > 1 && <label className="ad-field">Exam<select value={examId} onChange={(e) => { setExamId(e.target.value); setPlan({}); setPrev(null); }}>{exams.map((x) => <option key={x.id} value={x.id}>{x.name}</option>)}</select></label>}
       <div className="ad-grid g2">
         <label className="ad-field">Mock name<input value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Mock 6 · Mixed" autoFocus /></label>
         <label className="ad-field">Overall difficulty tag<select value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>{difficulties.map((d) => <option key={d}>{d}</option>)}</select></label>
@@ -32,7 +37,7 @@ export default function Builder({ sections, difficulties, onClose }) {
       <label className="ad-field">Take questions from<select value={include} onChange={(e) => { setInclude(e.target.value); setPrev(null); }}><option value="pool">The question bank only (not yet in a mock)</option><option value="all">The bank first, then copies from other mocks if short</option></select></label>
       <div className="bd-grid" role="group" aria-label="Questions wanted">
         <span className="h" style={{ textAlign: 'left' }}>Section <button className="btn btn-ghost btn-sm" type="button" onClick={preset}>Use exam pattern</button></span>{difficulties.map((d) => <span className="h" key={d}>{d}</span>)}
-        {keys.map((k) => [<span key={k + 'n'}><b>{sections[k].short}</b> <small className="muted">of {sections[k].questions}</small></span>, ...difficulties.map((d) => <input key={k + d} type="number" min="0" max="150" inputMode="numeric" value={plan[k][d] || ''} placeholder="0" aria-label={`${sections[k].short} ${d}`} onChange={(e) => set(k, d, e.target.value)} />)])}
+        {keys.map((k) => [<span key={k + 'n'}><b>{sections[k].short}</b> <small className="muted">of {sections[k].questions}</small></span>, ...difficulties.map((d) => <input key={k + d} type="number" min="0" max="150" inputMode="numeric" value={pl(k)[d] || ''} placeholder="0" aria-label={`${sections[k].short} ${d}`} onChange={(e) => set(k, d, e.target.value)} />)])}
       </div>
       <p className="small" style={{ margin: '10px 0 0' }}><b>{total}</b> questions requested.</p>
       <Err>{err}</Err>

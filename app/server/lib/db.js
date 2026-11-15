@@ -31,7 +31,7 @@ export function openDb(file = process.env.MOCKDESK_DB || path.join(ROOT, 'data',
   try { db.exec('ALTER TABLE mocks ADD COLUMN doubt_chat INTEGER DEFAULT 1'); } catch { /* column already exists */ }
   // v7: referrals, announcements v2, notifications, batches, practice sets
   for (const sql of ['ALTER TABLE users ADD COLUMN ref_code TEXT', 'ALTER TABLE users ADD COLUMN referred_by INTEGER', 'ALTER TABLE users ADD COLUMN notify_prefs TEXT',
-    'ALTER TABLE mocks ADD COLUMN ref_locked INTEGER DEFAULT 0', "ALTER TABLE attempts ADD COLUMN kind TEXT DEFAULT 'mock'",
+    'ALTER TABLE mocks ADD COLUMN ref_locked INTEGER DEFAULT 0', 'ALTER TABLE attempts ADD COLUMN score REAL', 'ALTER TABLE attempts ADD COLUMN accuracy REAL', "ALTER TABLE mocks ADD COLUMN exam_id TEXT DEFAULT 'ssc-cgl-t2'", "ALTER TABLE mocks ADD COLUMN kind TEXT DEFAULT 'mock'", 'ALTER TABLE mocks ADD COLUMN paper_year INTEGER', 'ALTER TABLE mocks ADD COLUMN paper_label TEXT', 'ALTER TABLE mocks ADD COLUMN live_until INTEGER', "ALTER TABLE attempts ADD COLUMN kind TEXT DEFAULT 'mock'",
     'ALTER TABLE announcements ADD COLUMN title TEXT', 'ALTER TABLE announcements ADD COLUMN link_url TEXT', 'ALTER TABLE announcements ADD COLUMN link_label TEXT',
     "ALTER TABLE announcements ADD COLUMN audience TEXT DEFAULT 'all'", 'ALTER TABLE announcements ADD COLUMN batch_id INTEGER', 'ALTER TABLE announcements ADD COLUMN starts_at INTEGER',
     'ALTER TABLE announcements ADD COLUMN ends_at INTEGER', 'ALTER TABLE announcements ADD COLUMN pinned INTEGER DEFAULT 0', 'ALTER TABLE announcements ADD COLUMN dismissible INTEGER DEFAULT 1',
@@ -56,6 +56,8 @@ export function openDb(file = process.env.MOCKDESK_DB || path.join(ROOT, 'data',
     CREATE TABLE IF NOT EXISTS batch_members(batch_id INTEGER, user_id INTEGER, joined_at INTEGER, PRIMARY KEY(batch_id, user_id));
     CREATE INDEX IF NOT EXISTS idx_bm_user ON batch_members(user_id);
     CREATE TABLE IF NOT EXISTS batch_teachers(batch_id INTEGER, user_id INTEGER, PRIMARY KEY(batch_id, user_id));
+    CREATE TABLE IF NOT EXISTS exams (id TEXT PRIMARY KEY, name TEXT NOT NULL, short TEXT, data TEXT NOT NULL, active INTEGER DEFAULT 1, created_at INTEGER, updated_at INTEGER);
+    CREATE TABLE IF NOT EXISTS bookmarks (user_id INTEGER NOT NULL, question_id TEXT NOT NULL, attempt_id TEXT, note TEXT DEFAULT '', created_at INTEGER, PRIMARY KEY (user_id, question_id));
   `);
   db.exec('CREATE TABLE IF NOT EXISTS doubts(id INTEGER PRIMARY KEY, user_id INTEGER, attempt_id TEXT, question_id TEXT, intent TEXT, at INTEGER); CREATE INDEX IF NOT EXISTS idx_doubts_user ON doubts(user_id, at);');
   db.exec('UPDATE questions SET created_at=COALESCE(updated_at, 0) WHERE created_at IS NULL');

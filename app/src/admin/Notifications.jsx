@@ -15,6 +15,7 @@ export default function Notifications() {
   const rules = [
     ['inactive', 'Haven’t practised', `“It has been N days since you practised”`, <span>Send after <input className="num" type="number" min="2" max="60" value={c.inactive.days} onChange={(e) => up('inactive.days', Number(e.target.value))} /> days without a test, then at most every <input className="num" type="number" min="2" max="60" value={c.inactive.repeatDays} onChange={(e) => up('inactive.repeatDays', Number(e.target.value))} /> days.</span>],
     ['welcome', 'New student nudge', '“Ready for your first mock?”', <span>Send <input className="num" type="number" min="1" max="14" value={c.welcome.days} onChange={(e) => up('welcome.days', Number(e.target.value))} /> days after sign-up if they have not started a mock. Once only.</span>],
+    ['liveClosing', 'Live window closing', '“Mock 6 closes today at 10:00 PM”', <span>Send <input className="num wide" value={(c.liveClosing?.hours || [6]).join(', ')} onChange={(e) => up('liveClosing.hours', e.target.value.split(/[ ,]+/).map(Number).filter(Boolean))} /> hours before a live window closes, only to students who have not started it.</span>],
     ['mockSoon', 'Live mock reminder', '“Mock 6 opens tomorrow at 10:00 AM”', <span>Send <input className="num wide" value={c.mockSoon.hours.join(', ')} onChange={(e) => up('mockSoon.hours', e.target.value.split(/[ ,]+/).map(Number).filter(Boolean))} /> hours before a mock’s release time. Uses the “Available from” time of each mock.</span>],
   ];
   return (

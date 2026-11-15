@@ -10,7 +10,7 @@ const DAY = 86400000;
 const CODE_CHARS = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
 const LEVEL_RANK = { urgent: 0, warn: 1, good: 2, info: 3 };
 
-export function makeFeatures({ db, now, settings, notifier, getMock, readResult, iso }) {
+export function makeFeatures({ db, now, settings, notifier, getMock, readResult, iso, exams }) {
   const refCfg = () => ({ ...DEFAULTS.referral, ...settings.get('referral', {}) });
   const origin = (req) => (process.env.MOCKDESK_PUBLIC_URL || `${req.protocol}://${req.get('host')}`).replace(/\/$/, '');
 
@@ -53,6 +53,7 @@ export function makeFeatures({ db, now, settings, notifier, getMock, readResult,
   }
   /** open | locked (needs an invite) | hidden (scheduled for later) */
   function accessOf(row, userId, t = now()) {
+    if (row.live_until && row.available_from && row.available_from > t) return 'upcoming';
     const released = !row.available_from || row.available_from <= t;
     const unlocked = !!db.prepare('SELECT 1 FROM unlocks WHERE user_id=? AND mock_id=?').get(userId, row.id);
     if (row.ref_locked === 1 && !(row.available_from && row.available_from <= t)) return unlocked ? 'open' : 'locked';
@@ -60,16 +61,79 @@ export function makeFeatures({ db, now, settings, notifier, getMock, readResult,
     return unlocked ? 'open' : 'hidden';
   }
 
+  // ---------- live-window mocks ----------
+  /** null for normal mocks; otherwise upcoming | open | closed. A live mock can be started any time between its opening and closing time. */
+  const liveState = (row, t = now()) => (!row.live_until || !row.available_from ? null : t < row.available_from ? 'upcoming' : t <= row.live_until ? 'open' : 'closed');
+  const boards = new Map();
+  /** First finished attempt per student inside the window counts for rank. Built once, after the window closes. */
+  function board(row) {
+    const hit = boards.get(row.id); if (hit && (now() - hit.at < 60000 || now() > row.live_until + 3 * 3600000)) return hit;
+    for (const r of db.prepare("SELECT id, result FROM attempts WHERE mock_id=? AND status='submitted' AND score IS NULL AND result IS NOT NULL").all(row.id)) { const s = readResult(r).summary; db.prepare('UPDATE attempts SET score=?, accuracy=? WHERE id=?').run(s.score, s.accuracy, r.id); }
+    const rows = db.prepare("SELECT a.id, a.user_id, a.started_at, a.submitted_at, a.score, a.accuracy, u.name FROM attempts a JOIN users u ON u.id=a.user_id WHERE a.mock_id=? AND a.status='submitted' AND a.started_at>=? AND a.started_at<=? ORDER BY a.started_at").all(row.id, row.available_from, row.live_until);
+    const first = new Map(); for (const r of rows) if (!first.has(r.user_id)) first.set(r.user_id, r);
+    const list = [...first.values()].sort((a, b) => b.score - a.score || b.accuracy - a.accuracy || (a.submitted_at - a.started_at) - (b.submitted_at - b.started_at));
+    list.forEach((r, i) => { r.rank = i + 1; });
+    const out = { at: now(), list, byAttempt: new Map(list.map((r) => [r.id, r])), byUser: new Map(list.map((r) => [r.user_id, r])) }; boards.set(row.id, out); return out;
+  }
+  const shortName = (n) => { const p = String(n || 'Student').trim().split(/\s+/); return p.length > 1 ? `${p[0]} ${p[p.length - 1][0]}.` : p[0]; };
+  const participants = (row) => db.prepare("SELECT COUNT(DISTINCT user_id) c FROM attempts WHERE mock_id=? AND status='submitted' AND started_at>=? AND started_at<=?").get(row.id, row.available_from, row.live_until).c;
+  /** Small block for the dashboard card. */
+  function liveSummary(row, userId, t = now()) {
+    const state = liveState(row, t); if (!state) return null;
+    const out = { state, opensAt: row.available_from, closesAt: row.live_until, taken: !!db.prepare("SELECT 1 FROM attempts WHERE user_id=? AND mock_id=? AND started_at>=? AND started_at<=?").get(userId, row.id, row.available_from, row.live_until) };
+    if (state === 'closed') { const b = board(row); const me = b.byUser.get(userId); out.participants = b.list.length; if (me) { out.rank = me.rank; out.of = b.list.length; } }
+    return out;
+  }
+  /** On the result page: is this the attempt that counts, and where does it stand. */
+  function liveInfo(a) {
+    const row = db.prepare('SELECT * FROM mocks WHERE id=?').get(a.mock_id); const state = row && liveState(row); if (!state || a.started_at < row.available_from || a.started_at > row.live_until) return null;
+    const first = db.prepare("SELECT id FROM attempts WHERE user_id=? AND mock_id=? AND status='submitted' AND started_at>=? AND started_at<=? ORDER BY started_at LIMIT 1").get(a.user_id, a.mock_id, row.available_from, row.live_until);
+    const official = first?.id === a.id; const out = { state, official, closesAt: row.live_until, name: row.name };
+    if (state === 'closed' && official) { const b = board(row); const me = b.byAttempt.get(a.id); if (me) { out.rank = me.rank; out.of = b.list.length; out.percentile = b.list.length > 1 ? Math.round(((b.list.length - me.rank) / (b.list.length - 1)) * 100) : 100; } }
+    if (state === 'open') out.participants = participants(row);
+    return out;
+  }
+
+  // ---------- notebook: bookmarks and mistakes ----------
+  const submittedOf = (userId) => db.prepare("SELECT id, mock_id, submitted_at, result, snapshot FROM attempts WHERE user_id=? AND status='submitted' AND result IS NOT NULL ORDER BY submitted_at DESC").all(userId);
+  /** Questions the student currently gets wrong: the latest result for each question was incorrect. */
+  function mistakesOf(userId) {
+    const seen = new Set(); const out = [];
+    for (const r of submittedOf(userId)) { const res = readResult(r); for (const q of res.questions || []) { if (q.qualifying || seen.has(q.id)) continue; seen.add(q.id); if (q.status === 'incorrect') out.push({ q, attemptId: r.id, at: r.submitted_at, mock: res.attempt?.mockName || '' }); } }
+    return out;
+  }
+  function bookmarksOf(userId) {
+    const rows = db.prepare('SELECT * FROM bookmarks WHERE user_id=? ORDER BY created_at DESC').all(userId); const cache = new Map(); const out = [];
+    for (const b of rows) {
+      let res = cache.get(b.attempt_id); if (res === undefined) { const a = db.prepare("SELECT result FROM attempts WHERE id=? AND user_id=? AND result IS NOT NULL").get(b.attempt_id, userId); res = a ? readResult(a) : null; cache.set(b.attempt_id, res); }
+      const q = res?.questions?.find((x) => x.id === b.question_id); if (q) out.push({ q, attemptId: b.attempt_id, at: b.created_at, mock: res.attempt?.mockName || '', note: b.note || '' });
+    }
+    return out;
+  }
+  const noteOf = (userId) => new Map(db.prepare('SELECT question_id, note FROM bookmarks WHERE user_id=?').all(userId).map((b) => [b.question_id, b.note || '']));
+  const shapeQ = ({ q, attemptId, at, mock, note }, marks) => ({ id: q.id, section: q.section, topic: q.topic, difficulty: q.difficulty, text: q.text, passage: q.passage || null, table: q.table || null, figure: q.figure || null, options: q.options, correct: q.correct, selected: q.selected, status: q.status, explanation: q.explanation || '', steps: q.steps || [], shortcut: q.shortcut || '', trap: q.trap || '', whyWrong: q.whyWrong || null, attemptId, mock, at, bookmarked: marks.has(q.id), note: marks.get(q.id) ?? note ?? '' });
+  /** Runtime question objects (with answers) for practice, taken from the attempt each one came from. */
+  function notebookQuestions(userId, source) {
+    const picks = source === 'bookmarks' ? bookmarksOf(userId) : mistakesOf(userId); const snaps = new Map(); const out = [];
+    for (const p of picks) { if (!snaps.has(p.attemptId)) { const a = db.prepare('SELECT snapshot FROM attempts WHERE id=?').get(p.attemptId); try { snaps.set(p.attemptId, new Map(JSON.parse(a.snapshot).questions.map((x) => [x.id, x]))); } catch { snaps.set(p.attemptId, new Map()); } } const q = snaps.get(p.attemptId).get(p.q.id); if (q) out.push(q); }
+    return out;
+  }
+
   // ---------- practice ----------
   const PRACTICE_DAILY = Number(process.env.MOCKDESK_PRACTICE_PER_DAY) || 5;
   const dayStart = (t) => { const d = new Date(t); d.setHours(0, 0, 0, 0); return d.getTime(); };
-  function practiceData(userId) {
+  function practiceData(userId, source) {
     const rows = db.prepare("SELECT id, mock_id, result FROM attempts WHERE user_id=? AND status='submitted' AND mock_id!='practice'").all(userId);
     const history = historyOf(rows, readResult);
     const candidates = new Map();
     for (const q of loadQuestions(db, 'pool')) candidates.set(q.id, q);
     for (const id of history.mockIds) { const m = getMock(id); if (m) for (const q of m.questions) candidates.set(q.id, q); }
-    return { rows, history, candidates: [...candidates.values()].filter((q) => q.options?.length === 4 && q.answer !== undefined) };
+    const examId = rows.length ? db.prepare('SELECT exam_id FROM mocks WHERE id=?').get(rows[rows.length - 1].mock_id)?.exam_id : null;
+    const pat = exams.patternFor(examId); const secs = new Set(Object.keys(pat.sections));
+    let list = source ? notebookQuestions(userId, source) : [...candidates.values()].filter((q) => secs.has(q.section));
+    // marks follow the exam the student is preparing for
+    list = list.filter((q) => q.options?.length === 4 && q.answer !== undefined && pat.sections[q.section]).map((q) => ({ ...q, marks: pat.sections[q.section].marksPerQuestion, negativeMarks: pat.sections[q.section].negativeMarks }));
+    return { rows, history, candidates: list, pat };
   }
 
   function mount(api) {
@@ -131,32 +195,63 @@ export function makeFeatures({ db, now, settings, notifier, getMock, readResult,
     });
     api.post('/push/unsubscribe', (req, res) => { db.prepare('DELETE FROM push_subs WHERE user_id=? AND (endpoint=? OR ?=1)').run(req.user.id, String(req.body?.endpoint || ''), req.body?.all ? 1 : 0); res.json({ ok: true }); });
 
+    api.get('/mocks/:id/live', (req, res) => {
+      const row = db.prepare('SELECT * FROM mocks WHERE id=?').get(req.params.id); const t = now(); const state = row && row.status === 'published' ? liveState(row, t) : null;
+      if (!state) return res.status(404).json({ error: 'This is not a live mock' });
+      const out = { name: row.name, state, opensAt: row.available_from, closesAt: row.live_until, mine: null, top: null, participants: state === 'upcoming' ? 0 : state === 'open' ? participants(row) : board(row).list.length };
+      if (state !== 'upcoming') { const mine = db.prepare("SELECT id FROM attempts WHERE user_id=? AND mock_id=? AND status='submitted' AND started_at>=? AND started_at<=? ORDER BY started_at LIMIT 1").get(req.user.id, row.id, row.available_from, row.live_until); out.mine = mine ? { attemptId: mine.id } : null; }
+      if (state === 'closed') { const b = board(row); const me = b.byUser.get(req.user.id); if (me) out.mine = { attemptId: me.id, score: me.score, accuracy: me.accuracy, rank: me.rank, of: b.list.length, percentile: b.list.length > 1 ? Math.round(((b.list.length - me.rank) / (b.list.length - 1)) * 100) : 100 }; out.top = b.list.slice(0, 10).map((r) => ({ rank: r.rank, name: shortName(r.name), score: r.score, accuracy: r.accuracy, you: r.user_id === req.user.id })); }
+      res.json(out);
+    });
+
     // practice sets
     api.get('/practice/overview', (req, res) => {
       const { rows, history, candidates } = practiceData(req.user.id);
       const used = db.prepare("SELECT COUNT(*) c FROM attempts WHERE user_id=? AND mock_id='practice' AND started_at>=?").get(req.user.id, dayStart(now())).c;
+      const nb = { bookmarks: bookmarksOf(req.user.id).length, mistakes: mistakesOf(req.user.id).length };
       const open = db.prepare("SELECT id FROM attempts WHERE user_id=? AND mock_id='practice' AND status='in_progress'").get(req.user.id);
-      res.json({ ready: rows.length > 0 && candidates.length >= 10, needsMock: rows.length === 0, weak: weakList(history.topics, 6), sizes: SIZES, left: Math.max(0, PRACTICE_DAILY - used), inProgress: open?.id || null, pool: candidates.length });
+      res.json({ ready: rows.length > 0 && candidates.length >= 10, needsMock: rows.length === 0, weak: weakList(history.topics, 6), sizes: SIZES, left: Math.max(0, PRACTICE_DAILY - used), inProgress: open?.id || null, pool: candidates.length, notebook: nb });
     });
     api.post('/practice', (req, res) => {
-      const size = Number(req.body?.size) || 20; if (!SIZES.includes(size)) return res.status(400).json({ error: 'Choose 10, 20 or 30 questions' });
+      const nbSrc = ['mistakes', 'bookmarks'].includes(req.body?.source); const size = Number(req.body?.size) || 20; if (!(nbSrc ? [5, ...SIZES] : SIZES).includes(size)) return res.status(400).json({ error: 'Choose 10, 20 or 30 questions' });
       const t = now(); const open = db.prepare("SELECT id FROM attempts WHERE user_id=? AND mock_id='practice' AND status='in_progress'").get(req.user.id);
       if (open && !req.body?.dryRun) return res.json({ attemptId: open.id, resumed: true });
-      const { rows, history, candidates } = practiceData(req.user.id);
-      if (!rows.length) return res.status(409).json({ error: 'Finish one full mock first so we know your weak topics.', code: 'NEEDS_MOCK' });
+      const source = ['mistakes', 'bookmarks'].includes(req.body?.source) ? req.body.source : null;
+      const { rows, history, candidates, pat } = practiceData(req.user.id, source);
+      if (!rows.length && !source) return res.status(409).json({ error: 'Finish one full mock first so we know your weak topics.', code: 'NEEDS_MOCK' });
       const used = db.prepare("SELECT COUNT(*) c FROM attempts WHERE user_id=? AND mock_id='practice' AND started_at>=?").get(req.user.id, dayStart(t)).c;
       if (!req.body?.dryRun && used >= PRACTICE_DAILY) return res.status(429).json({ error: `You have built ${PRACTICE_DAILY} practice sets today. Come back tomorrow.`, code: 'PRACTICE_LIMIT' });
       const { questions, topics } = pickPractice({ candidates, history, size });
-      if (questions.length < 5) return res.status(409).json({ error: 'There are not enough questions yet to build a practice set. Try again after more mocks are added.', code: 'NOT_ENOUGH' });
+      if (questions.length < (source ? 3 : 5)) return res.status(409).json({ error: source ? `Your ${source === 'mistakes' ? 'mistake list' : 'bookmarks'} needs at least 3 questions to build a set.` : 'There are not enough questions yet to build a practice set. Try again after more mocks are added.', code: 'NOT_ENOUGH' });
       const minutes = Math.max(10, questions.length);
       if (req.body?.dryRun) return res.json({ count: questions.length, minutes, topics });
       const sections = [...new Set(questions.map((q) => q.section))];
-      const title = `Practice · ${topics.slice(0, 2).map((x) => x.topic).join(', ')}`;
-      const snap = { meta: { id: 'practice', number: 0, name: title, difficulty: 'moderate', description: 'Built from your weak topics', status: 'published', tags: ['practice'], source: 'practice' }, questions, segments: [{ id: 'practice', sections, minutes }], sectionsCfg: sectionsFor(questions, 'practice'), complete: true };
+      const title = source ? (source === 'mistakes' ? 'Redo · my mistakes' : 'Redo · my bookmarks') : `Practice · ${topics.slice(0, 2).map((x) => x.topic).join(', ')}`;
+      const snap = { meta: { id: 'practice', number: 0, name: title, difficulty: 'moderate', description: 'Built from your weak topics', status: 'published', tags: ['practice'], source: 'practice' }, questions, segments: [{ id: 'practice', sections, minutes }], sectionsCfg: sectionsFor(questions, 'practice', pat), complete: true };
       const id = crypto.randomUUID();
       db.prepare("INSERT INTO attempts(id,user_id,mock_id,status,segment_index,segment_started_at,started_at,snapshot,ip,kind) VALUES (?,?,?,'in_progress',0,?,?,?,?, 'practice')").run(id, req.user.id, 'practice', t, t, JSON.stringify(snap), req.ip || null);
       res.json({ attemptId: id, resumed: false, count: questions.length, minutes });
     });
+
+    // notebook
+    api.get('/notebook', (req, res) => {
+      const tab = req.query.tab === 'bookmarks' ? 'bookmarks' : 'mistakes'; const section = String(req.query.section || ''); const topic = String(req.query.topic || ''); const off = Math.max(0, Number(req.query.offset) || 0);
+      const all = tab === 'bookmarks' ? bookmarksOf(req.user.id) : mistakesOf(req.user.id); const marks = noteOf(req.user.id);
+      const sections = [...new Set(all.map((x) => x.q.section))]; const topics = [...new Set(all.filter((x) => !section || x.q.section === section).map((x) => x.q.topic))].sort();
+      const list = all.filter((x) => (!section || x.q.section === section) && (!topic || x.q.topic === topic));
+      res.json({ tab, total: list.length, sections, topics, items: list.slice(off, off + 15).map((x) => shapeQ(x, marks)), counts: { bookmarks: tab === 'bookmarks' ? all.length : bookmarksOf(req.user.id).length, mistakes: tab === 'mistakes' ? all.length : mistakesOf(req.user.id).length } });
+    });
+    api.get('/bookmarks/ids', (req, res) => { const r = db.prepare('SELECT question_id, note FROM bookmarks WHERE user_id=?').all(req.user.id); res.json({ ids: r.map((x) => x.question_id), notes: Object.fromEntries(r.filter((x) => x.note).map((x) => [x.question_id, x.note])) }); });
+    api.put('/bookmarks/:qid', (req, res) => {
+      const attemptId = String(req.body?.attemptId || ''); const a = db.prepare("SELECT result FROM attempts WHERE id=? AND user_id=? AND status='submitted'").get(attemptId, req.user.id);
+      if (!a) return res.status(404).json({ error: 'Finish the test first, then save its questions' });
+      if (!readResult(a).questions?.some((q) => q.id === req.params.qid)) return res.status(404).json({ error: 'Question not found in that test' });
+      const note = req.body?.note === undefined ? null : String(req.body.note).slice(0, 500);
+      if (db.prepare('SELECT COUNT(*) c FROM bookmarks WHERE user_id=?').get(req.user.id).c >= 500 && !db.prepare('SELECT 1 FROM bookmarks WHERE user_id=? AND question_id=?').get(req.user.id, req.params.qid)) return res.status(400).json({ error: 'You can save up to 500 questions. Remove some first.' });
+      db.prepare("INSERT INTO bookmarks(user_id,question_id,attempt_id,note,created_at) VALUES (?,?,?,COALESCE(?, ''),?) ON CONFLICT(user_id,question_id) DO UPDATE SET note=COALESCE(?, note), attempt_id=excluded.attempt_id").run(req.user.id, req.params.qid, attemptId, note, now(), note);
+      res.json({ ok: true });
+    });
+    api.delete('/bookmarks/:qid', (req, res) => { db.prepare('DELETE FROM bookmarks WHERE user_id=? AND question_id=?').run(req.user.id, req.params.qid); res.json({ ok: true }); });
 
     // batches (student side)
     api.post('/batches/join', (req, res) => {
@@ -209,5 +304,5 @@ export function makeFeatures({ db, now, settings, notifier, getMock, readResult,
       res.setHeader('Content-Type', 'text/csv; charset=utf-8'); res.setHeader('Content-Disposition', `attachment; filename="${b.name.replace(/[^a-z0-9]+/gi, '-')}-results.csv"`); res.send(csv);
     });
   }
-  return { mount, mountTeacher, ensureRefCode, applyReferral, grantReward, onSubmitted, accessOf, refCfg };
+  return { mount, mountTeacher, ensureRefCode, applyReferral, grantReward, onSubmitted, accessOf, refCfg, liveSummary, liveInfo };
 }

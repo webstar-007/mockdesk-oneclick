@@ -10,6 +10,7 @@ const Users = lazy(() => import('./Users.jsx'));
 const UserDetail = lazy(() => import('./UserDetail.jsx'));
 const Attempts = lazy(() => import('./Attempts.jsx'));
 const AttemptDetail = lazy(() => import('./AttemptDetail.jsx'));
+const Exams = lazy(() => import('./Exams.jsx'));
 const Mocks = lazy(() => import('./Mocks.jsx'));
 const MockEditor = lazy(() => import('./MockEditor.jsx'));
 const Bank = lazy(() => import('./Bank.jsx'));
@@ -32,7 +33,7 @@ import Search from './Search.jsx';
 
 const NAV = [
   ['', 'Overview', '▦', true], ['ask', 'Ask your data', '💬'], ['live', 'Live tests', '🟢'], ['users', 'Users', '👥'], ['attempts', 'Attempts', '✎'], ['integrity', 'Integrity', '🛡'],
-  ['mocks', 'Mocks', '🗂'], ['bank', 'Question bank', '❓'], ['quality', 'Question quality', '✅'], ['coverage', 'Coverage', '🧭'], ['batches', 'Batches', '🏫'], ['announcements', 'Announcements', '📢'], ['notifications', 'Notifications', '🔔'], ['referrals', 'Referrals', '🎁'], ['analytics', 'Analytics', '📈'], ['reports', 'Reports', '🚩'], ['system', 'System', '🩺'], ['settings', 'Settings', '⚙'],
+  ['exams', 'Exams', '🎓'], ['mocks', 'Mocks', '🗂'], ['bank', 'Question bank', '❓'], ['quality', 'Question quality', '✅'], ['coverage', 'Coverage', '🧭'], ['batches', 'Batches', '🏫'], ['announcements', 'Announcements', '📢'], ['notifications', 'Notifications', '🔔'], ['referrals', 'Referrals', '🎁'], ['analytics', 'Analytics', '📈'], ['reports', 'Reports', '🚩'], ['system', 'System', '🩺'], ['settings', 'Settings', '⚙'],
 ];
 // Editors only get the content tools.
 const EDITOR_NAV = ['mocks', 'bank', 'quality', 'coverage', 'reports'];
@@ -62,6 +63,7 @@ export default function AdminApp() {
             <Route path="users/:id" element={<UserDetail />} />
             <Route path="attempts" element={<Attempts />} />
             <Route path="attempts/:id" element={<AttemptDetail />} />
+            <Route path="exams" element={<Exams />} />
             <Route path="mocks" element={<Mocks />} />
             <Route path="mocks/:id" element={<MockEditor />} />
             <Route path="mocks/:id/preview" element={<Preview />} />

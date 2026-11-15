@@ -31,8 +31,8 @@ export default function QuestionView({ q, number, children, extraMeta }) {
       {hasPassage && <div className="qv-passage"><Passage text={q.passage} label={q.section === 'english' ? 'Passage / Context' : 'Directions & Information'} /></div>}
       <div className="qv-main">
         <div className="qmeta">
-          <span className="qnum">Question {number}</span>
-          <span className="qmarks" title="Marks for correct / negative marks for wrong">+{q.marks} · −{q.negativeMarks}</span>
+          {number != null && <span className="qnum">Question {number}</span>}
+          {q.marks != null && <span className="qmarks" title="Marks for correct / negative marks for wrong">+{q.marks} · −{q.negativeMarks}</span>}
           {extraMeta}
         </div>
         <DataTable table={q.table} />

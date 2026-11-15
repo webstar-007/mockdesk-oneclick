@@ -10,6 +10,13 @@ Students get a free doubt helper on each reviewed question (rate limited, off du
 ## Share cards, referrals, practice sets, reminders, quality report and batches
 Share cards, invite codes (with a locked-mock reward), one-tap practice sets from weak topics, a richer announcement tool, push and email reminders, a question quality report and coaching-centre batches with a teacher view. See "Growth and coaching tools" in `docs/ADMIN.md`. Optional settings in `.env.example`.
 
+## Notebook, previous-year papers, live windows and multiple exams
+
+- **Notebook** (`/notebook`): every question a student got wrong (until they answer it correctly later) and every question they bookmarked, with notes, section and topic filters, and a one-tap "Redo my mistakes" / "Practise my bookmarks" set (3 questions minimum). Bookmark from the Review page.
+- **Previous-year papers**: in a mock's *Settings*, set Type to "Previous-year paper" and add the year and shift. Students get a "Previous-year papers" filter and a badge.
+- **Live windows**: set *Available from* and tick *Live window* with a closing time (one or two days is typical). Students start any time inside it. Each student's first finished attempt in the window counts for rank. Ranks and the top 10 (shown as "First L.") appear only after it closes. A "window closing" reminder goes to students who have not started (Admin, Notifications).
+- **Multiple exams** (Admin, Exams): create exams such as SSC CHSL or Bank Prelims from a template or from scratch, each with its own marking, section timers or one overall timer, and qualifying sections. A mock follows the exam chosen in its settings or in the builder. Subjects share one question bank, so a Maths question works in any exam. Students see one tab per visible exam. Patterns lock once students have attempted a mock of that exam. Templates are starting points: check them against the official notice.
+
 ## Public home page
 Visitors who are not signed in see a landing page at `/` (mocks, exam pattern, features, FAQ). Starting a mock sends them to Log in / Sign up and then back to that mock. Signed-in students still see their dashboard at `/`. The page reads `GET /api/public/overview` (published mocks and the exam pattern only, cached for a minute). Text lives in `src/pages/Landing.jsx`, styles in `src/styles/landing.css`.
 
@@ -81,10 +88,7 @@ General Awareness carries current-affairs questions in every mock (flagged `curr
 Create `content/mock6/<section>.json` for the five sections, add an entry to `config/mocks.config.js`, run `./check.sh`.
 
 ### Add another exam
-1. Add the exam to `src/lib/exams.js`; it appears as a tab on the home page.
-2. Add its pattern (`config/exam.config.js`), its mocks (`config/mocks.config.js`) and its question banks under `content/`.
-3. Run `./check.sh`.
-The server currently serves one exam pattern at a time, so a second exam also needs per-exam config selection in `server/app.js`.
+Use **Admin → Exams** (see "Notebook, previous-year papers, live windows and multiple exams" above). No code change is needed. The SSC CGL Tier-II pattern stays in `config/exam.config.js`.
 
 ### Question-bank status
 <!-- STATUS:START -->

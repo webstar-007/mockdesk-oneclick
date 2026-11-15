@@ -82,3 +82,9 @@ Better explanations make better answers, so keep the explanation, steps and shor
 - Role changes and deletions ask you to type the user's email to confirm.
 - Question CSV columns: section, difficulty, topic, subtopic, tags (`;` separated), question, option_a..option_d, correct (A to D), explanation, steps (`|` separated), shortcut, trap, revise, passage. The editor has a template download.
 - The API behind this is under `/api/admin/*` (admin role required, checked on the server).
+
+## Exams, previous-year papers and live windows
+- **Exams** (sidebar): create an exam from the SSC CHSL or Bank Prelims template or from scratch. Choose sectional timers or one overall timer, marks, negative marks and qualifying sections. Pick an existing subject to reuse its question bank. Hide an exam to remove its tab; delete it only when it has no mocks. After students attempt a mock, marks and timings are locked.
+- **Mocks**: choose the exam when creating a mock or using "Build from bank". In Settings choose the type (mock or previous-year paper) and optionally a live window.
+- **Live window**: needs "Available from". Students can start any time until the closing time; only the first finished attempt counts for rank; ranks appear after closing. The leaderboard page shows the top 10 with names shortened.
+- New exams ship with no questions. Add them through the bank, CSV import or the builder.

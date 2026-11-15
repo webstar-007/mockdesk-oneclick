@@ -169,7 +169,7 @@ export default function ExamPage() {
   if (!att || !q) return <div className="center-page" role="status">Loading your test…</div>;
 
   const endsAt = new Date(att.segmentEndsAt).getTime();
-  const sectionName = seg.sections.map((s) => config?.sections[s]?.name || s).join(' + ');
+  const sectionName = seg.sections.map((s) => (att.sectionsCfg?.[s] || config?.sections[s])?.name || s).join(' + ');
   const answeredN = counts.answered + counts.answeredMarked;
 
   return (
@@ -178,7 +178,7 @@ export default function ExamPage() {
       <header className="exam-head">
         <div className="eh-left">
           <div className="eh-title">{att.mockName}</div>
-          <div className="eh-sub"><span className="eh-sec">{sectionName}</span>{seg.sections.some((s) => config?.sections[s]?.qualifying) && <span className="qual-tag inline">Qualifying</span>}<span className="eh-cand"> · {user?.name}</span></div>
+          <div className="eh-sub"><span className="eh-sec">{sectionName}</span>{seg.sections.some((s) => (att.sectionsCfg?.[s] || config?.sections[s])?.qualifying) && <span className="qual-tag inline">Qualifying</span>}<span className="eh-cand"> · {user?.name}</span></div>
         </div>
         <ol className="seg-steps" aria-label="Sections">
           {att.segments.map((s, i) => (<li key={s.id} className={s.state} aria-current={s.state === 'open' ? 'step' : undefined}>{(config?.sections[s.sections[0]]?.short) || s.id}</li>))}
@@ -231,7 +231,7 @@ export default function ExamPage() {
         <Modal title={isLast ? 'Submit the test?' : `Submit ${sectionName}?`} onClose={() => setConfirm(false)}
           actions={<><button className="btn btn-ghost" onClick={() => setConfirm(false)}>Go back</button><button className="btn btn-submit" onClick={() => submitSegment(false)} disabled={busy}>{busy ? 'Submitting…' : isLast ? 'Yes, submit test' : 'Yes, submit section'}</button></>}>
           <p>{isLast ? 'This is the last section. After submitting you will see your result.' : 'You cannot return to this section once it is submitted. The next section starts immediately.'}</p>
-          {seg.sections.some((x) => config?.sections[x]?.qualifying) && <p className="small muted">This is a qualifying section: you need {config.sections[seg.sections.find((x) => config.sections[x].qualifying)].qualifyingMarks} marks to qualify. Its marks are not added to your total score.</p>}
+          {seg.sections.some((x) => (att.sectionsCfg?.[x] || config?.sections[x])?.qualifying) && <p className="small muted">This is a qualifying section: you need {(att.sectionsCfg || config.sections)[seg.sections.find((x) => (att.sectionsCfg || config.sections)[x]?.qualifying)].qualifyingMarks} marks to qualify. Its marks are not added to your total score.</p>}
           <table className="confirm-tbl"><tbody>
             <tr><th>Total questions</th><td>{qs.length}</td></tr>
             <tr><th>Answered</th><td>{answeredN}</td></tr>

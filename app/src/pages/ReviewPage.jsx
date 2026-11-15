@@ -10,20 +10,33 @@ import SolutionViewer from '../components/SolutionViewer.jsx';
 import DoubtChat from '../components/DoubtChat.jsx';
 
 const FILTERS = [['all', 'All'], ['correct', 'Correct'], ['incorrect', 'Incorrect'], ['unattempted', 'Unattempted'], ['marked', 'Marked for review'], ['slow', 'Took long'], ['saved', 'Bookmarked']];
-// Bookmarks and notes live in this browser only (a convenience, not shared data).
 const loadLocal = (k) => { try { return JSON.parse(localStorage.getItem(k) || '{}'); } catch { return {}; } };
-const saveLocal = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* storage blocked */ } };
 
 export default function ReviewPage() {
   const { attemptId } = useParams(); const { config } = useAuth();
   const [sp, setSp] = useSearchParams();
   const [d, setD] = useState(null); const [err, setErr] = useState(''); const [pos, setPos] = useState(0); const [palOpen, setPalOpen] = useState(false);
-  const [saved, setSaved] = useState(() => loadLocal(`mockdesk-saved-${attemptId}`)); const [notes, setNotes] = useState(() => loadLocal(`mockdesk-notes-${attemptId}`));
+  const [saved, setSaved] = useState({}); const [notes, setNotes] = useState({}); const [bmErr, setBmErr] = useState('');
   const [search, setSearch] = useState('');
   const filter = sp.get('filter') || 'all'; const section = sp.get('section') || 'all'; const topic = sp.get('topic') || 'all'; const diff = sp.get('difficulty') || 'all'; const qid = sp.get('qid');
   useEffect(() => { api.get(`/attempts/${attemptId}/result`).then(setD).catch((e) => setErr(e.message)); }, [attemptId]);
-  useEffect(() => saveLocal(`mockdesk-saved-${attemptId}`, saved), [saved, attemptId]);
-  useEffect(() => saveLocal(`mockdesk-notes-${attemptId}`, notes), [notes, attemptId]);
+  // Bookmarks and notes are kept on your account so the Notebook can show them anywhere.
+  useEffect(() => {
+    (async () => {
+      try {
+        const r = await api.get('/bookmarks/ids'); const s = Object.fromEntries(r.ids.map((i) => [i, true])); const n = { ...r.notes };
+        const old = loadLocal(`mockdesk-saved-${attemptId}`), oldN = loadLocal(`mockdesk-notes-${attemptId}`);
+        for (const id of Object.keys(old).filter((k) => old[k] && !s[k])) { try { await api.put(`/bookmarks/${encodeURIComponent(id)}`, { attemptId, note: oldN[id] || '' }); s[id] = true; if (oldN[id]) n[id] = oldN[id]; } catch { /* question no longer in that attempt */ } }
+        try { localStorage.removeItem(`mockdesk-saved-${attemptId}`); localStorage.removeItem(`mockdesk-notes-${attemptId}`); } catch { /* ignore */ }
+        setSaved(s); setNotes(n);
+      } catch { /* bookmarks unavailable */ }
+    })();
+  }, [attemptId]);
+  const toggleSave = async (id) => {
+    const on = !saved[id]; setSaved((s) => ({ ...s, [id]: on })); setBmErr('');
+    try { if (on) await api.put(`/bookmarks/${encodeURIComponent(id)}`, { attemptId }); else await api.del(`/bookmarks/${encodeURIComponent(id)}`); } catch (e) { setSaved((s) => ({ ...s, [id]: !on })); setBmErr(e.message); }
+  };
+  const saveNote = async (id) => { try { await api.put(`/bookmarks/${encodeURIComponent(id)}`, { attemptId, note: notes[id] || '' }); setBmErr(''); } catch (e) { setBmErr(e.message); } };
   const secAvg = useMemo(() => { const o = {}; if (d) for (const s of [...d.sections, ...(d.qualifying || [])]) o[s.key] = s.total ? s.timeSec / s.total : 0; return o; }, [d]);
   const isSlow = (q) => q.status !== 'correct' && q.timeSec >= Math.max(75, (secAvg[q.section] || 0) * 2.2);
   const match = (q, f) => f === 'all' || (f === 'marked' ? q.marked : f === 'slow' ? isSlow(q) : f === 'saved' ? !!saved[q.id] : q.status === f);
@@ -77,13 +90,14 @@ export default function ReviewPage() {
             <QuestionView q={q} number={secNo(q)} extraMeta={<>
               <span className={`diff d-${q.difficulty}`}>{q.difficulty}</span>
               <span className="muted small">Your time {duration(q.timeSec)} · section average {duration(Math.round(secAvg[q.section] || 0))}{isSlow(q) ? ' · took long' : ''}</span>
-              <ReportQuestion qid={q.id} /><button type="button" className={`bm ${saved[q.id] ? 'on' : ''}`} aria-pressed={!!saved[q.id]} onClick={() => setSaved({ ...saved, [q.id]: !saved[q.id] })}>{saved[q.id] ? '★ Bookmarked' : '☆ Bookmark'}</button>
+              <ReportQuestion qid={q.id} /><button type="button" className={`bm ${saved[q.id] ? 'on' : ''}`} aria-pressed={!!saved[q.id]} onClick={() => toggleSave(q.id)}>{saved[q.id] ? '★ Bookmarked' : '☆ Bookmark'}</button>
             </>}>
               <OptionList mode="review" options={q.options} figures={q.optionFigures} images={q.optionImages} selected={q.selected} correct={q.correct} />
             </QuestionView>
             <SolutionViewer q={q} />
             {d.doubt && <DoubtChat key={q.id} attemptId={attemptId} q={q} gate={d.doubt} />}
-            <div className="rv-note"><label htmlFor="rv-note">Your note for this question</label><textarea id="rv-note" rows={2} placeholder="Write the rule, formula or trick you want to remember" value={notes[q.id] || ''} onChange={(e) => setNotes({ ...notes, [q.id]: e.target.value })} /></div>
+            {bmErr && <div className="alert" role="alert">{bmErr}</div>}
+            {saved[q.id] ? <div className="rv-note"><label htmlFor="rv-note">Your note for this question</label><textarea id="rv-note" rows={2} maxLength={500} placeholder="Write the rule, formula or trick you want to remember" value={notes[q.id] || ''} onChange={(e) => setNotes({ ...notes, [q.id]: e.target.value })} onBlur={() => saveNote(q.id)} /></div> : <p className="small muted rv-note-hint">Bookmark this question to add a note and find it later in your <Link to="/notebook">Notebook</Link>.</p>}
             <div className="rv-nav"><button className="btn btn-ghost" disabled={idx === 0} onClick={() => setPos(idx - 1)}>← Previous</button><button className="btn btn-primary" disabled={idx >= list.length - 1} onClick={() => setPos(idx + 1)}>Next →</button></div>
           </main>
         </div>

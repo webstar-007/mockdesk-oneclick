@@ -10,6 +10,7 @@ export default function Header() {
         <Link to="/" className="brand" aria-label="MockDesk home"><span className="brand-mark" aria-hidden="true">✓</span><span>MockDesk</span></Link>
         <nav aria-label="Main">
           <NavLink to="/" end>Dashboard</NavLink>
+          <NavLink to="/notebook">Notebook</NavLink>
           <NavLink to="/toolkit">Toolkit</NavLink>
           <NavLink to="/profile">Profile</NavLink>
         </nav>
