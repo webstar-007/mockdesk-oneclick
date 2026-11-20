@@ -48,7 +48,7 @@ function PatternBar({ sections, segments }) {
           <tbody>
             {sections.map((s, i) => (
               <tr key={s.key}>
-                <td><i className={`lp-dot s${i}${s.qualifying ? ' qual' : ''}`} aria-hidden="true" />{s.name}</td>
+                <td className="lp-sn"><i className={`lp-dot s${i}${s.qualifying ? ' qual' : ''}`} aria-hidden="true" />{s.name}</td>
                 <td>{s.questions}</td><td>{mins(s.key)}</td>
                 <td>{s.qualifying ? <>Qualifying: pass {s.qualifyingMarks}/{s.questions * s.marks}</> : <>{s.questions * s.marks}</>}</td>
               </tr>
@@ -104,7 +104,7 @@ export default function Landing() {
                 <Link className="btn btn-primary btn-lg" to="/register">Create a free account</Link>
                 <Link className="btn btn-lg" to="/login">Log in</Link>
               </div>
-              <p className="muted small">Sign up with your email or phone number. No payment details needed.</p>
+              <ul className="lp-trust" aria-label="Why sign up"><li>Free to start</li><li>Email or phone sign-in</li><li>Works on a phone</li></ul>
             </div>
             <Paper />
           </div>
@@ -115,7 +115,7 @@ export default function Landing() {
             <dl>
               <div><dt>Full-length mocks</dt><dd>{d ? d.totals.mocks : '–'}</dd></div>
               <div><dt>Questions to practise</dt><dd>{d ? d.totals.questions.toLocaleString('en-IN') : '–'}</dd></div>
-              <div><dt>Scored per paper</dt><dd>{d ? `${scored.reduce((a, s) => a + s.questions, 0)} questions` : '–'}</dd></div>
+              <div><dt>Scored questions per paper</dt><dd>{d ? scored.reduce((a, s) => a + s.questions, 0) : '–'}</dd></div>
               <div><dt>Marks per paper</dt><dd>{d ? scored.reduce((a, s) => a + s.questions * s.marks, 0) : '–'}</dd></div>
             </dl>
           </div>
@@ -137,7 +137,7 @@ export default function Landing() {
                       <span className="muted">{m.description}</span>
                     </span>
                     <span className="lp-mock-meta"><span className={`diff d-${m.difficulty}`}>{m.difficulty}</span><span>{m.questions} questions · {m.marks} marks · {m.minutes} min</span></span>
-                    <span className="lp-mock-go">Log in to attempt</span>
+                    <span className="lp-mock-go">Start mock</span>
                   </Link>
                 </li>
               ))}

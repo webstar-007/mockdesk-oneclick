@@ -116,3 +116,26 @@ html[data-theme="dark"]{color-scheme:dark}
 .rq-pop label{display:grid;gap:4px;font-size:.9rem;font-weight:600}.rq-act{display:flex;justify-content:flex-end;gap:8px}.rq-done{color:var(--good,#157347);font-weight:600;font-size:.9rem}
 
 .auth-new{margin:10px 0;padding:12px;border-radius:12px;background:var(--brand-soft);border:1px solid var(--line)}.auth-new p{margin:0 0 8px;font-size:.9rem}.auth-new label{margin:0}
+
+/* ---------- v9 smoothness ---------- */
+html{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+a,button,select,summary,[role=button],input[type=checkbox],input[type=radio]{touch-action:manipulation}
+.btn,.card,input,select,textarea,.mock,.status,.diff{transition:background-color .15s,border-color .15s,box-shadow .18s,transform .12s,color .15s,opacity .15s}
+.btn:active:not(:disabled){transform:translateY(1px) scale(.99)}
+.btn-primary:hover:not(:disabled){filter:brightness(1.1)}
+input:focus,select:focus,textarea:focus{border-color:var(--brand-2);box-shadow:0 0 0 3px var(--brand-soft);outline:none}
+textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);width:100%}
+.mock:hover{border-color:var(--brand-2);box-shadow:0 2px 4px rgba(15,23,42,.06),0 10px 26px rgba(30,58,138,.12);transform:translateY(-2px)}
+.topbar nav a{transition:background-color .15s,color .15s}.topbar nav a:hover{background:var(--brand-soft);color:var(--brand)}
+.shell{animation:pg-in .22s ease-out both}
+@keyframes pg-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.modal-back{animation:fade-in .15s ease-out both}.modal{animation:pop-in .18s ease-out both}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes pop-in{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+.spin{display:inline-block;width:18px;height:18px;margin-right:10px;border-radius:50%;border:2.5px solid var(--line);border-top-color:var(--brand);animation:spin .7s linear infinite;vertical-align:-3px}
+@keyframes spin{to{transform:rotate(360deg)}}
+p.muted[role=status]{animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.45}}
+.alert{animation:pg-in .2s ease-out both}
+::selection{background:var(--brand-soft)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.shell,.modal,.modal-back,.alert{animation:none!important}.mock:hover{transform:none}}

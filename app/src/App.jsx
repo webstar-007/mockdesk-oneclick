@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Link, Navigate, Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './lib/auth.jsx';
 import Header from './components/Header.jsx';
@@ -22,7 +22,7 @@ const TeacherApp = lazy(() => import('./teacher/TeacherApp.jsx'));
 
 function Guard() {
   const { user } = useAuth(); const loc = useLocation();
-  if (user === undefined) return <div className="center-page" role="status">Loading…</div>;
+  if (user === undefined) return <div className="center-page" role="status"><span className="spin" aria-hidden="true" />Loading…</div>;
   if (!user) return <Navigate to="/login" replace state={{ from: loc.pathname }} />;
   if ((user.role === 'admin' || user.role === 'editor') && !loc.pathname.startsWith('/admin')) return <Navigate to="/admin" replace />;
   if (user.role === 'teacher' && !loc.pathname.startsWith('/teacher')) return <Navigate to="/teacher" replace />;
@@ -40,9 +40,17 @@ function Root() {
   return <Shell><Dashboard /></Shell>;
 }
 
+/** Start each new page at the top, unless the link points at a section on the page. */
+function ScrollTop() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => { if (!hash) window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }, [pathname, hash]);
+  return null;
+}
+
 export default function App() {
   return (
     <AuthProvider>
+      <ScrollTop />
       <TipLayer />
       <Suspense fallback={<div className="center-page" role="status">Loading…</div>}>
         <Routes>

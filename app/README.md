@@ -165,3 +165,6 @@ While a student is in a test (`/exam/:id`) the page asks for fullscreen and keep
 - **Teacher notes**: teachers leave notes on a student's finished test; the student sees them on the result and is notified.
 - **Integrity**: Admin → Integrity can remove an attempt from live-mock ranks; students see a badge and the count removed.
 - **Cohorts** (Admin → Cohorts): funnel, weekly signup cohorts and win-back groups with a one-click nudge. **Alerts**: Overview lists questions that look wrong and have not been dismissed.
+
+## Look and feel (v9.1)
+The public home page has a tidier rhythm and alignment (centred facts strip, one mock list with a single "Start mock" action, sticky section heading beside the pattern table), and the whole app now fades pages in, scrolls to the top on navigation, shows a spinner while loading and gives buttons, cards, inputs and dialogs short transitions. All motion switches off for people who prefer reduced motion.
