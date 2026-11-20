@@ -62,10 +62,10 @@ export function cleanQuestion(body, { partial = false, strictOptions = false } =
   return { section, q, errors };
 }
 
-export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, settings, notifier, features, runReminders, exams }) {
+export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, settings, notifier, features, features2, runReminders, exams }) {
   const r = express.Router();
   // Editors may only work on content: mocks, questions, images, reports and the coverage map. No student data, no settings.
-  const EDITOR_OK = [/^\/meta$/, /^\/mocks(\/|$)/, /^\/questions(\/|$)/, /^\/upload$/, /^\/reports(\/|$)/, /^\/search$/, /^\/coverage$/, /^\/quality$/];
+  const EDITOR_OK = [/^\/meta$/, /^\/mocks(\/|$)/, /^\/questions(\/|$)/, /^\/upload$/, /^\/reports(\/|$)/, /^\/search$/, /^\/coverage$/, /^\/quality$/, /^\/alerts(\/|$)/];
   r.use((req, res, next) => {
     if (req.user.role !== 'editor') return next();
     if (EDITOR_OK.some((re) => re.test(req.path)) && !/\/leaderboard$/.test(req.path)) return next();
@@ -268,7 +268,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, 
   });
   r.patch('/exams/:id', (req, res) => {
     const d = exams.get(req.params.id); if (!d || d.builtin) return bad(res, 'Exam not found', 404);
-    const { id, builtin, active, mocks, published, total, questions, minutes, ...def } = d; exams.put({ id, ...def }, req.body?.active === false ? 0 : 1); audit(req, req.body?.active === false ? 'exam_hide' : 'exam_show', d.name, d.id); bust(); res.json({ ok: true });
+    const { id, builtin, active, ...def } = d; exams.put({ id, ...def }, req.body?.active === false ? 0 : 1); audit(req, req.body?.active === false ? 'exam_hide' : 'exam_show', d.name, d.id); bust(); res.json({ ok: true });
   });
   r.delete('/exams/:id', (req, res) => {
     const d = exams.get(req.params.id); if (!d || d.builtin) return bad(res, 'Exam not found', 404);
@@ -369,8 +369,12 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, 
     const row = db.prepare('SELECT * FROM questions WHERE id=?').get(req.params.qid); if (!row) return bad(res, 'Question not found', 404);
     const { section, q, errors } = cleanQuestion({ ...req.body, section: req.body?.section || row.section }); if (errors.length) return bad(res, errors[0], 400, { errors });
     const pos = section === row.section ? row.position : nextPos(row.mock_id, section);
+    let before = {}; try { before = JSON.parse(row.data); } catch { /* none */ }
     db.prepare('UPDATE questions SET section=?, position=?, data=?, updated_at=? WHERE id=?').run(section, pos, dataOf(q), now(), row.id);
-    db.prepare('UPDATE mocks SET updated_at=? WHERE id=?').run(now(), row.mock_id); audit(req, 'question_edit', row.mock_id, row.id); bust(); res.json({ question: qOut(row.id) });
+    db.prepare('UPDATE mocks SET updated_at=? WHERE id=?').run(now(), row.mock_id); audit(req, 'question_edit', row.mock_id, row.id); bust();
+    const fix = features2.onQuestionEdited({ row: { ...row, section, position: pos }, before, after: q, publicNote: req.body?.publicNote, by: req.user.name });
+    if (fix.keyChanged) audit(req, 'answer_key_corrected', row.mock_id, `${row.id}: ${fix.affected} scores updated`);
+    res.json({ question: qOut(row.id), rescored: fix.affected, keyChanged: !!fix.keyChanged });
   });
   r.delete('/questions/:qid', (req, res) => {
     const row = db.prepare('SELECT * FROM questions WHERE id=?').get(req.params.qid); if (!row) return bad(res, 'Question not found', 404);
@@ -561,7 +565,7 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, 
       const top = Math.max(...flags.map((f) => LEVEL[f.level])); const level = top === 3 ? 'high' : top === 2 ? 'medium' : 'low';
       if (ig.reviewed && !showReviewed) continue;
       count[level]++;
-      if (top >= minLevel) out.push({ id: a.id, userId: a.user_id, user: a.name, contact: a.email || a.phone, mockName: names.get(a.mock_id) || a.mock_id, status: a.status, startedAt: a.started_at, submittedAt: a.submitted_at, score: sm?.score ?? null, max: sm?.maxMarks ?? null, pct: sm?.percentage ?? null, leaves, fsExits, ip: a.ip || null, flags, level, reviewed: !!ig.reviewed });
+      if (top >= minLevel) out.push({ id: a.id, userId: a.user_id, user: a.name, contact: a.email || a.phone, mockName: names.get(a.mock_id) || a.mock_id, status: a.status, startedAt: a.started_at, submittedAt: a.submitted_at, score: sm?.score ?? null, max: sm?.maxMarks ?? null, pct: sm?.percentage ?? null, leaves, fsExits, ip: a.ip || null, flags, level, reviewed: !!ig.reviewed, excluded: !!ig.excluded });
     }
     out.sort((x, y) => LEVEL[y.level] - LEVEL[x.level] || y.flags.length - x.flags.length || (y.startedAt - x.startedAt));
     const { size, off } = page(req, 30);
@@ -570,8 +574,10 @@ export function adminRouter({ db, now, invalidate, getMock, readResult, hashPw, 
   r.patch('/integrity/:id', (req, res) => {
     const a = db.prepare('SELECT id, integrity FROM attempts WHERE id=?').get(req.params.id); if (!a) return bad(res, 'Attempt not found', 404);
     let ig = {}; try { ig = JSON.parse(a.integrity || '{}'); } catch { /* none */ }
-    ig.reviewed = !!req.body?.reviewed; db.prepare('UPDATE attempts SET integrity=? WHERE id=?').run(JSON.stringify(ig), a.id);
-    audit(req, ig.reviewed ? 'integrity_reviewed' : 'integrity_reopened', a.id); res.json({ ok: true });
+    if (req.body?.reviewed !== undefined) ig.reviewed = !!req.body.reviewed;
+    if (req.body?.excluded !== undefined) { ig.excluded = !!req.body.excluded; features.clearBoards(); }
+    db.prepare('UPDATE attempts SET integrity=? WHERE id=?').run(JSON.stringify(ig), a.id);
+    audit(req, req.body?.excluded !== undefined ? (ig.excluded ? 'integrity_excluded' : 'integrity_restored') : ig.reviewed ? 'integrity_reviewed' : 'integrity_reopened', a.id); res.json({ ok: true });
   });
 
   // ---------- mock builder: assemble a draft mock from the question bank ----------

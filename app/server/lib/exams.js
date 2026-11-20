@@ -21,6 +21,8 @@ export const TEMPLATES = [
       { key: 'reasoning', name: 'Reasoning Ability', short: 'Reasoning', questions: 35, marks: 1, negative: 0.25, minutes: 20 }] },
 ];
 
+export const UI_STYLES = ['default', 'ssc', 'bank', 'railway'];
+export const defaultUi = { style: 'ssc', calculator: false };
 const num = (v, lo, hi, d) => { const n = Number(v); return Number.isFinite(n) ? Math.max(lo, Math.min(hi, n)) : d; };
 /** Check and clean an exam definition from the admin form. Returns { error } or { def }. */
 export function cleanExam(b, id) {
@@ -41,14 +43,15 @@ export function cleanExam(b, id) {
   }
   if (sections.every((s) => s.qualifying)) return { error: 'At least one section must count towards the score' };
   const minutes = timing === 'overall' ? Math.round(num(b.minutes, 5, 600, 0)) : 0; if (timing === 'overall' && !minutes) return { error: 'Set the total minutes' };
-  return { def: { id, name, short: String(b.short || name).trim().slice(0, 24), description: String(b.description || '').trim().slice(0, 300), timing, minutes, sections } };
+  const ui = b.interface && typeof b.interface === 'object' ? b.interface : {}; if (ui.style !== undefined && !UI_STYLES.includes(ui.style)) return { error: 'Choose a valid interface style' };
+  return { def: { id, name, short: String(b.short || name).trim().slice(0, 24), description: String(b.description || '').trim().slice(0, 300), timing, minutes, sections, interface: { style: ui.style || 'ssc', calculator: !!ui.calculator } } };
 }
 
 /** Same shape as config/exam.config.js, so grading, timers and results work unchanged. */
 export function toPattern(def) {
   const sections = {}; for (const s of def.sections) sections[s.key] = { name: s.name, short: s.short, questions: s.questions, marksPerQuestion: s.marks, negativeMarks: s.negative, ...(s.qualifying ? { qualifying: true, qualifyingMarks: s.qualifyingMarks } : {}) };
   const segments = def.timing === 'overall' ? [{ id: 'all', sections: def.sections.map((s) => s.key), minutes: def.minutes }] : def.sections.map((s) => ({ id: s.key, sections: [s.key], minutes: s.minutes }));
-  return { exam: { id: def.id, name: def.name, short: def.short, description: def.description, patternVersion: 'custom', instructionsVersion: 1 }, sections, segments, optionsPerQuestion: examConfig.optionsPerQuestion, difficulties: examConfig.difficulties, difficultyMix: examConfig.difficultyMix, statuses: examConfig.statuses, autosaveMs: examConfig.autosaveMs, lowTimeWarningSeconds: examConfig.lowTimeWarningSeconds };
+  return { interface: def.interface || defaultUi, exam: { id: def.id, name: def.name, short: def.short, description: def.description, patternVersion: 'custom', instructionsVersion: 1 }, sections, segments, optionsPerQuestion: examConfig.optionsPerQuestion, difficulties: examConfig.difficulties, difficultyMix: examConfig.difficultyMix, statuses: examConfig.statuses, autosaveMs: examConfig.autosaveMs, lowTimeWarningSeconds: examConfig.lowTimeWarningSeconds };
 }
 const builtinDef = () => ({ id: BUILTIN_ID, name: examConfig.exam.name, short: 'CGL Tier-II', description: 'The built-in pattern. Edit config/exam.config.js to change it.', builtin: true, timing: 'sectional', minutes: 0, active: 1,
   sections: Object.entries(examConfig.sections).map(([key, c]) => ({ key, name: c.name, short: c.short, questions: c.questions, marks: c.marksPerQuestion, negative: c.negativeMarks, minutes: examConfig.segments.find((g) => g.sections.includes(key))?.minutes, ...(c.qualifying ? { qualifying: true, qualifyingMarks: c.qualifyingMarks } : {}) })) });

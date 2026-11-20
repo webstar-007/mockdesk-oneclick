@@ -7,6 +7,7 @@ const tone = { high: 'bad', medium: 'warn', low: 'mute' };
 export default function Integrity() {
   const [level, setLevel] = useState('medium'); const [days, setDays] = useState(30); const [rev, setRev] = useState(false); const [page, setPage] = useState(1);
   const { data: d, err, loading, reload } = useLoad(`/admin/integrity?level=${level}&days=${days}&reviewed=${rev ? 1 : 0}&page=${page}&size=25`);
+  const exclude = async (a) => { try { await api.patch(`/admin/integrity/${a.id}`, { excluded: !a.excluded }); toast(a.excluded ? 'Back on live leaderboards' : 'Removed from live leaderboards'); reload(); } catch (e) { toast(e.message, 'bad'); } };
   const mark = async (a) => { try { await api.patch(`/admin/integrity/${a.id}`, { reviewed: !a.reviewed }); toast(a.reviewed ? 'Reopened' : 'Marked as reviewed'); reload(); } catch (e) { toast(e.message, 'bad'); } };
   if (loading && !d) return <Loading />; if (err) return <Err>{err}</Err>;
   const s = d.summary;
@@ -34,7 +35,7 @@ export default function Integrity() {
               <td className="num">{a.score == null ? '–' : `${a.score}/${a.max}`}</td>
               <td className="num">{a.leaves}{a.fsExits ? <small className="muted"> · fs {a.fsExits}</small> : null}</td>
               <td><small>{ago(a.submittedAt || a.startedAt)}</small></td>
-              <td style={{ whiteSpace: 'nowrap' }}><Link className="btn btn-ghost btn-sm" to={`/admin/attempts/${a.id}`}>Open</Link> <button className="btn btn-ghost btn-sm" onClick={() => mark(a)}>{a.reviewed ? 'Reopen' : 'Mark reviewed'}</button></td>
+              <td style={{ whiteSpace: 'nowrap' }}><Link className="btn btn-ghost btn-sm" to={`/admin/attempts/${a.id}`}>Open</Link> <button className="btn btn-ghost btn-sm" onClick={() => mark(a)}>{a.reviewed ? 'Reopen' : 'Mark reviewed'}</button> <button className="btn btn-ghost btn-sm" title="Keeps the attempt but removes it from live-mock ranks" onClick={() => exclude(a)}>{a.excluded ? 'Restore to leaderboard' : 'Remove from leaderboard'}</button>{a.excluded && <> <Badge tone="bad">excluded</Badge></>}</td>
             </tr>))}</tbody></table></div>}
         <Pager page={page} size={25} total={d.total} onPage={setPage} />
       </div>
@@ -50,7 +51,7 @@ export default function Integrity() {
             <li><b>Accuracy and speed</b>: 90%+ correct at under 20 s per question.</li>
             <li><b>Shared address</b>: 3 or more accounts on one network address.</li>
           </ul>
-          <p className="small muted" style={{ marginBottom: 0 }}>Mark an attempt as reviewed to hide it from this list.</p></section>
+          <p className="small muted" style={{ marginBottom: 0 }}>Mark an attempt as reviewed to hide it from this list. “Remove from leaderboard” takes it out of live-mock ranks; students see how many were removed.</p></section>
       </div>
     </>
   );

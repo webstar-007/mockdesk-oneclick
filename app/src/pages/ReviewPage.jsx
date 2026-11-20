@@ -8,6 +8,7 @@ import OptionList from '../components/OptionList.jsx';
 import ReportQuestion from '../components/ReportQuestion.jsx';
 import SolutionViewer from '../components/SolutionViewer.jsx';
 import DoubtChat from '../components/DoubtChat.jsx';
+import { LABELS, labelAll } from '../lib/attempt.js';
 
 const FILTERS = [['all', 'All'], ['correct', 'Correct'], ['incorrect', 'Incorrect'], ['unattempted', 'Unattempted'], ['marked', 'Marked for review'], ['slow', 'Took long'], ['saved', 'Bookmarked']];
 const loadLocal = (k) => { try { return JSON.parse(localStorage.getItem(k) || '{}'); } catch { return {}; } };
@@ -17,9 +18,11 @@ export default function ReviewPage() {
   const [sp, setSp] = useSearchParams();
   const [d, setD] = useState(null); const [err, setErr] = useState(''); const [pos, setPos] = useState(0); const [palOpen, setPalOpen] = useState(false);
   const [saved, setSaved] = useState({}); const [notes, setNotes] = useState({}); const [bmErr, setBmErr] = useState('');
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(''); const [why, setWhy] = useState({}); const [whyOpts, setWhyOpts] = useState({}); const [whyErr, setWhyErr] = useState('');
   const filter = sp.get('filter') || 'all'; const section = sp.get('section') || 'all'; const topic = sp.get('topic') || 'all'; const diff = sp.get('difficulty') || 'all'; const qid = sp.get('qid');
   useEffect(() => { api.get(`/attempts/${attemptId}/result`).then(setD).catch((e) => setErr(e.message)); }, [attemptId]);
+  useEffect(() => { api.get(`/attempts/${attemptId}/errors`).then((r) => { setWhy(r.reasons); setWhyOpts(r.options); }).catch(() => {}); }, [attemptId]);
+  const tagWhy = async (qid, reason) => { const next = why[qid] === reason ? '' : reason; setWhy((w) => ({ ...w, [qid]: next })); setWhyErr(''); try { await api.put(`/attempts/${attemptId}/errors/${encodeURIComponent(qid)}`, { reason: next }); } catch (e) { setWhy((w) => ({ ...w, [qid]: why[qid] || '' })); setWhyErr(e.message); } };
   // Bookmarks and notes are kept on your account so the Notebook can show them anywhere.
   useEffect(() => {
     (async () => {
@@ -54,7 +57,7 @@ export default function ReviewPage() {
   if (!d) return <p className="muted" role="status">Loading…</p>;
   const count = (f) => d.questions.filter((q) => base(q) && match(q, f)).length;
   const set = (k, v) => { const n = new URLSearchParams(sp); n.delete('qid'); if (v === 'all') n.delete(k); else n.set(k, v); setSp(n, { replace: true }); };
-  const idx = Math.min(pos, list.length - 1); const q = list[idx];
+  const idx = Math.min(pos, list.length - 1); const q = list[idx]; const labels = labelAll(d);
   const secNo = (x) => d.questions.filter((y) => y.section === x.section && y.index <= x.index).length;
   const secShort = (k) => config?.sections[k]?.short || k;
   const topics = [...new Set(d.questions.filter((x) => section === 'all' || x.section === section).map((x) => x.topic))].sort();
@@ -90,10 +93,12 @@ export default function ReviewPage() {
             <QuestionView q={q} number={secNo(q)} extraMeta={<>
               <span className={`diff d-${q.difficulty}`}>{q.difficulty}</span>
               <span className="muted small">Your time {duration(q.timeSec)} · section average {duration(Math.round(secAvg[q.section] || 0))}{isSlow(q) ? ' · took long' : ''}</span>
+              {labels[q.id] && <span className={`attlabel t-${LABELS[labels[q.id]].tone}`} title={LABELS[labels[q.id]].tip}>{LABELS[labels[q.id]].text}</span>}
               <ReportQuestion qid={q.id} /><button type="button" className={`bm ${saved[q.id] ? 'on' : ''}`} aria-pressed={!!saved[q.id]} onClick={() => toggleSave(q.id)}>{saved[q.id] ? '★ Bookmarked' : '☆ Bookmark'}</button>
             </>}>
               <OptionList mode="review" options={q.options} figures={q.optionFigures} images={q.optionImages} selected={q.selected} correct={q.correct} />
             </QuestionView>
+            {q.status !== 'correct' && !q.qualifying && Object.keys(whyOpts).length > 0 && <div className="rv-why" role="group" aria-label="Why did you lose this question?"><span className="small"><b>Why did you lose it?</b> Tag it to find your pattern.</span>{Object.entries(whyOpts).map(([k, l]) => <button key={k} type="button" className={`chip ${why[q.id] === k ? 'on' : ''}`} aria-pressed={why[q.id] === k} onClick={() => tagWhy(q.id, k)}>{l}</button>)}{whyErr && <span className="small c-bad" role="alert">{whyErr}</span>}</div>}
             <SolutionViewer q={q} />
             {d.doubt && <DoubtChat key={q.id} attemptId={attemptId} q={q} gate={d.doubt} />}
             {bmErr && <div className="alert" role="alert">{bmErr}</div>}

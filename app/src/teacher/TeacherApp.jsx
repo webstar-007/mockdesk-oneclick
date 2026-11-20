@@ -41,6 +41,22 @@ function Batch() {
   </>);
 }
 
+function Notes({ uid, attempts }) {
+  const [notes, setNotes] = useState(null); const [aid, setAid] = useState(attempts[0]?.id || ''); const [text, setText] = useState(''); const [err, setErr] = useState(''); const [busy, setBusy] = useState(false);
+  const load = () => api.get(`/teacher/students/${uid}/notes`).then((r) => setNotes(r.notes)).catch((e) => setErr(e.message));
+  useEffect(() => { load(); }, [uid]);
+  const add = async (e) => { e.preventDefault(); setBusy(true); setErr(''); try { await api.post(`/teacher/students/${uid}/notes`, { attemptId: aid, note: text }); setText(''); await load(); } catch (x) { setErr(x.message); } finally { setBusy(false); } };
+  const del = async (id) => { try { await api.delete(`/teacher/notes/${id}`); await load(); } catch (x) { setErr(x.message); } };
+  const mockOf = (id) => attempts.find((a) => a.id === id)?.mock || 'a test';
+  return (
+    <section className="card tc-notes"><h2>Notes for the student</h2>
+      <p className="small muted">The student sees your note on that result and gets a notification.</p>
+      {err && <p className="alert" role="alert">{err}</p>}
+      {attempts.length > 0 && <form onSubmit={add} className="tn-form"><label>About<select value={aid} onChange={(e) => setAid(e.target.value)}>{attempts.map((a) => <option key={a.id} value={a.id}>{a.mock} · {new Date(a.at).toLocaleDateString()}</option>)}</select></label><label>Note<textarea rows={3} maxLength={600} value={text} onChange={(e) => setText(e.target.value)} placeholder="What went well, and one thing to work on" /></label><button className="btn btn-primary" disabled={busy || text.trim().length < 2}>{busy ? 'Saving…' : 'Save note'}</button></form>}
+      {notes && (notes.length ? <ul className="tn-list">{notes.map((n) => <li key={n.id}><small className="muted">{mockOf(n.attemptId)} · {n.teacher} · {new Date(n.at).toLocaleDateString()}</small><p>{n.note}</p>{n.mine && <button className="btn btn-ghost btn-sm" onClick={() => del(n.id)}>Delete</button>}</li>)}</ul> : <p className="muted">No notes yet.</p>)}
+    </section>);
+}
+
 function Student() {
   const { id, uid } = useParams(); const { data, err } = useGet(`/teacher/batches/${id}/students/${uid}`);
   if (err) return <><Link to={`/teacher/${id}`} className="back">← Batch</Link><p className="alert" role="alert">{err}</p></>;
@@ -53,6 +69,7 @@ function Student() {
       <section className="card"><h2>Mocks finished</h2>{!data.attempts.length ? <p className="muted">None yet.</p> : <div className="tbl-wrap"><table className="dtable"><thead><tr><th>Mock</th><th>Score</th><th>Accuracy</th></tr></thead><tbody>{data.attempts.map((a) => <tr key={a.id}><th scope="row">{a.mock}<small className="muted" style={{ display: 'block' }}>{new Date(a.at).toLocaleDateString()}</small></th><td>{a.score}/{a.max} ({a.pct}%)</td><td>{a.accuracy}%</td></tr>)}</tbody></table></div>}</section>
       <section className="card"><h2>Topics, weakest first</h2>{!data.topics.length ? <p className="muted">No topic data yet.</p> : <ul className="tc-list">{data.topics.slice(0, 10).map((t) => <li key={t.section + t.topic}><span>{t.topic}<small className="muted"> · {t.correct}/{t.total}</small></span><Bar v={t.pct} tone={tone(t.pct)} /><b>{t.pct}%</b></li>)}</ul>}</section>
     </div>
+    <Notes uid={uid} attempts={data.attempts} />
   </>);
 }
 

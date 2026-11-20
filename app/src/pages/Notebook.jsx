@@ -22,14 +22,16 @@ export default function Notebook() {
   const remove = async (q) => { try { await api.del(`/bookmarks/${encodeURIComponent(q.id)}`); setItems((x) => x.filter((y) => y.id !== q.id)); setD((x) => ({ ...x, total: x.total - 1, counts: { ...x.counts, bookmarks: x.counts.bookmarks - 1 } })); } catch (e) { setErr(e.message); } };
   const saveNote = async (q, note) => { try { await api.put(`/bookmarks/${encodeURIComponent(q.id)}`, { attemptId: q.attemptId, note }); setItems((x) => x.map((y) => (y.id === q.id ? { ...y, note, bookmarked: true } : y))); } catch (e) { setErr(e.message); } };
   const star = async (q) => { try { await api.put(`/bookmarks/${encodeURIComponent(q.id)}`, { attemptId: q.attemptId }); setItems((x) => x.map((y) => (y.id === q.id ? { ...y, bookmarked: true } : y))); setD((x) => ({ ...x, counts: { ...x.counts, bookmarks: x.counts.bookmarks + 1 } })); } catch (e) { setErr(e.message); } };
+  const [why, setWhy] = useState(null); useEffect(() => { api.get('/errors/summary').then(setWhy).catch(() => {}); }, []);
   const counts = d?.counts || { bookmarks: 0, mistakes: 0 };
   return (
     <div className="nb">
-      <div className="pagehead"><div><h1>My notebook</h1><p className="muted small">Questions you got wrong and questions you saved, from every test you have finished.</p></div></div>
+      <div className="pagehead"><div><h1>My notebook</h1><p className="muted small">Questions you got wrong and questions you saved, from every test you have finished. <Link to="/fixes">See recent answer-key corrections</Link>.</p></div></div>
       <div className="chips" role="tablist" aria-label="Notebook">
         {[['mistakes', 'My mistakes'], ['bookmarks', 'Bookmarks']].map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} className={`chip ${tab === k ? 'on' : ''}`} onClick={() => set('tab', k)}>{l} <span>{counts[k]}</span></button>)}
       </div>
       {err && <div className="alert" role="alert">{err}</div>}
+      {tab === 'mistakes' && why && <section className="card nb-why" aria-label="Why you lose marks"><h2>Why you lose marks</h2>{why.tagged ? <><ul className="ai-bars">{why.reasons.filter((x) => x.count).map((x) => <li key={x.key}><span>{x.label}</span><i style={{ width: `${Math.max(4, x.pct)}%` }} /><b>{x.count}</b></li>)}</ul><p className="small muted">Based on {why.tagged} of {why.mistakes} recent mistakes you tagged. Tag more in the review pages to sharpen this.</p></> : <p className="muted">When you review a test, tag each mistake as a concept gap, silly mistake, time pressure or guess. Your pattern shows up here.</p>}</section>}
       {!d ? <p className="muted" role="status">Loading…</p> : (
         <>
           <div className="nb-bar">

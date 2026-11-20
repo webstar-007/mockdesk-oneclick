@@ -8,6 +8,13 @@ import Palette, { statusOf, STATUS_ORDER } from '../components/Palette.jsx';
 import QuestionView from '../components/QuestionView.jsx';
 import OptionList from '../components/OptionList.jsx';
 import Modal from '../components/Modal.jsx';
+import Calculator from '../components/Calculator.jsx';
+
+// A copy of your answers is kept on this device, so a dropped connection or a closed tab never loses work.
+const mirrorKey = (id) => `mockdesk-attempt-${id}`;
+const readMirror = (id) => { try { return JSON.parse(localStorage.getItem(mirrorKey(id)) || 'null'); } catch { return null; } };
+const writeMirror = (id, v) => { try { localStorage.setItem(mirrorKey(id), JSON.stringify(v)); } catch { /* storage blocked */ } };
+const clearMirror = (id) => { try { localStorage.removeItem(mirrorKey(id)); } catch { /* storage blocked */ } };
 
 export default function ExamPage() {
   const { attemptId } = useParams();
@@ -21,7 +28,7 @@ export default function ExamPage() {
   const [confirm, setConfirm] = useState(false); const [showInstr, setShowInstr] = useState(false);
   const [notice, setNotice] = useState('');
   const [saveState, setSaveState] = useState('saved');
-  const [busy, setBusy] = useState(false);
+  const [busy, setBusy] = useState(false); const [online, setOnline] = useState(typeof navigator === 'undefined' ? true : navigator.onLine); const [calc, setCalc] = useState(false); const pendingSubmit = useRef(false);
   const offset = useRef(0);
   const dirty = useRef(new Set());
   const respRef = useRef({}); respRef.current = resp;
@@ -34,18 +41,25 @@ export default function ExamPage() {
     offset.current = new Date(a.serverNow) - Date.now();
     dirty.current = new Set();
     since.current = Date.now();
-    setAtt(a); setResp(a.responses); setCur(a.lastQid || a.questions[0]?.id);
+    // restore answers kept on this device that the server never received
+    let merged = a.responses; const m = readMirror(attemptId); let restored = 0;
+    if (m && m.segmentIndex === a.segmentIndex) {
+      merged = { ...a.responses };
+      for (const q of a.questions) { const l = m.responses?.[q.id]; if (!l) continue; const sv = merged[q.id] || {}; if ((l.timeMs || 0) > (sv.timeMs || 0) || (sv.selected == null && l.selected != null)) { merged[q.id] = { ...sv, ...l, timeMs: Math.max(l.timeMs || 0, sv.timeMs || 0) }; dirty.current.add(q.id); if (sv.selected == null && l.selected != null) restored++; } }
+    }
+    if (restored) msg = `${restored} answer${restored === 1 ? '' : 's'} saved on this device ${restored === 1 ? 'was' : 'were'} restored and will be sent to the server.`;
+    setAtt(a); setResp(merged); setCur(a.lastQid || a.questions[0]?.id);
     setConfirm(false); setSheet(false);
     if (msg) setNotice(msg);
     // opening a question marks it visited
     const first = a.lastQid || a.questions[0]?.id;
     if (first) setResp((r) => ({ ...r, [first]: { ...r[first], visited: true } }));
     if (first) dirty.current.add(first);
-  }, []);
+  }, [attemptId]);
 
   useEffect(() => {
     api.get(`/attempts/${attemptId}`).then((r) => {
-      if (r.status === 'submitted') nav(`/results/${attemptId}`, { replace: true });
+      if (r.status === 'submitted') { clearMirror(attemptId); nav(`/results/${attemptId}`, { replace: true }); }
       else adopt(r.attempt);
     }).catch((e) => setErr(e.message));
   }, [attemptId, adopt, nav]);
@@ -84,7 +98,7 @@ export default function ExamPage() {
   const reload = useCallback(async (msg) => {
     try {
       const r = await api.get(`/attempts/${attemptId}`);
-      if (r.status === 'submitted') nav(`/results/${attemptId}`, { replace: true }); else adopt(r.attempt, msg);
+      if (r.status === 'submitted') { clearMirror(attemptId); nav(`/results/${attemptId}`, { replace: true }); } else adopt(r.attempt, msg);
     } catch (e) { setErr(e.message); }
   }, [attemptId, adopt, nav]);
 
@@ -94,6 +108,17 @@ export default function ExamPage() {
     const id = setInterval(() => { if (dirty.current.size) save(); }, config?.autosaveMs || 10000);
     return () => clearInterval(id);
   }, [att, save, config]);
+  useEffect(() => { // keep a copy on this device on every change
+    if (!att) return undefined;
+    const t = setTimeout(() => writeMirror(attemptId, { segmentIndex: att.segmentIndex, savedAt: Date.now(), responses: snapshot(false) }), 400);
+    return () => clearTimeout(t);
+  }, [resp, att, attemptId, snapshot]);
+  useEffect(() => { // when the connection returns, send everything and finish any submit that failed
+    const on = () => { setOnline(true); if (pendingSubmit.current) { pendingSubmit.current = false; submitRef.current?.(true); } else if (dirty.current.size) save(); };
+    const off = () => setOnline(false);
+    window.addEventListener('online', on); window.addEventListener('offline', off);
+    return () => { window.removeEventListener('online', on); window.removeEventListener('offline', off); };
+  }, [save]);
   useEffect(() => { // debounce save shortly after any change
     if (!att || !dirty.current.size) return undefined;
     setSaveState((s) => (s === 'error' ? s : 'unsaved'));
@@ -142,6 +167,7 @@ export default function ExamPage() {
     window.addEventListener('keydown', key); return () => window.removeEventListener('keydown', key);
   }); // intentionally re-bound each render so handlers see fresh state
 
+  const submitRef = useRef(null);
   const submitSegment = useCallback(async (auto) => {
     if (busy && !auto) return;
     setBusy(true); setConfirm(false);
@@ -151,13 +177,14 @@ export default function ExamPage() {
         const body = { responses: snapshot(false), lastQid: curRef.current };
         const out = await api.post(`/attempts/${attemptId}/segment/submit`, body);
         setBusy(false);
-        if (out.status === 'submitted') nav(`/results/${attemptId}`, { replace: true });
+        if (out.status === 'submitted') { clearMirror(attemptId); nav(`/results/${attemptId}`, { replace: true }); }
         else adopt(out.attempt, auto ? 'Time is up. The previous section was submitted automatically.' : '');
         return;
       } catch (e) { await new Promise((res) => setTimeout(res, 1200 * (attempt + 1))); }
     }
-    setBusy(false); setErr('Could not reach the server to submit. Your answers are saved locally in this tab; check your connection and press Submit again.');
+    setBusy(false); pendingSubmit.current = true; setErr('Could not reach the server to submit. Your answers are kept on this device. We will submit automatically when your connection returns, or press Submit again.');
   }, [attemptId, adopt, busy, commitTime, nav, snapshot]);
+  submitRef.current = submitSegment;
 
   const counts = useMemo(() => {
     const c = Object.fromEntries(STATUS_ORDER.map((k) => [k, 0]));
@@ -173,7 +200,7 @@ export default function ExamPage() {
   const answeredN = counts.answered + counts.answeredMarked;
 
   return (
-    <div className="exam">
+    <div className={`exam ui-${att.ui?.style || 'ssc'}`}>
       <ExamLock attemptId={attemptId} />
       <header className="exam-head">
         <div className="eh-left">
@@ -184,7 +211,8 @@ export default function ExamPage() {
           {att.segments.map((s, i) => (<li key={s.id} className={s.state} aria-current={s.state === 'open' ? 'step' : undefined}>{(config?.sections[s.sections[0]]?.short) || s.id}</li>))}
         </ol>
         <div className="eh-right">
-          <span className={`savestate ${saveState}`} aria-live="polite">{saveState === 'saved' ? 'Saved' : saveState === 'saving' ? 'Saving…' : saveState === 'error' ? 'Offline: retrying' : 'Unsaved'}</span>
+          <span className={`savestate ${!online ? 'error' : saveState}`} aria-live="polite">{!online ? 'Offline. Answers kept on this device' : saveState === 'saved' ? 'Saved' : saveState === 'saving' ? 'Saving…' : saveState === 'error' ? 'Retrying. Answers kept on this device' : 'Saving soon'}</span>
+          {att.ui?.calculator && <button type="button" className="btn btn-calc btn-sm" onClick={() => setCalc((v) => !v)} aria-pressed={calc}>Calculator</button>}
           <Timer endsAtMs={endsAt} getNow={getNow} onExpire={() => submitSegment(true)} warnSeconds={config?.lowTimeWarningSeconds || 300} />
           <button className="btn btn-pal" onClick={() => setSheet(true)} aria-haspopup="dialog">Palette</button>
         </div>
@@ -215,6 +243,7 @@ export default function ExamPage() {
         <button className="btn btn-submit foot-submit" onClick={() => { commitTime(); setConfirm(true); }}>{isLast ? 'Submit' : 'Submit Section'}</button>
       </footer>
 
+      {calc && att.ui?.calculator && <Calculator onClose={() => setCalc(false)} />}
       {showInstr && (
         <Modal title="Instructions" onClose={() => setShowInstr(false)} actions={<button className="btn btn-primary" onClick={() => setShowInstr(false)}>Back to test</button>}>
           <ol className="instr-list">{(config?.instructions || []).map((t, i) => <li key={i}>{t}</li>)}</ol>

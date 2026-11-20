@@ -68,3 +68,22 @@ button.opt:hover{border-color:var(--brand-2)} .opt.sel{border-color:var(--brand-
 .lock-card{max-width:440px;width:100%;text-align:center;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:18px;padding:26px 22px;box-shadow:var(--shadow);display:grid;gap:10px;justify-items:center}
 .lock-card h2{margin:0}.lock-card p{margin:0}.lock-ico{font-size:2rem}.lock-note{color:var(--bad);font-weight:600}
 @media (max-width:420px){.exam-foot .btn,.exam-actions .btn{white-space:nowrap;padding-left:10px;padding-right:10px}}
+
+/* v8: interface styles per exam (set in Admin, Exams) and the on-screen calculator */
+.exam.ui-bank .exam-head{background:#0f5b78} html[data-theme="dark"] .exam.ui-bank .exam-head{background:#0f3b4f}
+.exam.ui-bank .pal-btn{border-radius:4px 4px 14px 14px} .exam.ui-bank .s-marked,.exam.ui-bank .s-answeredMarked{border-radius:4px 4px 14px 14px}
+.exam.ui-bank .exam-foot{background:#e9f2f6} html[data-theme="dark"] .exam.ui-bank .exam-foot{background:var(--surface)}
+.exam.ui-railway .exam-head{background:#b45309} html[data-theme="dark"] .exam.ui-railway .exam-head{background:#5b3410}
+.exam.ui-railway .pal-btn{border-radius:2px} .exam.ui-railway .s-marked,.exam.ui-railway .s-answeredMarked{border-radius:2px}
+.exam.ui-railway .btn-primary{background:#b45309;border-color:#b45309}
+.exam.ui-default .exam-head{background:var(--surface);color:var(--ink);border-bottom:1px solid var(--line)}
+html[data-theme="dark"] .exam.ui-default .exam-head{background:var(--surface);color:var(--ink)}
+.btn-calc{background:transparent;color:inherit;border:1px solid currentColor}
+.calc{position:fixed;right:16px;bottom:76px;z-index:60;width:232px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);padding:10px}
+.calc-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.calc-screen{display:block;text-align:right;font:700 1.5rem/1.2 ui-monospace,Menlo,monospace;background:var(--nv);border-radius:8px;padding:8px 10px;min-height:2.4rem;overflow:hidden}
+.calc-keys{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.ck{height:40px;border-radius:8px;border:1px solid var(--line);background:var(--surface);font:inherit;font-weight:700;color:var(--ink);cursor:pointer} .ck.op{background:var(--brand-soft);color:var(--brand)} .ck.fn{background:var(--nv)} .ck.eq{background:var(--brand);color:#fff;border-color:var(--brand)}
+.savestate.error{color:#fde68a} .exam.ui-default .savestate.error{color:#b45309}
+@media (max-width:640px){.calc{right:8px;bottom:70px}}
+@media (max-width:640px){.savestate.error{display:inline;font-size:.7rem}}

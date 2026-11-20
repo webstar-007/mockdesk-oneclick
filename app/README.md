@@ -155,3 +155,13 @@ A full browser console lives at `/admin` for admins: users and their results, al
 
 ## Fullscreen test lock
 While a student is in a test (`/exam/:id`) the page asks for fullscreen and keeps them inside: leaving fullscreen, switching tab or window, or pressing Back shows a blocking "return to the test" screen and counts the attempt. Copy, paste, right-click and common shortcuts (F5, Ctrl+R/W/T/N/P/S, DevTools) are blocked. The timer never pauses. Browsers cannot be locked completely (for example Alt+Tab or closing the browser), and iPhone Safari has no fullscreen, so there it falls back to tab-switch and Back detection. Code: `src/components/ExamLock.jsx`.
+
+## Attempt analysis, corrections and cohorts (v9)
+- **How you attempted**: each question gets a label (perfect, correct but slow, too fast, wrong after too long, wasted time, skipped) judged against the time its section allows per question. The result page shows a behaviour summary and a "what would have raised your score" list. Figures are estimates from one attempt.
+- **Error log**: on the review page students tag a lost question (didn't know the concept, silly mistake, ran out of time, guessed). The Notebook shows the pattern.
+- **Corrections**: changing a question's correct answer re-scores every attempt of that mock, tells the students whose result changed and adds a public entry at `/fixes`. Other mocks holding a copy of the question are not changed.
+- **Test screen per exam**: Admin → Exams sets the style (SSC, banking, railway, plain) and an optional on-screen calculator.
+- **Network-drop safety**: answers are mirrored in the browser, merged back after a reload, and a submit made while offline is retried when the connection returns.
+- **Teacher notes**: teachers leave notes on a student's finished test; the student sees them on the result and is notified.
+- **Integrity**: Admin → Integrity can remove an attempt from live-mock ranks; students see a badge and the count removed.
+- **Cohorts** (Admin → Cohorts): funnel, weekly signup cohorts and win-back groups with a one-click nudge. **Alerts**: Overview lists questions that look wrong and have not been dismissed.

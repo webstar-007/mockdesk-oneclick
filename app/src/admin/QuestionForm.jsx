@@ -12,7 +12,7 @@ const tableToText = (t) => (t ? t.rows.map((r) => r.join(' | ')).join('\n') : ''
 export default function QuestionForm({ meta, mockId, mockChoices, question, defaultSection, onClose, onSaved }) {
   const [target, setTarget] = useState(mockChoices?.[0]?.id || mockId);
   const [f, setF] = useState(() => (question ? { ...blank(null, meta), ...question, optionImages: question.optionImages || [null, null, null, null], wrongReasons: question.wrongReasons || [null, null, null, null], passage: question.passage || '', figure: question.figure || '' } : blank(defaultSection, meta)));
-  const [tab, setTab] = useState('q'); const [err, setErr] = useState(''); const [busy, setBusy] = useState(false);
+  const [fixNote, setFixNote] = useState(''); const [tab, setTab] = useState('q'); const [err, setErr] = useState(''); const [busy, setBusy] = useState(false);
   const [tbl, setTbl] = useState(() => ({ on: !!question?.table, caption: question?.table?.caption || '', headers: (question?.table?.headers || []).join(' | '), rows: tableToText(question?.table) }));
   const [stepsText, setStepsText] = useState((question?.steps || []).join('\n'));
   const set = (k, v) => setF((x) => ({ ...x, [k]: v }));
@@ -25,7 +25,7 @@ export default function QuestionForm({ meta, mockId, mockChoices, question, defa
   const prev = useMemo(() => { const p = payload(); return { ...p, id: 'preview', index: 0, passage: p.passage, marks: p.marks ?? cfg.marksPerQuestion ?? 3, negativeMarks: p.negativeMarks ?? cfg.negativeMarks ?? 1, optionFigures: null, options: p.options.map((o) => o || '…') }; }, [f, tbl, stepsText]); // eslint-disable-line
   const save = async (again) => {
     setBusy(true); setErr('');
-    try { const body = payload(); if (!question && !target) throw new Error('Choose where to add this question'); if (!(body.answer >= 0)) { setTab('o'); throw new Error('Choose the correct answer: tick “Correct answer” beside one of the options.'); } const r = question ? await api.put(`/admin/questions/${question.id}`, body) : await api.post(`/admin/mocks/${target}/questions`, body); toast(question ? 'Question saved' : 'Question added'); onSaved(r.question, again); if (again) { setF({ ...blank(f.section, meta), difficulty: f.difficulty, topic: f.topic, tags: f.tags }); setTbl({ on: false, caption: '', headers: '', rows: '' }); setStepsText(''); setTab('q'); } }
+    try { const body = payload(); if (!question && !target) throw new Error('Choose where to add this question'); if (!(body.answer >= 0)) { setTab('o'); throw new Error('Choose the correct answer: tick “Correct answer” beside one of the options.'); } const r = question ? await api.put(`/admin/questions/${question.id}`, { ...body, publicNote: fixNote }) : await api.post(`/admin/mocks/${target}/questions`, body); toast(question ? (r.keyChanged ? `Answer key corrected. ${r.rescored} finished score${r.rescored === 1 ? '' : 's'} updated and the students told.` : 'Question saved') : 'Question added'); onSaved(r.question, again); if (again) { setF({ ...blank(f.section, meta), difficulty: f.difficulty, topic: f.topic, tags: f.tags }); setTbl({ on: false, caption: '', headers: '', rows: '' }); setStepsText(''); setTab('q'); } }
     catch (e) { setErr(e.message); } finally { setBusy(false); }
   };
   const noAns = !(f.answer >= 0);
@@ -67,6 +67,7 @@ export default function QuestionForm({ meta, mockId, mockChoices, question, defa
             <div className="ad-field">Solution image <small>Optional</small><ImageField value={f.solutionImage} onChange={(v) => set('solutionImage', v)} label="solution image" /></div>
           </>}
           {tab === 'm' && <>
+            {question && <label className="ad-field">Note for the public corrections list <small>Optional. Changing the correct answer is listed automatically and everyone affected is re-scored.</small><input maxLength={200} value={fixNote} onChange={(e) => setFixNote(e.target.value)} placeholder="e.g. Option text corrected" /></label>}
             <div className="ad-row"><label className="ad-field">Topic<input list="topics-dl" value={f.topic} onChange={(e) => set('topic', e.target.value)} placeholder="e.g. Percentages" /><datalist id="topics-dl">{meta.topics.map((t) => <option key={t} value={t} />)}</datalist></label><label className="ad-field">Subtopic<input value={f.subtopic} onChange={(e) => set('subtopic', e.target.value)} /></label></div>
             <div className="ad-field">Tags<TagInput id="qtags" value={f.tags} onChange={(v) => set('tags', v)} suggestions={meta.tags} /></div>
             <div className="ad-row"><label className="ad-field">Marks <small>Blank = section default ({cfg.marksPerQuestion})</small><input type="number" min="0" max="10" step="0.5" value={f.marks ?? ''} onChange={(e) => set('marks', e.target.value === '' ? undefined : e.target.value)} /></label><label className="ad-field">Negative marks <small>Blank = default ({cfg.negativeMarks})</small><input type="number" min="0" max="10" step="0.25" value={f.negativeMarks ?? ''} onChange={(e) => set('negativeMarks', e.target.value === '' ? undefined : e.target.value)} /></label></div>

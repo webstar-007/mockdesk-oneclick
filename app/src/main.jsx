@@ -14,6 +14,7 @@ import './styles/admin.css';
 import './styles/assist.css';
 import './styles/v7.css';
 import './styles/v8.css';
+import './styles/v9.css';
 import { captureInvite } from './lib/capture.js';
 captureInvite();
 createRoot(document.getElementById('root')).render(<BrowserRouter><App /></BrowserRouter>);

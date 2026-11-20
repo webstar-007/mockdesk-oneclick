@@ -88,3 +88,10 @@ Better explanations make better answers, so keep the explanation, steps and shor
 - **Mocks**: choose the exam when creating a mock or using "Build from bank". In Settings choose the type (mock or previous-year paper) and optionally a live window.
 - **Live window**: needs "Available from". Students can start any time until the closing time; only the first finished attempt counts for rank; ranks appear after closing. The leaderboard page shows the top 10 with names shortened.
 - New exams ship with no questions. Add them through the bank, CSV import or the builder.
+
+## Cohorts, alerts, corrections and exam screens (v9)
+- **Cohorts**: funnel from signup to 5 finished tests, weekly cohorts, and four win-back groups. "Send a nudge" edits the message and sends an in-app notice and push, at most one per student per day.
+- **Alerts** (Overview): questions with strong wrong-key, ambiguity or report signals. Dismiss once reviewed.
+- **Fixing an answer key**: edit the question and change the correct answer. Every attempt of that mock is re-scored and the affected students are notified. The optional note appears on the public corrections page. Drafts are not listed.
+- **Integrity → Remove from leaderboard** excludes an attempt from live ranks; restore reverses it.
+- **Exams → Test screen style / Calculator** control how the exam page looks for that exam.

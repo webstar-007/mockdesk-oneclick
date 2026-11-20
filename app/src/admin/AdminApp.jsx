@@ -26,6 +26,7 @@ const Preview = lazy(() => import('./Preview.jsx'));
 const Announcements = lazy(() => import('./Announcements.jsx'));
 const Notifications = lazy(() => import('./Notifications.jsx'));
 const Quality = lazy(() => import('./Quality.jsx'));
+const Cohorts = lazy(() => import('./Cohorts.jsx'));
 const Referrals = lazy(() => import('./Referrals.jsx'));
 const BatchList = lazy(() => import('./Batches.jsx').then((m) => ({ default: m.BatchList })));
 const BatchDetail = lazy(() => import('./Batches.jsx').then((m) => ({ default: m.BatchDetail })));
@@ -33,6 +34,7 @@ import Search from './Search.jsx';
 
 const NAV = [
   ['', 'Overview', '▦', true], ['ask', 'Ask your data', '💬'], ['live', 'Live tests', '🟢'], ['users', 'Users', '👥'], ['attempts', 'Attempts', '✎'], ['integrity', 'Integrity', '🛡'],
+  ['cohorts', 'Cohorts', '📈'],
   ['exams', 'Exams', '🎓'], ['mocks', 'Mocks', '🗂'], ['bank', 'Question bank', '❓'], ['quality', 'Question quality', '✅'], ['coverage', 'Coverage', '🧭'], ['batches', 'Batches', '🏫'], ['announcements', 'Announcements', '📢'], ['notifications', 'Notifications', '🔔'], ['referrals', 'Referrals', '🎁'], ['analytics', 'Analytics', '📈'], ['reports', 'Reports', '🚩'], ['system', 'System', '🩺'], ['settings', 'Settings', '⚙'],
 ];
 // Editors only get the content tools.
@@ -76,6 +78,7 @@ export default function AdminApp() {
             <Route path="analytics" element={<Analytics />} />
             <Route path="reports" element={<Reports />} />
             <Route path="quality" element={<Quality />} />
+            <Route path="cohorts" element={<Cohorts />} />
             <Route path="batches" element={<BatchList />} />
             <Route path="batches/:id" element={<BatchDetail />} />
             <Route path="announcements" element={<Announcements />} />

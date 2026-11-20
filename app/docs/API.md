@@ -71,3 +71,8 @@ Admin: `/admin/announcements` (CRUD, `/audience`, `/:id/end`, `/:id/duplicate`),
 Student: `GET /notebook?tab=mistakes|bookmarks&section&topic&offset`, `GET /bookmarks/ids`, `PUT /bookmarks/:questionId {attemptId, note?}`, `DELETE /bookmarks/:questionId`, `GET /mocks/:id/live` (window, your rank after close, top 10), `POST /practice {source: "mistakes"|"bookmarks", size}`. `GET /mocks` items now carry `examId, kind, paperYear, paperLabel, live, upcoming, segments, cfg`; `GET /config` carries `exams` and `patterns`. Starting a live mock before it opens returns 403 `NOT_OPEN`.
 
 Admin: `GET|POST /admin/exams`, `PUT|PATCH|DELETE /admin/exams/:id`. `POST /admin/mocks` and `/admin/mocks/build` accept `examId`; `PATCH /admin/mocks/:id` accepts `examId, kind, paperYear, paperLabel, liveUntil`.
+
+## v9 additions
+Student: `GET /api/fixes` (public corrections); `GET/PUT /api/attempts/:id/errors` (reason tags); `GET /api/errors/summary`. Result adds `segments`, `expected`, `teacherNotes`; live info adds `integrity`, `removedCount`; attempt state and `/config` exams carry `interface {style, calculator}`.
+Teacher: `GET/POST /api/teacher/students/:uid/notes` (`{attemptId, note}`), `DELETE /api/teacher/notes/:id`.
+Admin: `GET /api/admin/cohorts`, `POST /api/admin/cohorts/nudge` (`{segment,title,body,link}`), `GET /api/admin/alerts`, `POST /api/admin/alerts/:qid/dismiss`; `PATCH /api/admin/integrity/:id` accepts `excluded`; `PUT /api/admin/questions/:qid` accepts `publicNote` and returns `{rescored, keyChanged}`.

@@ -14,6 +14,7 @@ const ResultPage = lazy(() => import('./pages/ResultPage.jsx'));
 const ReviewPage = lazy(() => import('./pages/ReviewPage.jsx'));
 const Profile = lazy(() => import('./pages/Profile.jsx'));
 const LiveBoard = lazy(() => import('./pages/LiveBoard.jsx'));
+const FixLog = lazy(() => import('./pages/FixLog.jsx'));
 const Notebook = lazy(() => import('./pages/Notebook.jsx'));
 const Toolkit = lazy(() => import('./pages/Toolkit.jsx'));
 const AdminApp = lazy(() => import('./admin/AdminApp.jsx'));
@@ -56,6 +57,7 @@ export default function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/toolkit" element={<Toolkit />} />
               <Route path="/notebook" element={<Notebook />} />
+              <Route path="/fixes" element={<FixLog />} />
               <Route path="/live/:mockId" element={<LiveBoard />} />
               <Route path="/mock/:mockId" element={<Instructions />} />
               <Route path="/results/:attemptId" element={<ResultPage />} />

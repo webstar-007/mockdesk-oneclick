@@ -15,6 +15,7 @@ export default function LiveBoard() {
       <div className="pagehead"><div><h1>{d.name}</h1><p className="muted">Live mock · {d.state === 'upcoming' ? `opens ${fmtDateTime(d.opensAt)}` : d.state === 'open' ? `open until ${fmtDateTime(d.closesAt)}` : `closed ${fmtDateTime(d.closesAt)}`}</p></div>{d.state === 'open' && <Link className="btn btn-primary" to={`/mock/${mockId}`}>{d.mine ? 'View result' : 'Start the test'}</Link>}</div>
       <section className="card lv-info">
         <p>Start any time between {fmtDateTime(d.opensAt)} and {fmtDateTime(d.closesAt)}. Everyone takes the same paper, but you do not need to start together. Your <b>first finished attempt</b> inside the window counts for rank. Ranks appear once the window closes.</p>
+        {d.state === 'closed' && <p className="ai-integrity i-ok" role="note"><span aria-hidden="true">✓</span> Integrity checked{d.removed ? `. ${d.removed} attempt${d.removed === 1 ? ' was' : 's were'} removed after review` : ''}.</p>}
         <p className="muted small">{d.participants} student{d.participants === 1 ? '' : 's'} {d.state === 'closed' ? 'ranked' : 'finished so far'}.</p>
       </section>
       {d.state === 'closed' && d.mine?.rank && <section className="card lv-me"><h2>Your rank</h2><p className="lv-big">#{d.mine.rank}<small> of {d.mine.of}</small></p><p className="muted">Score {num(d.mine.score)} · accuracy {num(d.mine.accuracy)}% · ahead of {d.mine.percentile}% of students. <Link to={`/results/${d.mine.attemptId}`}>Open analysis</Link></p></section>}

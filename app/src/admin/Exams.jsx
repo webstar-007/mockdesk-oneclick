@@ -7,10 +7,10 @@ const blankSec = () => ({ key: '', name: '', short: '', questions: 25, marks: 1,
 const total = (d) => d.sections.filter((s) => !s.qualifying).reduce((a, s) => a + s.questions * s.marks, 0);
 
 function Editor({ item, templates, subjects, onClose, onSaved }) {
-  const [f, setF] = useState(item ? { ...item, sections: item.sections.map((s) => ({ ...blankSec(), ...s })) } : { name: '', short: '', description: '', timing: 'sectional', minutes: 60, sections: [blankSec()] });
+  const [f, setF] = useState(item ? { ...item, sections: item.sections.map((s) => ({ ...blankSec(), ...s })) } : { name: '', short: '', description: '', timing: 'sectional', minutes: 60, interface: { style: 'ssc', calculator: false }, sections: [blankSec()] });
   const [err, setErr] = useState(''); const [busy, setBusy] = useState(false);
   const up = (k, v) => setF((x) => ({ ...x, [k]: v })); const upS = (i, k, v) => setF((x) => ({ ...x, sections: x.sections.map((s, j) => (j === i ? { ...s, [k]: v } : s)) }));
-  const use = (t) => setF({ ...t, sections: t.sections.map((s) => ({ ...blankSec(), ...s })) });
+  const use = (t) => setF({ interface: { style: 'ssc', calculator: false }, ...t, sections: t.sections.map((s) => ({ ...blankSec(), ...s })) });
   const pickSubject = (i, key) => { const sub = subjects.find((x) => x.key === key); setF((x) => ({ ...x, sections: x.sections.map((s, j) => (j === i ? { ...s, key, name: sub ? sub.name : s.name, short: sub ? sub.short : s.short } : s)) })); };
   const save = async () => {
     setBusy(true); setErr('');
@@ -27,6 +27,7 @@ function Editor({ item, templates, subjects, onClose, onSaved }) {
         <label className="ad-field">Timing<select value={f.timing} onChange={(e) => up('timing', e.target.value)}><option value="sectional">Each section has its own timer</option><option value="overall">One timer for the whole paper</option></select></label>
         {f.timing === 'overall' && <label className="ad-field">Total minutes<input type="number" min="5" max="600" value={f.minutes} onChange={(e) => up('minutes', e.target.value)} /></label>}
       </div>
+      <div className="ad-row"><label className="ad-field">Test screen style <small>How the exam page looks to students</small><select value={f.interface?.style || 'ssc'} onChange={(e) => up('interface', { ...(f.interface || {}), style: e.target.value })}><option value="ssc">SSC style (navy)</option><option value="bank">Banking style (teal)</option><option value="railway">Railway style (amber)</option><option value="default">Plain (follows app theme)</option></select></label><label className="ad-field">Calculator<span className="ad-chk"><input type="checkbox" checked={!!f.interface?.calculator} onChange={(e) => up('interface', { ...(f.interface || {}), calculator: e.target.checked })} /> Allow an on-screen calculator</span></label></div>
       {locked && <p className="small muted">Students have attempted mocks of this exam, so marks, question counts and timings are locked. You can still rename it and edit its description.</p>}
       <div className="tbl-wrap"><table className="ad-table ex-secs"><thead><tr><th>Subject <small>(reuses that question bank)</small></th><th>Name shown</th><th className="num">Questions</th><th className="num">Marks</th><th className="num">Negative</th>{f.timing === 'sectional' && <th className="num">Minutes</th>}<th>Qualifying</th><th /></tr></thead>
         <tbody>{f.sections.map((s, i) => (

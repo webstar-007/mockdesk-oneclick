@@ -8,6 +8,7 @@ import { duration, fmtDateTime, num } from '../lib/format.js';
 import { useAuth } from '../lib/auth.jsx';
 import { analyse } from '../lib/analysis.js';
 import ShareCard from '../components/ShareCard.jsx';
+import { AttemptStyle, IntegrityBadge, StrategyReport, TeacherNotes } from '../components/AttemptInsights.jsx';
 
 export default function ResultPage() {
   const { attemptId } = useParams(); const { config, user } = useAuth(); const [share, setShare] = useState(false);
@@ -17,7 +18,7 @@ export default function ResultPage() {
   if (err) return <div className="alert" role="alert">{err} <Link to="/">Dashboard</Link></div>;
   if (!d) return <p className="muted" role="status">Preparing your analysis…</p>;
   const s = d.summary;
-  const A = analyse(d, config);
+  const A = analyse(d, d.segments ? { ...config, segments: d.segments } : config);
   const { wrong, penalty: negLost } = A;
   const qual = d.qualifying || [];
   const traps = [...new Map(wrong.map((q) => [q.trap, q])).values()].slice(0, 4);
@@ -41,6 +42,7 @@ export default function ResultPage() {
             ? (d.live.state === 'closed' ? (d.live.rank ? <><b>Live mock rank #{d.live.rank} of {d.live.of}.</b> You were ahead of {d.live.percentile}% of students. <Link to={`/live/${d.mockId || d.attempt.mockId}`}>See the top 10</Link></> : <><b>Live mock.</b> The board is being prepared.</>) : <><b>This attempt counts for the live mock.</b> Ranks appear when the window closes ({fmtDateTime(d.live.closesAt)}).</>)
             : <><b>Not counted for rank.</b> Only your first finished attempt inside the live window counts. This one is for practice.</>}
         </p>)}
+      <IntegrityBadge live={d.live} />
       {d.kind === 'practice' && <p className="pr-banner" role="note"><b>Practice set.</b> Built from your weak topics. It does not count towards any leaderboard, rank or your mock history.</p>}
       {share && <ShareCard d={d} firstName={(user?.name || '').split(' ')[0]} onClose={() => setShare(false)} />}
       <section className="score-hero card">
@@ -74,6 +76,7 @@ export default function ResultPage() {
         </div>
       </section>}
 
+      {d.kind !== 'practice' && <><TeacherNotes notes={d.teacherNotes} /><AttemptStyle d={d} /><StrategyReport d={d} /></>}
       <section className="an-card an-wide" aria-label="Where your marks went">
         <h3>Where your {s.maxMarks} marks went</h3>
         <div className="marksbar" role="img" aria-label={seg.map(([l, v]) => `${l} ${v}`).join(', ')}>{seg.map(([l, v, c]) => v > 0 && <i key={l} className={c} style={{ flex: v }} tabIndex={0} {...tip({ t: 'Where your marks went', v: `${l}: ${v}`, tone: /penalty|missed/i.test(l) ? 'bad' : /blank/i.test(l) ? 'mute' : 'good', rows: [['Share of paper', `${Math.round((v / s.maxMarks) * 100)}%`]] })} />)}</div>

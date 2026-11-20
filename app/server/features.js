@@ -69,11 +69,13 @@ export function makeFeatures({ db, now, settings, notifier, getMock, readResult,
   function board(row) {
     const hit = boards.get(row.id); if (hit && (now() - hit.at < 60000 || now() > row.live_until + 3 * 3600000)) return hit;
     for (const r of db.prepare("SELECT id, result FROM attempts WHERE mock_id=? AND status='submitted' AND score IS NULL AND result IS NOT NULL").all(row.id)) { const s = readResult(r).summary; db.prepare('UPDATE attempts SET score=?, accuracy=? WHERE id=?').run(s.score, s.accuracy, r.id); }
-    const rows = db.prepare("SELECT a.id, a.user_id, a.started_at, a.submitted_at, a.score, a.accuracy, u.name FROM attempts a JOIN users u ON u.id=a.user_id WHERE a.mock_id=? AND a.status='submitted' AND a.started_at>=? AND a.started_at<=? ORDER BY a.started_at").all(row.id, row.available_from, row.live_until);
+    const rows = db.prepare("SELECT a.id, a.user_id, a.started_at, a.submitted_at, a.score, a.accuracy, a.integrity, u.name FROM attempts a JOIN users u ON u.id=a.user_id WHERE a.mock_id=? AND a.status='submitted' AND a.started_at>=? AND a.started_at<=? ORDER BY a.started_at").all(row.id, row.available_from, row.live_until);
+    const excluded = (r) => { try { return !!JSON.parse(r.integrity || '{}').excluded; } catch { return false; } };
     const first = new Map(); for (const r of rows) if (!first.has(r.user_id)) first.set(r.user_id, r);
-    const list = [...first.values()].sort((a, b) => b.score - a.score || b.accuracy - a.accuracy || (a.submitted_at - a.started_at) - (b.submitted_at - b.started_at));
+    const removed = [...first.values()].filter(excluded).length;
+    const list = [...first.values()].filter((r) => !excluded(r)).sort((a, b) => b.score - a.score || b.accuracy - a.accuracy || (a.submitted_at - a.started_at) - (b.submitted_at - b.started_at));
     list.forEach((r, i) => { r.rank = i + 1; });
-    const out = { at: now(), list, byAttempt: new Map(list.map((r) => [r.id, r])), byUser: new Map(list.map((r) => [r.user_id, r])) }; boards.set(row.id, out); return out;
+    const out = { at: now(), removed, list, byAttempt: new Map(list.map((r) => [r.id, r])), byUser: new Map(list.map((r) => [r.user_id, r])) }; boards.set(row.id, out); return out;
   }
   const shortName = (n) => { const p = String(n || 'Student').trim().split(/\s+/); return p.length > 1 ? `${p[0]} ${p[p.length - 1][0]}.` : p[0]; };
   const participants = (row) => db.prepare("SELECT COUNT(DISTINCT user_id) c FROM attempts WHERE mock_id=? AND status='submitted' AND started_at>=? AND started_at<=?").get(row.id, row.available_from, row.live_until).c;
@@ -89,6 +91,8 @@ export function makeFeatures({ db, now, settings, notifier, getMock, readResult,
     const row = db.prepare('SELECT * FROM mocks WHERE id=?').get(a.mock_id); const state = row && liveState(row); if (!state || a.started_at < row.available_from || a.started_at > row.live_until) return null;
     const first = db.prepare("SELECT id FROM attempts WHERE user_id=? AND mock_id=? AND status='submitted' AND started_at>=? AND started_at<=? ORDER BY started_at LIMIT 1").get(a.user_id, a.mock_id, row.available_from, row.live_until);
     const official = first?.id === a.id; const out = { state, official, closesAt: row.live_until, name: row.name };
+    let ex = false; try { ex = !!JSON.parse(db.prepare('SELECT integrity FROM attempts WHERE id=?').get(a.id)?.integrity || '{}').excluded; } catch { /* not excluded */ }
+    if (official) out.integrity = state !== 'closed' ? 'pending' : ex ? 'removed' : 'verified'; if (state === 'closed') out.removedCount = board(row).removed;
     if (state === 'closed' && official) { const b = board(row); const me = b.byAttempt.get(a.id); if (me) { out.rank = me.rank; out.of = b.list.length; out.percentile = b.list.length > 1 ? Math.round(((b.list.length - me.rank) / (b.list.length - 1)) * 100) : 100; } }
     if (state === 'open') out.participants = participants(row);
     return out;
@@ -200,7 +204,7 @@ export function makeFeatures({ db, now, settings, notifier, getMock, readResult,
       if (!state) return res.status(404).json({ error: 'This is not a live mock' });
       const out = { name: row.name, state, opensAt: row.available_from, closesAt: row.live_until, mine: null, top: null, participants: state === 'upcoming' ? 0 : state === 'open' ? participants(row) : board(row).list.length };
       if (state !== 'upcoming') { const mine = db.prepare("SELECT id FROM attempts WHERE user_id=? AND mock_id=? AND status='submitted' AND started_at>=? AND started_at<=? ORDER BY started_at LIMIT 1").get(req.user.id, row.id, row.available_from, row.live_until); out.mine = mine ? { attemptId: mine.id } : null; }
-      if (state === 'closed') { const b = board(row); const me = b.byUser.get(req.user.id); if (me) out.mine = { attemptId: me.id, score: me.score, accuracy: me.accuracy, rank: me.rank, of: b.list.length, percentile: b.list.length > 1 ? Math.round(((b.list.length - me.rank) / (b.list.length - 1)) * 100) : 100 }; out.top = b.list.slice(0, 10).map((r) => ({ rank: r.rank, name: shortName(r.name), score: r.score, accuracy: r.accuracy, you: r.user_id === req.user.id })); }
+      if (state === 'closed') { const b = board(row); const me = b.byUser.get(req.user.id); if (me) out.mine = { attemptId: me.id, score: me.score, accuracy: me.accuracy, rank: me.rank, of: b.list.length, percentile: b.list.length > 1 ? Math.round(((b.list.length - me.rank) / (b.list.length - 1)) * 100) : 100 }; out.removed = b.removed; out.top = b.list.slice(0, 10).map((r) => ({ rank: r.rank, name: shortName(r.name), score: r.score, accuracy: r.accuracy, you: r.user_id === req.user.id })); }
       res.json(out);
     });
 
@@ -304,5 +308,5 @@ export function makeFeatures({ db, now, settings, notifier, getMock, readResult,
       res.setHeader('Content-Type', 'text/csv; charset=utf-8'); res.setHeader('Content-Disposition', `attachment; filename="${b.name.replace(/[^a-z0-9]+/gi, '-')}-results.csv"`); res.send(csv);
     });
   }
-  return { mount, mountTeacher, ensureRefCode, applyReferral, grantReward, onSubmitted, accessOf, refCfg, liveSummary, liveInfo };
+  return { clearBoards: () => boards.clear(), mount, mountTeacher, ensureRefCode, applyReferral, grantReward, onSubmitted, accessOf, refCfg, liveSummary, liveInfo };
 }

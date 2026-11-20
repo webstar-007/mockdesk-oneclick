@@ -4,6 +4,7 @@ import { AUDIENCES, audienceCount, audienceIds } from './lib/audience.js';
 import { DEFAULTS } from './lib/settings.js';
 import { reminderConfig } from './lib/reminders.js';
 import { normEmail, normPhone } from './lib/otp.js';
+import { mountAdminExtras2 } from './adminExtras2.js';
 
 const DAY = 86400000;
 const LEVELS = ['info', 'good', 'warn', 'urgent'];
@@ -172,7 +173,7 @@ export function mountAdminExtras({ r, db, now, audit, bad, results, settings, no
   r.delete('/batches/:id/students/:uid', (req, res) => { db.prepare('DELETE FROM batch_members WHERE batch_id=? AND user_id=?').run(req.params.id, req.params.uid); audit(req, 'batch_student_remove', req.params.id); res.json({ ok: true }); });
 
   // ---------- question quality ----------
-  r.get('/quality', (req, res) => {
+  const computeQuality = (minN) => {
     const agg = new Map(); const secTime = new Map();
     for (const { row, res: rs } of results()) for (const q of rs.questions || []) {
       if (q.qualifying || !Array.isArray(q.options)) continue;
@@ -186,7 +187,6 @@ export function mountAdminExtras({ r, db, now, audit, bad, results, settings, no
     const reportsBy = new Map(db.prepare("SELECT question_id, COUNT(*) c, SUM(reason='wrong_answer') wa, SUM(reason='unclear') un FROM reports WHERE status='open' GROUP BY question_id").all().map((x) => [x.question_id, x]));
     const current = new Map(db.prepare('SELECT id, mock_id FROM questions').all().map((x) => [x.id, x.mock_id]));
     const mockName = new Map(db.prepare('SELECT id, name FROM mocks').all().map((m) => [m.id, m.name]));
-    const minN = Math.max(1, Math.min(200, Number(req.query.min) || 5));
     const list = [];
     for (const s of agg.values()) {
       if (s.n < minN) continue;
@@ -205,10 +205,15 @@ export function mountAdminExtras({ r, db, now, audit, bad, results, settings, no
       const mockId = current.get(s.id); const liveIn = mockId || [...s.mockIds][0];
       list.push({ id: s.id, text: String(s.text || '').slice(0, 140), section: s.section, topic: s.topic, difficulty: s.difficulty, mockId: mockId || null, mockName: mockName.get(liveIn) || liveIn, attempts: s.n, pctRight, pctWrong: pc(s.wrong), pctSkipped: pc(s.skipped), avgTimeSec: avgTime, sectionAvgSec: Math.round(secAvg), options: dist, keyIndex: s.key, reports: rep?.c || 0, flags, worst: Math.max(0, ...flags.map((f) => f.severity)) });
     }
+    return list;
+  };
+  r.get('/quality', (req, res) => {
+    const minN = Math.max(1, Math.min(200, Number(req.query.min) || 5)); const list = computeQuality(minN); const mockName = new Map(db.prepare('SELECT id, name FROM mocks').all().map((m) => [m.id, m.name]));
     const flag = String(req.query.flag || ''); const mock = String(req.query.mock || ''); const section = String(req.query.section || '');
     let out = list.filter((x) => (!flag || (flag === 'any' ? x.flags.length : x.flags.some((f) => f.key === flag))) && (!mock || x.mockId === mock) && (!section || x.section === section));
     out.sort((a, b) => b.worst - a.worst || b.flags.length - a.flags.length || a.pctRight - b.pctRight);
     const counts = {}; for (const x of list) for (const f of x.flags) counts[f.key] = (counts[f.key] || 0) + 1;
     res.json({ total: list.length, flagged: list.filter((x) => x.worst >= 2).length, counts, minAttempts: minN, mocks: [...new Set(list.map((x) => x.mockId).filter(Boolean))].map((id) => ({ id, name: mockName.get(id) || id })), questions: out.slice(0, 200) });
   });
+  mountAdminExtras2({ r, db, now, audit, bad, notifier, computeQuality, results, page });
 }

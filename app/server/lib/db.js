@@ -59,6 +59,15 @@ export function openDb(file = process.env.MOCKDESK_DB || path.join(ROOT, 'data',
     CREATE TABLE IF NOT EXISTS exams (id TEXT PRIMARY KEY, name TEXT NOT NULL, short TEXT, data TEXT NOT NULL, active INTEGER DEFAULT 1, created_at INTEGER, updated_at INTEGER);
     CREATE TABLE IF NOT EXISTS bookmarks (user_id INTEGER NOT NULL, question_id TEXT NOT NULL, attempt_id TEXT, note TEXT DEFAULT '', created_at INTEGER, PRIMARY KEY (user_id, question_id));
   `);
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS error_tags (attempt_id TEXT NOT NULL, question_id TEXT NOT NULL, user_id INTEGER NOT NULL, reason TEXT NOT NULL, at INTEGER, PRIMARY KEY (attempt_id, question_id));
+    CREATE INDEX IF NOT EXISTS idx_errtags_user ON error_tags(user_id);
+    CREATE TABLE IF NOT EXISTS question_fixes (id INTEGER PRIMARY KEY, question_id TEXT, mock_id TEXT, mock_name TEXT, section TEXT, position INTEGER, kind TEXT, summary TEXT, affected INTEGER DEFAULT 0, created_at INTEGER, created_by TEXT);
+    CREATE TABLE IF NOT EXISTS teacher_notes (id INTEGER PRIMARY KEY, attempt_id TEXT, student_id INTEGER, teacher_id INTEGER, teacher_name TEXT, note TEXT, created_at INTEGER);
+    CREATE INDEX IF NOT EXISTS idx_tnotes_attempt ON teacher_notes(attempt_id);
+    CREATE INDEX IF NOT EXISTS idx_tnotes_student ON teacher_notes(student_id);
+    CREATE TABLE IF NOT EXISTS quality_alerts (question_id TEXT PRIMARY KEY, first_seen INTEGER, dismissed_at INTEGER);
+  `);
   db.exec('CREATE TABLE IF NOT EXISTS doubts(id INTEGER PRIMARY KEY, user_id INTEGER, attempt_id TEXT, question_id TEXT, intent TEXT, at INTEGER); CREATE INDEX IF NOT EXISTS idx_doubts_user ON doubts(user_id, at);');
   db.exec('UPDATE questions SET created_at=COALESCE(updated_at, 0) WHERE created_at IS NULL');
   return db;

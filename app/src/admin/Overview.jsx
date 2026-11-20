@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Badge, Bars, Empty, Err, Loading, PageHead, Stat, ago, dayLabel, statusTone, useLoad } from './ui.jsx';
+import { api } from '../lib/api.js';
+import { Badge, Bars, Empty, Err, Loading, PageHead, Stat, ago, dayLabel, statusTone, toast, useLoad } from './ui.jsx';
 
 export default function Overview() {
   const { data: d, err, loading, reload } = useLoad('/admin/overview');
+  const { data: al, reload: reloadAl } = useLoad('/admin/alerts');
+  const dismiss = async (id) => { try { await api.post(`/admin/alerts/${id}/dismiss`, {}); reloadAl(); } catch (e) { toast(e.message, 'bad'); } };
   if (loading && !d) return <Loading />;
   if (err) return <Err>{err}</Err>;
   const t = d.totals;
@@ -17,6 +20,11 @@ export default function Overview() {
         <section className="card"><h3>Needs your attention</h3>{todo.length ? <ul className="plain" style={{ margin: 0, padding: 0, listStyle: 'none', display: 'grid', gap: 8 }}>{todo.map((x) => <li key={x.text}><Link to={x.to} style={{ textDecoration: 'none' }}><span className={`ad-badge b-${x.tone}`}>{x.tone === 'good' ? 'live' : x.tone === 'mute' ? 'info' : 'action'}</span> {x.text} →</Link></li>)}</ul> : <p className="muted" style={{ margin: 0 }}>✓ All clear. Nothing needs you right now.</p>}</section>
         <section className="card"><h3>Quick actions</h3><div className="ad-pill-row"><Link className="btn btn-primary btn-sm" to="/admin/mocks">＋ New mock</Link><Link className="btn btn-ghost btn-sm" to="/admin/bank">＋ Add question</Link><Link className="btn btn-ghost btn-sm" to="/admin/live">Live tests</Link><Link className="btn btn-ghost btn-sm" to="/admin/announcements">Announcement</Link></div></section>
       </div>
+      {al && al.count > 0 && <section className="card ov-alerts" style={{ marginBottom: 14 }}>
+        <h3>Questions that may be wrong {al.fresh > 0 && <Badge tone="bad">{al.fresh} new</Badge>}</h3>
+        <ul className="plain" style={{ margin: 0, padding: 0, listStyle: 'none', display: 'grid', gap: 8 }}>{al.items.map((x) => <li key={x.id} className="ov-alert"><div><Link to={x.mockId ? `/admin/mocks/${x.mockId}?q=${x.id}` : '/admin/bank'}><b>{x.text.slice(0, 90)}{x.text.length > 90 ? '…' : ''}</b></Link><p className="small muted">{x.mockName || 'Question bank'} · {x.attempts} attempts · {x.pctRight}% right · {x.flags.map((f) => f.label).join(', ')}</p></div><button className="btn btn-ghost btn-sm" onClick={() => dismiss(x.id)}>Dismiss</button></li>)}</ul>
+        <p className="small muted" style={{ marginTop: 8 }}><Link to="/admin/quality">See every flagged question</Link></p>
+      </section>}
       <div className="ad-grid g4">
         <Stat icon="👥" label="Total students" value={t.users} sub={<>{`+${t.newWeek} this week · +${t.newToday} today`}<Delta c={d.compare.signups} /></>} />
         <Stat icon="🟢" tone="good" label="Active in 24 h" value={t.active24h} sub={`${t.liveNow} in a test right now`} />
